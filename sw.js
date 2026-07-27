@@ -3,7 +3,7 @@
    et soit installable comme une vraie app. Les vidéos YouTube, elles,
    nécessitent une connexion (elles ne sont jamais copiées sur l'appareil). */
 
-const CACHE = 'nathalie-en-v2';
+const CACHE = 'nathalie-en-v3';
 const ASSETS = [
   './',
   './index.html',

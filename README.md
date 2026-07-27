@@ -23,18 +23,44 @@ Ne renomme rien : les fichiers se parlent entre eux.
 
 ## ✨ Ce que Nathalie va apprendre
 
-**9 escales (modules)**, chacune avec **30 mots et expressions**, la prononciation approximative
-écrite, la grammaire clé, un mini-exercice et une vidéo :
+Un **parcours complet en 5 niveaux**, du grand débutant (A1) jusqu'au C1 : **24 escales
+(modules)**, chacune avec **30 mots et expressions**, la prononciation approximative écrite,
+la grammaire clé, un mini-exercice, et une vidéo ou un conseil d'entraînement. Le test de
+niveau place Nathalie automatiquement au bon endroit.
 
+**A1 · Premiers pas** — survivre en voyage et se présenter
 1. 👋 Bonjour & se présenter
-2. 🛫 À l'aéroport & dans l'avion
-3. 🏨 À l'hôtel
-4. 🍽️ Au restaurant
-5. 🧭 Demander son chemin
-6. 🛍️ Faire les courses & les nombres
-7. 🚑 Urgences & santé
-8. 💬 Petites conversations
-9. 🤝 **Se faire des amis** (proposer un verre, échanger ses contacts, papoter)
+2. 🔢 Nombres, heure & dates
+3. 🛫 À l'aéroport & dans l'avion
+4. 🏨 À l'hôtel
+5. 🍽️ Au restaurant
+6. 🧭 Demander son chemin
+7. 🛍️ Faire les courses
+8. 🚑 Urgences & santé
+
+**A2 · Se débrouiller** — parler de soi, du passé, du futur
+9. 💬 Petites conversations
+10. 🤝 Se faire des amis
+11. 👪 Ma vie, ma famille, mon travail
+12. ❤️ Goûts, loisirs & routine
+13. ⏳ Raconter au passé *(past simple)*
+14. 🔮 Parler du futur *(going to / will)*
+
+**B1 · Devenir autonome** — donner son avis, gérer le quotidien
+15. ✅ L'expérience *(present perfect)*
+16. 💡 Donner son avis
+17. 🛠️ Phrasal verbs essentiels
+18. 🎯 Le conditionnel *(if)*
+19. 📞 Téléphone, messages & réseaux
+
+**B2 · S'exprimer avec aisance** — débattre, nuancer, comprendre l'implicite
+20. 🗣️ Débattre & nuancer
+21. 🎭 Expressions idiomatiques
+22. 🕰️ Discours rapporté & passif
+
+**C1 · Maîtrise & finesse** — sonner naturel sur tous les sujets
+23. ✨ Anglais naturel : collocations
+24. 🎙️ Fluidité & sujets abstraits
 
 👉 Dans chaque leçon, **il suffit d'appuyer sur le bouton 🔊 à côté d'un mot pour l'entendre**
 prononcé à voix haute. Le bouton **« Tout écouter »** enchaîne tous les mots l'un après l'autre.

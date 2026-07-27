@@ -168,6 +168,19 @@ p{margin:0 0 1em}
 .passport .fill{height:100%;background:linear-gradient(90deg,var(--mint),var(--sky));width:0;transition:width .6s ease}
 .passport .count{font-family:var(--mono);font-size:12px;color:var(--muted);white-space:nowrap}
 
+/* sections de niveau (A1 → C1) */
+.level-sec{margin-top:26px}
+.level-head{display:flex;align-items:center;gap:12px;margin-bottom:2px}
+.level-badge{font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.04em;color:#fff;
+  background:var(--lvl,#2E86AB);padding:5px 10px;border-radius:999px;white-space:nowrap;box-shadow:0 2px 8px rgba(22,50,79,.15)}
+.level-head h2{font-family:var(--display);font-size:22px;margin:0;line-height:1.1;color:var(--ink)}
+.level-desc{color:var(--muted);font-size:14px;margin:2px 0 8px}
+.level-prog{display:flex;align-items:center;gap:10px;margin:0 0 12px}
+.level-prog .track{flex:1;height:8px;border-radius:999px;background:rgba(22,50,79,.08);overflow:hidden;border:1px solid var(--line)}
+.level-prog .fill{height:100%;width:0;background:var(--lvl,#2E86AB);transition:width .6s ease}
+.level-prog .count{font-family:var(--mono);font-size:11px;color:var(--muted);white-space:nowrap}
+.level-done{color:var(--mint);font-weight:700}
+
 /* module list */
 .modules{display:grid;gap:14px;margin-top:14px}
 .module{
@@ -383,7 +396,7 @@ h2.sec .dot{width:10px;height:10px;border-radius:50%;background:var(--accent,#2E
     </div>
 
     <h2>Ton itinéraire</h2>
-    <p class="lead" style="margin-bottom:2px">Huit escales utiles pour un vrai voyage. Tu peux commencer par le début, ou par ce dont tu as besoin.</p>
+    <p class="lead" style="margin-bottom:2px">Un parcours complet en <b>5 niveaux</b>, du grand débutant (A1) jusqu'au C1 : 24 escales pour voyager <i>et</i> discuter avec tes amis anglophones. Tu peux suivre l'ordre, ou piocher selon tes besoins.</p>
     <div class="routes">
       <div class="route-card">
         <div class="ic" aria-hidden="true">🧭</div>
@@ -395,7 +408,7 @@ h2.sec .dot{width:10px;height:10px;border-radius:50%;background:var(--accent,#2E
       </div>
       <div class="route-card">
         <div class="ic" aria-hidden="true">🎥</div>
-        <div><b>3. Regarde, écoute, répète</b><small>Une vidéo dans chaque leçon pour l'oreille.</small></div>
+        <div><b>3. Regarde, écoute, répète</b><small>Une vidéo ou un conseil dans chaque leçon.</small></div>
       </div>
     </div>
     <div class="btn-row" style="margin-top:16px">
@@ -512,12 +525,27 @@ const DIAGNOSTIC = [
     o:['go','goed','went'], a:2, e:'Le passé de « go » est irrégulier : <b>went</b>.' },
   { q:'« Turn right at the traffic lights » veut dire :', hint:'',
     o:['Tourne à gauche aux feux','Tourne à droite aux feux','Va tout droit'], a:1,
-    e:'Turn <b>right</b> = tourne à droite ; traffic lights = les feux.' }
+    e:'Turn <b>right</b> = tourne à droite ; traffic lights = les feux.' },
+  { q:'Present perfect : « Es-tu déjà allé au Japon ? »', hint:'',
+    o:['Did you ever go to Japan?','Have you ever been to Japan?','You went Japan?'], a:1,
+    e:'Pour une expérience de vie, on utilise <b>have + been</b> : “Have you ever <b>been</b> to…?”' },
+  { q:'Conditionnel : « Si j\'étais toi, je… »', hint:'',
+    o:['If I am you','If I was you tomorrow','If I were you'], a:2,
+    e:'Pour un conseil hypothétique : <b>If I were you</b>. (avec were, même à la 1ʳᵉ personne)' },
+  { q:'Phrasal verb : « J\'ai hâte de te voir » :', hint:'',
+    o:['I look forward to seeing you','I look for you','I wait to see you'], a:0,
+    e:'<b>look forward to</b> + verbe-ing = attendre avec impatience. Très naturel.' },
+  { q:'Idiome : « It\'s a piece of cake » signifie :', hint:'',
+    o:['C\'est délicieux','C\'est très facile','C\'est cher'], a:1,
+    e:'<b>A piece of cake</b> = très facile, « fastoche ». Un idiome à connaître !' },
+  { q:'Nuance : « I couldn\'t agree more » veut dire :', hint:'',
+    o:['Je ne suis pas d\'accord','Je suis totalement d\'accord','Je ne sais pas'], a:1,
+    e:'« Je ne pourrais pas être <b>plus</b> d\'accord » = je suis tout à fait d\'accord.' }
 ];
 
 const MODULES = [
   {
-    id:"bases", emoji:"👋", tag:"Escale 1", title:"Bonjour & se présenter", color:"#FF6B5C",
+    id:"bases", emoji:"👋", level:"A1", tag:"Les bases", title:"Bonjour & se présenter", color:"#FF6B5C",
     subtitle:"Les tout premiers mots pour dire bonjour, merci, et te présenter.",
     intro:"On commence par le plus important : dire bonjour, être polie, et te présenter. Avec ça, tu peux déjà sourire à tout le monde. 😊",
     vocab:[
@@ -566,7 +594,56 @@ const MODULES = [
     video:{ id:"fI8EsEXS59w", title:"Basic English greetings (débutant)" }
   },
   {
-    id:"aeroport", emoji:"🛫", tag:"Escale 2", title:"À l'aéroport & dans l'avion", color:"#2E86AB",
+    id:"nombres", emoji:"🔢", level:"A1", tag:"Les bases", title:"Nombres, heure & dates", color:"#F4A259",
+    subtitle:"Compter, dire l'heure, les jours, les mois — la base de tout.",
+    intro:"Les chiffres et le temps reviennent partout : prix, horaires, rendez-vous. On pose les fondations. 🔢",
+    vocab:[
+      ["One / Two / Three","weune / tou / srii","Un / Deux / Trois","1️⃣"],
+      ["Four / Five / Six","for / faïv / siks","Quatre / Cinq / Six","4️⃣"],
+      ["Seven / Eight / Nine","sè-veune / éïte / naïne","Sept / Huit / Neuf","7️⃣"],
+      ["Ten","tèn","Dix","🔟"],
+      ["Eleven / Twelve","i-lè-veune / touèlv","Onze / Douze","🔢"],
+      ["Thirteen / Fourteen","seur-tiine / for-tiine","Treize / Quatorze","🔢"],
+      ["Twenty","touèn-ti","Vingt","2️⃣"],
+      ["Thirty / Forty / Fifty","seur-ti / for-ti / fif-ti","Trente / Quarante / Cinquante","5️⃣"],
+      ["One hundred","weune heune-drèd","Cent","💯"],
+      ["One thousand","weune sa-ou-zeund","Mille","🔢"],
+      ["First / Second / Third","feurst / sè-keund / seurd","Premier / Deuxième / Troisième","🥇"],
+      ["What time is it?","wot taïm iz it","Quelle heure est-il ?","🕐"],
+      ["It's three o'clock","its srii o-clok","Il est trois heures","🕒"],
+      ["Half past two","haf past tou","Deux heures et demie","🕝"],
+      ["Quarter past / to","kwor-teur past / tou","Et quart / moins le quart","🕜"],
+      ["In the morning","in ze mor-ninng","Le matin","🌅"],
+      ["In the afternoon","in ze af-teur-noune","L'après-midi","☀️"],
+      ["In the evening / At night","iv-ninng / at naïte","Le soir / La nuit","🌙"],
+      ["Today / Tomorrow","tou-déï / tou-mo-rô","Aujourd'hui / Demain","📅"],
+      ["Yesterday","yès-teur-déï","Hier","⏮️"],
+      ["Monday / Tuesday","meune-déï / tiouz-déï","Lundi / Mardi","📆"],
+      ["Wednesday / Thursday","wènz-déï / seurz-déï","Mercredi / Jeudi","📆"],
+      ["Friday / Saturday / Sunday","fraï-déï / sa-teur-déï / seune-déï","Vendredi / Samedi / Dimanche","📆"],
+      ["January / February","djan-iou-é-ri / fè-brou-é-ri","Janvier / Février","🗓️"],
+      ["July / August","djou-laï / o-gueust","Juillet / Août","🗓️"],
+      ["The weekend","ze wiik-ènd","Le week-end","🎉"],
+      ["A week / A month / A year","a wiik / meunts / yi-eur","Une semaine / Un mois / Un an","📅"],
+      ["What's the date today?","wots ze déïte tou-déï","Quelle est la date ?","📅"],
+      ["See you on Monday","sii you onn meune-déï","À lundi","👋"],
+      ["How old are you?","ha-o ôld ar you","Quel âge as-tu ?","🎂"],
+    ],
+    grammar:{
+      title:"Dire l'heure et les dates",
+      html:"Quelques repères simples :",
+      egs:[["It's half past seven.","Il est sept heures et demie."],["on Monday","le lundi"],["in July","en juillet"]],
+      after:"On dit <b>on</b> + jour, <b>in</b> + mois/année, <b>at</b> + heure précise (at 8)."
+    },
+    practice:[
+      { q:"« Quelle heure est-il ? »", o:["What time is it?","What hour you?","How time?"], a:0 },
+      { q:"« le lundi » se dit :", o:["in Monday","on Monday","at Monday"], a:1 },
+      { q:"« Cent » se dit :", o:["one thousand","one hundred","one million"], a:1 },
+    ],
+    video:null
+  },
+  {
+    id:"aeroport", emoji:"🛫", level:"A1", tag:"Voyage", title:"À l'aéroport & dans l'avion", color:"#2E86AB",
     subtitle:"Enregistrement, porte d'embarquement, bagages : passe l'aéroport sereinement.",
     intro:"L'aéroport peut stresser. Avec ces mots, tu comprends les panneaux et tu réponds au comptoir sans paniquer. ✈️",
     vocab:[
@@ -615,7 +692,7 @@ const MODULES = [
     video:{ id:"_h3Ln40y8qY", title:"Airport English — phrases à répéter" }
   },
   {
-    id:"hotel", emoji:"🏨", tag:"Escale 3", title:"À l'hôtel", color:"#7C5CFF",
+    id:"hotel", emoji:"🏨", level:"A1", tag:"Voyage", title:"À l'hôtel", color:"#7C5CFF",
     subtitle:"Arriver, prendre ta clé, demander le petit-déjeuner et le Wi-Fi.",
     intro:"Tu arrives fatiguée à l'hôtel : voici comment dire ton nom, récupérer ta chambre et demander l'essentiel. 🛎️",
     vocab:[
@@ -664,7 +741,7 @@ const MODULES = [
     video:{ id:"1lJQlXvFVXI", title:"English for Travel — hôtel & aéroport" }
   },
   {
-    id:"resto", emoji:"🍽️", tag:"Escale 4", title:"Au restaurant", color:"#FF9F45",
+    id:"resto", emoji:"🍽️", level:"A1", tag:"Voyage", title:"Au restaurant", color:"#FF9F45",
     subtitle:"Une table, commander, dire ce que tu aimes, demander l'addition.",
     intro:"Le plaisir du voyage ! Voici comment commander poliment et demander l'addition sans gêne. 🍷",
     vocab:[
@@ -713,7 +790,7 @@ const MODULES = [
     video:{ id:"9hUa6XQPCzg", title:"Order food in English — à répéter" }
   },
   {
-    id:"chemin", emoji:"🧭", tag:"Escale 5", title:"Demander son chemin", color:"#17B890",
+    id:"chemin", emoji:"🧭", level:"A1", tag:"Voyage", title:"Demander son chemin", color:"#17B890",
     subtitle:"Gauche, droite, tout droit : ne plus jamais être perdue.",
     intro:"Perdue dans une ville ? Ces mots te sauvent. Demande, écoute les directions, et retrouve ton chemin. 🗺️",
     vocab:[
@@ -762,7 +839,7 @@ const MODULES = [
     video:{ id:"AKn_D8V55DE", title:"Hotel check-in & asking directions" }
   },
   {
-    id:"courses", emoji:"🛍️", tag:"Escale 6", title:"Faire les courses & les nombres", color:"#E85D9E",
+    id:"courses", emoji:"🛍️", level:"A1", tag:"Voyage", title:"Faire les courses & les nombres", color:"#E85D9E",
     subtitle:"Les prix, payer, les tailles, et compter en anglais.",
     intro:"Un souvenir, un vêtement, un ticket : voici comment demander le prix, payer et te débrouiller avec les chiffres. 💳",
     vocab:[
@@ -811,7 +888,7 @@ const MODULES = [
     video:{ id:"z6E7t29sg0Y", title:"27 mots de voyage (BBC Learning English)" }
   },
   {
-    id:"urgences", emoji:"🚑", tag:"Escale 7", title:"Urgences & santé", color:"#E5484D",
+    id:"urgences", emoji:"🚑", level:"A1", tag:"Voyage", title:"Urgences & santé", color:"#E5484D",
     subtitle:"Les mots qui rassurent : demander de l'aide, un médecin, une pharmacie.",
     intro:"On espère ne pas en avoir besoin — mais savoir demander de l'aide, c'est voyager tranquille. 🌿",
     vocab:[
@@ -860,7 +937,7 @@ const MODULES = [
     video:{ id:"WI8Uh3jfb9M", title:"Medical emergency — English conversation" }
   },
   {
-    id:"smalltalk", emoji:"💬", tag:"Escale 8", title:"Petites conversations", color:"#FFC145",
+    id:"smalltalk", emoji:"💬", level:"A2", tag:"Conversation", title:"Petites conversations", color:"#FFC145",
     subtitle:"Bavarder gentiment, dire d'où tu viens, et te sortir des blancs.",
     intro:"Le plus beau du voyage : les rencontres. Voici de quoi papoter, sourire, et t'en sortir quand tu ne comprends pas. 🌈",
     vocab:[
@@ -909,7 +986,7 @@ const MODULES = [
     video:{ id:"hBVequEEoAQ", title:"Greetings & conversation (débutant)" }
   },
   {
-    id:"amis", emoji:"🤝", tag:"Escale 9", title:"Se faire des amis", color:"#3BB2F6",
+    id:"amis", emoji:"🤝", level:"A2", tag:"Conversation", title:"Se faire des amis", color:"#3BB2F6",
     subtitle:"Briser la glace, papoter vraiment, proposer un verre et échanger ses contacts.",
     intro:"Voyager, c'est aussi rencontrer des gens formidables. Voici tout pour lancer une vraie conversation, proposer quelque chose et rester en contact. 🤗",
     vocab:[
@@ -957,6 +1034,706 @@ const MODULES = [
     ],
     video:{ id:"lLzxBcjbXBw", title:"Small Talk with a Friend (débutant)" }
   },
+  {
+    id:"vie", emoji:"👪", level:"A2", tag:"Parler de soi", title:"Ma vie, ma famille, mon travail", color:"#6C8EBF",
+    subtitle:"Se présenter en profondeur : famille, métier, où l'on vit, sa routine.",
+    intro:"Pour créer du lien, on parle un peu de soi. Voici de quoi présenter ta vie simplement et poser des questions en retour. 👪",
+    vocab:[
+      ["My family","maï fa-mi-li","Ma famille","👪"],
+      ["My husband / My wife","maï heuz-beund / waïf","Mon mari / Ma femme","💑"],
+      ["My son / My daughter","maï seune / do-teur","Mon fils / Ma fille","👶"],
+      ["My brother / My sister","maï breu-zeur / sis-teur","Mon frère / Ma sœur","👫"],
+      ["My parents","maï pè-reunts","Mes parents","👴"],
+      ["I live in Lyon","aï liv in lyon","J'habite à Lyon","🏡"],
+      ["I work as a…","aï weurk az a","Je travaille comme…","💼"],
+      ["I'm a teacher / a nurse","aïm a tii-tcheur / neurss","Je suis prof / infirmière","👩‍🏫"],
+      ["I study…","aï steu-di","J'étudie…","📚"],
+      ["I'm retired","aïm ri-taï-eurd","Je suis à la retraite","🌴"],
+      ["I have two children","aï hav tou tchil-dreune","J'ai deux enfants","👨‍👩‍👧"],
+      ["She works in an office","chi weurks in ann o-fiss","Elle travaille dans un bureau","🏢"],
+      ["He lives near me","hi livz niïeur mi","Il habite près de chez moi","🏘️"],
+      ["I'm married / single","aïm ma-rid / sinng-geul","Je suis mariée / célibataire","💍"],
+      ["My home town","maï hôm ta-oune","Ma ville natale","🏙️"],
+      ["I speak French and English","aï spiik frèntch annd inng-lich","Je parle français et anglais","🗣️"],
+      ["My best friend","maï bèst frènd","Mon meilleur ami","🤝"],
+      ["A colleague","a co-liig","Un(e) collègue","👔"],
+      ["A neighbour","a néï-beur","Un voisin","🏠"],
+      ["My daily routine","maï déï-li rou-tiine","Ma routine","🔁"],
+      ["I get up at seven","aï guèt eup at sè-veune","Je me lève à sept heures","⏰"],
+      ["I go to work","aï gô tou weurk","Je vais au travail","🚶"],
+      ["I have lunch at noon","aï hav leuntch at noune","Je déjeune à midi","🍽️"],
+      ["I go home","aï gô hôm","Je rentre à la maison","🏡"],
+      ["In my free time","in maï frii taïm","Pendant mon temps libre","🎨"],
+      ["On weekends I…","onn wiik-èndz aï","Le week-end je…","🎉"],
+      ["Tell me about yourself","tèl mi a-ba-out yor-sèlf","Parle-moi de toi","💬"],
+      ["What do you do for work?","wot dou you dou for weurk","Tu fais quoi comme travail ?","💼"],
+      ["Do you have children?","dou you hav tchil-dreune","Tu as des enfants ?","👶"],
+      ["Nice to know you better","naïss tou nô you bè-teur","Content de mieux te connaître","😊"],
+    ],
+    grammar:{
+      title:"Le présent simple (il/elle + s)",
+      html:"Pour parler des habitudes et des faits. Attention au <b>-s</b> à he/she/it :",
+      egs:[["I live in Lyon.","J'habite à Lyon."],["She works in an office.","Elle travaille dans un bureau."],["He gets up early.","Il se lève tôt."]],
+      after:"À la 3ᵉ personne (he/she/it), on ajoute <b>-s</b> au verbe : she work<b>s</b>, he live<b>s</b>."
+    },
+    practice:[
+      { q:"« Elle travaille dans un bureau » :", o:["She work in an office","She works in an office","She working office"], a:1 },
+      { q:"« Parle-moi de toi » :", o:["Tell me about yourself","Say me you","Talk me about"], a:0 },
+      { q:"« J'habite à Lyon » :", o:["I living Lyon","I live in Lyon","I am live Lyon"], a:1 },
+    ],
+    video:null
+  },
+  {
+    id:"gouts", emoji:"❤️", level:"A2", tag:"Parler de soi", title:"Goûts, loisirs & routine", color:"#E8998D",
+    subtitle:"Dire ce qu'on aime et déteste, parler de ses loisirs.",
+    intro:"Partager ses goûts, c'est trouver des points communs. Voici comment dire ce que tu aimes… et le demander. ❤️",
+    vocab:[
+      ["I like…","aï laïk","J'aime…","👍"],
+      ["I love…","aï leuv","J'adore…","💛"],
+      ["I don't like…","aï dônt laïk","Je n'aime pas…","👎"],
+      ["I hate…","aï héïte","Je déteste…","🚫"],
+      ["I prefer…","aï pri-feur","Je préfère…","⭐"],
+      ["Reading","rii-dinng","Lire","📖"],
+      ["Travelling","tra-ve-linng","Voyager","✈️"],
+      ["Cooking","kou-kinng","Cuisiner","🍳"],
+      ["Music","miou-zik","La musique","🎵"],
+      ["Dancing","dan-sinng","Danser","💃"],
+      ["Walking","wo-kinng","Marcher / se promener","🚶"],
+      ["Swimming","swi-minng","Nager","🏊"],
+      ["Watching films","wot-chinng films","Regarder des films","🎬"],
+      ["Shopping","cho-pinng","Faire les magasins","🛍️"],
+      ["Photography","fo-to-gra-fi","La photo","📷"],
+      ["Gardening","gar-de-ninng","Le jardinage","🌱"],
+      ["Painting","péïn-tinng","La peinture","🎨"],
+      ["Sport","sport","Le sport","⚽"],
+      ["A hobby","a ho-bi","Un passe-temps","🎯"],
+      ["I'm interested in…","aïm in-tres-tid in","Je m'intéresse à…","🔍"],
+      ["I'm good at…","aïm goud at","Je suis douée en…","🌟"],
+      ["It's fun","its feune","C'est amusant","😄"],
+      ["It's boring","its bo-rinng","C'est ennuyeux","😴"],
+      ["I enjoy…","aï inn-djoï","J'aime bien…","😊"],
+      ["Every day","èv-ri déï","Tous les jours","🔁"],
+      ["Sometimes","seum-taïmz","Parfois","🤷"],
+      ["Once a week","weunce a wiik","Une fois par semaine","📅"],
+      ["What do you like doing?","wot dou you laïk dou-inng","Qu'aimes-tu faire ?","❓"],
+      ["Me neither","mi naï-zeur","Moi non plus","🙅"],
+      ["We have that in common","wi hav dat in co-meune","On a ça en commun","🤝"],
+    ],
+    grammar:{
+      title:"like / love / hate + verbe-ing",
+      html:"Après like, love, hate, enjoy, le verbe prend <b>-ing</b> :",
+      egs:[["I like cooking.","J'aime cuisiner."],["She loves travelling.","Elle adore voyager."],["I hate waiting.","Je déteste attendre."]],
+      after:"Astuce : <b>I like swimming</b> (pas « I like swim »). Le -ing transforme le verbe en activité."
+    },
+    practice:[
+      { q:"« J'aime cuisiner » :", o:["I like cook","I like cooking","I like to cooking"], a:1 },
+      { q:"« Moi non plus » :", o:["Me too","Me neither","Not me"], a:1 },
+      { q:"« On a ça en commun » :", o:["We have that in common","We same thing","Common we have"], a:0 },
+    ],
+    video:null
+  },
+  {
+    id:"passe", emoji:"⏳", level:"A2", tag:"Grammaire · le passé", title:"Raconter au passé", color:"#B07BAC",
+    subtitle:"Le passé simple : dire ce que tu as fait hier, ton voyage, ta journée.",
+    intro:"Raconter, c'est la clé des vraies conversations. Voici le passé et les verbes irréguliers les plus utiles. ⏳",
+    vocab:[
+      ["Yesterday","yès-teur-déï","Hier","⏮️"],
+      ["Last night","last naïte","Hier soir","🌙"],
+      ["Last week","last wiik","La semaine dernière","📅"],
+      ["I was / We were","aï woz / wi weur","J'étais / Nous étions","🕰️"],
+      ["I went","aï wènt","Je suis allé(e)","🚶"],
+      ["I saw","aï so","J'ai vu","👀"],
+      ["I ate","aï éïte","J'ai mangé","🍽️"],
+      ["I did","aï did","J'ai fait","✅"],
+      ["I had","aï had","J'avais / j'ai eu","🤲"],
+      ["I took","aï touk","J'ai pris","✋"],
+      ["I bought","aï bot","J'ai acheté","🛍️"],
+      ["I met","aï mèt","J'ai rencontré","🤝"],
+      ["I visited","aï vi-zi-tid","J'ai visité","🏛️"],
+      ["I stayed","aï stéïd","Je suis resté(e)","🏨"],
+      ["I played","aï pléïd","J'ai joué","🎮"],
+      ["I watched","aï wotcht","J'ai regardé","📺"],
+      ["It was great!","it woz gréïte","C'était super !","😍"],
+      ["We travelled","wi tra-veuld","Nous avons voyagé","✈️"],
+      ["Did you…?","did you","Est-ce que tu as… ?","❓"],
+      ["I didn't…","aï did-eunt","Je n'ai pas…","🚫"],
+      ["Where did you go?","wère did you gô","Où es-tu allé(e) ?","🧭"],
+      ["What did you do?","wot did you dou","Qu'as-tu fait ?","❓"],
+      ["How was your trip?","ha-o woz yor trip","C'était comment, ton voyage ?","✈️"],
+      ["A few days ago","a fiou déïz a-gô","Il y a quelques jours","📆"],
+      ["This morning","dis mor-ninng","Ce matin","🌅"],
+      ["I arrived","aï a-raïvd","Je suis arrivé(e)","🛬"],
+      ["I left","aï lèft","Je suis parti(e)","🚪"],
+      ["I felt","aï fèlt","Je me suis senti(e)","💗"],
+      ["I loved it","aï leuvd it","J'ai adoré","💛"],
+      ["I learned a lot","aï leurnd a lot","J'ai beaucoup appris","🧠"],
+    ],
+    grammar:{
+      title:"Le passé simple (past simple)",
+      html:"Verbes réguliers : on ajoute <b>-ed</b>. Beaucoup d'autres sont irréguliers (à mémoriser) :",
+      egs:[["I played tennis.","J'ai joué au tennis."],["I went to London.","Je suis allée à Londres."],["Did you see it? — I didn't.","Tu l'as vu ? — Non."]],
+      after:"Question : <b>did</b> + verbe (base). Négation : <b>didn't</b> + verbe (base). go→went, see→saw, eat→ate."
+    },
+    practice:[
+      { q:"« Je suis allée à Londres » :", o:["I go to London","I went to London","I goed London"], a:1 },
+      { q:"« Qu'as-tu fait ? »", o:["What you do?","What did you do?","What do you did?"], a:1 },
+      { q:"« C'était super ! » :", o:["It is great","It was great","It were great"], a:1 },
+    ],
+    video:{ id:"dmJrYbDjxQY", title:"Past Simple — les temps du passé (engVid)" }
+  },
+  {
+    id:"futur", emoji:"🔮", level:"A2", tag:"Grammaire · le futur", title:"Parler du futur", color:"#4CB5AE",
+    subtitle:"Ses projets et promesses : going to & will.",
+    intro:"Parler de demain, faire des projets ensemble : voici les deux façons d'exprimer le futur. 🔮",
+    vocab:[
+      ["Tomorrow","tou-mo-rô","Demain","📅"],
+      ["Next week","nèkst wiik","La semaine prochaine","📆"],
+      ["I'm going to…","aïm gô-inng tou","Je vais (faire)…","➡️"],
+      ["I will… / I'll…","aï wil / aïl","Je (ferai)…","🔮"],
+      ["We're going to travel","wir gô-inng tou tra-veul","On va voyager","✈️"],
+      ["I'm going to visit…","aïm gô-inng tou vi-zit","Je vais visiter…","🏛️"],
+      ["Are you going to…?","ar you gô-inng tou","Vas-tu… ?","❓"],
+      ["What are your plans?","wot ar yor plans","Quels sont tes projets ?","🗓️"],
+      ["I have plans","aï hav plans","J'ai des projets","📋"],
+      ["Maybe","méï-bi","Peut-être","🤷"],
+      ["I hope to…","aï hôp tou","J'espère (faire)…","🌟"],
+      ["I'd love to…","aïd leuv tou","J'aimerais beaucoup…","💛"],
+      ["Soon","soune","Bientôt","⏳"],
+      ["Later","léï-teur","Plus tard","🕐"],
+      ["Tonight","tou-naïte","Ce soir","🌙"],
+      ["This weekend","dis wiik-ènd","Ce week-end","🎉"],
+      ["Next year","nèkst yi-eur","L'année prochaine","🗓️"],
+      ["I'll call you","aïl col you","Je t'appellerai","📞"],
+      ["I'll be there","aïl bi dère","J'y serai","📍"],
+      ["It's going to rain","its gô-inng tou réïne","Il va pleuvoir","🌧️"],
+      ["We'll see","wiil sii","On verra","👀"],
+      ["I promise","aï pro-miss","Je promets","🤞"],
+      ["I think I'll…","aï sinnk aïl","Je pense que je…","💭"],
+      ["Don't worry, I'll help","dônt weu-ri aïl hèlp","Ne t'inquiète pas, je t'aiderai","🤝"],
+      ["Let's plan something","lèts plan seum-sinng","Prévoyons quelque chose","🗓️"],
+      ["What time shall we meet?","wot taïm chal wi miit","On se voit à quelle heure ?","🕐"],
+      ["I'll be back","aïl bi bak","Je reviens","🔙"],
+      ["See you next time","sii you nèkst taïm","À la prochaine","👋"],
+      ["I can't wait!","aï kant wéïte","J'ai hâte !","🤩"],
+      ["Talk to you soon","tok tou you soune","À très vite","💬"],
+    ],
+    grammar:{
+      title:"going to vs will",
+      html:"Deux futurs, deux usages :",
+      egs:[["I'm going to visit Rome.","Je vais visiter Rome. (projet)"],["I'll help you.","Je vais t'aider. (décision sur le moment)"],["It's going to rain.","Il va pleuvoir. (prévision)"]],
+      after:"<b>going to</b> = projet déjà décidé / prévision. <b>will</b> = décision spontanée, promesse, offre d'aide."
+    },
+    practice:[
+      { q:"Un projet déjà prévu :", o:["I'm going to visit Rome","I visit Rome","I visited Rome"], a:0 },
+      { q:"Une promesse spontanée :", o:["I helped you","I'll help you","I helping you"], a:1 },
+      { q:"« J'ai hâte ! » :", o:["I can't wait!","I no wait","I waiting"], a:0 },
+    ],
+    video:null
+  },
+  {
+    id:"perfect", emoji:"✅", level:"B1", tag:"Grammaire · B1", title:"L'expérience : present perfect", color:"#2E86AB",
+    subtitle:"« Have you ever…? » : parler de son vécu, depuis quand, déjà / jamais.",
+    intro:"Le present perfect relie le passé au présent. C'est LE temps pour parler d'expériences avec des amis anglophones. ✅",
+    vocab:[
+      ["Have you ever…?","hav you è-veur","As-tu déjà (une fois)… ?","🌟"],
+      ["I have been to…","aï hav bine tou","Je suis allé(e) à… (déjà)","🗺️"],
+      ["I've never…","aïv nè-veur","Je n'ai jamais…","🚫"],
+      ["I've already…","aïv ol-rè-di","J'ai déjà…","✅"],
+      ["Not yet","not yèt","Pas encore","⏳"],
+      ["Just","djeust","Juste (à l'instant)","⏱️"],
+      ["I've seen it","aïv sine it","Je l'ai (déjà) vu","👀"],
+      ["I've done it","aïv deune it","Je l'ai (déjà) fait","✔️"],
+      ["Have you finished?","hav you fi-nicht","As-tu fini ?","🏁"],
+      ["For (three years)","for","Depuis (trois ans)","⏳"],
+      ["Since (2020)","sinss","Depuis (2020)","📅"],
+      ["So far","sô far","Jusqu'ici","📈"],
+      ["Recently","ri-seunt-li","Récemment","🕐"],
+      ["Ever / Never","è-veur / nè-veur","Déjà / Jamais","🔁"],
+      ["I've lived here for…","aïv livd hi-eur for","J'habite ici depuis…","🏡"],
+      ["It has changed","it haz tchéïndjd","Ça a changé","🔄"],
+      ["I've lost my…","aïv lost maï","J'ai perdu mon/ma…","😟"],
+      ["Have you tried…?","hav you traïd","As-tu essayé… ?","🍴"],
+      ["I haven't seen you in ages","aï hav-eunt sine you in éï-djiz","Ça fait un bail !","😮"],
+      ["That's the best I've had","dats ze bèst aïv had","C'est le meilleur que j'aie eu","🏆"],
+      ["We've known each other for…","wiv nône iitch eu-zeur","On se connaît depuis…","🤝"],
+      ["Have you been here before?","hav you bine hi-eur bi-for","Es-tu déjà venu ici ?","📍"],
+      ["I've heard a lot about you","aïv heurd a lot a-ba-out you","J'ai beaucoup entendu parler de toi","👂"],
+      ["It's been a while","its bine a waïl","Ça fait un moment","⏳"],
+      ["I've always wanted to…","aïv ol-wéïz won-tid tou","J'ai toujours voulu…","🌠"],
+      ["How long have you…?","ha-o lonng hav you","Depuis combien de temps… ?","❓"],
+      ["I've made a decision","aïv méïd a di-si-jeune","J'ai pris une décision","✅"],
+      ["I've been thinking…","aïv bine sinn-kinng","J'ai réfléchi…","💭"],
+      ["Nothing has changed","neu-sinng haz tchéïndjd","Rien n'a changé","🔁"],
+      ["Have a great time!","hav a gréïte taïm","Amuse-toi bien !","🎉"],
+    ],
+    grammar:{
+      title:"Le present perfect",
+      html:"<b>have / has</b> + participe passé. Pour une expérience, un résultat encore vrai maintenant :",
+      egs:[["Have you ever been to Japan?","Es-tu déjà allé au Japon ?"],["I've lived here for ten years.","J'habite ici depuis dix ans."],["She's just arrived.","Elle vient d'arriver."]],
+      after:"<b>for</b> + durée (for 3 years), <b>since</b> + point de départ (since 2020). ever/never/already/yet vont avec ce temps."
+    },
+    practice:[
+      { q:"« Es-tu déjà allé au Japon ? »", o:["Did you ever go Japan?","Have you ever been to Japan?","You go Japan?"], a:1 },
+      { q:"Depuis 2020 :", o:["for 2020","since 2020","from 2020"], a:1 },
+      { q:"« Je viens de finir » :", o:["I've just finished","I finish just","I just finish"], a:0 },
+    ],
+    video:{ id:"XySNOXSiBMo", title:"The Present Perfect (engVid)" }
+  },
+  {
+    id:"avis", emoji:"💡", level:"B1", tag:"Conversation · B1", title:"Donner son avis", color:"#F2C14E",
+    subtitle:"Dire ce que tu penses, être d'accord ou pas, avec finesse.",
+    intro:"Une vraie amitié se nourrit d'échanges d'idées. Voici comment donner ton avis et réagir poliment. 💡",
+    vocab:[
+      ["I think that…","aï sinnk dat","Je pense que…","💭"],
+      ["In my opinion","in maï o-pi-nieune","À mon avis","🗣️"],
+      ["I believe…","aï bi-liiv","Je crois…","🙏"],
+      ["I agree","aï a-grii","Je suis d'accord","👍"],
+      ["I disagree","aï dis-a-grii","Je ne suis pas d'accord","👎"],
+      ["You're right","yor raïte","Tu as raison","✅"],
+      ["That's true","dats trou","C'est vrai","✔️"],
+      ["I'm not sure","aïm not chour","Je ne suis pas sûre","🤔"],
+      ["It depends","it di-pèndz","Ça dépend","⚖️"],
+      ["Maybe you're right","méï-bi yor raïte","Tu as peut-être raison","🤷"],
+      ["I see your point","aï sii yor poïnt","Je vois ce que tu veux dire","👀"],
+      ["Exactly!","ig-zakt-li","Exactement !","💯"],
+      ["I don't think so","aï dônt sinnk sô","Je ne crois pas","🙅"],
+      ["What do you think?","wot dou you sinnk","Qu'en penses-tu ?","❓"],
+      ["Personally…","peur-so-na-li","Personnellement…","🙋"],
+      ["To be honest","tou bi o-nist","Pour être honnête","💬"],
+      ["I'd say…","aïd séï","Je dirais…","🗨️"],
+      ["On the one hand…","onn ze weune hannd","D'une part…","✋"],
+      ["On the other hand…","onn ze eu-zeur hannd","D'autre part…","🤚"],
+      ["It's a good idea","its a goud aï-dii-a","C'est une bonne idée","💡"],
+      ["That's a good point","dats a goud poïnt","C'est un bon argument","👌"],
+      ["Absolutely","ab-so-liout-li","Tout à fait","💪"],
+      ["Not really","not riï-li","Pas vraiment","😕"],
+      ["It's up to you","its eup tou you","C'est comme tu veux","🤝"],
+      ["I feel that…","aï fiil dat","J'ai le sentiment que…","💗"],
+      ["Fair enough","fère i-neuf","C'est juste / OK je comprends","👍"],
+      ["I couldn't agree more","aï coud-eunt a-grii mor","Je suis totalement d'accord","🙌"],
+      ["I get what you mean","aï guèt wot you miin","Je vois où tu veux en venir","🧠"],
+      ["Let's agree to disagree","lèts a-grii tou dis-a-grii","Restons-en à nos désaccords","🤝"],
+      ["What's your take on…?","wots yor téïk onn","Ton avis sur… ?","🎯"],
+    ],
+    grammar:{
+      title:"Introduire une opinion",
+      html:"On annonce son avis avec une petite formule, puis <b>that</b> + phrase :",
+      egs:[["I think (that) it's a great idea.","Je pense que c'est une super idée."],["In my opinion, it's too expensive.","À mon avis, c'est trop cher."],["I'm not sure about that.","Je ne suis pas sûre de ça."]],
+      after:"Pour adoucir un désaccord : <b>I see your point, but…</b> ou <b>Maybe, but…</b>. Bien plus sympa que « No »."
+    },
+    practice:[
+      { q:"« À mon avis » :", o:["In my opinion","At my opinion","For my opinion"], a:0 },
+      { q:"Marquer un désaccord poli :", o:["You are wrong","I see your point, but…","No no no"], a:1 },
+      { q:"« Tout à fait ! » :", o:["Absolutely!","Absolute!","All to fact"], a:0 },
+    ],
+    video:null
+  },
+  {
+    id:"phrasal", emoji:"🛠️", level:"B1", tag:"Vocabulaire · B1", title:"Phrasal verbs essentiels", color:"#7C9E3F",
+    subtitle:"Ces verbes à particule que les anglophones utilisent sans arrêt.",
+    intro:"Les phrasal verbs sont partout à l'oral. En connaître 30 change tout pour comprendre et sonner naturel. 🛠️",
+    vocab:[
+      ["Get up","guèt eup","Se lever","⏰"],
+      ["Wake up","wéïk eup","Se réveiller","😴"],
+      ["Get on / off","guèt onn / of","Monter / descendre (bus…)","🚌"],
+      ["Check in / out","tchèk inn / aoute","S'enregistrer / partir","🏨"],
+      ["Pick up","pik eup","Récupérer / aller chercher","🤲"],
+      ["Give up","guiv eup","Abandonner","🏳️"],
+      ["Look for","louk for","Chercher","🔍"],
+      ["Look after","louk af-teur","S'occuper de","🧑‍🍼"],
+      ["Find out","faïnd aoute","Découvrir","💡"],
+      ["Turn on / off","teurn onn / of","Allumer / éteindre","💡"],
+      ["Put on","pout onn","Mettre (vêtement)","👕"],
+      ["Take off","téïk of","Enlever / décoller","🛫"],
+      ["Get along (with)","guèt a-lonng wiz","Bien s'entendre (avec)","🤝"],
+      ["Hang out","hanng aoute","Traîner / passer du temps","🛋️"],
+      ["Come over","keum ô-veur","Passer (chez qqn)","🚪"],
+      ["Show up","chô eup","Se pointer / arriver","📍"],
+      ["Run out of","reune aoute ov","Être à court de","🈳"],
+      ["Work out","weurk aoute","Faire du sport / résoudre","💪"],
+      ["Figure out","fi-gueur aoute","Comprendre / trouver","🧩"],
+      ["Set up","sèt eup","Installer / organiser","🛠️"],
+      ["Sign up","saïne eup","S'inscrire","✍️"],
+      ["Break down","bréïk da-oune","Tomber en panne","🚗"],
+      ["Get back","guèt bak","Revenir / récupérer","🔙"],
+      ["Look forward to","louk for-weurd tou","Attendre avec impatience","🤩"],
+      ["Come up with","keum eup wiz","Trouver (une idée)","💭"],
+      ["Deal with","diil wiz","Gérer / s'occuper de","✅"],
+      ["Turn up / down","teurn eup / da-oune","Monter / baisser (volume)","🔊"],
+      ["Try on","traï onn","Essayer (vêtement)","👗"],
+      ["Fill in / out","fil inn / aoute","Remplir (formulaire)","📝"],
+      ["Calm down","kam da-oune","Se calmer","😌"],
+    ],
+    grammar:{
+      title:"Comment marchent les phrasal verbs",
+      html:"Verbe + petite particule = souvent un sens tout nouveau :",
+      egs:[["I get up at 7.","Je me lève à 7h."],["Turn it off, please.","Éteins-le, s'il te plaît."],["I look forward to seeing you.","J'ai hâte de te voir."]],
+      after:"Certains se séparent : <b>turn the TV off</b> ou <b>turn it off</b> (jamais « turn off it »)."
+    },
+    practice:[
+      { q:"« Se lever » :", o:["get up","get on","get off"], a:0 },
+      { q:"« Éteindre » :", o:["turn on","turn off","turn up"], a:1 },
+      { q:"« J'ai hâte de te voir » :", o:["I look for you","I look forward to seeing you","I look after you"], a:1 },
+    ],
+    video:{ id:"ZbiP-TBC8vw", title:"23 phrasal verbs du quotidien" }
+  },
+  {
+    id:"conditionnel", emoji:"🎯", level:"B1", tag:"Grammaire · B1", title:"Le conditionnel : if", color:"#E07A5F",
+    subtitle:"Parler d'hypothèses et de possibilités : if… will / if… would.",
+    intro:"« Si… alors… » : indispensable pour faire des projets, imaginer, proposer poliment. 🎯",
+    vocab:[
+      ["If","if","Si","❓"],
+      ["If it rains, I'll stay","if it réïnz aïl stéï","S'il pleut, je resterai","🌧️"],
+      ["If you want","if you wont","Si tu veux","🙂"],
+      ["I would… / I'd…","aï woud / aïd","Je (ferais)…","💭"],
+      ["If I were you","if aï weur you","Si j'étais toi","🔄"],
+      ["I'd love to","aïd leuv tou","J'adorerais","💛"],
+      ["If I had time","if aï had taïm","Si j'avais le temps","⏳"],
+      ["I would go","aï woud gô","J'irais","🚶"],
+      ["What would you do?","wot woud you dou","Que ferais-tu ?","🤔"],
+      ["If I win…","if aï win","Si je gagne…","🏆"],
+      ["Unless","eune-lèss","À moins que","🚫"],
+      ["As long as","az lonng az","Tant que","🔗"],
+      ["In case","in kéïss","Au cas où","🎒"],
+      ["If possible","if po-si-beul","Si possible","👍"],
+      ["Would you mind…?","woud you maïnd","Cela te dérangerait-il… ?","🙏"],
+      ["I would rather…","aï woud ra-zeur","Je préférerais…","⭐"],
+      ["If necessary","if nè-se-sè-ri","Si nécessaire","⚠️"],
+      ["It would be nice","it woud bi naïss","Ce serait sympa","😊"],
+      ["If you like","if you laïk","Si tu veux","🤝"],
+      ["I'd appreciate it","aïd a-prii-chi-éïte it","J'apprécierais","🙇"],
+      ["What if…?","wot if","Et si… ?","💡"],
+      ["If I could…","if aï coud","Si je pouvais…","🌟"],
+      ["Otherwise","eu-zeur-waïz","Sinon","🔀"],
+      ["Only if","ôn-li if","Seulement si","☝️"],
+      ["Would that be okay?","woud dat bi ô-kéï","Ça irait ?","❓"],
+      ["If you need anything","if you niid è-ni-sinng","Si tu as besoin de quoi que ce soit","🤲"],
+      ["I'd say yes","aïd séï yèss","Je dirais oui","✅"],
+      ["It depends on","it di-pèndz onn","Ça dépend de","⚖️"],
+      ["If everything goes well","if èv-ri-sinng gôz wèl","Si tout se passe bien","🤞"],
+      ["Then","dèn","Alors / ensuite","➡️"],
+    ],
+    grammar:{
+      title:"Les conditionnels (0, 1, 2)",
+      html:"Trois structures selon la probabilité :",
+      egs:[["If you heat ice, it melts.","Si on chauffe la glace, elle fond. (0 – vérité)"],["If it rains, I'll stay home.","S'il pleut, je resterai. (1 – probable)"],["If I had money, I would travel.","Si j'avais de l'argent, je voyagerais. (2 – imaginaire)"]],
+      after:"Type 1 : if + présent → <b>will</b>. Type 2 : if + passé → <b>would</b>. <b>If I were you</b> = si j'étais toi (conseil)."
+    },
+    practice:[
+      { q:"« S'il pleut, je resterai » :", o:["If it rains, I'll stay","If it will rain, I stay","If it rained, I stay"], a:0 },
+      { q:"« Si j'étais toi » :", o:["If I am you","If I were you","If I was you today"], a:1 },
+      { q:"« Que ferais-tu ? »", o:["What you do?","What will you do?","What would you do?"], a:2 },
+    ],
+    video:{ id:"Zoe0htaV61Q", title:"First Conditional expliqué (EasyTeaching)" }
+  },
+  {
+    id:"phone", emoji:"📞", level:"B1", tag:"Conversation · B1", title:"Téléphone, messages & réseaux", color:"#5B8C5A",
+    subtitle:"Appeler, texter, garder le contact en ligne.",
+    intro:"Pour rester en lien avec ses amis anglophones : au téléphone, par message, et sur les réseaux. 📞",
+    vocab:[
+      ["Can I call you?","kann aï col you","Je peux t'appeler ?","📞"],
+      ["Hold on","hôld onn","Ne quitte pas","✋"],
+      ["Speaking","spii-kinng","Lui-même / elle-même (au tél.)","🗣️"],
+      ["Who's calling?","houz co-linng","Qui est à l'appareil ?","❓"],
+      ["Can you hear me?","kann you hi-eur mi","Tu m'entends ?","👂"],
+      ["The line is bad","ze laïne iz bad","La ligne est mauvaise","📶"],
+      ["I'll call you back","aïl col you bak","Je te rappelle","🔁"],
+      ["Send me a text","sènd mi a tèkst","Envoie-moi un message","💬"],
+      ["A message","a mè-sidj","Un message","📩"],
+      ["Text me","tèkst mi","Écris-moi","📲"],
+      ["I'll DM you","aïl dii-èm you","Je t'envoie un MP","📥"],
+      ["Follow me","fo-lô mi","Abonne-toi / suis-moi","➕"],
+      ["Share it","chère it","Partage-le","🔗"],
+      ["A link","a linnk","Un lien","🔗"],
+      ["Voice message","voïss mè-sidj","Message vocal","🎙️"],
+      ["Video call","vi-di-o col","Appel vidéo","📹"],
+      ["My phone is dead","maï fône iz dèd","Mon téléphone est déchargé","🔋"],
+      ["The battery","ze ba-teu-ri","La batterie","🔋"],
+      ["Bad signal","bad sig-neul","Mauvais réseau","📵"],
+      ["Airplane mode","èr-plèïne môd","Mode avion","✈️"],
+      ["Charge my phone","tchardj maï fône","Charger mon téléphone","🔌"],
+      ["What's your handle?","wots yor hann-deul","C'est quoi ton pseudo ?","🏷️"],
+      ["Add me on…","add mi onn","Ajoute-moi sur…","➕"],
+      ["Let's video call","lèts vi-di-o col","On s'appelle en visio","📹"],
+      ["Sorry, wrong number","so-ri ronng neum-beur","Désolée, mauvais numéro","❌"],
+      ["I missed your call","aï mist yor col","J'ai raté ton appel","📵"],
+      ["Leave a message","liiv a mè-sidj","Laisser un message","📨"],
+      ["Talk soon","tok soune","On se parle vite","💬"],
+      ["Thanks for reaching out","sanks for rii-tchinng aoute","Merci de m'avoir contactée","🙏"],
+      ["Keep me posted","kiip mi pôs-tid","Tiens-moi au courant","📬"],
+    ],
+    grammar:{
+      title:"Demander poliment au téléphone",
+      html:"Au téléphone, on adoucit avec <b>could</b> / <b>can</b> :",
+      egs:[["Could I speak to Anna?","Pourrais-je parler à Anna ?"],["Can you hear me?","Tu m'entends ?"],["I'll call you back later.","Je te rappelle plus tard."]],
+      after:"« <b>Hold on</b> » = ne quitte pas. « <b>Keep me posted</b> » = tiens-moi au courant. Très utile entre amis."
+    },
+    practice:[
+      { q:"« Je te rappelle » :", o:["I'll call you back","I call back you","I recall you"], a:0 },
+      { q:"« Tu m'entends ? »", o:["You listen me?","Can you hear me?","You hear?"], a:1 },
+      { q:"« Tiens-moi au courant » :", o:["Keep me posted","Keep me current","Post me"], a:0 },
+    ],
+    video:null
+  },
+  {
+    id:"debat", emoji:"🗣️", level:"B2", tag:"Conversation · B2", title:"Débattre & nuancer", color:"#16324F",
+    subtitle:"Structurer un argument, nuancer, exprimer le contraste.",
+    intro:"Pour des conversations riches : défendre une idée, nuancer, et rebondir avec élégance. 🗣️",
+    vocab:[
+      ["I'd argue that…","aïd ar-guiou dat","Je dirais que… (argument)","🗨️"],
+      ["That said…","dat sèd","Cela dit…","🔄"],
+      ["However","ha-ou-è-veur","Cependant","↩️"],
+      ["Although","ol-zô","Bien que","🔗"],
+      ["On the contrary","onn ze con-tra-ri","Au contraire","🔀"],
+      ["To some extent","tou seum iks-tènt","Dans une certaine mesure","⚖️"],
+      ["It's more complicated","its mor com-pli-kéï-tid","C'est plus compliqué","🧩"],
+      ["I take your point, but…","aï téïk yor poïnt beut","Je comprends, mais…","☝️"],
+      ["That's debatable","dats di-béï-ta-beul","C'est discutable","🤔"],
+      ["In fact","in fakt","En fait","💡"],
+      ["Actually","ak-tchou-a-li","En réalité","🔍"],
+      ["It seems to me","it siimz tou mi","Il me semble","👀"],
+      ["Broadly speaking","brod-li spii-kinng","De manière générale","🌐"],
+      ["Arguably","ar-guiou-a-bli","On pourrait soutenir que","🗣️"],
+      ["The point is…","ze poïnt iz","Le fait est que…","🎯"],
+      ["As far as I know","az far az aï nô","Pour autant que je sache","📚"],
+      ["Correct me if I'm wrong","co-rèkt mi if aïm ronng","Corrige-moi si je me trompe","✏️"],
+      ["That's a fair point","dats a fère poïnt","C'est un argument valable","👌"],
+      ["I beg to differ","aï bèg tou di-feur","Permets-moi de ne pas être d'accord","🙅"],
+      ["With all due respect","wiz ol diou ris-pèkt","Avec tout le respect","🎩"],
+      ["It's worth noting","its weurs nô-tinng","Il faut noter","📝"],
+      ["Let me put it this way","lèt mi pout it dis wéï","Disons-le ainsi","💬"],
+      ["On balance","onn ba-leunce","Tout bien pesé","⚖️"],
+      ["Nevertheless","nè-veur-ze-lèss","Néanmoins","↪️"],
+      ["A compelling argument","a com-pè-linng ar-guiou-meunt","Un argument convaincant","💪"],
+      ["To play devil's advocate","tou pléï dè-veulz ad-vo-kit","Pour jouer l'avocat du diable","😈"],
+      ["I stand by that","aï stannd baï dat","Je maintiens","🧍"],
+      ["Point taken","poïnt téï-keune","C'est noté / tu marques un point","✅"],
+      ["We'll agree to disagree","wiil a-grii tou dis-a-grii","On ne sera pas d'accord, et c'est ok","🤝"],
+      ["Let's move on","lèts mouv onn","Passons à autre chose","➡️"],
+    ],
+    grammar:{
+      title:"Les connecteurs de contraste",
+      html:"Pour opposer deux idées avec élégance :",
+      egs:[["It's expensive; however, it's worth it.","C'est cher ; cependant, ça vaut le coup."],["Although it rained, we had fun.","Bien qu'il ait plu, on s'est amusés."],["I agree to some extent.","Je suis d'accord dans une certaine mesure."]],
+      after:"<b>however</b> et <b>nevertheless</b> se placent souvent en début de phrase, suivis d'une virgule. <b>although</b> relie deux idées."
+    },
+    practice:[
+      { q:"« Cependant » :", o:["However","How ever","Whatever"], a:0 },
+      { q:"Désaccord très poli :", o:["You are wrong","I beg to differ","Shut up"], a:1 },
+      { q:"« Passons à autre chose » :", o:["Let's move on","Move you","Go other"], a:0 },
+    ],
+    video:null
+  },
+  {
+    id:"idiomes", emoji:"🎭", level:"B2", tag:"Vocabulaire · B2", title:"Expressions idiomatiques", color:"#9B5DE5",
+    subtitle:"Les images que les natifs adorent — pour comprendre et sourire.",
+    intro:"Les idiomes, c'est le sel de la langue. En connaître rend la conversation vivante et complice. 🎭",
+    vocab:[
+      ["Break the ice","bréïk ze aïss","Briser la glace","🧊"],
+      ["A piece of cake","a piiss ov kéïk","Fastoche / très facile","🍰"],
+      ["Hit the road","hit ze rôd","Se mettre en route","🛣️"],
+      ["Under the weather","eune-deur ze wè-zeur","Pas dans son assiette","🤒"],
+      ["Once in a blue moon","weunce in a blou moune","Une fois tous les 36 du mois","🌙"],
+      ["Cost an arm and a leg","cost ann arm annd a lèg","Coûter les yeux de la tête","💸"],
+      ["Hit the hay","hit ze héï","Aller au lit","🛌"],
+      ["A rip-off","a rip-of","Une arnaque","🚫"],
+      ["No worries","nô weu-riz","Pas de souci","😎"],
+      ["Sounds good","sa-oundz goud","Ça marche","👍"],
+      ["Fair enough","fère i-neuf","C'est de bonne guerre","👌"],
+      ["Long story short","lonng sto-ri chort","Bref","⏩"],
+      ["Speak of the devil","spiik ov ze dè-veul","Quand on parle du loup","😏"],
+      ["It's not my cup of tea","its not maï keup ov tii","Ce n'est pas mon truc","🍵"],
+      ["On the same page","onn ze séïm péïdj","Sur la même longueur d'onde","📄"],
+      ["Butterflies in my stomach","beu-teur-flaïz in maï steu-meuk","Le trac","🦋"],
+      ["A blessing in disguise","a blè-sinng in dis-gaïz","Un mal pour un bien","🎁"],
+      ["Better late than never","bè-teur léïte dann nè-veur","Mieux vaut tard que jamais","⏰"],
+      ["The ball is in your court","ze bol iz in yor cort","La balle est dans ton camp","🎾"],
+      ["Call it a day","col it a déï","S'arrêter là pour aujourd'hui","🌇"],
+      ["Get the hang of it","guèt ze hanng ov it","Prendre le coup de main","🎯"],
+      ["It rings a bell","it rinngz a bèl","Ça me dit quelque chose","🔔"],
+      ["Cut to the chase","keut tou ze tchéïss","Aller droit au but","✂️"],
+      ["Hang in there","hanng in dère","Tiens bon","💪"],
+      ["A win-win","a win-win","Gagnant-gagnant","🤝"],
+      ["Touch base","teutch béïss","Faire un point","📲"],
+      ["Pull someone's leg","poul seum-weunz lèg","Faire marcher quelqu'un","😜"],
+      ["In the same boat","in ze séïm bôt","Dans le même bateau","🚣"],
+      ["Cross my fingers","cross maï finng-eurz","Je croise les doigts","🤞"],
+      ["It's a small world","its a smol weurld","Le monde est petit","🌍"],
+    ],
+    grammar:{
+      title:"Comment apprendre les idiomes",
+      html:"Un idiome ne se traduit pas mot à mot — on le retient en bloc, avec son image :",
+      egs:[["It's a piece of cake.","C'est fastoche."],["I'm under the weather.","Je ne suis pas dans mon assiette."],["Let's touch base tomorrow.","Faisons un point demain."]],
+      after:"Conseil : n'en apprends que 2-3 par jour, et places-en un dans une vraie conversation. Ça marque les esprits. 😊"
+    },
+    practice:[
+      { q:"« C'est très facile » (idiome) :", o:["A piece of cake","A cup of tea","A rip-off"], a:0 },
+      { q:"« Ça me dit quelque chose » :", o:["It rings a bell","It sounds a bell","It calls me"], a:0 },
+      { q:"« Tiens bon » :", o:["Hang in there","Hang out there","Hold the there"], a:0 },
+    ],
+    video:{ id:"Ix_di_rrQ4I", title:"Idiomes anglais courants (EnglishClass101)" }
+  },
+  {
+    id:"reported", emoji:"🕰️", level:"B2", tag:"Grammaire · B2", title:"Discours rapporté & passif", color:"#F15BB5",
+    subtitle:"Rapporter ce qu'on a dit, et le passif du quotidien.",
+    intro:"Pour raconter une conversation (« il a dit que… ») et parler de faits sans préciser qui (« c'est fait »). 🕰️",
+    vocab:[
+      ["He said (that)…","hi sèd dat","Il a dit que…","🗣️"],
+      ["She told me…","chi tôld mi","Elle m'a dit…","💬"],
+      ["He asked if…","hi askt if","Il a demandé si…","❓"],
+      ["They said they would…","déï sèd déï woud","Ils ont dit qu'ils…","🔮"],
+      ["She said she was…","chi sèd chi woz","Elle a dit qu'elle était…","🕰️"],
+      ["He mentioned…","hi mèn-cheund","Il a mentionné…","📌"],
+      ["I was told that…","aï woz tôld dat","On m'a dit que…","👂"],
+      ["It is said that…","it iz sèd dat","On dit que…","🌐"],
+      ["It was built in…","it woz bilt in","Ça a été construit en…","🏛️"],
+      ["It's made of…","its méïd ov","C'est fait de…","🧱"],
+      ["English is spoken here","inng-lich iz spô-keune hi-eur","On parle anglais ici","🗣️"],
+      ["I was given…","aï woz gui-veune","On m'a donné…","🎁"],
+      ["The show was cancelled","ze chô woz kann-seuld","Le spectacle a été annulé","❌"],
+      ["He suggested…","hi seu-djès-tid","Il a suggéré…","💡"],
+      ["She explained that…","chi iks-pléïnd dat","Elle a expliqué que…","📖"],
+      ["They warned me…","déï wornd mi","Ils m'ont prévenue…","⚠️"],
+      ["He promised to…","hi pro-mist tou","Il a promis de…","🤞"],
+      ["I heard that…","aï heurd dat","J'ai entendu dire que…","👂"],
+      ["Apparently","a-pè-reunt-li","Apparemment","🤷"],
+      ["Supposedly","seu-pô-zid-li","Soi-disant","🙄"],
+      ["She wondered if…","chi weun-deurd if","Elle se demandait si…","🤔"],
+      ["It's believed that…","its bi-liivd dat","On pense que…","🌍"],
+      ["He wanted to know…","hi won-tid tou nô","Il voulait savoir…","❓"],
+      ["The keys were lost","ze kiiz weur lost","Les clés ont été perdues","🔑"],
+      ["It has been done","it haz bine deune","Ça a été fait","✅"],
+      ["I was asked to…","aï woz askt tou","On m'a demandé de…","🙋"],
+      ["She admitted that…","chi ad-mi-tid dat","Elle a admis que…","😬"],
+      ["He complained about…","hi com-pléïnd a-ba-out","Il s'est plaint de…","😤"],
+      ["They agreed to…","déï a-griid tou","Ils ont accepté de…","🤝"],
+      ["So the story goes","sô ze sto-ri gôz","À ce qu'on raconte","📜"],
+    ],
+    grammar:{
+      title:"Rapporter & le passif",
+      html:"<b>Discours rapporté</b> : les temps « reculent ». <b>Passif</b> : be + participe passé.",
+      egs:[["\"I am tired.\" → He said he was tired.","« Je suis fatigué. » → Il a dit qu'il était fatigué."],["The bridge was built in 1890.","Le pont a été construit en 1890."],["English is spoken here.","On parle anglais ici."]],
+      after:"Passif quand l'auteur importe peu : <b>It was cancelled</b> (peu importe par qui). Très fréquent à l'écrit et à l'oral."
+    },
+    practice:[
+      { q:"« Il a dit qu'il était fatigué » :", o:["He said he is tired","He said he was tired","He say he tired"], a:1 },
+      { q:"Passif : « Ça a été annulé » :", o:["It cancelled","It was cancelled","It is cancel"], a:1 },
+      { q:"« On parle anglais ici » :", o:["English is spoken here","English speaks here","Here speak English"], a:0 },
+    ],
+    video:null
+  },
+  {
+    id:"naturel", emoji:"✨", level:"C1", tag:"Aisance · C1", title:"Anglais naturel : collocations", color:"#EFAF00",
+    subtitle:"Les associations de mots qui font qu'on sonne comme un natif.",
+    intro:"À ce niveau, la différence se joue sur les collocations : ces mots qui « vont ensemble ». Voici les plus utiles. ✨",
+    vocab:[
+      ["Make a decision","méïk a di-si-jeune","Prendre une décision","✅"],
+      ["Take a break","téïk a bréïk","Faire une pause","☕"],
+      ["Have a chat","hav a tchat","Discuter un peu","💬"],
+      ["Do me a favour","dou mi a féï-veur","Rends-moi un service","🙏"],
+      ["Pay attention","péï a-tèn-cheune","Faire attention","👀"],
+      ["Keep in mind","kiip in maïnd","Garder à l'esprit","🧠"],
+      ["Make sense","méïk sènss","Avoir du sens","💡"],
+      ["Take your time","téïk yor taïm","Prends ton temps","⏳"],
+      ["Get in touch","guèt in teutch","Prendre contact","📲"],
+      ["Make the most of it","méïk ze môst ov it","En profiter à fond","🌟"],
+      ["Have a point","hav a poïnt","Ne pas avoir tort","☝️"],
+      ["Bear with me","bère wiz mi","Un instant / sois patient","⏱️"],
+      ["Come to think of it","keum tou sinnk ov it","Maintenant que j'y pense","💭"],
+      ["To be fair","tou bi fère","Pour être juste","⚖️"],
+      ["That works for me","dat weurks for mi","Ça me va","👍"],
+      ["Fingers crossed","finng-eurz crost","Je croise les doigts","🤞"],
+      ["No big deal","nô big diil","C'est rien","🤷"],
+      ["Take it easy","téïk it ii-zi","Doucement / repose-toi","🧘"],
+      ["Give it a go","guiv it a gô","Tenter le coup","🎯"],
+      ["Sort it out","sort it aoute","Régler ça","🛠️"],
+      ["Make up your mind","méïk eup yor maïnd","Te décider","🧭"],
+      ["On second thought","onn sè-keund sot","Tout compte fait","🔄"],
+      ["Have a good one","hav a goud weune","Bonne continuation","👋"],
+      ["It's a long shot","its a lonng chot","C'est peu probable","🎲"],
+      ["I'll keep that in mind","aïl kiip dat in maïnd","Je note ça","📝"],
+      ["Run late","reune léïte","Être en retard","⏰"],
+      ["Catch up","katch eup","Se donner des nouvelles","☕"],
+      ["A close call","a clôz col","On l'a échappé belle","😅"],
+      ["Worth a try","weurs a traï","Ça vaut le coup d'essayer","💪"],
+      ["That's the spirit!","dats ze spi-rit","C'est l'esprit !","🎉"],
+    ],
+    grammar:{
+      title:"make / do / take / have",
+      html:"Ces verbes se combinent avec des mots précis (collocations). On ne les choisit pas au hasard :",
+      egs:[["make a decision (pas « do »)","prendre une décision"],["take a break","faire une pause"],["have a chat","discuter"]],
+      after:"On dit <b>make</b> a mistake, <b>do</b> homework, <b>take</b> a photo, <b>have</b> a shower. Apprends-les par paires."
+    },
+    practice:[
+      { q:"« Prendre une décision » :", o:["do a decision","make a decision","take a decision"], a:1 },
+      { q:"« Faire une pause » :", o:["take a break","make a break","do a break"], a:0 },
+      { q:"« Ça me va » :", o:["That works for me","That go me","That make me"], a:0 },
+    ],
+    video:null
+  },
+  {
+    id:"fluidite", emoji:"🎙️", level:"C1", tag:"Aisance · C1", title:"Fluidité & sujets abstraits", color:"#00A6FB",
+    subtitle:"Les petits mots de discours et le vocabulaire des grands sujets.",
+    intro:"La touche finale : gagner du temps naturellement, enchaîner ses idées, et aborder des sujets abstraits. 🎙️",
+    vocab:[
+      ["Actually","ak-tchou-a-li","En fait","💬"],
+      ["Basically","béï-sik-li","En gros","🔑"],
+      ["Anyway","è-ni-wéï","Bref / enfin","🔄"],
+      ["By the way","baï ze wéï","Au fait","📌"],
+      ["As I was saying","az aï woz séï-inng","Comme je disais","↩️"],
+      ["I mean…","aï miin","Enfin, je veux dire…","💭"],
+      ["You know what I mean?","you nô wot aï miin","Tu vois ce que je veux dire ?","👀"],
+      ["Kind of / Sort of","kaïnd ov / sort ov","Un peu / en quelque sorte","🤏"],
+      ["More or less","mor or lèss","Plus ou moins","⚖️"],
+      ["It's a matter of…","its a ma-teur ov","C'est une question de…","🎯"],
+      ["When it comes to…","wène it keumz tou","En ce qui concerne…","🔍"],
+      ["That's a tricky one","dats a tri-ki weune","C'est une colle","🤔"],
+      ["It's hard to say","its hard tou séï","Difficile à dire","😕"],
+      ["I suppose","aï seu-pôz","Je suppose","🤷"],
+      ["In a nutshell","in a neut-chèl","En résumé","🥜"],
+      ["The thing is…","ze sinng iz","Le truc, c'est que…","💡"],
+      ["As far as I'm concerned","az far az aïm con-seurnd","En ce qui me concerne","🙋"],
+      ["It goes without saying","it gôz wiz-aoute séï-inng","Ça va sans dire","✔️"],
+      ["To put it simply","tou pout it sim-pli","Pour faire simple","🔧"],
+      ["There's more to it","dèrz mor tou it","C'est plus que ça","🧩"],
+      ["A hot topic","a hot to-pik","Un sujet brûlant","🔥"],
+      ["Society","so-saï-e-ti","La société","🌍"],
+      ["The environment","ze inn-vaï-reune-meunt","L'environnement","🌱"],
+      ["It's controversial","its con-tro-veur-cheul","C'est controversé","⚡"],
+      ["On the whole","onn ze hôl","Dans l'ensemble","🌐"],
+      ["To some degree","tou seum di-grii","Dans une certaine mesure","📊"],
+      ["Come to think of it","keum tou sinnk ov it","Maintenant que j'y pense","💭"],
+      ["Point being…","poïnt bii-inng","Ce que je veux dire…","🎯"],
+      ["Let's not go there","lèts not gô dère","Évitons ce sujet","🙅"],
+      ["That's a whole other topic","dats a hôl eu-zeur to-pik","Ça, c'est un autre sujet","🔀"],
+    ],
+    grammar:{
+      title:"Les marqueurs de discours",
+      html:"Ces petits mots donnent du temps pour réfléchir et rendent le discours fluide et naturel :",
+      egs:[["Well, actually, I think…","Eh bien, en fait, je pense…"],["Anyway, as I was saying…","Bref, comme je disais…"],["To be honest, it's complicated.","Franchement, c'est compliqué."]],
+      after:"Utilise-les comme des respirations : <b>well</b>, <b>actually</b>, <b>I mean</b>, <b>anyway</b>. C'est ce qui distingue un discours fluide."
+    },
+    practice:[
+      { q:"« Au fait » (changer de sujet) :", o:["By the way","On the way","In the way"], a:0 },
+      { q:"« En résumé » :", o:["In a nutshell","In a nut","In short shell"], a:0 },
+      { q:"« Ça va sans dire » :", o:["It goes without saying","It go no say","Without say it"], a:0 },
+    ],
+    video:null
+  }
+];
+
+/* Les 5 niveaux du parcours (du grand débutant au C1) */
+const LEVELS = [
+  { id:'A1', name:'Premiers pas',            tag:'A1 · Grand débutant', color:'#FF6B5C',
+    desc:'Les tout premiers mots pour survivre en voyage et se présenter.' },
+  { id:'A2', name:'Se débrouiller',          tag:'A2 · Élémentaire',    color:'#2E86AB',
+    desc:'Parler de soi, raconter au passé, faire des projets, papoter.' },
+  { id:'B1', name:'Devenir autonome',        tag:'B1 · Seuil',          color:'#17B890',
+    desc:'Donner son avis, gérer le quotidien, nuancer — se sentir libre.' },
+  { id:'B2', name:"S'exprimer avec aisance", tag:'B2 · Avancé',         color:'#9B5DE5',
+    desc:"Débattre, comprendre l'implicite, manier les idiomes." },
+  { id:'C1', name:'Maîtrise & finesse',      tag:'C1 · Autonome',       color:'#00A6FB',
+    desc:'Sonner naturel et aborder tous les sujets avec fluidité.' },
 ];
 
 /* =========================================================
@@ -1075,30 +1852,50 @@ function nextQuestion(){
 function finishTest(){
   state.score = qScore;
   const total = DIAGNOSTIC.length;
-  let level, band;
-  if(qScore<=4){ level='Grand débutant (A0–A1)'; band=0; }
-  else if(qScore<=8){ level='Élémentaire (A1–A2)'; band=1; }
-  else { level='Intermédiaire (A2+)'; band=2; }
-  state.level=level; save();
+  const pct = qScore/total;               // score en proportion (0 → 1)
+
+  // 5 bandes → un niveau de départ recommandé (A1 … C1)
+  let band;
+  if(pct < 0.30)      band=0;   // A1
+  else if(pct < 0.50) band=1;   // A2
+  else if(pct < 0.70) band=2;   // B1
+  else if(pct < 0.88) band=3;   // B2
+  else                band=4;   // C1
+
+  const lv = LEVELS[band];
+  const level = lv.name+' ('+lv.id+')';
+  state.level = level; save();
 
   document.getElementById('res-score').textContent = qScore+' / '+total;
   document.getElementById('res-level').textContent = level;
 
-  const titles=['On part des bases, et c\'est parfait !','Belle base, on construit dessus !','Impressionnant, on peaufine !'];
+  const titles=[
+    'On part des bases, et c\'est parfait !',
+    'Belle base, on construit dessus !',
+    'Tu te débrouilles déjà bien !',
+    'Tu es déjà à l\'aise — on affine !',
+    'Impressionnant, on vise la finesse !'
+  ];
   const texts=[
     'Tu pars de zéro ou presque, et honnêtement c\'est la meilleure façon de commencer : chaque leçon va vraiment compter. On y va doucement, mot par mot. Tu vas y arriver. 💛',
-    'Tu as déjà de bons réflexes ! On va solidifier tout ça et te rendre à l\'aise dans les situations de voyage les plus courantes.',
-    'Tu te débrouilles déjà bien. On va viser l\'aisance : commander, demander, bavarder — comme une habituée des voyages.'
+    'Tu as déjà de bons réflexes ! On solidifie les bases et on apprend à parler de toi, du passé et de tes projets.',
+    'Tu comprends déjà pas mal de choses. On vise l\'autonomie : donner ton avis, gérer le quotidien, papoter sans stress.',
+    'Très beau niveau ! On travaille l\'aisance : débattre, saisir l\'implicite, glisser des idiomes comme une native.',
+    'Chapeau ! On peaufine les derniers détails : collocations, marqueurs de discours et sujets abstraits pour sonner totalement naturelle. ✨'
   ];
   document.getElementById('res-title').textContent = titles[band];
   document.getElementById('res-text').innerHTML = texts[band];
 
-  // Itinéraire recommandé selon le niveau
-  const routes = [
-    ['bases','aeroport','resto','chemin'],
-    ['bases','aeroport','hotel','resto','chemin'],
-    ['aeroport','hotel','resto','chemin','urgences']
-  ][band];
+  // On recommande les 1res escales du niveau visé (complétées par le niveau précédent si besoin)
+  const inLevel = id => getModule(id);
+  let routes = MODULES.filter(m=>m.level===lv.id).map(m=>m.id);
+  if(band>0){
+    const prev = LEVELS[band-1].id;
+    const prevMods = MODULES.filter(m=>m.level===prev).map(m=>m.id);
+    routes = prevMods.slice(-2).concat(routes);   // un petit rappel du niveau d'avant
+  }
+  routes = routes.slice(0,5);
+
   const reco = document.getElementById('res-reco');
   reco.innerHTML = routes.map(id=>moduleCardHTML(getModule(id))).join('');
   reco.querySelectorAll('.module').forEach(el=>el.addEventListener('click',()=>openLesson(el.dataset.id)));
@@ -1122,15 +1919,33 @@ function moduleCardHTML(m){
 }
 function renderProgramme(){
   const list = document.getElementById('module-list');
-  list.innerHTML = MODULES.map(moduleCardHTML).join('');
+  const doneOf = m => !!state.done[m.id];
+
+  let html = '';
+  LEVELS.forEach(lv=>{
+    const mods = MODULES.filter(m=>m.level===lv.id);
+    if(!mods.length) return;
+    const done = mods.filter(doneOf).length;
+    const pct = Math.round(done/mods.length*100);
+    html += '<div class="level-sec" style="--lvl:'+lv.color+'">'+
+      '<div class="level-head"><span class="level-badge">'+lv.tag+'</span><h2>'+lv.name+'</h2></div>'+
+      '<p class="level-desc">'+lv.desc+'</p>'+
+      '<div class="level-prog"><div class="track"><div class="fill" style="width:'+pct+'%"></div></div>'+
+        '<span class="count">'+(done===mods.length
+            ? '<span class="level-done">✓ niveau complet</span>'
+            : done+' / '+mods.length)+'</span></div>'+
+      '<div class="modules">'+ mods.map(moduleCardHTML).join('') +'</div></div>';
+  });
+  list.innerHTML = html;
   list.querySelectorAll('.module').forEach(el=>el.addEventListener('click',()=>openLesson(el.dataset.id)));
-  const doneCount = Object.keys(state.done).filter(k=>state.done[k]).length;
+
+  const doneCount = MODULES.filter(doneOf).length;
   document.getElementById('prog-fill').style.width = (doneCount/MODULES.length*100)+'%';
   document.getElementById('prog-count').textContent = doneCount+' / '+MODULES.length+' tampons';
   const tip = document.getElementById('prog-tip');
-  if(doneCount===0) tip.innerHTML='Choisis une escale pour commencer. Chaque leçon terminée te donne un tampon dans ton passeport. 🛂';
-  else if(doneCount<MODULES.length) tip.innerHTML='Déjà '+doneCount+' tampon'+(doneCount>1?'s':'')+' ! Continue, tu voyages de mieux en mieux. ✈️';
-  else tip.innerHTML='🎉 Passeport complet ! Tu es officiellement prête à voyager en anglais. Je suis fier de toi. 💛';
+  if(doneCount===0) tip.innerHTML='Ton parcours va du niveau grand débutant (A1) jusqu\'au C1. Choisis une escale pour commencer — chaque leçon terminée te donne un tampon. 🛂';
+  else if(doneCount<MODULES.length) tip.innerHTML='Déjà '+doneCount+' tampon'+(doneCount>1?'s':'')+' sur '+MODULES.length+' ! Tu montes les niveaux petit à petit. Continue. ✈️';
+  else tip.innerHTML='🎉 Parcours complet, de A1 à C1 ! Tu es officiellement prête à voyager <i>et</i> à discuter en anglais. Je suis fier de toi. 💛';
 }
 
 /* =========================================================
@@ -1184,14 +1999,19 @@ function openLesson(id){
     '<h2 class="sec"><span class="dot"></span>Grammaire</h2>'+
     '<div class="grammar" style="border-left-color:'+m.color+'"><h3>'+m.grammar.title+'</h3><p>'+m.grammar.html+'</p>'+egHTML+
       '<p style="margin:.6em 0 0">'+m.grammar.after+'</p></div>'+
-    '<h2 class="sec"><span class="dot"></span>Vidéo</h2>'+
-    '<p class="lead" style="font-size:14px">Regarde, écoute, et répète à voix haute. C\'est comme ça qu\'on progresse le plus vite.</p>'+
-    '<div class="videowrap"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/'+m.video.id+'?rel=0&hl=fr&cc_load_policy=1" '+
-      'title="'+m.video.title+'" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>'+
-    '<p class="lead" style="font-size:13px;color:var(--muted)">La vidéo s\'ouvre depuis YouTube et a besoin d\'une connexion internet.</p>'+
+    (m.video
+      ? '<h2 class="sec"><span class="dot"></span>Vidéo</h2>'+
+        '<p class="lead" style="font-size:14px">Regarde, écoute, et répète à voix haute. C\'est comme ça qu\'on progresse le plus vite.</p>'+
+        '<div class="videowrap"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/'+m.video.id+'?rel=0&hl=fr&cc_load_policy=1" '+
+          'title="'+m.video.title+'" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>'+
+        '<p class="lead" style="font-size:13px;color:var(--muted)">La vidéo s\'ouvre depuis YouTube et a besoin d\'une connexion internet.</p>'
+      : '<h2 class="sec"><span class="dot"></span>Conseil d\'entraînement</h2>'+
+        '<div class="grammar" style="border-left-color:'+m.color+'"><h3>Comment bien retenir cette escale 💪</h3>'+
+        '<p>Relis les 30 phrases à voix haute, puis appuie sur « 🔊 Tout écouter » et répète après chaque mot. Ensuite, essaie d\'écrire ou de dire <b>3 phrases sur toi</b> avec ce vocabulaire.</p>'+
+        '<p style="margin:.6em 0 0">Cinq minutes par jour valent mieux qu\'une heure une fois par semaine. Reviens ici demain : ça rentrera tout seul. 🌱</p></div>')+
     '<h2 class="sec"><span class="dot"></span>À toi de jouer</h2>'+practiceHTML+
     '<div class="finish"><h3>Bien joué, Nathalie ! 👏</h3>'+
-      '<p>Tu as vu le vocabulaire, la grammaire et une vidéo. Répète une phrase à voix haute, puis valide ton escale.</p>'+
+      '<p>Tu as vu le vocabulaire, la grammaire'+(m.video?' et une vidéo':' et un conseil')+'. Répète une phrase à voix haute, puis valide ton escale.</p>'+
       '<button class="btn btn-sun btn-block" id="finishBtn">'+(state.done[id]?'✓ Escale déjà validée — revalider':'Valider cette escale 🛂')+'</button>'+
     '</div>';
 
