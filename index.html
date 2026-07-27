@@ -1,0 +1,1321 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Nathalie is the best — English for travel</title>
+<meta name="description" content="Le compagnon d'anglais de Nathalie pour voyager avec confiance : test de niveau, leçons de grammaire et de vocabulaire, et vidéos." />
+
+<!-- PWA -->
+<link rel="manifest" href="manifest.webmanifest" />
+<meta name="theme-color" content="#16324F" />
+<link rel="icon" href="icons/favicon-32.png" sizes="32x32" />
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="Nathalie EN" />
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+
+<style>
+/* ---------- Tokens ---------- */
+:root{
+  --ink:#16324F;
+  --ink-2:#0B2238;
+  --sky:#2E86AB;
+  --sun:#FFC145;
+  --coral:#FF6B5C;
+  --mint:#17B890;
+  --paper:#FBF9F4;
+  --card:#FFFFFF;
+  --line:rgba(22,50,79,.14);
+  --line-strong:rgba(22,50,79,.28);
+  --text:#1A2A3A;
+  --muted:#5C6B7A;
+  --shadow:0 10px 30px -12px rgba(11,34,56,.35);
+  --shadow-sm:0 4px 14px -8px rgba(11,34,56,.4);
+  --radius:18px;
+  --maxw:760px;
+  --display:'Fraunces',Georgia,'Times New Roman',serif;
+  --body:'Plus Jakarta Sans',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  --mono:'Space Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;font-family:var(--body);color:var(--text);
+  background:
+    radial-gradient(1200px 600px at 100% -10%, rgba(46,134,171,.10), transparent 60%),
+    radial-gradient(900px 500px at -10% 10%, rgba(255,193,69,.12), transparent 55%),
+    var(--paper);
+  min-height:100vh;line-height:1.55;
+  padding-bottom:env(safe-area-inset-bottom);
+}
+a{color:var(--sky)}
+img{max-width:100%}
+button{font-family:inherit}
+:focus-visible{outline:3px solid var(--sky);outline-offset:2px;border-radius:6px}
+
+/* ---------- Header ---------- */
+.topbar{
+  position:sticky;top:0;z-index:40;
+  background:linear-gradient(180deg, rgba(251,249,244,.96), rgba(251,249,244,.86));
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+}
+.topbar-in{
+  max-width:var(--maxw);margin:0 auto;padding:10px 16px;
+  display:flex;align-items:center;gap:10px;
+  padding-top:calc(10px + env(safe-area-inset-top));
+}
+.brand{display:flex;align-items:center;gap:10px;background:none;border:0;cursor:pointer;padding:4px;margin:0;text-align:left}
+.brand .plane{
+  width:34px;height:34px;border-radius:10px;flex:0 0 auto;
+  background:linear-gradient(160deg,var(--ink),var(--ink-2));
+  display:grid;place-items:center;color:var(--sun);font-size:18px;box-shadow:var(--shadow-sm)
+}
+.brand b{font-family:var(--display);font-weight:900;font-size:16px;letter-spacing:.2px;color:var(--ink);line-height:1}
+.brand span{display:block;font-family:var(--mono);font-size:9.5px;letter-spacing:2px;color:var(--muted);text-transform:uppercase}
+.topbar .spacer{flex:1}
+.btn-install{
+  border:1px solid var(--line-strong);background:var(--card);color:var(--ink);
+  font-weight:600;font-size:13px;padding:8px 12px;border-radius:999px;cursor:pointer;
+  display:none;align-items:center;gap:6px;box-shadow:var(--shadow-sm)
+}
+.btn-install.show{display:inline-flex}
+.btn-install:hover{border-color:var(--sky)}
+
+/* ---------- Layout ---------- */
+main{max-width:var(--maxw);margin:0 auto;padding:18px 16px 60px}
+.view{display:none;animation:fade .35s ease both}
+.view.active{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--sky);margin:0 0 8px}
+h1{font-family:var(--display);font-weight:900;font-size:clamp(30px,8vw,44px);line-height:1.02;letter-spacing:-.5px;margin:.1em 0 .35em;color:var(--ink)}
+h2{font-family:var(--display);font-weight:600;font-size:clamp(22px,5.5vw,28px);line-height:1.1;color:var(--ink);margin:1.6em 0 .5em}
+h3{font-family:var(--display);font-weight:600;font-size:19px;color:var(--ink);margin:0 0 .3em}
+p{margin:0 0 1em}
+.lead{font-size:17px;color:var(--muted);max-width:52ch}
+
+/* ---------- Boarding pass (signature) ---------- */
+.pass{
+  position:relative;background:var(--card);border-radius:22px;overflow:hidden;
+  box-shadow:var(--shadow);border:1px solid var(--line);margin:6px 0 22px
+}
+.pass-top{
+  background:
+    linear-gradient(135deg,var(--ink),var(--ink-2));
+  color:#eaf1f6;padding:20px 20px 22px;position:relative;overflow:hidden
+}
+.pass-top::after{ /* faint plane trail */
+  content:"";position:absolute;right:-40px;top:-30px;width:220px;height:220px;
+  background:radial-gradient(circle at center, rgba(255,193,69,.22), transparent 62%);
+}
+.pass-airline{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--sun)}
+.pass-route{display:flex;align-items:flex-end;gap:14px;margin:14px 0 4px}
+.pass-route .code{font-family:var(--display);font-weight:900;font-size:34px;line-height:.9;color:#fff}
+.pass-route .from-to{font-family:var(--mono);font-size:10px;color:#a9c2d3;letter-spacing:1px;margin-top:4px}
+.pass-route .arrow{flex:1;position:relative;height:22px}
+.pass-route .arrow::before{content:"";position:absolute;left:0;right:16px;top:50%;border-top:2px dashed rgba(255,255,255,.4)}
+.pass-route .arrow::after{content:"\2708";position:absolute;right:0;top:50%;transform:translateY(-55%);color:var(--sun);font-size:18px}
+.pass-fields{display:flex;flex-wrap:wrap;gap:14px 26px;margin-top:14px}
+.pass-fields .f label{display:block;font-family:var(--mono);font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:#8fb0c4}
+.pass-fields .f b{font-family:var(--body);font-weight:700;font-size:15px;color:#fff}
+.perf{position:relative;height:0;border-top:2px dashed var(--line-strong)}
+.perf::before,.perf::after{content:"";position:absolute;top:-11px;width:22px;height:22px;border-radius:50%;background:var(--paper);border:1px solid var(--line)}
+.perf::before{left:-11px}.perf::after{right:-11px}
+.pass-bot{padding:18px 20px}
+.pass-bot h1{margin:.1em 0 .3em}
+
+/* ---------- Buttons ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  font-weight:700;font-size:15px;border-radius:999px;padding:13px 20px;cursor:pointer;
+  border:1px solid transparent;text-decoration:none;transition:transform .12s ease, box-shadow .12s ease
+}
+.btn:active{transform:translateY(1px)}
+.btn-primary{background:var(--ink);color:#fff;box-shadow:var(--shadow-sm)}
+.btn-primary:hover{background:var(--ink-2)}
+.btn-sun{background:var(--sun);color:var(--ink-2)}
+.btn-sun:hover{filter:brightness(1.03)}
+.btn-ghost{background:var(--card);color:var(--ink);border-color:var(--line-strong)}
+.btn-ghost:hover{border-color:var(--sky)}
+.btn-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+.btn-block{width:100%}
+
+/* ---------- Cards / lists ---------- */
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow-sm)}
+.phrase-day{display:flex;gap:14px;align-items:center;margin:20px 0 8px}
+.phrase-day .stamp{
+  flex:0 0 auto;width:58px;height:58px;border-radius:14px;display:grid;place-items:center;
+  background:conic-gradient(from 210deg, var(--sun), #ffd98a, var(--sun));color:var(--ink-2);
+  font-size:24px;box-shadow:var(--shadow-sm);transform:rotate(-6deg)
+}
+.phrase-day .en{font-family:var(--display);font-weight:600;font-size:19px;color:var(--ink);margin:0}
+.phrase-day .fr{color:var(--muted);font-size:14px;margin:2px 0 0}
+.mini-speak{background:none;border:0;color:var(--sky);cursor:pointer;font-size:20px;padding:6px;border-radius:8px}
+.mini-speak:hover{background:rgba(46,134,171,.1)}
+
+/* progress / passport */
+.passport{display:flex;align-items:center;gap:14px;margin:8px 0 4px}
+.passport .track{flex:1;height:12px;border-radius:999px;background:rgba(22,50,79,.1);overflow:hidden;border:1px solid var(--line)}
+.passport .fill{height:100%;background:linear-gradient(90deg,var(--mint),var(--sky));width:0;transition:width .6s ease}
+.passport .count{font-family:var(--mono);font-size:12px;color:var(--muted);white-space:nowrap}
+
+/* module list */
+.modules{display:grid;gap:14px;margin-top:14px}
+.module{
+  position:relative;display:flex;gap:14px;align-items:flex-start;text-align:left;width:100%;
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:16px 16px 16px 18px;cursor:pointer;box-shadow:var(--shadow-sm);
+  transition:transform .12s ease,border-color .12s ease
+}
+.module:hover{transform:translateY(-2px);border-color:var(--sky)}
+.module .num{
+  flex:0 0 auto;width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-size:22px;
+  background:linear-gradient(160deg,#eaf2f6,#dbe8ef);border:1px solid var(--line)
+}
+.module .body{flex:1;min-width:0}
+.module .tag{font-family:var(--mono);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--sky)}
+.module h3{margin:2px 0 2px;font-size:18px}
+.module p{margin:0;color:var(--muted);font-size:13.5px}
+.module .go{align-self:center;color:var(--muted);font-size:22px;flex:0 0 auto}
+.module.done{border-color:rgba(23,184,144,.5)}
+.module.done .num{background:linear-gradient(160deg,#d9f5ec,#c5efe1);color:var(--mint)}
+.done-stamp{
+  position:absolute;top:8px;right:10px;font-family:var(--mono);font-size:10px;letter-spacing:1px;
+  color:var(--mint);border:1.5px solid var(--mint);border-radius:6px;padding:2px 6px;transform:rotate(6deg);
+  text-transform:uppercase
+}
+
+/* route chips (home) */
+.routes{display:grid;gap:12px;margin-top:14px}
+.route-card{display:flex;gap:12px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px;box-shadow:var(--shadow-sm)}
+.route-card .ic{width:40px;height:40px;border-radius:10px;display:grid;place-items:center;font-size:20px;background:rgba(46,134,171,.12);flex:0 0 auto}
+.route-card b{display:block;font-size:15px;color:var(--ink)}
+.route-card small{color:var(--muted)}
+
+/* ---------- Quiz ---------- */
+.quiz-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:6px}
+.quiz-progress{font-family:var(--mono);font-size:12px;color:var(--muted);letter-spacing:1px}
+.qbar{height:8px;border-radius:999px;background:rgba(22,50,79,.1);overflow:hidden;margin:6px 0 18px}
+.qbar > i{display:block;height:100%;background:linear-gradient(90deg,var(--sun),var(--coral));width:0;transition:width .3s ease}
+.question{font-family:var(--display);font-weight:600;font-size:22px;color:var(--ink);margin:4px 0 16px}
+.question .hint{display:block;font-family:var(--body);font-size:13px;color:var(--muted);font-weight:400;margin-top:6px}
+.options{display:grid;gap:10px}
+.opt{
+  display:flex;align-items:center;gap:12px;width:100%;text-align:left;cursor:pointer;
+  background:var(--card);border:1.5px solid var(--line);border-radius:14px;padding:14px 16px;font-size:16px;color:var(--text);
+  transition:border-color .12s ease,background .12s ease
+}
+.opt:hover{border-color:var(--sky)}
+.opt .key{font-family:var(--mono);font-size:12px;color:var(--muted);border:1px solid var(--line);border-radius:6px;width:24px;height:24px;display:grid;place-items:center;flex:0 0 auto}
+.opt.correct{border-color:var(--mint);background:rgba(23,184,144,.1)}
+.opt.wrong{border-color:var(--coral);background:rgba(255,107,92,.1)}
+.opt[disabled]{cursor:default}
+.explain{margin-top:14px;padding:12px 14px;border-radius:12px;background:rgba(46,134,171,.08);border:1px solid rgba(46,134,171,.2);font-size:14px;display:none}
+.explain.show{display:block}
+.explain b{color:var(--ink)}
+
+/* ---------- Lesson ---------- */
+.back{display:inline-flex;align-items:center;gap:6px;background:none;border:0;color:var(--sky);cursor:pointer;font-weight:600;font-size:14px;padding:8px 0;margin-bottom:4px}
+.lesson-hero{display:flex;gap:14px;align-items:center;margin-bottom:6px}
+.lesson-hero .big{width:56px;height:56px;border-radius:16px;display:grid;place-items:center;font-size:28px;background:linear-gradient(160deg,var(--ink),var(--ink-2));color:var(--sun);box-shadow:var(--shadow-sm);flex:0 0 auto}
+.vocab{display:grid;gap:8px;margin:8px 0 4px}
+.vrow{display:flex;gap:12px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:11px 12px}
+.vrow .vtext{flex:1;min-width:0}
+.vrow .en{font-weight:700;color:var(--ink);font-size:16px}
+.vrow .ph{font-family:var(--mono);font-size:11px;color:var(--sky);letter-spacing:.3px;margin-left:8px;white-space:nowrap}
+.vrow .fr{display:block;color:var(--muted);font-size:14px;margin-top:2px}
+.vrow .speak{flex:0 0 auto;background:rgba(46,134,171,.1);border:0;color:var(--sky);width:44px;height:44px;border-radius:10px;cursor:pointer;font-size:18px}
+.vrow .speak:hover{background:rgba(46,134,171,.2)}
+.grammar{background:linear-gradient(160deg,#fff,#fbfdff);border:1px solid var(--line);border-left:4px solid var(--sun);border-radius:14px;padding:16px;margin:14px 0}
+.grammar h3{margin-top:0}
+.grammar .eg{font-family:var(--mono);font-size:13px;background:rgba(22,50,79,.05);border-radius:8px;padding:8px 10px;margin:8px 0;color:var(--ink)}
+.grammar .eg .en{color:var(--ink);font-weight:700}
+.grammar .eg .fr{color:var(--muted)}
+.videowrap{position:relative;padding-top:56.25%;border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow-sm);margin:8px 0 4px;background:#0b2238}
+.videowrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.note-safe{font-size:13px;color:var(--muted);background:rgba(255,193,69,.14);border:1px solid rgba(255,193,69,.4);border-radius:12px;padding:12px 14px;margin:10px 0}
+.finish{background:linear-gradient(160deg,var(--ink),var(--ink-2));color:#eaf1f6;border-radius:16px;padding:18px;margin:18px 0 6px}
+.finish h3{color:#fff}
+.finish p{color:#c9dbe8;margin-bottom:12px}
+
+/* toast */
+.toast{
+  position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(120%);
+  background:var(--ink);color:#fff;padding:14px 18px;border-radius:14px;box-shadow:var(--shadow);
+  z-index:60;max-width:340px;width:calc(100% - 32px);font-size:14px;transition:transform .35s cubic-bezier(.2,.9,.3,1.2)
+}
+.toast.show{transform:translateX(-50%) translateY(0)}
+.toast .close{background:none;border:0;color:var(--sun);float:right;cursor:pointer;font-weight:700;margin-left:10px}
+
+/* love footer */
+footer{max-width:var(--maxw);margin:0 auto;padding:24px 16px 40px;color:var(--muted);font-size:13px;text-align:center;border-top:1px solid var(--line);margin-top:30px}
+footer .heart{color:var(--coral)}
+footer .priv{margin-top:10px;font-size:12px}
+
+@media (min-width:560px){
+  .pass-route .code{font-size:40px}
+}
+
+/* ============ Ludique / vivant ============ */
+/* Cartes de module colorées (accent par module) */
+.module{--accent:#2E86AB;border-left:5px solid var(--accent)}
+.module:hover{transform:translateY(-3px) scale(1.008);border-color:var(--accent);box-shadow:0 10px 24px -12px var(--accent)}
+.module .num{
+  background:linear-gradient(160deg, color-mix(in srgb,var(--accent) 22%,#fff), color-mix(in srgb,var(--accent) 8%,#fff));
+  border-color:color-mix(in srgb,var(--accent) 30%,#fff);
+  box-shadow:0 6px 14px -8px var(--accent)
+}
+.module .tag{color:var(--accent)}
+.module.done{--accent:#17B890}
+.module.done .num{background:linear-gradient(160deg,#d9f5ec,#c5efe1)}
+.done-stamp{animation:pop .4s cubic-bezier(.2,1.4,.4,1) both}
+@keyframes pop{0%{transform:rotate(6deg) scale(.4);opacity:0}70%{transform:rotate(6deg) scale(1.12)}100%{transform:rotate(6deg) scale(1);opacity:1}}
+
+/* Puces d'icônes colorées pour chaque mot de vocabulaire */
+.vocab{gap:10px}
+.vrow{--accent:#2E86AB;position:relative;border-left:4px solid var(--accent);transition:transform .12s ease,box-shadow .12s ease}
+.vrow:hover{transform:translateX(3px);box-shadow:0 8px 18px -12px var(--accent)}
+.vicon{
+  flex:0 0 auto;width:44px;height:44px;border-radius:13px;display:grid;place-items:center;font-size:23px;
+  background:color-mix(in srgb,var(--accent) 14%,#fff);
+  border:1px solid color-mix(in srgb,var(--accent) 26%,#fff)
+}
+.vrow .speak{background:color-mix(in srgb,var(--accent) 14%,#fff);color:var(--accent)}
+.vrow .speak:hover{background:color-mix(in srgb,var(--accent) 26%,#fff)}
+.vrow .speak.playing{animation:pulse .6s ease infinite}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.18)}}
+.vrow .ph{color:var(--accent)}
+
+/* En-tête de leçon coloré */
+.lesson-hero .big{background:linear-gradient(160deg,var(--accent,#16324F), color-mix(in srgb,var(--accent,#16324F) 60%,#0B2238));color:#fff}
+h2.sec{display:flex;align-items:center;gap:9px}
+h2.sec .dot{width:10px;height:10px;border-radius:50%;background:var(--accent,#2E86AB);box-shadow:0 0 0 4px color-mix(in srgb,var(--accent,#2E86AB) 18%,#fff)}
+
+/* Entrée en fondu des cartes */
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.vrow,.module{animation:fadeUp .3s ease both}
+
+/* Confettis */
+.confetti-wrap{position:fixed;inset:0;pointer-events:none;z-index:80;overflow:hidden}
+.confetti{position:absolute;top:-12px;width:10px;height:14px;border-radius:2px;will-change:transform,opacity;animation:fall linear forwards}
+@keyframes fall{0%{transform:translateY(-10px) rotate(0);opacity:1}100%{transform:translateY(105vh) rotate(720deg);opacity:.9}}
+
+/* Bouton flottant "écouter tout" */
+.playall{display:inline-flex;align-items:center;gap:8px;background:color-mix(in srgb,var(--accent,#2E86AB) 12%,#fff);border:1px solid color-mix(in srgb,var(--accent,#2E86AB) 26%,#fff);color:var(--accent,#2E86AB);border-radius:999px;padding:9px 16px;font-weight:700;font-size:14px;cursor:pointer;margin:4px 0 2px}
+.playall:hover{background:color-mix(in srgb,var(--accent,#2E86AB) 20%,#fff)}
+
+@media (prefers-reduced-motion:reduce){
+  *{animation:none !important;transition:none !important}
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-in">
+    <button class="brand" onclick="go('accueil')" aria-label="Retour à l'accueil">
+      <span class="plane" aria-hidden="true">✈</span>
+      <span>
+        <b>Nathalie is the best</b>
+        <span>English for travel</span>
+      </span>
+    </button>
+    <span class="spacer"></span>
+    <button id="installBtn" class="btn-install" aria-label="Installer l'application">⬇ Installer l'app</button>
+  </div>
+</header>
+
+<main>
+
+  <!-- ============ ACCUEIL ============ -->
+  <section id="view-accueil" class="view active" aria-labelledby="home-h1">
+    <div class="pass">
+      <div class="pass-top">
+        <div class="pass-airline"><span aria-hidden="true">✈</span> Nathalie Airlines · Boarding</div>
+        <div class="pass-route">
+          <div>
+            <div class="code">FR</div>
+            <div class="from-to">Français</div>
+          </div>
+          <div class="arrow" aria-hidden="true"></div>
+          <div style="text-align:right">
+            <div class="code">EN</div>
+            <div class="from-to">English</div>
+          </div>
+        </div>
+        <div class="pass-fields">
+          <div class="f"><label>Passenger</label><b>NATHALIE</b></div>
+          <div class="f"><label>Destination</label><b>Confidence 🌍</b></div>
+          <div class="f"><label>Seat</label><b>1A · Best</b></div>
+        </div>
+      </div>
+      <div class="perf" aria-hidden="true"></div>
+      <div class="pass-bot">
+        <p class="eyebrow" id="home-h1">Ton anglais pour voyager</p>
+        <h1>Prête à décoller,<br>Nathalie&nbsp;?</h1>
+        <p class="lead">Un petit test pour voir où tu en es, puis un programme sur mesure — grammaire et vocabulaire — avec des leçons simples et des vidéos. Pas de stress&nbsp;: on avance à ton rythme. ✈️</p>
+        <div class="btn-row">
+          <button class="btn btn-primary" onclick="startTest()">Faire mon test de niveau</button>
+          <button class="btn btn-ghost" onclick="go('programme')">Voir mon programme</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="phrase-day card" aria-label="Phrase du jour">
+      <div class="stamp" aria-hidden="true">💬</div>
+      <div style="flex:1;min-width:0">
+        <p class="en" id="pd-en">Hello, how are you?</p>
+        <p class="fr" id="pd-fr">Bonjour, comment ça va ?</p>
+      </div>
+      <button class="mini-speak" title="Écouter" aria-label="Écouter la phrase" onclick="speakEl('pd-en')">🔊</button>
+    </div>
+    <div class="btn-row" style="margin-top:10px">
+      <button class="btn btn-sun" onclick="newPhrase()" style="font-size:13px;padding:9px 14px">↻ Une autre phrase</button>
+    </div>
+
+    <h2>Ton itinéraire</h2>
+    <p class="lead" style="margin-bottom:2px">Huit escales utiles pour un vrai voyage. Tu peux commencer par le début, ou par ce dont tu as besoin.</p>
+    <div class="routes">
+      <div class="route-card">
+        <div class="ic" aria-hidden="true">🧭</div>
+        <div><b>1. Commence par le test</b><small>Il choisit par où démarrer pour toi.</small></div>
+      </div>
+      <div class="route-card">
+        <div class="ic" aria-hidden="true">📚</div>
+        <div><b>2. Suis ton programme</b><small>Vocabulaire + grammaire, une escale à la fois.</small></div>
+      </div>
+      <div class="route-card">
+        <div class="ic" aria-hidden="true">🎥</div>
+        <div><b>3. Regarde, écoute, répète</b><small>Une vidéo dans chaque leçon pour l'oreille.</small></div>
+      </div>
+    </div>
+    <div class="btn-row" style="margin-top:16px">
+      <button class="btn btn-primary btn-block" onclick="go('programme')">Ouvrir mon programme →</button>
+    </div>
+  </section>
+
+  <!-- ============ TEST ============ -->
+  <section id="view-test" class="view" aria-labelledby="test-h">
+    <button class="back" onclick="go('accueil')">← Accueil</button>
+    <div class="quiz-head">
+      <p class="eyebrow" id="test-h" style="margin:0">Test de niveau</p>
+      <span class="quiz-progress" id="q-progress">1 / 12</span>
+    </div>
+    <div class="qbar"><i id="q-fill"></i></div>
+    <div id="q-container"></div>
+  </section>
+
+  <!-- ============ RÉSULTAT ============ -->
+  <section id="view-resultat" class="view" aria-labelledby="res-h">
+    <div class="pass">
+      <div class="pass-top">
+        <div class="pass-airline"><span aria-hidden="true">🎫</span> Ton billet personnel</div>
+        <div class="pass-fields" style="margin-top:12px">
+          <div class="f"><label>Passenger</label><b>NATHALIE</b></div>
+          <div class="f"><label>Score</label><b id="res-score">—</b></div>
+          <div class="f"><label>Niveau</label><b id="res-level">—</b></div>
+        </div>
+      </div>
+      <div class="perf" aria-hidden="true"></div>
+      <div class="pass-bot">
+        <p class="eyebrow" id="res-h">Embarquement immédiat</p>
+        <h1 id="res-title">Bravo !</h1>
+        <p class="lead" id="res-text"></p>
+        <h3 style="margin-top:6px">On commence par ici :</h3>
+        <div id="res-reco" class="modules" style="margin-top:10px"></div>
+        <div class="btn-row" style="margin-top:14px">
+          <button class="btn btn-primary btn-block" onclick="go('programme')">Voir tout mon programme →</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROGRAMME ============ -->
+  <section id="view-programme" class="view" aria-labelledby="prog-h">
+    <button class="back" onclick="go('accueil')">← Accueil</button>
+    <p class="eyebrow" id="prog-h">Ton programme</p>
+    <h1>Mes escales</h1>
+    <div class="passport">
+      <div class="track"><div class="fill" id="prog-fill"></div></div>
+      <span class="count" id="prog-count">0 / 8 tampons</span>
+    </div>
+    <p class="lead" id="prog-tip" style="margin-top:10px">Chaque escale terminée te donne un tampon dans ton passeport. 🛂</p>
+    <div id="module-list" class="modules"></div>
+    <div class="btn-row" style="margin-top:16px">
+      <button class="btn btn-ghost" onclick="startTest()">↻ Refaire le test de niveau</button>
+    </div>
+  </section>
+
+  <!-- ============ LEÇON ============ -->
+  <section id="view-lecon" class="view" aria-labelledby="lesson-h">
+    <button class="back" onclick="go('programme')">← Mon programme</button>
+    <div id="lesson-body"></div>
+  </section>
+
+</main>
+
+<footer>
+  <p>Fait avec <span class="heart" aria-hidden="true">❤</span> pour Nathalie — parce que tu es <b>the best</b>, et que le monde t'attend.</p>
+  <p class="priv">🔒 Ta progression reste sur ce téléphone, dans ton navigateur. Rien n'est envoyé ailleurs. Les vidéos s'ouvrent depuis YouTube et ont besoin d'internet.</p>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* =========================================================
+   Données
+   ========================================================= */
+const PHRASES = [
+  ["Hello, how are you?","Bonjour, comment ça va ?"],
+  ["I would like a coffee, please.","Je voudrais un café, s'il te plaît."],
+  ["Where is the station?","Où est la gare ?"],
+  ["Can I have the bill, please?","Puis-je avoir l'addition, s'il te plaît ?"],
+  ["I don't understand. Can you repeat?","Je ne comprends pas. Pouvez-vous répéter ?"],
+  ["Nice to meet you!","Enchantée !"],
+  ["I have a reservation.","J'ai une réservation."],
+  ["Turn left at the corner.","Tournez à gauche au coin."],
+  ["How much is this?","Combien ça coûte ?"],
+  ["I'm from France, on holiday.","Je viens de France, en vacances."]
+];
+
+const DIAGNOSTIC = [
+  { q:'« Bonjour, comment ça va ? »', hint:'Hello, how ___ you?',
+    o:['am','are','is'], a:1, e:'Avec « you », on utilise <b>are</b> : “How <b>are</b> you?”' },
+  { q:'Complète : je viens de France.', hint:'I ___ from France.',
+    o:['am','is','are'], a:0, e:'Avec « I », on utilise <b>am</b> : “I <b>am</b> from France.”' },
+  { q:'« merci » en anglais, c\'est…', hint:'',
+    o:['please','thank you','sorry'], a:1, e:'<b>Thank you</b> = merci. <i>Please</i> = s\'il vous plaît.' },
+  { q:'On compte : one, two, …', hint:'Choisis la bonne orthographe.',
+    o:['tree','three','free'], a:1, e:'<b>Three</b> = trois. (« tree » = un arbre !)' },
+  { q:'« Où sont les toilettes ? »', hint:'Where ___ the toilets?',
+    o:['is','are','be'], a:1, e:'« toilets » est pluriel → <b>are</b>.' },
+  { q:'L\'endroit d\'où décollent les avions :', hint:'',
+    o:['station','airport','harbour'], a:1, e:'<b>Airport</b> = aéroport. Station = gare, harbour = port.' },
+  { q:'Pour commander poliment :', hint:'I ___ like a coffee, please.',
+    o:['want','would','will'], a:1, e:'“I <b>would</b> like…” (souvent “I’d like”) = je voudrais. Très poli.' },
+  { q:'« à gauche » se dit :', hint:'',
+    o:['right','left','straight'], a:1, e:'<b>Left</b> = gauche. Right = droite, straight = tout droit.' },
+  { q:'Demander poliment l\'addition :', hint:'___ I have the bill, please?',
+    o:['Am','Could','Do'], a:1, e:'“<b>Could</b> I have…?” ou “Can I have…?” = puis-je avoir…' },
+  { q:'Le bon article :', hint:'I need ___ apple.',
+    o:['a','an','the'], a:1, e:'Devant un son voyelle (a-e-i-o-u), on met <b>an</b> : an apple.' },
+  { q:'Au passé :', hint:'Yesterday, I ___ to London.',
+    o:['go','goed','went'], a:2, e:'Le passé de « go » est irrégulier : <b>went</b>.' },
+  { q:'« Turn right at the traffic lights » veut dire :', hint:'',
+    o:['Tourne à gauche aux feux','Tourne à droite aux feux','Va tout droit'], a:1,
+    e:'Turn <b>right</b> = tourne à droite ; traffic lights = les feux.' }
+];
+
+const MODULES = [
+  {
+    id:"bases", emoji:"👋", tag:"Escale 1", title:"Bonjour & se présenter", color:"#FF6B5C",
+    subtitle:"Les tout premiers mots pour dire bonjour, merci, et te présenter.",
+    intro:"On commence par le plus important : dire bonjour, être polie, et te présenter. Avec ça, tu peux déjà sourire à tout le monde. 😊",
+    vocab:[
+      ["Hello","hè-lo","Bonjour / salut","👋"],
+      ["Hi!","haï","Salut !","🙋"],
+      ["Good morning","goud mor-ninng","Bonjour (le matin)","🌅"],
+      ["Good afternoon","goud af-teur-noune","Bonjour (l'après-midi)","☀️"],
+      ["Good evening","goud iiv-ninng","Bonsoir","🌆"],
+      ["Goodbye / Bye","goud-baï / baï","Au revoir","👋"],
+      ["Please","pliiz","S'il te plaît","🙏"],
+      ["Thank you","sank-you","Merci","😊"],
+      ["Thank you very much","sank-you vé-ri meutch","Merci beaucoup","💛"],
+      ["You're welcome","yor wèl-keum","De rien","🤗"],
+      ["Yes / No","yèss / nô","Oui / Non","✅"],
+      ["Sorry","so-ri","Désolée / Pardon","😔"],
+      ["Excuse me","ik-skiouz mi","Excusez-moi","🙋"],
+      ["My name is Nathalie.","maï néïm iz","Je m'appelle Nathalie.","📛"],
+      ["What's your name?","wots yor néïm","Comment tu t'appelles ?","❓"],
+      ["Nice to meet you!","naïss tou miit you","Enchantée !","🤝"],
+      ["How are you?","ha-o ar you","Comment ça va ?","🙂"],
+      ["I'm fine, thanks.","aïm faïn sanks","Ça va, merci.","😌"],
+      ["And you?","annd you","Et toi ?","🔄"],
+      ["Mr / Mrs / Miss","mis-teur / mi-siz / miss","Monsieur / Madame / Mademoiselle","🎩"],
+      ["I don't understand.","aï dônt eune-deur-stannd","Je ne comprends pas.","🤔"],
+      ["I'm French.","aïm frèntch","Je suis française.","🇫🇷"],
+      ["Do you speak French?","dou you spiik frèntch","Parlez-vous français ?","💬"],
+      ["A little.","a li-teul","Un peu.","🤏"],
+      ["Of course!","ov cors","Bien sûr !","👍"],
+      ["No problem.","nô pro-bleum","Pas de problème.","😎"],
+      ["Welcome!","wèl-keum","Bienvenue !","🎉"],
+      ["See you soon!","sii you soune","À bientôt !","👋"],
+      ["Have a good trip!","hav a goud trip","Bon voyage !","✈️"],
+      ["Cheers!","tchi-eurz","Santé ! / Merci (informel)","🥂"],
+    ],
+    grammar:{
+      title:"Le verbe « to be » (être)",
+      html:"C'est LE verbe de base. Il change selon la personne :",
+      egs:[["I am / I'm","je suis"],["You are / You're","tu es / vous êtes"],["He / She is","il / elle est"]],
+      after:"Astuce : à l'oral on dit souvent la forme courte : <b>I'm</b> Nathalie, <b>you're</b> nice."
+    },
+    practice:[
+      { q:"Comment dire « je suis Nathalie » ?", o:["I is Nathalie","I am Nathalie","I are Nathalie"], a:1 },
+      { q:"On répond « merci » :", o:["Please","Thank you","Sorry"], a:1 },
+      { q:"« Enchantée ! » se dit :", o:["Nice to meet you!","See you!","No problem"], a:0 },
+    ],
+    video:{ id:"fI8EsEXS59w", title:"Basic English greetings (débutant)" }
+  },
+  {
+    id:"aeroport", emoji:"🛫", tag:"Escale 2", title:"À l'aéroport & dans l'avion", color:"#2E86AB",
+    subtitle:"Enregistrement, porte d'embarquement, bagages : passe l'aéroport sereinement.",
+    intro:"L'aéroport peut stresser. Avec ces mots, tu comprends les panneaux et tu réponds au comptoir sans paniquer. ✈️",
+    vocab:[
+      ["The airport","ze èr-port","L'aéroport","🛫"],
+      ["Passport","pass-port","Passeport","🛂"],
+      ["Boarding pass","bor-dinng pass","Carte d'embarquement","🎫"],
+      ["The ticket","ze ti-kit","Le billet","🎟️"],
+      ["Flight","flaïte","Vol","✈️"],
+      ["Gate","guéïte","Porte (d'embarquement)","🚪"],
+      ["Check-in desk","tchèk-inn dèsk","Comptoir d'enregistrement","🧳"],
+      ["Luggage / suitcase","leu-guidj / soute-kéïss","Bagages / valise","🧳"],
+      ["Hand luggage","hannd leu-guidj","Bagage à main","🎒"],
+      ["Departure","di-par-tcheur","Départ","🛫"],
+      ["Arrival","a-raï-veul","Arrivée","🛬"],
+      ["Delayed","di-léïd","Retardé","⏳"],
+      ["Cancelled","kann-seuld","Annulé","❌"],
+      ["On time","onn taïm","À l'heure","⏰"],
+      ["Security","si-kiou-ri-ti","Contrôle de sécurité","👮"],
+      ["Passport control","pass-port kon-trôl","Contrôle des passeports","🛂"],
+      ["Baggage claim","ba-guidj kléïm","Récupération des bagages","🧳"],
+      ["A window seat","a ouine-dow siit","Une place côté fenêtre","🪟"],
+      ["An aisle seat","ann aïl siit","Une place côté couloir","💺"],
+      ["The seat belt","ze siit bèlt","La ceinture","🔒"],
+      ["Take off / Landing","téïk of / lann-dinng","Décollage / Atterrissage","🛫"],
+      ["The pilot","ze paï-leut","Le pilote","👨‍✈️"],
+      ["Cabin crew","ka-bine crou","Personnel de bord","🧑‍✈️"],
+      ["A connection","a con-nèk-cheune","Une correspondance","🔁"],
+      ["Boarding time","bor-dinng taïm","Heure d'embarquement","🕐"],
+      ["Where is the gate?","wère iz ze guéïte","Où est la porte ?","❓"],
+      ["Is the flight on time?","iz ze flaïte onn taïm","Le vol est à l'heure ?","❓"],
+      ["I have a connection.","aï hav a con-nèk-cheune","J'ai une correspondance.","🔁"],
+      ["Excess baggage","èk-sèss ba-guidj","Excédent de bagages","⚖️"],
+      ["Have a good flight!","hav a goud flaïte","Bon vol !","✈️"],
+    ],
+    grammar:{
+      title:"Poser une question : « Where is…? »",
+      html:"Pour demander où se trouve quelque chose :",
+      egs:[["Where is gate 12?","Où est la porte 12 ?"],["Where is my luggage?","Où sont mes bagages ?"],["Where are the toilets?","Où sont les toilettes ?"]],
+      after:"Un seul objet → <b>Where is</b>. Plusieurs → <b>Where are</b>."
+    },
+    practice:[
+      { q:"« Où est la porte 5 ? »", o:["Where is gate 5?","Where gate 5?","Gate 5 where?"], a:0 },
+      { q:"Une carte d'embarquement se dit :", o:["a ticket seat","a boarding pass","a fly card"], a:1 },
+      { q:"« Retardé » se dit :", o:["On time","Delayed","Arrival"], a:1 },
+    ],
+    video:{ id:"_h3Ln40y8qY", title:"Airport English — phrases à répéter" }
+  },
+  {
+    id:"hotel", emoji:"🏨", tag:"Escale 3", title:"À l'hôtel", color:"#7C5CFF",
+    subtitle:"Arriver, prendre ta clé, demander le petit-déjeuner et le Wi-Fi.",
+    intro:"Tu arrives fatiguée à l'hôtel : voici comment dire ton nom, récupérer ta chambre et demander l'essentiel. 🛎️",
+    vocab:[
+      ["A reservation","ré-zer-véï-cheune","Une réservation","📋"],
+      ["A room","a roum","Une chambre","🛏️"],
+      ["Single / Double room","sinng-geul / deu-beul roum","Chambre simple / double","🛏️"],
+      ["A key","a kii","Une clé","🔑"],
+      ["Key card","kii card","Carte magnétique","💳"],
+      ["Check-in","tchèk-inn","Arrivée (enregistrement)","📥"],
+      ["Check-out","tchèk-aoute","Départ","📤"],
+      ["The reception","ze ri-sèp-cheune","La réception","🛎️"],
+      ["Breakfast","brèk-feust","Petit-déjeuner","🥐"],
+      ["The lift / elevator","ze lifte / è-le-véï-teur","L'ascenseur","🛗"],
+      ["A towel","a ta-oueul","Une serviette","🧻"],
+      ["Bed sheets","bèd chiits","Draps","🛏️"],
+      ["Air conditioning","èr con-di-cheu-ninng","Climatisation","❄️"],
+      ["Wi-Fi password","waï-faï pass-word","Mot de passe Wi-Fi","📶"],
+      ["The floor","ze flor","L'étage","🔢"],
+      ["Ground floor","gra-ound flor","Rez-de-chaussée","1️⃣"],
+      ["A shower","a cha-oueur","Une douche","🚿"],
+      ["Hot / Cold water","hot / côld wo-teur","Eau chaude / froide","🚰"],
+      ["Extra pillow","èks-tra pi-lô","Oreiller supplémentaire","🛌"],
+      ["Room service","roum seur-viss","Service en chambre","🍽️"],
+      ["A late check-out","a léïte tchèk-aoute","Départ tardif","🕐"],
+      ["The bill","ze bil","La note","🧾"],
+      ["Luggage storage","leu-guidj sto-ridj","Consigne à bagages","🧳"],
+      ["A quiet room","a kouaï-eut roum","Une chambre calme","🤫"],
+      ["The safe","ze séïf","Le coffre-fort","🔐"],
+      ["I have a reservation.","aï hav a ré-zer-véï-cheune","J'ai une réservation.","✅"],
+      ["Can I have the key?","kann aï hav ze kii","Puis-je avoir la clé ?","🔑"],
+      ["What time is breakfast?","wot taïm iz brèk-feust","Le petit-déj est à quelle heure ?","🕐"],
+      ["The room is too cold.","ze roum iz tou côld","La chambre est trop froide.","🥶"],
+      ["Enjoy your stay!","inn-djoï yor stéï","Bon séjour !","😊"],
+    ],
+    grammar:{
+      title:"Demander poliment : « Can I…? »",
+      html:"Pour demander quelque chose gentiment :",
+      egs:[["I have a reservation under Nathalie.","J'ai une réservation au nom de Nathalie."],["Can I have the key, please?","Puis-je avoir la clé ?"],["Can I have the Wi-Fi password?","Puis-je avoir le mot de passe Wi-Fi ?"]],
+      after:"« <b>Can I have…?</b> » = puis-je avoir… C'est magique, ça marche partout."
+    },
+    practice:[
+      { q:"« Puis-je avoir la clé ? »", o:["I want key","Can I have the key, please?","Give me key"], a:1 },
+      { q:"Le petit-déjeuner se dit :", o:["breakfast","lunch","dinner"], a:0 },
+      { q:"« La chambre est trop froide » :", o:["The room is too cold","Room hot me","Cold the room"], a:0 },
+    ],
+    video:{ id:"1lJQlXvFVXI", title:"English for Travel — hôtel & aéroport" }
+  },
+  {
+    id:"resto", emoji:"🍽️", tag:"Escale 4", title:"Au restaurant", color:"#FF9F45",
+    subtitle:"Une table, commander, dire ce que tu aimes, demander l'addition.",
+    intro:"Le plaisir du voyage ! Voici comment commander poliment et demander l'addition sans gêne. 🍷",
+    vocab:[
+      ["A table for two, please.","a téï-beul for tou","Une table pour deux, s'il te plaît.","🍽️"],
+      ["The menu","ze mè-niou","La carte","📜"],
+      ["The waiter / waitress","ze wéï-teur / wéï-tress","Le serveur / la serveuse","🧑‍🍳"],
+      ["Still water","stil wo-teur","Eau plate","💧"],
+      ["Sparkling water","spar-klinng wo-teur","Eau gazeuse","🫧"],
+      ["A starter","a star-teur","Une entrée","🥗"],
+      ["The main course","ze méïn cors","Le plat principal","🍲"],
+      ["A dessert","a di-zeurt","Un dessert","🍰"],
+      ["The dish of the day","ze dich ov ze déï","Le plat du jour","🍛"],
+      ["I'm vegetarian.","aïm védj-i-té-rieune","Je suis végétarienne.","🥦"],
+      ["I'm allergic to…","aïm a-leur-djik tou","Je suis allergique à…","⚠️"],
+      ["Chicken / Beef / Fish","tchi-kine / biif / fich","Poulet / Bœuf / Poisson","🍗"],
+      ["Bread","brèd","Pain","🍞"],
+      ["A glass of wine","a glass ov waïne","Un verre de vin","🍷"],
+      ["A coffee","a co-fi","Un café","☕"],
+      ["Delicious!","di-li-cheuss","Délicieux !","😋"],
+      ["The bill / the check","ze bil","L'addition","🧾"],
+      ["A tip","a tip","Un pourboire","💶"],
+      ["Enjoy your meal!","inn-djoï yor miil","Bon appétit !","🍴"],
+      ["I'd like…","aïd laïk","Je voudrais…","🙋"],
+      ["Could I have…?","koud aï hav","Pourrais-je avoir… ?","🙏"],
+      ["A little more, please.","a li-teul mor","Un peu plus, s'il te plaît.","➕"],
+      ["That's enough, thanks.","dats i-neuf","Ça suffit, merci.","🛑"],
+      ["Is it spicy?","iz it spaï-si","C'est épicé ?","🌶️"],
+      ["Cheers!","tchi-eurz","Santé !","🥂"],
+      ["The toilets","ze toï-lèts","Les toilettes","🚻"],
+      ["To take away","tou téïk a-wéï","À emporter","🥡"],
+      ["A reservation","a ré-zer-véï-cheune","Une réservation","📋"],
+      ["Can we pay separately?","kann wi pèï sè-pra-tli","On peut payer séparément ?","💳"],
+      ["It was lovely!","it woz leuv-li","C'était très bon !","💛"],
+    ],
+    grammar:{
+      title:"Commander : « I'd like… »",
+      html:"« I'd like » (= I would like) = je voudrais. La façon la plus polie de commander :",
+      egs:[["I'd like the chicken, please.","Je voudrais le poulet, s'il te plaît."],["Can we have the bill, please?","Pouvons-nous avoir l'addition ?"],["Could I have some water?","Pourrais-je avoir de l'eau ?"]],
+      after:"Évite « I want » (un peu brusque). Préfère <b>I'd like</b> ou <b>Could I have…</b>"
+    },
+    practice:[
+      { q:"La façon la plus polie de commander :", o:["I want chicken","I'd like the chicken, please","Give chicken"], a:1 },
+      { q:"« L'addition » se dit :", o:["the menu","the bill","the tip"], a:1 },
+      { q:"« Je suis végétarienne » :", o:["I'm vegetarian","I no meat","Vegetables me"], a:0 },
+    ],
+    video:{ id:"9hUa6XQPCzg", title:"Order food in English — à répéter" }
+  },
+  {
+    id:"chemin", emoji:"🧭", tag:"Escale 5", title:"Demander son chemin", color:"#17B890",
+    subtitle:"Gauche, droite, tout droit : ne plus jamais être perdue.",
+    intro:"Perdue dans une ville ? Ces mots te sauvent. Demande, écoute les directions, et retrouve ton chemin. 🗺️",
+    vocab:[
+      ["Left","lèfte","Gauche","⬅️"],
+      ["Right","raïte","Droite","➡️"],
+      ["Straight ahead","stréïte a-hèd","Tout droit","⬆️"],
+      ["Turn left","teurn lèfte","Tourne à gauche","↩️"],
+      ["Turn right","teurn raïte","Tourne à droite","↪️"],
+      ["Near","niïeur","Près","📍"],
+      ["Far","far","Loin","🛣️"],
+      ["The corner","ze cor-neur","Le coin (de la rue)","📐"],
+      ["The traffic lights","ze tra-fik laïts","Les feux","🚦"],
+      ["The crossroads","ze cross-rôds","Le carrefour","➕"],
+      ["The map","ze map","Le plan","🗺️"],
+      ["The street","ze striit","La rue","🛣️"],
+      ["The square","ze skwère","La place","🟦"],
+      ["The station","ze stéï-cheune","La gare","🚉"],
+      ["The bus stop","ze beuss stop","L'arrêt de bus","🚏"],
+      ["The metro / subway","ze mè-trô","Le métro","🚇"],
+      ["It's over there.","its o-veur dère","C'est là-bas.","👉"],
+      ["Next to","nèkst tou","À côté de","🔗"],
+      ["Opposite","o-po-zit","En face de","↔️"],
+      ["Behind / In front of","bi-haïnd / in freunt ov","Derrière / Devant","🔀"],
+      ["How far is it?","ha-o far iz it","C'est loin ?","❓"],
+      ["How do I get to…?","ha-o dou aï guèt tou","Comment aller à… ?","🧭"],
+      ["Is it walking distance?","iz it wo-kinng dis-teunce","C'est près à pied ?","🚶"],
+      ["Five minutes away","faïv mi-nits a-wéï","À cinq minutes","⏱️"],
+      ["On foot","onn foute","À pied","🚶"],
+      ["By bus / by taxi","baï beuss / baï tak-si","En bus / en taxi","🚕"],
+      ["A ticket","a ti-kit","Un ticket","🎫"],
+      ["Excuse me, where is…?","ik-skiouz mi wère iz","Excusez-moi, où est… ?","🙋"],
+      ["Can you show me on the map?","kann you chô mi onn ze map","Montrez-moi sur le plan ?","🗺️"],
+      ["I'm lost.","aïm lost","Je suis perdue.","😅"],
+    ],
+    grammar:{
+      title:"Comprendre une direction",
+      html:"On te répond souvent avec un impératif (un ordre gentil) :",
+      egs:[["Go straight ahead.","Va tout droit."],["Turn left / turn right.","Tourne à gauche / à droite."],["Excuse me, where is the station?","Excusez-moi, où est la gare ?"]],
+      after:"Pour demander : <b>Excuse me, where is…?</b> puis écoute « left », « right », « straight »."
+    },
+    practice:[
+      { q:"« Tourne à droite » :", o:["Turn left","Turn right","Go back"], a:1 },
+      { q:"« Tout droit » se dit :", o:["straight ahead","over there","next to"], a:0 },
+      { q:"« Je suis perdue » :", o:["I'm lost","I'm far","I'm map"], a:0 },
+    ],
+    video:{ id:"AKn_D8V55DE", title:"Hotel check-in & asking directions" }
+  },
+  {
+    id:"courses", emoji:"🛍️", tag:"Escale 6", title:"Faire les courses & les nombres", color:"#E85D9E",
+    subtitle:"Les prix, payer, les tailles, et compter en anglais.",
+    intro:"Un souvenir, un vêtement, un ticket : voici comment demander le prix, payer et te débrouiller avec les chiffres. 💳",
+    vocab:[
+      ["How much is it?","ha-o meutch iz it","Combien ça coûte ?","💰"],
+      ["The price","ze praïss","Le prix","🏷️"],
+      ["Cheap","tchiip","Pas cher","🪙"],
+      ["Expensive","ik-spèn-siv","Cher","💸"],
+      ["Cash","kash","Espèces","💵"],
+      ["Card","card","Carte","💳"],
+      ["A receipt","a ri-siite","Un reçu","🧾"],
+      ["A bag","a bag","Un sac","🛍️"],
+      ["The size","ze saïze","La taille","📏"],
+      ["Too big","tou big","Trop grand","🔼"],
+      ["Too small","tou smol","Trop petit","🔽"],
+      ["Can I try it on?","kann aï traï it onn","Puis-je l'essayer ?","👗"],
+      ["The fitting room","ze fi-tinng roum","La cabine d'essayage","🚪"],
+      ["A discount / sale","a dis-ka-ount / séïl","Une réduction / soldes","🔖"],
+      ["Open / Closed","ô-peune / clôzd","Ouvert / Fermé","🚪"],
+      ["A supermarket","a sou-peur-mar-kit","Un supermarché","🛒"],
+      ["A market","a mar-kit","Un marché","🥕"],
+      ["Change (money)","tchéïndj","La monnaie","🪙"],
+      ["One / Two / Three","weune / tou / srii","Un / Deux / Trois","3️⃣"],
+      ["Ten","tèn","Dix","🔟"],
+      ["Twenty","touèn-ti","Vingt","2️⃣"],
+      ["Fifty","fif-ti","Cinquante","5️⃣"],
+      ["One hundred","weune heune-drèd","Cent","💯"],
+      ["Do you have this in blue?","dou you hav dis in blou","Vous l'avez en bleu ?","🔵"],
+      ["I'm just looking.","aïm djeust lou-kinng","Je regarde juste.","👀"],
+      ["I'll take it.","aïl téïk it","Je le prends.","✅"],
+      ["Can I pay by card?","kann aï pèï baï card","Puis-je payer par carte ?","💳"],
+      ["Where do I pay?","wère dou aï pèï","Où est-ce que je paie ?","💰"],
+      ["Keep the change.","kiip ze tchéïndj","Gardez la monnaie.","🙂"],
+      ["Anything else?","è-ni-sinng èls","Autre chose ?","➕"],
+    ],
+    grammar:{
+      title:"Demander le prix & payer",
+      html:"Deux phrases suffisent dans presque toutes les boutiques :",
+      egs:[["How much is this?","Combien coûte ceci ?"],["Can I pay by card?","Puis-je payer par carte ?"],["Can I have a receipt, please?","Puis-je avoir un reçu ?"]],
+      after:"« <b>How much…?</b> » pour le prix, « <b>Can I pay by card?</b> » pour payer. C'est réglé."
+    },
+    practice:[
+      { q:"« Combien ça coûte ? »", o:["How many is it?","How much is it?","What price you?"], a:1 },
+      { q:"Payer en espèces se dit :", o:["by card","in cash","a receipt"], a:1 },
+      { q:"« Je le prends » :", o:["I'll take it","I looking","Too big"], a:0 },
+    ],
+    video:{ id:"z6E7t29sg0Y", title:"27 mots de voyage (BBC Learning English)" }
+  },
+  {
+    id:"urgences", emoji:"🚑", tag:"Escale 7", title:"Urgences & santé", color:"#E5484D",
+    subtitle:"Les mots qui rassurent : demander de l'aide, un médecin, une pharmacie.",
+    intro:"On espère ne pas en avoir besoin — mais savoir demander de l'aide, c'est voyager tranquille. 🌿",
+    vocab:[
+      ["Help!","hèlp","Au secours !","🆘"],
+      ["I need a doctor.","aï niid a dok-teur","J'ai besoin d'un médecin.","👨‍⚕️"],
+      ["A pharmacy / chemist","a far-ma-si / kè-mist","Une pharmacie","💊"],
+      ["A hospital","a hos-pi-teul","Un hôpital","🏥"],
+      ["I'm sick.","aïm sik","Je suis malade.","🤒"],
+      ["It hurts here.","it heurts hi-eur","Ça fait mal ici.","😣"],
+      ["A headache","a hèd-éïk","Un mal de tête","🤕"],
+      ["A stomach ache","a steu-meuk éïk","Un mal de ventre","🤢"],
+      ["A fever","a fii-veur","De la fièvre","🌡️"],
+      ["Medicine","mèd-seune","Un médicament","💊"],
+      ["Is the pharmacy open?","iz ze far-ma-si ô-peune","La pharmacie est ouverte ?","❓"],
+      ["Call an ambulance!","col ann amm-biou-leunce","Appelez une ambulance !","🚑"],
+      ["The police","ze po-liss","La police","👮"],
+      ["A fire","a faï-eur","Un incendie","🔥"],
+      ["An accident","ann ak-si-deunt","Un accident","⚠️"],
+      ["I lost my passport.","aï lost maï pass-port","J'ai perdu mon passeport.","🛂"],
+      ["I lost my bag.","aï lost maï bag","J'ai perdu mon sac.","👜"],
+      ["Someone stole…","seum-weune stôl","On m'a volé…","🚨"],
+      ["I feel dizzy.","aï fiil di-zi","J'ai la tête qui tourne.","😵"],
+      ["Allergic","a-leur-djik","Allergique","⚠️"],
+      ["Painkillers","péïn-ki-leurz","Antidouleurs","💊"],
+      ["A plaster / bandage","a plas-teur / bann-didj","Un pansement","🩹"],
+      ["Insurance","in-chou-reunce","Assurance","📄"],
+      ["The embassy","ze èm-ba-si","L'ambassade","🏛️"],
+      ["Can you help me?","kann you hèlp mi","Pouvez-vous m'aider ?","🙏"],
+      ["It's an emergency.","its ann i-meur-djeun-si","C'est une urgence.","🚨"],
+      ["I need help now.","aï niid hèlp na-o","J'ai besoin d'aide maintenant.","❗"],
+      ["Where is the hospital?","wère iz ze hos-pi-teul","Où est l'hôpital ?","🏥"],
+      ["I don't feel well.","aï dônt fiil wèl","Je ne me sens pas bien.","😟"],
+      ["Thank you for your help.","sank-you for yor hèlp","Merci pour votre aide.","💛"],
+    ],
+    grammar:{
+      title:"Dire ce dont tu as besoin : « I need… »",
+      html:"« I need… » = j'ai besoin de… Simple et très efficace en cas de souci :",
+      egs:[["I need a doctor.","J'ai besoin d'un médecin."],["I need help, please.","J'ai besoin d'aide."],["There's a problem with my room.","Il y a un problème avec ma chambre."]],
+      after:"Numéros utiles : <b>112</b> en Europe, <b>999</b> au Royaume-Uni, <b>911</b> aux États-Unis / Canada."
+    },
+    practice:[
+      { q:"« J'ai besoin d'un médecin »", o:["I need a doctor","I want doctor now","Doctor me"], a:0 },
+      { q:"Une pharmacie se dit aussi :", o:["a hospital","a chemist","a clinic"], a:1 },
+      { q:"« C'est une urgence » :", o:["It's an emergency","It hurts you","A fever now"], a:0 },
+    ],
+    video:{ id:"WI8Uh3jfb9M", title:"Medical emergency — English conversation" }
+  },
+  {
+    id:"smalltalk", emoji:"💬", tag:"Escale 8", title:"Petites conversations", color:"#FFC145",
+    subtitle:"Bavarder gentiment, dire d'où tu viens, et te sortir des blancs.",
+    intro:"Le plus beau du voyage : les rencontres. Voici de quoi papoter, sourire, et t'en sortir quand tu ne comprends pas. 🌈",
+    vocab:[
+      ["Where are you from?","wère ar you from","Tu viens d'où ?","🌍"],
+      ["I'm from France.","aïm from franss","Je viens de France.","🇫🇷"],
+      ["I'm on holiday.","aïm onn o-li-déï","Je suis en vacances.","🏖️"],
+      ["I'm here for a week.","aïm hi-eur for a wiik","Je suis là pour une semaine.","📅"],
+      ["It's my first time here.","its maï feurst taïm hi-eur","C'est ma première fois ici.","⭐"],
+      ["It's beautiful here!","its biou-ti-foul hi-eur","C'est magnifique ici !","😍"],
+      ["I love it!","aï leuv it","J'adore !","💛"],
+      ["How are you?","ha-o ar you","Comment ça va ?","🙂"],
+      ["I'm fine, thanks.","aïm faïn sanks","Ça va, merci.","😌"],
+      ["And you?","annd you","Et toi ?","🔄"],
+      ["Nice weather today!","naïss wè-zeur tou-déï","Beau temps aujourd'hui !","☀️"],
+      ["What's your name?","wots yor néïm","Comment tu t'appelles ?","📛"],
+      ["How's it going?","ha-oz it gô-inng","Ça roule ?","👋"],
+      ["What do you do?","wot dou you dou","Tu fais quoi dans la vie ?","💼"],
+      ["Really?","riï-li","Ah bon ? / Vraiment ?","😮"],
+      ["That's great!","dats gréïte","C'est super !","🎉"],
+      ["Me too!","mi tou","Moi aussi !","🙌"],
+      ["I agree.","aï a-grii","Je suis d'accord.","👍"],
+      ["No worries.","nô weu-riz","Pas de souci.","😎"],
+      ["See you later!","sii you léï-teur","À plus tard !","👋"],
+      ["Have a nice day!","hav a naïss déï","Bonne journée !","🌞"],
+      ["Take care!","téïk kère","Prends soin de toi !","🤗"],
+      ["Sorry, can you repeat?","so-ri kann you ri-piit","Pardon, tu peux répéter ?","🔁"],
+      ["Can you speak slowly?","kann you spiik slô-li","Peux-tu parler lentement ?","🐢"],
+      ["I don't understand.","aï dônt eune-deur-stannd","Je ne comprends pas.","🤔"],
+      ["What does it mean?","wot deuz it miin","Ça veut dire quoi ?","❓"],
+      ["How do you say…?","ha-o dou you séï","Comment dit-on… ?","💬"],
+      ["Excuse me?","ik-skiouz mi","Pardon ? (je n'ai pas entendu)","👂"],
+      ["My English is not good.","maï inng-lich iz not goud","Mon anglais n'est pas bon.","😅"],
+      ["Thanks for your patience.","sanks for yor péï-cheunce","Merci pour ta patience.","🙏"],
+    ],
+    grammar:{
+      title:"Quand tu ne comprends pas",
+      html:"Le secret des voyageurs : deux phrases pour ne jamais rester bloquée.",
+      egs:[["Sorry, I don't understand.","Désolée, je ne comprends pas."],["Can you repeat, please?","Pouvez-vous répéter ?"],["Can you speak slowly, please?","Pouvez-vous parler lentement ?"]],
+      after:"Personne ne t'en voudra. Un sourire + « <b>Can you repeat, please?</b> » et ça repart. 😊"
+    },
+    practice:[
+      { q:"« Tu viens d'où ? »", o:["Where you go?","Where are you from?","Who are you?"], a:1 },
+      { q:"Quand tu n'as pas compris :", o:["Can you repeat, please?","Goodbye!","I'm fine"], a:0 },
+      { q:"« Moi aussi ! » se dit :", o:["Me too!","You also","Same you"], a:0 },
+    ],
+    video:{ id:"hBVequEEoAQ", title:"Greetings & conversation (débutant)" }
+  },
+  {
+    id:"amis", emoji:"🤝", tag:"Escale 9", title:"Se faire des amis", color:"#3BB2F6",
+    subtitle:"Briser la glace, papoter vraiment, proposer un verre et échanger ses contacts.",
+    intro:"Voyager, c'est aussi rencontrer des gens formidables. Voici tout pour lancer une vraie conversation, proposer quelque chose et rester en contact. 🤗",
+    vocab:[
+      ["What's your name?","wots yor néïm","Comment tu t'appelles ?","📛"],
+      ["This is my friend.","dis iz maï frènd","Voici mon ami(e).","👫"],
+      ["Can I join you?","kann aï djoïn you","Je peux me joindre à vous ?","🙋"],
+      ["Are you here alone?","ar you hi-eur a-lône","Tu es seul(e) ici ?","🧍"],
+      ["What do you like to do?","wot dou you laïk tou dou","Tu aimes faire quoi ?","🎨"],
+      ["I like music / travel.","aï laïk miou-zik / tra-veul","J'aime la musique / voyager.","🎵"],
+      ["Me too!","mi tou","Moi aussi !","🙌"],
+      ["What about you?","wot a-ba-out you","Et toi ?","🔄"],
+      ["That sounds fun!","dat sa-oundz feune","Ça a l'air sympa !","😄"],
+      ["Do you want to grab a drink?","dou you wont tou grab a drinnk","On va boire un verre ?","🍹"],
+      ["Let's get a coffee.","lèts guèt a co-fi","Allons prendre un café.","☕"],
+      ["Would you like to join us?","woud you laïk tou djoïn euss","Tu veux te joindre à nous ?","🎉"],
+      ["Where are you staying?","wère ar you stéï-inng","Tu loges où ?","🏨"],
+      ["How long are you here?","ha-o lonng ar you hi-eur","Tu restes combien de temps ?","📅"],
+      ["Do you have Instagram?","dou you hav ins-ta-gram","Tu as Instagram ?","📱"],
+      ["Let's stay in touch.","lèts stéï in teutch","Restons en contact.","🤝"],
+      ["What's your number?","wots yor neum-beur","C'est quoi ton numéro ?","📞"],
+      ["Add me!","add mi","Ajoute-moi !","➕"],
+      ["It was great to meet you.","it woz gréïte tou miit you","C'était super de te rencontrer.","😊"],
+      ["Let's meet tomorrow.","lèts miit tou-mo-rô","Retrouvons-nous demain.","📆"],
+      ["Are you free tonight?","ar you frii tou-naïte","Tu es libre ce soir ?","🌙"],
+      ["Sure, why not!","chour waï not","Bien sûr, pourquoi pas !","👍"],
+      ["Maybe another time.","méï-bi a-neu-zeur taïm","Une autre fois peut-être.","🙂"],
+      ["I had a great time.","aï had a gréïte taïm","J'ai passé un super moment.","🥳"],
+      ["You're so nice!","yor sô naïss","Tu es adorable !","💛"],
+      ["Cheers to that!","tchi-eurz tou dat","Trinquons à ça !","🥂"],
+      ["Same here!","séïm hi-eur","Pareil pour moi !","🤗"],
+      ["Let's take a photo!","lèts téïk a fô-tô","On prend une photo !","📸"],
+      ["Safe travels!","séïf tra-veulz","Bon voyage ! (à un ami)","✈️"],
+      ["Keep in touch!","kiip in teutch","On reste en contact !","💌"],
+    ],
+    grammar:{
+      title:"Proposer : « Let's… » et « Do you want to…? »",
+      html:"Deux façons simples et chaleureuses d'inviter quelqu'un :",
+      egs:[["Let's get a coffee!","Allons prendre un café !"],["Do you want to join us?","Tu veux te joindre à nous ?"],["Would you like a drink?","Tu voudrais boire quelque chose ?"]],
+      after:"« <b>Let's…</b> » = allons… (entre amis). « <b>Do you want to…?</b> » = tu veux… ? Chaleureux et jamais lourd. 😊"
+    },
+    practice:[
+      { q:"Pour proposer « allons prendre un café » :", o:["Let's get a coffee!","I get coffee","Coffee you go"], a:0 },
+      { q:"« Restons en contact » se dit :", o:["Goodbye forever","Let's stay in touch","Stay away"], a:1 },
+      { q:"« Tu es libre ce soir ? » :", o:["Are you free tonight?","You free money?","Tonight go you"], a:0 },
+    ],
+    video:{ id:"lLzxBcjbXBw", title:"Small Talk with a Friend (débutant)" }
+  },
+];
+
+/* =========================================================
+   État (sauvegardé sur l'appareil)
+   ========================================================= */
+const KEY='nathalie_en_v1';
+let state = load();
+function load(){
+  try{ return JSON.parse(localStorage.getItem(KEY)) || defaults(); }
+  catch(e){ return defaults(); }
+}
+function defaults(){ return { done:{}, score:null, level:null, phraseIdx:0 }; }
+function save(){ try{ localStorage.setItem(KEY, JSON.stringify(state)); }catch(e){} }
+
+/* =========================================================
+   Router
+   ========================================================= */
+function go(view){
+  document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
+  const el = document.getElementById('view-'+view);
+  if(el) el.classList.add('active');
+  window.scrollTo(0,0);
+  if(view==='programme') renderProgramme();
+  if(view==='accueil') renderPhrase();
+  history.replaceState(null,'','#'+view);
+}
+
+/* =========================================================
+   Phrase du jour
+   ========================================================= */
+function renderPhrase(){
+  const p = PHRASES[state.phraseIdx % PHRASES.length];
+  document.getElementById('pd-en').textContent = p[0];
+  document.getElementById('pd-fr').textContent = p[1];
+}
+function newPhrase(){
+  state.phraseIdx = (state.phraseIdx+1) % PHRASES.length; save(); renderPhrase();
+}
+
+/* =========================================================
+   Synthèse vocale (écouter l'anglais)
+   ========================================================= */
+let voices=[];
+function loadVoices(){ voices = window.speechSynthesis ? speechSynthesis.getVoices() : []; }
+if('speechSynthesis' in window){ loadVoices(); speechSynthesis.onvoiceschanged = loadVoices; }
+function pickVoice(){
+  if(!voices.length) loadVoices();
+  return voices.find(v=>/en-GB/i.test(v.lang)) ||
+         voices.find(v=>/en-US/i.test(v.lang)) ||
+         voices.find(v=>/^en/i.test(v.lang)) || null;
+}
+function speak(text, btn){
+  if(!('speechSynthesis' in window)){ toast('La lecture audio n\'est pas disponible sur ce navigateur.'); return; }
+  try{
+    speechSynthesis.cancel();
+    // Lire l'anglais en entier : « Yes / No » → « Yes, No » ; garde les deux variantes.
+    const clean = String(text)
+      .replace(/\s*[·/]\s*/g, ', ')
+      .replace(/\s*—\s*/g, ', ')
+      .replace(/…/g,'')
+      .trim();
+    const u = new SpeechSynthesisUtterance(clean || text);
+    const v = pickVoice(); if(v) u.voice=v;
+    u.lang = v ? v.lang : 'en-GB'; u.rate=0.88; u.pitch=1;
+    if(btn){
+      u.onstart=()=>btn.classList.add('playing');
+      u.onend=()=>btn.classList.remove('playing');
+      u.onerror=()=>btn.classList.remove('playing');
+    }
+    speechSynthesis.speak(u);
+  }catch(e){}
+}
+function speakEl(id){ speak(document.getElementById(id).textContent); }
+
+/* =========================================================
+   Test de niveau
+   ========================================================= */
+let qIndex=0, qScore=0;
+function startTest(){ qIndex=0; qScore=0; go('test'); renderQuestion(); }
+function renderQuestion(){
+  const item = DIAGNOSTIC[qIndex];
+  document.getElementById('q-progress').textContent = (qIndex+1)+' / '+DIAGNOSTIC.length;
+  document.getElementById('q-fill').style.width = ((qIndex)/DIAGNOSTIC.length*100)+'%';
+  const c = document.getElementById('q-container');
+  const keys=['A','B','C','D'];
+  c.innerHTML =
+    '<div class="question">'+item.q+(item.hint?'<span class="hint">'+item.hint+'</span>':'')+'</div>'+
+    '<div class="options">'+ item.o.map((op,i)=>
+      '<button class="opt" data-i="'+i+'"><span class="key">'+keys[i]+'</span><span>'+op+'</span></button>'
+    ).join('') +'</div>'+
+    '<div class="explain" id="explain"></div>'+
+    '<div class="btn-row" id="q-next" style="margin-top:16px;display:none">'+
+      '<button class="btn btn-primary btn-block" onclick="nextQuestion()">'+
+        (qIndex+1<DIAGNOSTIC.length?'Question suivante →':'Voir mon résultat 🎉')+
+      '</button></div>';
+  c.querySelectorAll('.opt').forEach(btn=>btn.addEventListener('click',()=>answer(btn)));
+}
+function answer(btn){
+  const item = DIAGNOSTIC[qIndex];
+  const chosen = +btn.dataset.i;
+  const opts = document.querySelectorAll('.opt');
+  opts.forEach((b,i)=>{ b.disabled=true; if(i===item.a) b.classList.add('correct'); });
+  if(chosen===item.a){ qScore++; }
+  else { btn.classList.add('wrong'); }
+  const ex = document.getElementById('explain');
+  ex.innerHTML = (chosen===item.a?'✅ <b>Bravo !</b> ':'💡 ')+item.e;
+  ex.classList.add('show');
+  document.getElementById('q-next').style.display='flex';
+  document.getElementById('q-fill').style.width = ((qIndex+1)/DIAGNOSTIC.length*100)+'%';
+}
+function nextQuestion(){
+  qIndex++;
+  if(qIndex<DIAGNOSTIC.length){ renderQuestion(); window.scrollTo({top:0}); }
+  else finishTest();
+}
+function finishTest(){
+  state.score = qScore;
+  const total = DIAGNOSTIC.length;
+  let level, band;
+  if(qScore<=4){ level='Grand débutant (A0–A1)'; band=0; }
+  else if(qScore<=8){ level='Élémentaire (A1–A2)'; band=1; }
+  else { level='Intermédiaire (A2+)'; band=2; }
+  state.level=level; save();
+
+  document.getElementById('res-score').textContent = qScore+' / '+total;
+  document.getElementById('res-level').textContent = level;
+
+  const titles=['On part des bases, et c\'est parfait !','Belle base, on construit dessus !','Impressionnant, on peaufine !'];
+  const texts=[
+    'Tu pars de zéro ou presque, et honnêtement c\'est la meilleure façon de commencer : chaque leçon va vraiment compter. On y va doucement, mot par mot. Tu vas y arriver. 💛',
+    'Tu as déjà de bons réflexes ! On va solidifier tout ça et te rendre à l\'aise dans les situations de voyage les plus courantes.',
+    'Tu te débrouilles déjà bien. On va viser l\'aisance : commander, demander, bavarder — comme une habituée des voyages.'
+  ];
+  document.getElementById('res-title').textContent = titles[band];
+  document.getElementById('res-text').innerHTML = texts[band];
+
+  // Itinéraire recommandé selon le niveau
+  const routes = [
+    ['bases','aeroport','resto','chemin'],
+    ['bases','aeroport','hotel','resto','chemin'],
+    ['aeroport','hotel','resto','chemin','urgences']
+  ][band];
+  const reco = document.getElementById('res-reco');
+  reco.innerHTML = routes.map(id=>moduleCardHTML(getModule(id))).join('');
+  reco.querySelectorAll('.module').forEach(el=>el.addEventListener('click',()=>openLesson(el.dataset.id)));
+
+  go('resultat');
+}
+
+/* =========================================================
+   Programme
+   ========================================================= */
+function getModule(id){ return MODULES.find(m=>m.id===id); }
+function moduleCardHTML(m){
+  const done = !!state.done[m.id];
+  const idx = MODULES.indexOf(m)+1;
+  return '<button class="module'+(done?' done':'')+'" data-id="'+m.id+'" style="--accent:'+m.color+'">'+
+    (done?'<span class="done-stamp">✓ Validé</span>':'')+
+    '<span class="num" aria-hidden="true">'+m.emoji+'</span>'+
+    '<span class="body"><span class="tag">'+m.tag+'</span>'+
+    '<h3>'+m.title+'</h3><p>'+m.subtitle+'</p></span>'+
+    '<span class="go" aria-hidden="true">›</span></button>';
+}
+function renderProgramme(){
+  const list = document.getElementById('module-list');
+  list.innerHTML = MODULES.map(moduleCardHTML).join('');
+  list.querySelectorAll('.module').forEach(el=>el.addEventListener('click',()=>openLesson(el.dataset.id)));
+  const doneCount = Object.keys(state.done).filter(k=>state.done[k]).length;
+  document.getElementById('prog-fill').style.width = (doneCount/MODULES.length*100)+'%';
+  document.getElementById('prog-count').textContent = doneCount+' / '+MODULES.length+' tampons';
+  const tip = document.getElementById('prog-tip');
+  if(doneCount===0) tip.innerHTML='Choisis une escale pour commencer. Chaque leçon terminée te donne un tampon dans ton passeport. 🛂';
+  else if(doneCount<MODULES.length) tip.innerHTML='Déjà '+doneCount+' tampon'+(doneCount>1?'s':'')+' ! Continue, tu voyages de mieux en mieux. ✈️';
+  else tip.innerHTML='🎉 Passeport complet ! Tu es officiellement prête à voyager en anglais. Je suis fier de toi. 💛';
+}
+
+/* =========================================================
+   Leçon
+   ========================================================= */
+function openLesson(id){
+  const m = getModule(id);
+  if(!m) return;
+  const vocabHTML = m.vocab.map((v,i)=>{
+    const spId='v-'+id+'-'+i;
+    return '<div class="vrow">'+
+      '<span class="vicon" aria-hidden="true">'+(v[3]||'🗣️')+'</span>'+
+      '<span class="vtext">'+
+        '<span class="en" id="'+spId+'">'+v[0]+'</span>'+
+        '<span class="ph">'+v[1]+'</span>'+
+        '<span class="fr">'+v[2]+'</span>'+
+      '</span>'+
+      '<button class="speak" title="Écouter" aria-label="Écouter la prononciation" data-say="'+encodeURIComponent(v[0])+'">🔊</button>'+
+    '</div>';
+  }).join('');
+
+  const egHTML = m.grammar.egs.map(e=>
+    '<div class="eg"><span class="en">'+e[0]+'</span> — <span class="fr">'+e[1]+'</span></div>'
+  ).join('');
+
+  const practiceHTML = m.practice.map((p,pi)=>{
+    return '<div class="card" style="margin:10px 0" data-p="'+pi+'">'+
+      '<div class="question" style="font-size:17px;margin-bottom:12px">'+(pi+1)+'. '+p.q+'</div>'+
+      '<div class="options">'+ p.o.map((op,i)=>
+        '<button class="opt" data-i="'+i+'" data-ans="'+p.a+'"><span class="key">'+['A','B','C'][i]+'</span><span>'+op+'</span></button>'
+      ).join('') +'</div></div>';
+  }).join('');
+
+  const safeNote = m.id==='urgences'
+    ? '<div class="note-safe">📞 <b>À retenir</b> : en cas d\'urgence, le <b>112</b> fonctionne dans toute l\'Union européenne. <b>999</b> au Royaume-Uni, <b>911</b> aux États-Unis et au Canada.</div>'
+    : '';
+
+  const body = document.getElementById('lesson-body');
+  body.style.setProperty('--accent', m.color);
+  body.innerHTML =
+    '<div class="lesson-hero">'+
+      '<span class="big" aria-hidden="true">'+m.emoji+'</span>'+
+      '<div><p class="eyebrow" style="margin:0;color:'+m.color+'" id="lesson-h">'+m.tag+'</p><h1 style="margin:.1em 0">'+m.title+'</h1></div>'+
+    '</div>'+
+    '<p class="lead">'+m.intro+'</p>'+
+    safeNote+
+    '<h2 class="sec"><span class="dot"></span>Vocabulaire <span style="font-family:var(--mono);font-size:12px;color:var(--muted);font-weight:400">('+m.vocab.length+' mots)</span></h2>'+
+    '<p class="lead" style="font-size:14px;margin-bottom:6px">Appuie sur 🔊 à côté d\'un mot pour entendre sa prononciation, puis répète à voix haute. <i>(L\'écriture en italique est une aide à la prononciation.)</i></p>'+
+    '<button class="playall" id="playAll">🔊 Tout écouter, un par un</button>'+
+    '<div class="vocab">'+vocabHTML+'</div>'+
+    '<h2 class="sec"><span class="dot"></span>Grammaire</h2>'+
+    '<div class="grammar" style="border-left-color:'+m.color+'"><h3>'+m.grammar.title+'</h3><p>'+m.grammar.html+'</p>'+egHTML+
+      '<p style="margin:.6em 0 0">'+m.grammar.after+'</p></div>'+
+    '<h2 class="sec"><span class="dot"></span>Vidéo</h2>'+
+    '<p class="lead" style="font-size:14px">Regarde, écoute, et répète à voix haute. C\'est comme ça qu\'on progresse le plus vite.</p>'+
+    '<div class="videowrap"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/'+m.video.id+'?rel=0&hl=fr&cc_load_policy=1" '+
+      'title="'+m.video.title+'" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>'+
+    '<p class="lead" style="font-size:13px;color:var(--muted)">La vidéo s\'ouvre depuis YouTube et a besoin d\'une connexion internet.</p>'+
+    '<h2 class="sec"><span class="dot"></span>À toi de jouer</h2>'+practiceHTML+
+    '<div class="finish"><h3>Bien joué, Nathalie ! 👏</h3>'+
+      '<p>Tu as vu le vocabulaire, la grammaire et une vidéo. Répète une phrase à voix haute, puis valide ton escale.</p>'+
+      '<button class="btn btn-sun btn-block" id="finishBtn">'+(state.done[id]?'✓ Escale déjà validée — revalider':'Valider cette escale 🛂')+'</button>'+
+    '</div>';
+
+  // écouter (chaque mot) — le bouton s'anime pendant la lecture
+  const speakBtns = [...document.querySelectorAll('#lesson-body .speak')];
+  speakBtns.forEach(b=>
+    b.addEventListener('click',()=>speak(decodeURIComponent(b.dataset.say), b)));
+  // écouter tout, l'un après l'autre
+  const playAll = document.getElementById('playAll');
+  if(playAll) playAll.addEventListener('click',()=>{
+    if(!('speechSynthesis' in window)){ toast('La lecture audio n\'est pas disponible sur ce navigateur.'); return; }
+    speechSynthesis.cancel();
+    let i=0;
+    const next=()=>{
+      if(i>=speakBtns.length) return;
+      const b=speakBtns[i++]; b.scrollIntoView({block:'center',behavior:'smooth'});
+      speak(decodeURIComponent(b.dataset.say), b);
+      // enchaîne quand la lecture se termine
+      const iv=setInterval(()=>{ if(!speechSynthesis.speaking && !speechSynthesis.pending){ clearInterval(iv); setTimeout(next,250);} },200);
+    };
+    next();
+  });
+  // pratique
+  document.querySelectorAll('#lesson-body .card[data-p] .opt').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const parent = btn.closest('.options');
+      const ans = +btn.dataset.ans;
+      parent.querySelectorAll('.opt').forEach((b,i)=>{ b.disabled=true; if(i===ans)b.classList.add('correct'); });
+      if(+btn.dataset.i!==ans) btn.classList.add('wrong');
+    });
+  });
+  // valider
+  document.getElementById('finishBtn').addEventListener('click',()=>{
+    const first = !state.done[id];
+    state.done[id]=true; save();
+    confetti(m.color);
+    toast(first ? 'Escale validée ! Un tampon de plus dans ton passeport 🛂✨' : 'Escale revalidée ! Continue comme ça ✨');
+    document.getElementById('finishBtn').textContent='✓ Escale validée';
+    setTimeout(()=>go('programme'),1100);
+  });
+
+  go('lecon');
+  document.getElementById('lesson-h').focus?.();
+}
+
+/* =========================================================
+   Confettis (petite fête à chaque escale validée)
+   ========================================================= */
+function confetti(accent){
+  if(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const colors=[accent||'#2E86AB','#FFC145','#FF6B5C','#17B890','#7C5CFF','#3BB2F6'];
+  const wrap=document.createElement('div'); wrap.className='confetti-wrap';
+  const N=44;
+  for(let i=0;i<N;i++){
+    const c=document.createElement('i'); c.className='confetti';
+    c.style.left=(Math.random()*100)+'%';
+    c.style.background=colors[i%colors.length];
+    c.style.animationDuration=(1.6+Math.random()*1.4)+'s';
+    c.style.animationDelay=(Math.random()*0.25)+'s';
+    c.style.transform='rotate('+(Math.random()*360)+'deg)';
+    if(Math.random()>0.5) c.style.borderRadius='50%';
+    wrap.appendChild(c);
+  }
+  document.body.appendChild(wrap);
+  setTimeout(()=>wrap.remove(),3600);
+}
+
+/* =========================================================
+   Toast
+   ========================================================= */
+let toastTimer;
+function toast(msg){
+  const t=document.getElementById('toast');
+  t.innerHTML = msg+' <button class="close" onclick="document.getElementById(\'toast\').classList.remove(\'show\')">✕</button>';
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer=setTimeout(()=>t.classList.remove('show'),3800);
+}
+
+/* =========================================================
+   PWA : installation + service worker
+   ========================================================= */
+let deferredPrompt=null;
+window.addEventListener('beforeinstallprompt',(e)=>{
+  e.preventDefault(); deferredPrompt=e;
+  document.getElementById('installBtn').classList.add('show');
+});
+document.getElementById('installBtn').addEventListener('click', async ()=>{
+  if(deferredPrompt){
+    deferredPrompt.prompt();
+    await deferredPrompt.userChoice;
+    deferredPrompt=null;
+    document.getElementById('installBtn').classList.remove('show');
+  } else {
+    // iPhone / iPad (Safari) : pas de bouton natif
+    toast('Sur iPhone : appuie sur Partager ⬆️ puis « Sur l\'écran d\'accueil ». Sur Android : menu ⋮ puis « Installer l\'application ».');
+  }
+});
+window.addEventListener('appinstalled',()=>{
+  document.getElementById('installBtn').classList.remove('show');
+  toast('Installée ! Retrouve « Nathalie EN » sur ton écran d\'accueil 💛');
+});
+
+if('serviceWorker' in navigator){
+  window.addEventListener('load',()=>{
+    navigator.serviceWorker.register('sw.js').catch(()=>{});
+  });
+}
+
+/* =========================================================
+   Démarrage
+   ========================================================= */
+window.addEventListener('hashchange',()=>{
+  const h=(location.hash||'').replace('#','');
+  if(h==='programme') go('programme');
+  else if(h===''||h==='accueil') go('accueil');
+});
+
+(function init(){
+  renderPhrase();
+  const hash=(location.hash||'').replace('#','');
+  if(hash==='programme'){ go('programme'); }
+  else { go('accueil'); }
+})();
+</script>
+</body>
+</html>
