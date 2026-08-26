@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-<title>Nathalie is the best — English for travel · Games & practice</title>
-<meta name="description" content="Le compagnon d'anglais de Nathalie pour voyager avec confiance : test de niveau, leçons de grammaire et de vocabulaire, et vidéos." />
+<title>Nathalie is the best — English for travel · V6</title>
+<meta name="description" content="Le compagnon d'anglais de Nathalie pour voyager avec confiance : parcours A1-C1, jeux, missions, oral, révisions et mode hors connexion." />
 
 <!-- PWA -->
 <link rel="manifest" href="manifest.webmanifest" />
@@ -15,6 +15,8 @@
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 <meta name="apple-mobile-web-app-title" content="Nathalie EN" />
+<meta name="application-name" content="Nathalie EN" />
+<meta name="nathalie-app-version" content="V6" />
 
 
 <style>
@@ -87,7 +89,7 @@ button{font-family:inherit}
 .btn-install:hover{border-color:var(--sky)}
 
 /* ---------- Layout ---------- */
-main{max-width:var(--maxw);margin:0 auto;padding:18px 16px 60px}
+main{max-width:var(--maxw);margin:0 auto;padding:18px 16px 102px}
 .view{display:none;animation:fade .35s ease both}
 .view.active{display:block}
 @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
@@ -456,6 +458,28 @@ footer{padding-bottom:calc(40px + var(--dock-h))}
 .role-goals{display:grid;gap:7px;margin:12px 0}.role-goal{display:flex;gap:8px;align-items:flex-start;padding:9px 10px;border-radius:11px;background:rgba(22,50,79,.04);border:1px solid var(--line);font-size:13px}.role-goal:before{content:"✓";color:var(--mint);font-weight:900}
 @media(max-width:560px){.speak-grid{grid-template-columns:1fr}.speak-stats{grid-template-columns:repeat(2,1fr)}.skill-row{grid-template-columns:92px 1fr 38px}.custom-form{grid-template-columns:1fr}.self-check{grid-template-columns:1fr}.app-dock{height:66px}.dock-btn span{font-size:7.4px}}
 
+
+/* ============ V6 · Robustesse, offline, réglages ============ */
+.net-pill{display:none;align-items:center;gap:5px;border:1px solid rgba(229,72,77,.35);background:#fff4f4;color:#a6292e;border-radius:999px;padding:6px 9px;font-size:10px;font-weight:800;white-space:nowrap}.net-pill.show{display:inline-flex}
+.settings-btn{width:38px;height:38px;border-radius:11px;border:1px solid var(--line-strong);background:var(--card);color:var(--ink);cursor:pointer;font-size:18px;box-shadow:var(--shadow-sm)}.settings-btn:hover{border-color:var(--sky)}
+.v6-callout{display:flex;gap:13px;align-items:center;background:linear-gradient(145deg,#eef9f6,#fff);border:1px solid rgba(23,184,144,.35);border-radius:18px;padding:16px;margin:14px 0;box-shadow:var(--shadow-sm)}.v6-callout .ic{width:48px;height:48px;border-radius:15px;display:grid;place-items:center;background:rgba(23,184,144,.13);font-size:25px;flex:0 0 auto}.v6-callout b{display:block;color:var(--ink);margin-bottom:2px}.v6-callout small{display:block;color:var(--muted);line-height:1.4}.v6-callout .btn{margin-left:auto;flex:0 0 auto}
+.settings-hero{background:linear-gradient(145deg,#16324F,#0B2238);color:#fff;border-radius:24px;padding:22px;margin:4px 0 18px;box-shadow:var(--shadow)}.settings-hero h1{color:#fff}.settings-hero p{color:#d3e1eb}.settings-hero .eyebrow{color:var(--sun)}
+.settings-grid{display:grid;gap:12px;margin:14px 0}.setting-card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:17px;box-shadow:var(--shadow-sm)}.setting-card h2{font-size:20px;margin:0 0 5px}.setting-card>p{font-size:13px;color:var(--muted);margin-bottom:12px}.setting-row{display:flex;align-items:center;gap:12px;padding:10px 0;border-top:1px solid var(--line)}.setting-row:first-of-type{border-top:0}.setting-row>div:first-child{flex:1;min-width:0}.setting-row b{display:block;color:var(--ink);font-size:14px}.setting-row small{display:block;color:var(--muted);font-size:11px;margin-top:2px}.switch{position:relative;width:48px;height:28px;border:0;background:#cbd4dc;border-radius:999px;cursor:pointer;flex:0 0 auto}.switch:after{content:"";position:absolute;width:22px;height:22px;left:3px;top:3px;border-radius:50%;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.25);transition:transform .18s ease}.switch.on{background:var(--mint)}.switch.on:after{transform:translateX(20px)}
+.setting-select{max-width:250px;width:100%;border:1px solid var(--line-strong);background:#fff;color:var(--text);border-radius:11px;padding:9px 10px;font:inherit;font-size:13px}.data-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.danger-zone{border-color:rgba(229,72,77,.3);background:linear-gradient(145deg,#fff8f8,#fff)}.danger-zone .btn-danger{background:#a6292e;color:#fff;border-color:#a6292e}
+.status-list{display:grid;gap:8px}.status-item{display:flex;align-items:center;gap:9px;border:1px solid var(--line);border-radius:12px;padding:10px;background:rgba(22,50,79,.025);font-size:12px}.status-dot{width:10px;height:10px;border-radius:50%;background:#aeb8c0;flex:0 0 auto}.status-dot.ok{background:var(--mint)}.status-dot.warn{background:var(--sun)}
+.install-steps{margin:8px 0 0;padding-left:20px;color:var(--muted);font-size:13px}.install-steps li{margin:5px 0}
+.update-banner{position:fixed;z-index:90;left:50%;bottom:86px;transform:translateX(-50%);width:min(680px,calc(100% - 24px));display:none;align-items:center;gap:12px;background:#0B2238;color:#fff;border:1px solid rgba(255,255,255,.2);border-radius:16px;padding:13px 14px;box-shadow:0 18px 48px -18px rgba(0,0,0,.7)}.update-banner.show{display:flex}.update-banner span{flex:1;font-size:13px}.update-banner .btn{padding:9px 13px;font-size:12px}
+.whats-new{position:relative;background:linear-gradient(145deg,#f4f0ff,#fff);border:1px solid rgba(124,92,255,.25);border-radius:18px;padding:16px;margin:14px 0;box-shadow:var(--shadow-sm)}.whats-new h3{margin:0 32px 4px 0}.whats-new p{font-size:13px;color:var(--muted);margin:0}.whats-close{position:absolute;right:9px;top:9px;width:32px;height:32px;border:1px solid var(--line);border-radius:10px;background:#fff;cursor:pointer;color:var(--muted)}
+.tomorrow-hero{background:linear-gradient(145deg,#1b5668,#103745);color:#fff;border-radius:24px;padding:22px;margin:4px 0 18px;box-shadow:var(--shadow);position:relative;overflow:hidden}.tomorrow-hero:after{content:"🧳";position:absolute;right:-8px;bottom:-28px;font-size:126px;opacity:.08}.tomorrow-hero h1{color:#fff}.tomorrow-hero p{color:#d7e8ed}.tomorrow-hero .eyebrow{color:#ffe08a}
+.tomorrow-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:14px 0}.tomorrow-card{text-align:left;border:1px solid var(--line);background:var(--card);border-radius:18px;padding:17px;box-shadow:var(--shadow-sm);cursor:pointer;color:var(--text);min-height:145px}.tomorrow-card:hover{border-color:var(--sky);transform:translateY(-2px)}.tomorrow-card .tic{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;background:rgba(46,134,171,.1);font-size:26px;margin-bottom:9px}.tomorrow-card b{display:block;color:var(--ink);font-size:17px}.tomorrow-card small{display:block;color:var(--muted);margin-top:4px;line-height:1.4}
+.tomorrow-session{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:18px;box-shadow:var(--shadow-sm);margin:14px 0}.five-track{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;margin:10px 0 16px}.five-track i{height:7px;background:rgba(22,50,79,.1);border-radius:999px}.five-track i.done{background:var(--mint)}.tomorrow-word{text-align:center;border:1px solid var(--line);border-radius:18px;padding:20px;background:linear-gradient(150deg,#fff,#f6fbfc)}.tomorrow-word .bigword{font-family:var(--display);font-weight:900;color:var(--ink);font-size:32px}.tomorrow-score{text-align:center;font-family:var(--mono);font-size:12px;color:var(--muted);margin:8px 0}
+.backup-note{font-family:var(--mono);font-size:10px;color:var(--muted);margin-top:8px}
+body.reduce-motion *,body.reduce-motion *:before,body.reduce-motion *:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+body.hide-translations .vrow .fr,body.hide-translations .phrase-day .fr,body.hide-translations .dict-row .frpart,body.hide-translations .grammar .eg .fr{display:none!important}
+body.high-contrast{--paper:#fff;--card:#fff;--text:#07131f;--muted:#334453;--line:rgba(7,19,31,.28);--line-strong:rgba(7,19,31,.55)}
+body.large-text{font-size:112%}body.large-text .dock-btn span{font-size:8px}
+@media(max-width:560px){.v6-callout{align-items:flex-start;flex-wrap:wrap}.v6-callout .btn{width:100%;margin-left:0}.tomorrow-grid{grid-template-columns:1fr}.data-actions{grid-template-columns:1fr}.setting-row{align-items:flex-start;flex-wrap:wrap}.setting-select{max-width:none}.update-banner{bottom:82px}.net-pill{padding:5px 7px}.net-pill .net-label{display:none}}
+
 </style>
 </head>
 <body>
@@ -474,6 +498,8 @@ footer{padding-bottom:calc(40px + var(--dock-h))}
     <div class="top-tools" aria-label="Réglages d’affichage">
       <button id="textSizeBtn" class="icon-btn" type="button" title="Agrandir le texte" aria-pressed="false">Aa+</button>
       <button id="contrastBtn" class="icon-btn" type="button" title="Contraste renforcé" aria-pressed="false">◐</button>
+      <span id="netStatus" class="net-pill" role="status"><span aria-hidden="true">●</span><span class="net-label">Hors ligne</span></span>
+      <button id="settingsBtn" class="settings-btn" type="button" title="Réglages" aria-label="Ouvrir les réglages" onclick="go('settings')">⚙️</button>
       <button id="installBtn" class="btn-install" aria-label="Installer l'application">⬇ Installer</button>
     </div>
   </div>
@@ -538,6 +564,13 @@ footer{padding-bottom:calc(40px + var(--dock-h))}
       <div class="ic" aria-hidden="true" style="background:rgba(255,193,69,.2)">🎙️</div>
       <div style="flex:1"><b>V5 · Cette fois, c’est toi qui parles</b><small>Shadowing, défi 30 secondes, enregistrement local, session express et une journée complète de voyage.</small></div>
       <button class="btn btn-sun" type="button" onclick="go('speak')">Speak for real →</button>
+    </div>
+
+    <div id="home-v6-news"></div>
+    <div class="v6-callout">
+      <div class="ic" aria-hidden="true">🧳</div>
+      <div style="flex:1"><b>Je pars demain</b><small>Aéroport, hôtel, restaurant ou urgence : une révision ciblée de 5 minutes construite à partir de ce que tu maîtrises le moins.</small></div>
+      <button class="btn btn-primary" type="button" onclick="go('tomorrow')">Réviser l’essentiel →</button>
     </div>
 
     <div class="phrase-day card" aria-label="Phrase du jour">
@@ -751,6 +784,75 @@ footer{padding-bottom:calc(40px + var(--dock-h))}
     <div id="skill-map" class="skill-map"></div>
   </section>
 
+  <!-- ============ JE PARS DEMAIN · V6 ============ -->
+  <section id="view-tomorrow" class="view" aria-labelledby="tomorrow-h">
+    <button class="back" onclick="go('accueil')">← Accueil</button>
+    <div class="tomorrow-hero">
+      <p class="eyebrow" id="tomorrow-h">V6 · Révision de dernière minute</p>
+      <h1>Je pars demain.</h1>
+      <p>Choisis ce qui t’attend. En environ cinq minutes : 5 mots prioritaires, 3 questions, 1 listening et 1 petite production orale.</p>
+    </div>
+    <div id="tomorrow-menu">
+      <h2>Où faut-il être prête ?</h2>
+      <div class="tomorrow-grid" id="tomorrow-grid"></div>
+    </div>
+    <div id="tomorrow-arena" aria-live="polite"></div>
+  </section>
+
+  <!-- ============ RÉGLAGES · V6 ============ -->
+  <section id="view-settings" class="view" aria-labelledby="settings-h">
+    <button class="back" onclick="go('accueil')">← Accueil</button>
+    <div class="settings-hero">
+      <p class="eyebrow" id="settings-h">V6 · Réglages & sauvegardes</p>
+      <h1>Mon application</h1>
+      <p>Affichage, voix, mode hors connexion et sauvegarde de la progression — toujours sans compte.</p>
+    </div>
+
+    <div class="settings-grid">
+      <div class="setting-card">
+        <h2>♿ Confort & accessibilité</h2>
+        <p>Ces préférences sont enregistrées uniquement dans ce navigateur.</p>
+        <div class="setting-row"><div><b>Texte plus grand</b><small>Agrandit l’interface et les leçons.</small></div><button id="setLarge" class="switch" type="button" role="switch" aria-checked="false" aria-label="Texte plus grand"></button></div>
+        <div class="setting-row"><div><b>Contraste renforcé</b><small>Renforce le texte et les contours.</small></div><button id="setContrast" class="switch" type="button" role="switch" aria-checked="false" aria-label="Contraste renforcé"></button></div>
+        <div class="setting-row"><div><b>Réduire les animations</b><small>Coupe les mouvements et transitions décoratives.</small></div><button id="setMotion" class="switch" type="button" role="switch" aria-checked="false" aria-label="Réduire les animations"></button></div>
+        <div class="setting-row"><div><b>Cacher les traductions</b><small>Mode rappel actif dans les leçons et le lexique.</small></div><button id="setTranslations" class="switch" type="button" role="switch" aria-checked="false" aria-label="Cacher les traductions"></button></div>
+      </div>
+
+      <div class="setting-card">
+        <h2>🔊 Voix anglaise</h2>
+        <p>La liste dépend des voix installées sur le téléphone ou l’ordinateur.</p>
+        <div class="setting-row"><div><b>Voix préférée</b><small>Par défaut, l’application privilégie l’anglais britannique.</small></div><select id="voiceSelect" class="setting-select" aria-label="Choisir la voix anglaise"></select></div>
+        <div class="btn-row"><button class="btn btn-ghost" id="voiceTest" type="button">🔊 Tester la voix</button></div>
+      </div>
+
+      <div class="setting-card">
+        <h2>📱 Installation & hors connexion</h2>
+        <p>L’interface, les leçons, jeux, missions et révisions peuvent être remis en cache après une première visite en ligne. Les vidéos YouTube restent en ligne.</p>
+        <div class="status-list">
+          <div class="status-item"><span id="onlineDot" class="status-dot"></span><span id="onlineText">Connexion : vérification…</span></div>
+          <div class="status-item"><span id="swDot" class="status-dot"></span><span id="swText">Mode hors connexion : vérification…</span></div>
+          <div class="status-item"><span id="installDot" class="status-dot"></span><span id="installText">Installation : vérification…</span></div>
+        </div>
+        <div id="installGuide"></div>
+        <div class="btn-row"><button class="btn btn-primary" id="settingsInstall" type="button">⬇ Installer l’application</button><button class="btn btn-ghost" id="checkUpdate" type="button">↻ Chercher une mise à jour</button></div>
+      </div>
+
+      <div class="setting-card">
+        <h2>💾 Sauvegarder ma progression</h2>
+        <p>Pratique avant de changer de téléphone ou de navigateur. Le fichier exporté contient uniquement les données locales de cette application.</p>
+        <div class="data-actions"><button class="btn btn-primary" id="exportProgress" type="button">⬇ Exporter ma progression</button><button class="btn btn-ghost" id="importProgress" type="button">⬆ Importer une sauvegarde</button></div>
+        <input id="importFile" type="file" accept="application/json,.json" hidden>
+        <p class="backup-note" id="backupStatus"></p>
+      </div>
+
+      <div class="setting-card danger-zone">
+        <h2>🧹 Recommencer sans tout effacer</h2>
+        <p>Choisis précisément ce que tu veux remettre à zéro.</p>
+        <div class="data-actions"><button class="btn btn-ghost" id="resetGames" type="button">🎮 Scores des jeux</button><button class="btn btn-ghost" id="resetReview" type="button">🧠 Données de révision</button><button class="btn btn-ghost" id="resetMissions" type="button">🎭 Missions & oral</button><button class="btn btn-danger" id="resetAll" type="button">⚠️ Tout recommencer</button></div>
+      </div>
+    </div>
+  </section>
+
   <!-- ============ LEXIQUE ============ -->
   <section id="view-lexique" class="view" aria-labelledby="lex-h">
     <button class="back" onclick="go('accueil')">← Accueil</button>
@@ -773,7 +875,7 @@ footer{padding-bottom:calc(40px + var(--dock-h))}
 
 <footer>
   <p>Fait avec <span class="heart" aria-hidden="true">❤</span> pour Nathalie — parce que tu es <b>the best</b>, et que le monde t'attend.</p>
-  <p class="priv">🔒 Aucun compte et aucune progression envoyée à un serveur : tes résultats restent dans le stockage local de ce navigateur. Les vidéos YouTube ne se chargent qu’après ton clic et nécessitent internet. Les simulations utilisent uniquement les fonctions de ton navigateur. Les enregistrements vocaux de V5 restent localement dans la page, ne sont jamais envoyés par le site et disparaissent au rechargement.</p>
+  <p class="priv">🔒 Aucun compte et aucune progression envoyée à un serveur : tes résultats restent dans le stockage local de ce navigateur. Les vidéos YouTube ne se chargent qu’après ton clic et nécessitent internet. Les simulations utilisent uniquement les fonctions de ton navigateur. Les enregistrements vocaux restent localement dans la page, ne sont jamais envoyés par le site et disparaissent au rechargement. V6 permet aussi d’exporter manuellement une sauvegarde JSON de la progression.</p>
 </footer>
 
 <nav class="app-dock" aria-label="Navigation principale">
@@ -785,6 +887,8 @@ footer{padding-bottom:calc(40px + var(--dock-h))}
   <button class="dock-btn" data-go="revision">🎴<span>Réviser</span></button>
   <button class="dock-btn" data-go="lexique">🔎<span>Lexique</span></button>
 </nav>
+
+<div class="update-banner" id="updateBanner" role="status" aria-live="polite"><span>✨ Une nouvelle version est prête.</span><button class="btn btn-sun" id="applyUpdate" type="button">Mettre à jour</button><button class="tiny-btn" id="dismissUpdate" type="button" aria-label="Fermer">✕</button></div>
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
@@ -2045,17 +2149,41 @@ const LEVELS = [
    État (sauvegardé sur l'appareil)
    ========================================================= */
 const KEY='nathalie_en_v1';
-function defaults(){ return { done:{}, score:null, level:null, phraseIdx:null, phraseDate:null, lastModule:null, favorites:{}, mastery:{}, practice:{}, studyDates:[], moduleReview:{}, gameStats:{plays:0,matchWins:0,missingWins:0,speedBest:0,travelBest:0}, missionStats:{plays:0,best:{},perfect:{}}, missionListenFirst:false, dailyChallenge:{date:null,answers:{},spoken:false,completed:false}, dailyCompleted:0, levelCelebrations:{}, speakingStats:{recordings:0,shadowing:0,speak30:0,roleplays:0,express:0,travelDayBest:0,travelDayPlays:0,selfChecks:0}, phrasebook:{}, customPhrases:[], uiLarge:false, uiContrast:false }; }
+const STATE_SCHEMA=6;
+const PRE_V6_BACKUP_KEY='nathalie_en_backup_pre_v6';
+const RESET_BACKUP_KEY='nathalie_en_backup_before_reset_v6';
+const AUTO_BACKUP_KEY='nathalie_en_autobackup_v6';
+function defaults(){ return { schemaVersion:STATE_SCHEMA, lastSavedAt:null, lastBackupDate:null, lastSeenVersion:null, done:{}, score:null, level:null, phraseIdx:null, phraseDate:null, lastModule:null, favorites:{}, mastery:{}, practice:{}, studyDates:[], moduleReview:{}, gameStats:{plays:0,matchWins:0,missingWins:0,speedBest:0,travelBest:0}, missionStats:{plays:0,best:{},perfect:{}}, missionListenFirst:false, dailyChallenge:{date:null,answers:{},spoken:false,completed:false}, dailyCompleted:0, levelCelebrations:{}, speakingStats:{recordings:0,shadowing:0,speak30:0,roleplays:0,express:0,travelDayBest:0,travelDayPlays:0,selfChecks:0}, phrasebook:{}, customPhrases:[], tomorrowStats:{sessions:0,best:{}}, uiLarge:false, uiContrast:false, uiReduceMotion:false, hideTranslations:false, voiceURI:'' }; }
+function normalizeState(raw){
+  raw=raw&&typeof raw==='object'?raw:{};
+  const d=defaults();
+  return Object.assign(d, raw, {
+    schemaVersion:STATE_SCHEMA,
+    done:raw.done||{}, favorites:raw.favorites||{}, mastery:raw.mastery||{}, practice:raw.practice||{},
+    studyDates:Array.isArray(raw.studyDates)?raw.studyDates:[], moduleReview:raw.moduleReview||{},
+    gameStats:Object.assign({},d.gameStats,raw.gameStats||{}),
+    missionStats:Object.assign({},d.missionStats,raw.missionStats||{}, {best:(raw.missionStats&&raw.missionStats.best)||{}, perfect:(raw.missionStats&&raw.missionStats.perfect)||{}}),
+    dailyChallenge:Object.assign({},d.dailyChallenge,raw.dailyChallenge||{}), levelCelebrations:raw.levelCelebrations||{},
+    speakingStats:Object.assign({},d.speakingStats,raw.speakingStats||{}), phrasebook:raw.phrasebook||{},
+    customPhrases:Array.isArray(raw.customPhrases)?raw.customPhrases:[], tomorrowStats:Object.assign({},d.tomorrowStats,raw.tomorrowStats||{}, {best:(raw.tomorrowStats&&raw.tomorrowStats.best)||{}})
+  });
+}
 function load(){
   try{
     const raw=JSON.parse(localStorage.getItem(KEY)) || {};
-    return Object.assign(defaults(), raw, {
-      done:raw.done||{}, favorites:raw.favorites||{}, mastery:raw.mastery||{}, practice:raw.practice||{}, studyDates:Array.isArray(raw.studyDates)?raw.studyDates:[], moduleReview:raw.moduleReview||{}, gameStats:Object.assign(defaults().gameStats,raw.gameStats||{}), missionStats:Object.assign(defaults().missionStats,raw.missionStats||{}, {best:(raw.missionStats&&raw.missionStats.best)||{}, perfect:(raw.missionStats&&raw.missionStats.perfect)||{}}), dailyChallenge:Object.assign(defaults().dailyChallenge,raw.dailyChallenge||{}), levelCelebrations:raw.levelCelebrations||{}, speakingStats:Object.assign(defaults().speakingStats,raw.speakingStats||{}), phrasebook:raw.phrasebook||{}, customPhrases:Array.isArray(raw.customPhrases)?raw.customPhrases:[]
-    });
+    if(raw && Object.keys(raw).length && Number(raw.schemaVersion||0)<STATE_SCHEMA && !localStorage.getItem(PRE_V6_BACKUP_KEY)) localStorage.setItem(PRE_V6_BACKUP_KEY,JSON.stringify(raw));
+    return normalizeState(raw);
   }catch(e){ return defaults(); }
 }
 let state = load();
-function save(){ try{ localStorage.setItem(KEY, JSON.stringify(state)); }catch(e){} }
+function save(){
+  try{
+    state.schemaVersion=STATE_SCHEMA; state.lastSavedAt=new Date().toISOString();
+    const d=todayKey();
+    if(state.lastBackupDate!==d){ state.lastBackupDate=d; localStorage.setItem(AUTO_BACKUP_KEY,JSON.stringify(state)); }
+    localStorage.setItem(KEY, JSON.stringify(state));
+  }catch(e){}
+}
 function todayKey(){ const d=new Date(); return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'); }
 function dateKeyOffset(days){ const d=new Date(); d.setHours(12,0,0,0); d.setDate(d.getDate()+days); return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'); }
 function currentStreak(){
@@ -2075,6 +2203,8 @@ function cleanSearch(s){ return String(s||'').normalize('NFD').replace(/[\u0300-
 function applyUiPrefs(){
   document.body.classList.toggle('large-text',!!state.uiLarge);
   document.body.classList.toggle('high-contrast',!!state.uiContrast);
+  document.body.classList.toggle('reduce-motion',!!state.uiReduceMotion);
+  document.body.classList.toggle('hide-translations',!!state.hideTranslations);
   const t=document.getElementById('textSizeBtn'), c=document.getElementById('contrastBtn');
   if(t) t.setAttribute('aria-pressed',String(!!state.uiLarge)); if(c) c.setAttribute('aria-pressed',String(!!state.uiContrast));
 }
@@ -2093,6 +2223,8 @@ function go(view, opts={}){
   if(view==='games') renderGames();
   if(view==='missions') renderMissions();
   if(view==='speak') renderSpeak();
+  if(view==='tomorrow') renderTomorrow();
+  if(view==='settings') renderSettings();
   if(view==='lexique') renderDictionary();
   if(view!=='speak' && typeof activeRecorder!=='undefined' && activeRecorder) stopActiveRecording();
   if(view!=='games' && speedTimer){ clearInterval(speedTimer); speedTimer=null; }
@@ -2146,6 +2278,9 @@ function renderHome(){
   hc.innerHTML=state.dailyChallenge.completed
     ? '<div class="smart-card" style="background:linear-gradient(145deg,#0f6a58,#0c5144)"><h3>✅ Défi du jour terminé</h3><p>Mission accomplie. Si tu veux continuer, les jeux sont ouverts.</p><button class="btn btn-sun" onclick="go(\'games\')">Jouer encore →</button></div>'
     : '<div class="smart-card"><h3>🎯 Défi du jour</h3><p>5 mots · 3 questions · 1 phrase à dire. Quelques minutes suffisent pour entretenir ta mémoire.</p><button class="btn btn-sun" onclick="go(\'games\')">Faire le défi →</button></div>';
+  const wn=document.getElementById('home-v6-news');
+  if(wn) wn.innerHTML=state.lastSeenVersion==='V6'?'':'<div class="whats-new"><button class="whats-close" id="closeWhatsNew" aria-label="Fermer">✕</button><h3>✨ Nouveau dans V6</h3><p>Mode hors connexion plus robuste, sauvegarde/restauration, réglages avancés et révision express « Je pars demain ».</p></div>';
+  document.getElementById('closeWhatsNew')?.addEventListener('click',()=>{state.lastSeenVersion='V6';save();wn.innerHTML='';});
 }
 
 /* =========================================================
@@ -2153,12 +2288,11 @@ function renderHome(){
    ========================================================= */
 let voices=[];
 function loadVoices(){ voices = window.speechSynthesis ? speechSynthesis.getVoices() : []; }
-if('speechSynthesis' in window){ loadVoices(); speechSynthesis.onvoiceschanged = loadVoices; }
+if('speechSynthesis' in window){ loadVoices(); speechSynthesis.onvoiceschanged = ()=>{loadVoices(); if(document.getElementById('view-settings')?.classList.contains('active')) renderSettings();}; }
 function pickVoice(){
   if(!voices.length) loadVoices();
-  return voices.find(v=>/en-GB/i.test(v.lang)) ||
-         voices.find(v=>/en-US/i.test(v.lang)) ||
-         voices.find(v=>/^en/i.test(v.lang)) || null;
+  if(state.voiceURI){ const chosen=voices.find(v=>v.voiceURI===state.voiceURI); if(chosen) return chosen; }
+  return voices.find(v=>/en-GB/i.test(v.lang)) || voices.find(v=>/en-US/i.test(v.lang)) || voices.find(v=>/^en/i.test(v.lang)) || null;
 }
 function speak(text, btn){
   if(!('speechSynthesis' in window)){ toast('La lecture audio n\'est pas disponible sur ce navigateur.'); return; }
@@ -2589,6 +2723,7 @@ const BADGES=[
   {id:'shadow5',ic:'🗣️',name:'Shadow star',desc:'Faire 5 shadowings',ok:()=>Number(state.speakingStats.shadowing||0)>=5},
   {id:'travelday',ic:'🧳',name:'Full travel day',desc:'Terminer une journée de voyage',ok:()=>Number(state.speakingStats.travelDayPlays||0)>=1},
   {id:'daily5',ic:'🎯',name:'Daily habit',desc:'5 défis du jour',ok:()=>Number(state.dailyCompleted||0)>=5},
+  {id:'tomorrow',ic:'🧳',name:'Ready to go',desc:'Faire 3 sessions « Je pars demain »',ok:()=>Number(state.tomorrowStats?.sessions||0)>=3},
   {id:'all',ic:'🏆',name:'Passport legend',desc:'Valider les 24 escales',ok:()=>MODULES.every(m=>state.done[m.id])}
 ];
 function ensureDailyState(){
@@ -3010,6 +3145,119 @@ function renderTravelDay(){const root=document.getElementById('speak-arena'),st=
 function answerTravelDay(i){const st=travelDayState;if(!st||st.answered)return;const sc=TRAVEL_DAY[st.index],o=sc.options[i];st.answered=true;st.score+=o.s;st.history.push({place:sc.place,choice:o.t,score:o.s});document.querySelectorAll('[data-td]').forEach((b,j)=>{b.disabled=true;if(j===i)b.classList.add('selected');});const best=sc.options.find(x=>x.s===2);const fb=document.getElementById('tdFeedback');fb.className='mission-feedback';fb.innerHTML=(o.s===2?'✅ <b>Naturel et efficace.</b>':o.s===1?'👍 <b>Ça passe.</b>':'💡 <b>On peut faire plus naturel.</b>')+'<br><span lang="en">“'+esc(o.r)+'”</span>'+(o.s<2?'<br><small>À retenir : <span lang="en">'+esc(best.t)+'</span></small>':'');document.getElementById('tdNextWrap').style.display='flex';document.getElementById('tdNext').onclick=()=>{st.index++;st.answered=false;renderTravelDay();};logStudy();}
 function finishTravelDay(){const root=document.getElementById('speak-arena'),st=travelDayState;state.speakingStats.travelDayPlays=Number(state.speakingStats.travelDayPlays||0)+1;state.speakingStats.travelDayBest=Math.max(Number(state.speakingStats.travelDayBest||0),st.score);save();logStudy();if(st.score>=12)confetti('#FFC145');const copy=st.score>=13?'Tu as traversé la journée avec des formulations très naturelles.':st.score>=10?'Très solide : tu peux gérer toute la chaîne du voyage.':st.score>=7?'Tu transmets l’essentiel. Rejoue pour rendre les formulations plus naturelles.':'Tu as survécu à la journée ! Une deuxième tentative va déjà faire une grosse différence.';root.innerHTML='<div class="mission-result"><div class="stamp-big">🧳</div><p class="eyebrow">Travel Day terminé</p><h2>'+st.score+' / 14</h2><p>'+copy+'</p><div class="result-phrases">'+st.history.map(x=>'<div class="result-phrase"><b>'+x.place+' · '+x.score+'/2</b><span lang="en">'+esc(x.choice)+'</span></div>').join('')+'</div><div style="text-align:left;margin-top:18px"><h3>🎙️ Final challenge · raconte ta journée</h3><p style="color:var(--muted);font-size:13px">Imagine qu’un ami anglophone t’appelle ce soir. Résume ta journée de voyage en 30 à 45 secondes, sans lire les phrases ci-dessus mot à mot.</p>'+recorderHTML('tdStoryRec',45)+'</div><div class="btn-row" style="justify-content:center"><button class="btn btn-primary" id="tdAgain">↻ Rejouer la journée</button><button class="btn btn-ghost" id="tdClose">Fermer</button></div></div>';bindRecorder('tdStoryRec',45);document.getElementById('tdAgain').onclick=startTravelDay;document.getElementById('tdClose').onclick=()=>{stopActiveRecording();root.innerHTML='';};renderSpeakStats();renderSkillMap();renderBadges();}
 
+
+/* =========================================================
+   V6 · Révision « Je pars demain »
+   ========================================================= */
+const TOMORROW_CATEGORIES=[
+  {id:'airport',ic:'🛫',name:'Aéroport & avion',desc:'Check-in, gate, luggage, delays.',moduleId:'aeroport',speak:'You are at the airport. Explain where you are going, ask about the gate and check that your flight is on time.'},
+  {id:'hotel',ic:'🏨',name:'Hôtel',desc:'Reservation, room, breakfast, problems.',moduleId:'hotel',speak:'You have just arrived at your hotel. Check in, ask about breakfast and request one thing you need in your room.'},
+  {id:'restaurant',ic:'🍽️',name:'Restaurant',desc:'Order, preferences, bill, polite requests.',moduleId:'resto',speak:'Order a complete meal politely, ask one question about the food and finish by asking for the bill.'},
+  {id:'emergency',ic:'🚑',name:'Urgence & santé',desc:'Ask for help and explain the problem clearly.',moduleId:'urgences',speak:'You do not feel well while travelling. Explain what is wrong, say what you need and ask where you can get help.'}
+];
+let tomorrowState=null;
+function tomorrowPriorityWords(m){
+  return m.vocab.map((v,i)=>({key:wordKey(m.id,i),moduleId:m.id,en:v[0],ph:v[1],fr:v[2],emoji:v[3]||'🗣️',mastery:Number(state.mastery[wordKey(m.id,i)]||0)}))
+    .sort((a,b)=>a.mastery-b.mastery || (state.favorites[b.key]?1:0)-(state.favorites[a.key]?1:0)).slice(0,5);
+}
+function renderTomorrow(){
+  stopActiveRecording(); tomorrowState=null;
+  const grid=document.getElementById('tomorrow-grid'),arena=document.getElementById('tomorrow-arena'),menu=document.getElementById('tomorrow-menu');
+  if(!grid)return; if(arena)arena.innerHTML=''; if(menu)menu.style.display='block';
+  grid.innerHTML=TOMORROW_CATEGORIES.map(c=>'<button class="tomorrow-card" type="button" data-tomorrow="'+c.id+'"><span class="tic">'+c.ic+'</span><b>'+c.name+'</b><small>'+c.desc+'</small></button>').join('');
+  grid.querySelectorAll('[data-tomorrow]').forEach(b=>b.onclick=()=>startTomorrow(b.dataset.tomorrow));
+}
+function startTomorrow(id){
+  const cat=TOMORROW_CATEGORIES.find(c=>c.id===id),m=getModule(cat?.moduleId); if(!cat||!m)return;
+  const words=tomorrowPriorityWords(m);
+  tomorrowState={cat,m,phase:'flash',index:0,words,quizIndex:0,quizScore:0,listening:words[Math.min(3,words.length-1)],spoken:false};
+  document.getElementById('tomorrow-menu').style.display='none'; renderTomorrowSession();
+}
+function tomorrowTrack(phase){ const order=['flash','quiz','listen','speak']; const i=Math.max(0,order.indexOf(phase)); return '<div class="five-track">'+order.map((x,n)=>'<i class="'+(n<i?'done':'')+'"></i>').join('')+'</div>'; }
+function renderTomorrowSession(){
+  const root=document.getElementById('tomorrow-arena'),st=tomorrowState;if(!root||!st)return;
+  if(st.phase==='flash'){
+    const w=st.words[st.index];
+    root.innerHTML='<div class="tomorrow-session"><p class="eyebrow">'+st.cat.ic+' '+st.cat.name+' · 1/4</p><h2>5 mots prioritaires</h2>'+tomorrowTrack('flash')+'<p class="lead" style="font-size:13px">Les mots les moins maîtrisés passent en premier.</p><div class="tomorrow-word"><div class="bigword" lang="en">'+esc(w.en)+'</div><p id="tmAnswer" style="display:none"><b>'+esc(w.fr)+'</b><br><span class="quiz-score">'+esc(w.ph)+'</span></p><div class="btn-row" style="justify-content:center"><button class="btn btn-sun" id="tmListen">🔊 Écouter</button><button class="btn btn-primary" id="tmReveal">Voir la réponse</button></div></div><div id="tmGrade" class="review-actions" style="display:none;margin-top:10px"><button class="btn btn-ghost" data-tmg="-1">↻ À revoir</button><button class="btn btn-primary" data-tmg="1">✓ Je savais</button></div><p class="tomorrow-score">Carte '+(st.index+1)+' / '+st.words.length+'</p></div>';
+    document.getElementById('tmListen').onclick=()=>speak(w.en,document.getElementById('tmListen'));
+    document.getElementById('tmReveal').onclick=()=>{document.getElementById('tmAnswer').style.display='block';document.getElementById('tmGrade').style.display='grid';};
+    root.querySelectorAll('[data-tmg]').forEach(b=>b.onclick=()=>{state.mastery[w.key]=Math.max(-2,Math.min(5,Number(state.mastery[w.key]||0)+Number(b.dataset.tmg)));save();st.index++;if(st.index>=st.words.length){st.phase='quiz';st.index=0;}renderTomorrowSession();});return;
+  }
+  if(st.phase==='quiz'){
+    const p=st.m.practice[st.quizIndex%st.m.practice.length];
+    root.innerHTML='<div class="tomorrow-session"><p class="eyebrow">'+st.cat.ic+' '+st.cat.name+' · 2/4</p><h2>3 réflexes utiles</h2>'+tomorrowTrack('quiz')+'<div class="question">'+esc(p.q)+'</div><div class="options">'+p.o.map((o,i)=>'<button class="opt" data-tmq="'+i+'"><span class="key">'+['A','B','C','D'][i]+'</span><span>'+esc(o)+'</span></button>').join('')+'</div><div id="tmqFeedback" class="explain"></div><p class="tomorrow-score">Question '+(st.quizIndex+1)+' / 3 · '+st.quizScore+' point'+(st.quizScore>1?'s':'')+'</p></div>';
+    root.querySelectorAll('[data-tmq]').forEach(b=>b.onclick=()=>{const choice=Number(b.dataset.tmq),ok=choice===p.a;root.querySelectorAll('[data-tmq]').forEach((x,i)=>{x.disabled=true;if(i===p.a)x.classList.add('correct')});if(!ok)b.classList.add('wrong');if(ok)st.quizScore++;else state.moduleReview[st.m.id]=Number(state.moduleReview[st.m.id]||0)+1;save();const f=document.getElementById('tmqFeedback');f.innerHTML=ok?'✅ <b>Exact.</b>':'💡 <b>À retenir :</b> '+esc(p.o[p.a]);f.classList.add('show');setTimeout(()=>{st.quizIndex++;if(st.quizIndex>=3)st.phase='listen';renderTomorrowSession();},700);});return;
+  }
+  if(st.phase==='listen'){
+    const w=st.listening; const distract=allWords().filter(x=>x.moduleId===st.m.id&&x.key!==w.key&&x.fr!==w.fr).sort(()=>Math.random()-.5).slice(0,2);const opts=[w.fr,...distract.map(x=>x.fr)].sort(()=>Math.random()-.5);
+    root.innerHTML='<div class="tomorrow-session"><p class="eyebrow">'+st.cat.ic+' '+st.cat.name+' · 3/4</p><h2>1 listening</h2>'+tomorrowTrack('listen')+'<div class="listen-first"><span class="ear">🎧</span><p>Écoute sans regarder le mot anglais, puis choisis le sens.</p><button class="btn btn-sun" id="tmlisten">🔊 Écouter</button></div><div class="options" style="margin-top:12px">'+opts.map((o,i)=>'<button class="opt" data-tml="'+encodeURIComponent(o)+'"><span class="key">'+['A','B','C'][i]+'</span><span>'+esc(o)+'</span></button>').join('')+'</div></div>';
+    document.getElementById('tmlisten').onclick=()=>speak(w.en,document.getElementById('tmlisten'));
+    root.querySelectorAll('[data-tml]').forEach(b=>b.onclick=()=>{const ok=decodeURIComponent(b.dataset.tml)===w.fr;state.mastery[w.key]=Math.max(-2,Math.min(5,Number(state.mastery[w.key]||0)+(ok?1:-1)));save();st.phase='speak';renderTomorrowSession();});return;
+  }
+  if(st.phase==='speak'){
+    root.innerHTML='<div class="tomorrow-session"><p class="eyebrow">'+st.cat.ic+' '+st.cat.name+' · 4/4</p><h2>À toi de parler</h2>'+tomorrowTrack('speak')+'<div class="prompt" lang="en">'+esc(st.cat.speak)+'</div><div class="focus-chips">'+st.words.slice(0,4).map(w=>'<span class="focus-chip" lang="en">'+esc(w.en)+'</span>').join('')+'</div>'+recorderHTML('tomorrowRec',35)+'<div class="btn-row"><button class="btn btn-primary btn-block" id="tomorrowDone">✓ C’est fait — je peux partir</button></div></div>';
+    bindRecorder('tomorrowRec',35); document.getElementById('tomorrowDone').onclick=finishTomorrow;return;
+  }
+}
+function finishTomorrow(){
+  const st=tomorrowState;if(!st)return; stopActiveRecording(); state.tomorrowStats.sessions=Number(state.tomorrowStats.sessions||0)+1;state.tomorrowStats.best[st.cat.id]=Math.max(Number(state.tomorrowStats.best[st.cat.id]||0),st.quizScore);logStudy();save();renderBadges();
+  const root=document.getElementById('tomorrow-arena');confetti(st.m.color);root.innerHTML='<div class="mission-result"><div class="stamp-big">'+st.cat.ic+'</div><p class="eyebrow">Révision express terminée</p><h2>Prête pour '+st.cat.name.toLowerCase()+' ✓</h2><p>5 mots revus, 3 réflexes testés, 1 listening et 1 production orale. Score quiz : <b>'+st.quizScore+'/3</b>.</p><div class="btn-row" style="justify-content:center"><button class="btn btn-primary" id="tmAgain">↻ Refaire cette session</button><button class="btn btn-ghost" id="tmMenu">Changer de situation</button></div></div>';
+  document.getElementById('tmAgain').onclick=()=>startTomorrow(st.cat.id);document.getElementById('tmMenu').onclick=renderTomorrow;
+}
+
+/* =========================================================
+   V6 · Réglages, sauvegardes et installation
+   ========================================================= */
+function isStandalone(){ return window.matchMedia?.('(display-mode: standalone)').matches || window.navigator.standalone===true; }
+function updateNetworkStatus(){
+  const online=navigator.onLine; const pill=document.getElementById('netStatus'); if(pill)pill.classList.toggle('show',!online);
+  const dot=document.getElementById('onlineDot'),txt=document.getElementById('onlineText'); if(dot)dot.className='status-dot '+(online?'ok':'warn'); if(txt)txt.textContent=online?'Connexion : en ligne':'Connexion : hors ligne — le contenu déjà mis en cache reste disponible';
+}
+function setSwitch(id,on){const b=document.getElementById(id);if(!b)return;b.classList.toggle('on',!!on);b.setAttribute('aria-checked',String(!!on));}
+function populateVoiceSelect(){
+  const sel=document.getElementById('voiceSelect');if(!sel)return;loadVoices();const ens=voices.filter(v=>/^en/i.test(v.lang));
+  sel.innerHTML='<option value="">Automatique · britannique en priorité</option>'+ens.map(v=>'<option value="'+esc(v.voiceURI)+'">'+esc(v.name)+' · '+esc(v.lang)+'</option>').join('');
+  sel.value=ens.some(v=>v.voiceURI===state.voiceURI)?state.voiceURI:'';
+}
+function installInstructions(){
+  const ua=navigator.userAgent||''; if(/iPad|iPhone|iPod/.test(ua)) return '<ol class="install-steps"><li>Ouvre ce site dans Safari.</li><li>Touche <b>Partager</b> ⬆️.</li><li>Choisis <b>Sur l’écran d’accueil</b>.</li></ol>';
+  if(/Android/i.test(ua)) return '<ol class="install-steps"><li>Ouvre le menu du navigateur ⋮.</li><li>Choisis <b>Installer l’application</b> ou <b>Ajouter à l’écran d’accueil</b>.</li></ol>';
+  return '<ol class="install-steps"><li>Utilise le bouton <b>Installer</b> si ton navigateur le propose.</li><li>Sinon, cherche « Installer cette application » dans le menu du navigateur.</li></ol>';
+}
+function renderSettings(){
+  applyUiPrefs(); updateNetworkStatus(); populateVoiceSelect();
+  setSwitch('setLarge',state.uiLarge);setSwitch('setContrast',state.uiContrast);setSwitch('setMotion',state.uiReduceMotion);setSwitch('setTranslations',state.hideTranslations);
+  const sw=!!navigator.serviceWorker?.controller; const swd=document.getElementById('swDot'),swt=document.getElementById('swText');if(swd)swd.className='status-dot '+(sw?'ok':'warn');if(swt)swt.textContent=sw?'Mode hors connexion : service worker actif':'Mode hors connexion : s’activera après chargement/rechargement en HTTPS';
+  const inst=isStandalone();const id=document.getElementById('installDot'),it=document.getElementById('installText');if(id)id.className='status-dot '+(inst?'ok':'warn');if(it)it.textContent=inst?'Installation : application ouverte en mode installé':'Installation : site ouvert dans le navigateur';
+  const guide=document.getElementById('installGuide');if(guide)guide.innerHTML=installInstructions();
+  const b=document.getElementById('backupStatus');if(b)b.textContent='Schéma V'+STATE_SCHEMA+(state.lastSavedAt?' · dernière sauvegarde locale : '+new Date(state.lastSavedAt).toLocaleString('fr-FR'):'');
+}
+function toggleSetting(field){state[field]=!state[field];save();applyUiPrefs();renderSettings();}
+function exportProgress(){
+  const payload={app:'Nathalie is the best',version:'V6',schemaVersion:STATE_SCHEMA,exportedAt:new Date().toISOString(),data:state};
+  const blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='nathalie-progress-'+todayKey()+'.json';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);toast('Sauvegarde exportée ✓');
+}
+function importProgressFile(file){
+  const r=new FileReader();r.onload=()=>{try{const parsed=JSON.parse(r.result);const raw=parsed&&parsed.data?parsed.data:parsed;if(!raw||typeof raw!=='object')throw new Error('format');if(!confirm('Importer cette sauvegarde remplacera la progression actuelle sur cet appareil. Continuer ?'))return;state=normalizeState(raw);save();applyUiPrefs();renderSettings();toast('Progression restaurée ✓');}catch(e){toast('Ce fichier ne ressemble pas à une sauvegarde valide.');}};r.readAsText(file);
+}
+function resetPart(kind){
+  const d=defaults();
+  const labels={games:'les scores des jeux',review:'les données de révision',missions:'les missions et l’entraînement oral',all:'TOUTE la progression'};
+  if(!confirm('Effacer '+labels[kind]+' ?'))return;
+  if(kind==='games') state.gameStats=d.gameStats;
+  if(kind==='review'){state.mastery={};state.moduleReview={};state.dailyChallenge=d.dailyChallenge;state.dailyCompleted=0;}
+  if(kind==='missions'){state.missionStats=d.missionStats;state.speakingStats=d.speakingStats;state.tomorrowStats=d.tomorrowStats;}
+  if(kind==='all'){localStorage.setItem(RESET_BACKUP_KEY,JSON.stringify(state));state=defaults();state.lastBackupDate=todayKey();}
+  save();applyUiPrefs();renderSettings();toast(kind==='all'?'Progression remise à zéro.':'Données effacées ✓');
+}
+function wireSettings(){
+  document.getElementById('setLarge')?.addEventListener('click',()=>toggleSetting('uiLarge'));document.getElementById('setContrast')?.addEventListener('click',()=>toggleSetting('uiContrast'));document.getElementById('setMotion')?.addEventListener('click',()=>toggleSetting('uiReduceMotion'));document.getElementById('setTranslations')?.addEventListener('click',()=>toggleSetting('hideTranslations'));
+  document.getElementById('voiceSelect')?.addEventListener('change',e=>{state.voiceURI=e.target.value;save();});document.getElementById('voiceTest')?.addEventListener('click',e=>speak('Could you tell me where the station is, please?',e.currentTarget));
+  document.getElementById('exportProgress')?.addEventListener('click',exportProgress);document.getElementById('importProgress')?.addEventListener('click',()=>document.getElementById('importFile')?.click());document.getElementById('importFile')?.addEventListener('change',e=>{const f=e.target.files?.[0];if(f)importProgressFile(f);e.target.value='';});
+  document.getElementById('resetGames')?.addEventListener('click',()=>resetPart('games'));document.getElementById('resetReview')?.addEventListener('click',()=>resetPart('review'));document.getElementById('resetMissions')?.addEventListener('click',()=>resetPart('missions'));document.getElementById('resetAll')?.addEventListener('click',()=>resetPart('all'));
+  document.getElementById('settingsInstall')?.addEventListener('click',()=>document.getElementById('installBtn')?.click());document.getElementById('checkUpdate')?.addEventListener('click',async()=>{try{const reg=await navigator.serviceWorker?.getRegistration();if(reg){await reg.update();toast('Recherche de mise à jour terminée.');}else toast('Mode hors connexion pas encore actif. Recharge la page une fois en ligne.');}catch(e){toast('Impossible de vérifier la mise à jour pour le moment.');}});
+}
+
 let dictFavOnly=false;
 function renderDictionary(){
   const root=document.getElementById('dict-results'); if(!root) return;
@@ -3018,7 +3266,7 @@ function renderDictionary(){
   if(q) rows=rows.filter(w=>cleanSearch(w.en+' '+w.fr+' '+w.moduleTitle).includes(q));
   const total=rows.length; rows=rows.slice(0,120);
   document.getElementById('dict-count').textContent=total+' résultat'+(total>1?'s':'')+(total>120?' · 120 affichés':'');
-  root.innerHTML=rows.length?rows.map(w=>'<div class="dict-row"><span class="vicon" aria-hidden="true" style="--accent:'+w.color+'">'+w.emoji+'</span><span><span class="word" lang="en">'+w.en+'</span><span class="translation">'+w.fr+' · '+w.ph+'</span><span class="where">'+w.level+' · '+w.moduleTitle+'</span></span><button class="speak" type="button" data-dsay="'+encodeURIComponent(w.en)+'" aria-label="Écouter">🔊</button><button class="star-btn'+(state.favorites[w.key]?' on':'')+'" type="button" data-dfav="'+w.key+'" aria-pressed="'+String(!!state.favorites[w.key])+'">'+(state.favorites[w.key]?'★':'☆')+'</button></div>').join(''):'<div class="empty-state">Aucun résultat. Essaie un autre mot ou retire un filtre.</div>';
+  root.innerHTML=rows.length?rows.map(w=>'<div class="dict-row"><span class="vicon" aria-hidden="true" style="--accent:'+w.color+'">'+w.emoji+'</span><span><span class="word" lang="en">'+w.en+'</span><span class="translation"><span class="frpart">'+w.fr+'</span><span class="phonetic"> · '+w.ph+'</span></span><span class="where">'+w.level+' · '+w.moduleTitle+'</span></span><button class="speak" type="button" data-dsay="'+encodeURIComponent(w.en)+'" aria-label="Écouter">🔊</button><button class="star-btn'+(state.favorites[w.key]?' on':'')+'" type="button" data-dfav="'+w.key+'" aria-pressed="'+String(!!state.favorites[w.key])+'">'+(state.favorites[w.key]?'★':'☆')+'</button></div>').join(''):'<div class="empty-state">Aucun résultat. Essaie un autre mot ou retire un filtre.</div>';
   root.querySelectorAll('[data-dsay]').forEach(b=>b.addEventListener('click',()=>speak(decodeURIComponent(b.dataset.dsay),b)));
   root.querySelectorAll('[data-dfav]').forEach(b=>b.addEventListener('click',()=>{toggleFavorite(b.dataset.dfav,b);renderDictionary()}));
 }
@@ -3058,32 +3306,27 @@ function toast(msg){
 }
 
 /* =========================================================
-   PWA : installation + service worker
+   PWA V6 : installation, statut réseau et mises à jour
    ========================================================= */
-let deferredPrompt=null;
-window.addEventListener('beforeinstallprompt',(e)=>{
-  e.preventDefault(); deferredPrompt=e;
-  document.getElementById('installBtn').classList.add('show');
+let deferredPrompt=null, waitingWorker=null;
+function showUpdateBanner(worker){waitingWorker=worker;document.getElementById('updateBanner')?.classList.add('show');}
+window.addEventListener('beforeinstallprompt',(e)=>{e.preventDefault();deferredPrompt=e;document.getElementById('installBtn')?.classList.add('show');});
+document.getElementById('installBtn')?.addEventListener('click', async ()=>{
+  if(deferredPrompt){deferredPrompt.prompt();await deferredPrompt.userChoice;deferredPrompt=null;document.getElementById('installBtn')?.classList.remove('show');}
+  else toast('Sur iPhone : Partager ⬆️ → « Sur l’écran d’accueil ». Sur Android/ordinateur : cherche « Installer l’application » dans le menu du navigateur.');
 });
-document.getElementById('installBtn').addEventListener('click', async ()=>{
-  if(deferredPrompt){
-    deferredPrompt.prompt();
-    await deferredPrompt.userChoice;
-    deferredPrompt=null;
-    document.getElementById('installBtn').classList.remove('show');
-  } else {
-    // iPhone / iPad (Safari) : pas de bouton natif
-    toast('Sur iPhone : appuie sur Partager ⬆️ puis « Sur l\'écran d\'accueil ». Sur Android : menu ⋮ puis « Installer l\'application ».');
-  }
-});
-window.addEventListener('appinstalled',()=>{
-  document.getElementById('installBtn').classList.remove('show');
-  toast('Installée ! Retrouve « Nathalie EN » sur ton écran d\'accueil 💛');
-});
-
+window.addEventListener('appinstalled',()=>{document.getElementById('installBtn')?.classList.remove('show');toast('Installée ! Retrouve « Nathalie EN » sur ton écran d’accueil 💛');if(document.getElementById('view-settings')?.classList.contains('active'))renderSettings();});
+window.addEventListener('online',()=>{updateNetworkStatus();toast('Connexion retrouvée ✓');});window.addEventListener('offline',()=>{updateNetworkStatus();toast('Hors ligne : le contenu déjà mis en cache reste disponible.');});
+document.getElementById('applyUpdate')?.addEventListener('click',()=>{if(waitingWorker)waitingWorker.postMessage({type:'SKIP_WAITING'});});document.getElementById('dismissUpdate')?.addEventListener('click',()=>document.getElementById('updateBanner')?.classList.remove('show'));
 if('serviceWorker' in navigator){
-  window.addEventListener('load',()=>{
-    navigator.serviceWorker.register('sw.js').catch(()=>{});
+  window.addEventListener('load',async()=>{
+    try{
+      const reg=await navigator.serviceWorker.register('sw.js');
+      if(reg.waiting)showUpdateBanner(reg.waiting);
+      reg.addEventListener('updatefound',()=>{const nw=reg.installing;if(!nw)return;nw.addEventListener('statechange',()=>{if(nw.state==='installed'&&navigator.serviceWorker.controller)showUpdateBanner(nw);});});
+      navigator.serviceWorker.addEventListener('controllerchange',()=>window.location.reload());
+      setTimeout(()=>reg.update().catch(()=>{}),2500);
+    }catch(e){}
   });
 }
 
@@ -3093,12 +3336,15 @@ if('serviceWorker' in navigator){
 window.addEventListener('hashchange',()=>{
   const h=(location.hash||'').replace('#','');
   if(h.startsWith('lecon-')) openLesson(h.slice(6));
-  else if(['programme','games','missions','speak','revision','lexique','test','resultat','accueil'].includes(h)) go(h,{keepHash:true});
+  else if(['programme','games','missions','speak','tomorrow','settings','revision','lexique','test','resultat','accueil'].includes(h)) go(h,{keepHash:true});
   else go('accueil',{keepHash:true});
 });
 
 (function init(){
+  save();
   applyUiPrefs();
+  updateNetworkStatus();
+  wireSettings();
   document.querySelectorAll('.dock-btn').forEach(b=>b.addEventListener('click',()=>go(b.dataset.go)));
   document.getElementById('textSizeBtn')?.addEventListener('click',()=>{state.uiLarge=!state.uiLarge;save();applyUiPrefs();});
   document.getElementById('contrastBtn')?.addEventListener('click',()=>{state.uiContrast=!state.uiContrast;save();applyUiPrefs();});
@@ -3112,7 +3358,7 @@ window.addEventListener('hashchange',()=>{
   document.querySelectorAll('[data-game]').forEach(b=>b.addEventListener('click',()=>startGame(b.dataset.game)));
   const hash=(location.hash||'').replace('#','');
   if(hash.startsWith('lecon-')) openLesson(hash.slice(6));
-  else if(['programme','games','missions','speak','revision','lexique'].includes(hash)) go(hash);
+  else if(['programme','games','missions','speak','tomorrow','settings','revision','lexique'].includes(hash)) go(hash);
   else go('accueil');
 })();
 </script>

@@ -1,19 +1,27 @@
 {
   "name": "Nathalie is the best — English for travel",
   "short_name": "Nathalie EN",
-  "description": "Le petit compagnon d'anglais de Nathalie pour voyager avec confiance : test de niveau, leçons de grammaire et de vocabulaire, et vidéos.",
+  "description": "Un compagnon d’anglais pour voyager : parcours A1-C1, jeux, missions, oral et révisions.",
   "lang": "fr",
-  "dir": "ltr",
-  "start_url": "./index.html",
+  "start_url": "./#accueil",
   "scope": "./",
   "display": "standalone",
-  "orientation": "portrait",
-  "background_color": "#16324F",
+  "orientation": "any",
+  "background_color": "#FBF9F4",
   "theme_color": "#16324F",
-  "categories": ["education", "travel", "lifestyle"],
+  "categories": ["education", "travel"],
   "icons": [
-    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
-    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
-    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+    {
+      "src": "icons/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/favicon-32.png",
+      "sizes": "32x32",
+      "type": "image/png",
+      "purpose": "any"
+    }
   ]
 }
