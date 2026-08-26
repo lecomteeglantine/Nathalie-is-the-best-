@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-<title>Nathalie is the best — Travel English Passport · V9</title>
+<title>Nathalie is the best — Travel English Passport · V10</title>
 <meta name="description" content="Le compagnon d'anglais de Nathalie pour voyager avec confiance : parcours A1-C1, jeux, missions, oral, listening, révisions adaptatives et passeport de voyage." />
 
 <!-- PWA -->
@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 <meta name="apple-mobile-web-app-title" content="Nathalie EN" />
 <meta name="application-name" content="Nathalie EN" />
-<meta name="nathalie-app-version" content="V9" />
+<meta name="nathalie-app-version" content="V10" />
 
 
 <style>
@@ -545,6 +545,18 @@ body.dark-mode .topbar{background:linear-gradient(180deg,rgba(7,19,31,.96),rgba(
 @media(min-width:900px){:root{--maxw:960px}.level-sec .modules{grid-template-columns:repeat(2,minmax(0,1fr))}.home-dashboard{grid-template-columns:1.3fr .7fr}.lesson-hero{max-width:760px}.vocab{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .level-sec{position:relative;padding-left:18px}.level-sec:before{content:"";position:absolute;left:4px;top:37px;bottom:10px;border-left:2px dashed color-mix(in srgb,var(--lvl,#2E86AB) 35%,transparent)}.level-head{position:relative}.level-head:before{content:"";position:absolute;left:-19px;width:11px;height:11px;border-radius:50%;background:var(--lvl,#2E86AB);box-shadow:0 0 0 5px color-mix(in srgb,var(--lvl,#2E86AB) 13%,var(--paper))}
 
+
+
+/* ============ V10 · stability, accessibility & performance ============ */
+.view h1[tabindex="-1"]{outline:none}
+.health-grid{display:grid;gap:8px;margin-top:12px}.health-row{display:grid;grid-template-columns:24px 1fr auto;gap:9px;align-items:center;border:1px solid var(--line);background:rgba(22,50,79,.025);border-radius:12px;padding:10px 11px}.health-row .health-icon{font-size:16px}.health-row b{display:block;color:var(--ink);font-size:13px}.health-row small{display:block;color:var(--muted);font-size:11px;margin-top:1px}.health-state{font-family:var(--mono);font-size:9px;font-weight:700;border-radius:999px;padding:4px 7px;white-space:nowrap}.health-state.ok{color:#0f6a58;background:rgba(23,184,144,.11)}.health-state.warn{color:#79520a;background:rgba(255,193,69,.16)}.health-state.bad{color:#8d2e24;background:rgba(255,107,92,.13)}
+.recovery-note{font-size:12px;color:var(--muted);margin-top:10px}.qa-version{font-family:var(--mono);font-size:10px;color:var(--muted)}
+.level-sec,.dict-row,.notebook-row,.destination-card{content-visibility:auto;contain-intrinsic-size:1px 110px}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}}
+body.reduce-motion *{scroll-behavior:auto!important}
+body.dark-mode .health-row{background:rgba(255,255,255,.025)}
+@media(max-width:560px){.health-row{grid-template-columns:22px 1fr}.health-state{grid-column:2;justify-self:start}}
+
 </style>
 </head>
 <body>
@@ -552,7 +564,7 @@ body.dark-mode .topbar{background:linear-gradient(180deg,rgba(7,19,31,.96),rgba(
 
 <header class="topbar">
   <div class="topbar-in">
-    <button class="brand" onclick="go('accueil')" aria-label="Retour à l'accueil">
+    <button type="button" class="brand" onclick="go('accueil')" aria-label="Retour à l'accueil">
       <span class="plane" aria-hidden="true">✈</span>
       <span>
         <b>Nathalie is the best</b>
@@ -565,10 +577,12 @@ body.dark-mode .topbar{background:linear-gradient(180deg,rgba(7,19,31,.96),rgba(
       <button id="contrastBtn" class="icon-btn" type="button" title="Contraste renforcé" aria-pressed="false">◐</button>
       <span id="netStatus" class="net-pill" role="status"><span aria-hidden="true">●</span><span class="net-label">Hors ligne</span></span>
       <button id="settingsBtn" class="settings-btn" type="button" title="Réglages" aria-label="Ouvrir les réglages" onclick="go('settings')">⚙️</button>
-      <button id="installBtn" class="btn-install" aria-label="Installer l'application">⬇ Installer</button>
+      <button type="button" id="installBtn" class="btn-install" aria-label="Installer l'application">⬇ Installer</button>
     </div>
   </div>
 </header>
+
+<div id="route-status" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
 
 <main id="main-content">
 
@@ -600,8 +614,8 @@ body.dark-mode .topbar{background:linear-gradient(180deg,rgba(7,19,31,.96),rgba(
         <h1>Prête à décoller,<br>Nathalie&nbsp;?</h1>
         <p class="lead">Un petit test pour voir où tu en es, puis un programme sur mesure — grammaire et vocabulaire — avec des leçons simples et des vidéos. Pas de stress&nbsp;: on avance à ton rythme. ✈️</p>
         <div class="btn-row">
-          <button class="btn btn-primary" onclick="startTest()">Faire mon test de niveau</button>
-          <button class="btn btn-ghost" onclick="go('programme')">Voir mon programme</button>
+          <button type="button" class="btn btn-primary" onclick="startTest()">Faire mon test de niveau</button>
+          <button type="button" class="btn btn-ghost" onclick="go('programme')">Voir mon programme</button>
         </div>
       </div>
     </div>
@@ -634,7 +648,7 @@ body.dark-mode .topbar{background:linear-gradient(180deg,rgba(7,19,31,.96),rgba(
 
     <div class="v9-callout">
       <div class="ic" aria-hidden="true">🛂</div>
-      <div style="flex:1"><b>V9 · Ton passeport de voyage</b><small>Carte du monde, destinations débloquées, tampons, wallet et progression transformée en vraie aventure.</small></div>
+      <div style="flex:1"><b>V10 · Ton passeport de voyage</b><small>Carte du monde, destinations débloquées, tampons, wallet et progression transformée en vraie aventure.</small></div>
       <button class="btn btn-sun" type="button" onclick="go('passport')">Ouvrir mon passeport →</button>
     </div>
 
@@ -663,10 +677,10 @@ body.dark-mode .topbar{background:linear-gradient(180deg,rgba(7,19,31,.96),rgba(
         <p class="en" id="pd-en" lang="en">Hello, how are you?</p>
         <p class="fr" id="pd-fr">Bonjour, comment ça va ?</p>
       </div>
-      <button class="mini-speak" title="Écouter" aria-label="Écouter la phrase" onclick="speakEl('pd-en')">🔊</button>
+      <button type="button" class="mini-speak" title="Écouter" aria-label="Écouter la phrase" onclick="speakEl('pd-en')">🔊</button>
     </div>
     <div class="btn-row" style="margin-top:10px">
-      <button class="btn btn-sun" onclick="newPhrase()" style="font-size:13px;padding:9px 14px">↻ Une autre phrase</button>
+      <button type="button" class="btn btn-sun" onclick="newPhrase()" style="font-size:13px;padding:9px 14px">↻ Une autre phrase</button>
     </div>
 
     <h2>Ton itinéraire</h2>
@@ -686,13 +700,13 @@ body.dark-mode .topbar{background:linear-gradient(180deg,rgba(7,19,31,.96),rgba(
       </div>
     </div>
     <div class="btn-row" style="margin-top:16px">
-      <button class="btn btn-primary btn-block" onclick="go('programme')">Ouvrir mon programme →</button>
+      <button type="button" class="btn btn-primary btn-block" onclick="go('programme')">Ouvrir mon programme →</button>
     </div>
   </section>
 
   <!-- ============ TEST ============ -->
   <section id="view-test" class="view" aria-labelledby="test-h">
-    <button class="back" onclick="go('accueil')">← Accueil</button>
+    <button type="button" class="back" onclick="go('accueil')">← Accueil</button>
     <div class="quiz-head">
       <p class="eyebrow" id="test-h" style="margin:0">Test de niveau</p>
       <span class="quiz-progress" id="q-progress">1 / 17</span>
@@ -722,7 +736,7 @@ body.dark-mode .topbar{background:linear-gradient(180deg,rgba(7,19,31,.96),rgba(
         <h3 style="margin-top:6px">On commence par ici :</h3>
         <div id="res-reco" class="modules" style="margin-top:10px"></div>
         <div class="btn-row" style="margin-top:14px">
-          <button class="btn btn-primary btn-block" onclick="go('programme')">Voir tout mon programme →</button>
+          <button type="button" class="btn btn-primary btn-block" onclick="go('programme')">Voir tout mon programme →</button>
         </div>
       </div>
     </div>
@@ -730,7 +744,7 @@ body.dark-mode .topbar{background:linear-gradient(180deg,rgba(7,19,31,.96),rgba(
 
   <!-- ============ PROGRAMME ============ -->
   <section id="view-programme" class="view" aria-labelledby="prog-h">
-    <button class="back" onclick="go('accueil')">← Accueil</button>
+    <button type="button" class="back" onclick="go('accueil')">← Accueil</button>
     <p class="eyebrow" id="prog-h">Ton programme</p>
     <h1>Mes escales</h1>
     <div class="passport">
@@ -740,25 +754,25 @@ body.dark-mode .topbar{background:linear-gradient(180deg,rgba(7,19,31,.96),rgba(
     <p class="lead" id="prog-tip" style="margin-top:10px">Chaque escale terminée te donne un tampon dans ton passeport. 🛂</p>
     <div id="next-stop"></div>
     <div class="tool-row" aria-label="Filtrer les escales">
-      <button class="pill active" data-prog-filter="all">Toutes</button>
-      <button class="pill" data-prog-filter="todo">À faire</button>
-      <button class="pill" data-prog-filter="done">Validées</button>
+      <button type="button" class="pill active" data-prog-filter="all">Toutes</button>
+      <button type="button" class="pill" data-prog-filter="todo">À faire</button>
+      <button type="button" class="pill" data-prog-filter="done">Validées</button>
     </div>
     <div id="module-list" class="modules"></div>
     <div class="btn-row" style="margin-top:16px">
-      <button class="btn btn-ghost" onclick="startTest()">↻ Refaire le test de niveau</button>
+      <button type="button" class="btn btn-ghost" onclick="startTest()">↻ Refaire le test de niveau</button>
     </div>
   </section>
 
   <!-- ============ LEÇON ============ -->
-  <section id="view-lecon" class="view" aria-labelledby="lesson-h">
-    <button class="back" onclick="go('programme')">← Mon programme</button>
+  <section id="view-lecon" class="view" aria-label="Leçon">
+    <button type="button" class="back" onclick="go('programme')">← Mon programme</button>
     <div id="lesson-body"></div>
   </section>
 
   <!-- ============ RÉVISER ============ -->
   <section id="view-revision" class="view" aria-labelledby="review-h">
-    <button class="back" onclick="go('accueil')">← Accueil</button>
+    <button type="button" class="back" onclick="go('accueil')">← Accueil</button>
     <p class="eyebrow" id="review-h">Révision active</p>
     <h1>Réviser sans relire</h1>
     <p class="lead">Flashcards, rappel actif et mini-quiz. Les mots marqués « à revoir » reviennent plus souvent.</p>
@@ -770,15 +784,15 @@ body.dark-mode .topbar{background:linear-gradient(180deg,rgba(7,19,31,.96),rgba(
         <option value="personal">Mon carnet personnel 📝</option>
         <option value="A1">Niveau A1</option><option value="A2">Niveau A2</option><option value="B1">Niveau B1</option><option value="B2">Niveau B2</option><option value="C1">Niveau C1</option>
       </select>
-      <button class="pill active" id="mode-flash">🎴 Flashcards</button>
-      <button class="pill" id="mode-quiz">⚡ Quiz 10 mots</button>
+      <button type="button" class="pill active" id="mode-flash">🎴 Flashcards</button>
+      <button type="button" class="pill" id="mode-quiz">⚡ Quiz 10 mots</button>
     </div>
     <div id="review-content" class="review-shell" aria-live="polite"></div>
   </section>
 
   <!-- ============ JEUX ============ -->
   <section id="view-games" class="view" aria-labelledby="games-h">
-    <button class="back" onclick="go('accueil')">← Accueil</button>
+    <button type="button" class="back" onclick="go('accueil')">← Accueil</button>
     <p class="eyebrow" id="games-h">Entraînement ludique</p>
     <h1>Games lounge</h1>
     <p class="lead">Des parties courtes pour faire revenir les mots au bon moment. Tout utilise le vocabulaire de tes escales et reste enregistré uniquement sur cet appareil.</p>
@@ -793,10 +807,10 @@ body.dark-mode .topbar{background:linear-gradient(180deg,rgba(7,19,31,.96),rgba(
 
     <h2>Choisis ton jeu</h2>
     <div class="game-grid">
-      <button class="game-tile" data-game="match"><span class="best" id="best-match">0 victoire</span><span class="gicon" aria-hidden="true">🧩</span><b>Match the pairs</b><small>Associe six mots anglais à leur traduction française.</small></button>
-      <button class="game-tile" data-game="missing"><span class="best" id="best-missing">0 victoire</span><span class="gicon" aria-hidden="true">🫥</span><b>What’s missing?</b><small>Mémorise cinq mots, puis retrouve celui qui a disparu.</small></button>
-      <button class="game-tile" data-game="speed"><span class="best" id="best-speed">Record 0</span><span class="gicon" aria-hidden="true">⚡</span><b>Speed quiz</b><small>45 secondes : combien de traductions peux-tu reconnaître ?</small></button>
-      <button class="game-tile" data-game="travel"><span class="best" id="best-travel">Record 0/5</span><span class="gicon" aria-hidden="true">🌍</span><b>Travel challenge</b><small>Aéroport, hôtel, restaurant, chemin, urgences : cinq situations réelles.</small></button>
+      <button type="button" class="game-tile" data-game="match"><span class="best" id="best-match">0 victoire</span><span class="gicon" aria-hidden="true">🧩</span><b>Match the pairs</b><small>Associe six mots anglais à leur traduction française.</small></button>
+      <button type="button" class="game-tile" data-game="missing"><span class="best" id="best-missing">0 victoire</span><span class="gicon" aria-hidden="true">🫥</span><b>What’s missing?</b><small>Mémorise cinq mots, puis retrouve celui qui a disparu.</small></button>
+      <button type="button" class="game-tile" data-game="speed"><span class="best" id="best-speed">Record 0</span><span class="gicon" aria-hidden="true">⚡</span><b>Speed quiz</b><small>45 secondes : combien de traductions peux-tu reconnaître ?</small></button>
+      <button type="button" class="game-tile" data-game="travel"><span class="best" id="best-travel">Record 0/5</span><span class="gicon" aria-hidden="true">🌍</span><b>Travel challenge</b><small>Aéroport, hôtel, restaurant, chemin, urgences : cinq situations réelles.</small></button>
     </div>
 
     <div id="game-arena" class="game-arena" aria-live="polite"></div>
@@ -814,7 +828,7 @@ body.dark-mode .topbar{background:linear-gradient(180deg,rgba(7,19,31,.96),rgba(
 
   <!-- ============ MISSIONS V4 ============ -->
   <section id="view-missions" class="view" aria-labelledby="missions-h">
-    <button class="back" onclick="go('accueil')">← Accueil</button>
+    <button type="button" class="back" onclick="go('accueil')">← Accueil</button>
     <div class="mission-hero">
       <p class="eyebrow" id="missions-h" style="color:var(--sun)">V4 · English in real life</p>
       <h1>Travel Missions</h1>
@@ -836,7 +850,7 @@ body.dark-mode .topbar{background:linear-gradient(180deg,rgba(7,19,31,.96),rgba(
 
   <!-- ============ SPEAK FOR REAL V5 ============ -->
   <section id="view-speak" class="view" aria-labelledby="speak-h">
-    <button class="back" onclick="go('accueil')">← Accueil</button>
+    <button type="button" class="back" onclick="go('accueil')">← Accueil</button>
     <div class="speak-hero">
       <p class="eyebrow" id="speak-h">V5 · Speak for real</p>
       <h1>À toi de parler.</h1>
@@ -872,7 +886,7 @@ body.dark-mode .topbar{background:linear-gradient(180deg,rgba(7,19,31,.96),rgba(
 
   <!-- ============ JE PARS DEMAIN · V6 ============ -->
   <section id="view-tomorrow" class="view" aria-labelledby="tomorrow-h">
-    <button class="back" onclick="go('accueil')">← Accueil</button>
+    <button type="button" class="back" onclick="go('accueil')">← Accueil</button>
     <div class="tomorrow-hero">
       <p class="eyebrow" id="tomorrow-h">V6 · Révision de dernière minute</p>
       <h1>Je pars demain.</h1>
@@ -888,7 +902,7 @@ body.dark-mode .topbar{background:linear-gradient(180deg,rgba(7,19,31,.96),rgba(
 
   <!-- ============ LISTENING LAB · V7 ============ -->
   <section id="view-listening" class="view" aria-labelledby="listening-h">
-    <button class="back" onclick="go('accueil')">← Accueil</button>
+    <button type="button" class="back" onclick="go('accueil')">← Accueil</button>
     <div class="listening-hero">
       <p class="eyebrow" id="listening-h">V7 · Real-world English</p>
       <h1>Tu l’entends vraiment&nbsp;?</h1>
@@ -912,7 +926,7 @@ body.dark-mode .topbar{background:linear-gradient(180deg,rgba(7,19,31,.96),rgba(
 
   <!-- ============ MY ENGLISH · V8 ============ -->
   <section id="view-myenglish" class="view" aria-labelledby="myenglish-h">
-    <button class="back" onclick="go('accueil')">← Accueil</button>
+    <button type="button" class="back" onclick="go('accueil')">← Accueil</button>
     <div class="myenglish-hero">
       <p class="eyebrow" id="myenglish-h">V8 · Adaptive learning</p>
       <h1>My English</h1>
@@ -921,7 +935,7 @@ body.dark-mode .topbar{background:linear-gradient(180deg,rgba(7,19,31,.96),rgba(
 
     <div class="myenglish-v9-summary" aria-label="Progression générale">
       <div class="dashboard-ring" id="my-progress-ring" style="--pct:0"><div><b id="my-progress-pct">0%</b><small>parcours</small></div></div>
-      <div><p class="eyebrow">V9 · Vue d’ensemble</p><h2 id="my-progress-title">En route</h2><p id="my-progress-copy">Tes escales, tes mots et tes missions se combinent maintenant dans ton passeport.</p><div class="btn-row" style="margin-top:10px"><button class="btn btn-ghost" type="button" onclick="go('passport')">🛂 Voir le passeport</button></div></div>
+      <div><p class="eyebrow">V10 · Vue d’ensemble</p><h2 id="my-progress-title">En route</h2><p id="my-progress-copy">Tes escales, tes mots et tes missions se combinent maintenant dans ton passeport.</p><div class="btn-row" style="margin-top:10px"><button class="btn btn-ghost" type="button" onclick="go('passport')">🛂 Voir le passeport</button></div></div>
     </div>
 
     <div class="metric-grid" aria-label="Synthèse personnelle">
@@ -991,9 +1005,9 @@ body.dark-mode .topbar{background:linear-gradient(180deg,rgba(7,19,31,.96),rgba(
 
   <!-- ============ PASSEPORT & TRAVEL MAP · V9 ============ -->
   <section id="view-passport" class="view" aria-labelledby="passport-h">
-    <button class="back" onclick="go('accueil')">← Accueil</button>
+    <button type="button" class="back" onclick="go('accueil')">← Accueil</button>
     <div class="passport-hero">
-      <p class="eyebrow" id="passport-h">V9 · My Travel Passport</p>
+      <p class="eyebrow" id="passport-h">V10 · My Travel Passport</p>
       <h1>Le monde se débloque.</h1>
       <p>Tes progrès deviennent des tampons, des destinations et une vraie trace de voyage. Rien à refaire : ce passeport utilise tout ce que tu as déjà accompli.</p>
     </div>
@@ -1007,11 +1021,11 @@ body.dark-mode .topbar{background:linear-gradient(180deg,rgba(7,19,31,.96),rgba(
     <div id="v9-wallet" class="v9-panel"></div>
   </section>
 
-  <!-- ============ RÉGLAGES · V6 ============ -->
+  <!-- ============ RÉGLAGES · V10 ============ -->
   <section id="view-settings" class="view" aria-labelledby="settings-h">
-    <button class="back" onclick="go('accueil')">← Accueil</button>
+    <button type="button" class="back" onclick="go('accueil')">← Accueil</button>
     <div class="settings-hero">
-      <p class="eyebrow" id="settings-h">V9 · Réglages & sauvegardes</p>
+      <p class="eyebrow" id="settings-h">V10 · Réglages, sauvegardes & diagnostic</p>
       <h1>Mon application</h1>
       <p>Affichage, voix, mode hors connexion et sauvegarde de la progression — toujours sans compte.</p>
     </div>
@@ -1054,6 +1068,14 @@ body.dark-mode .topbar{background:linear-gradient(180deg,rgba(7,19,31,.96),rgba(
         <p class="backup-note" id="backupStatus"></p>
       </div>
 
+      <div class="setting-card">
+        <h2>🩺 Diagnostic & récupération</h2>
+        <p>V10 peut vérifier les éléments essentiels de l’application et restaurer le point de récupération local le plus récent en cas de mauvaise manipulation.</p>
+        <div class="btn-row"><button class="btn btn-primary" id="runDiagnostic" type="button">✓ Lancer le diagnostic</button><button class="btn btn-ghost" id="restoreLocalBackup" type="button">↶ Restaurer une sauvegarde locale</button></div>
+        <div id="diagnosticResults" class="health-grid" aria-live="polite"></div>
+        <p class="recovery-note" id="recoveryStatus">Les sauvegardes de récupération restent uniquement sur cet appareil.</p>
+      </div>
+
       <div class="setting-card danger-zone">
         <h2>🧹 Recommencer sans tout effacer</h2>
         <p>Choisis précisément ce que tu veux remettre à zéro.</p>
@@ -1064,7 +1086,7 @@ body.dark-mode .topbar{background:linear-gradient(180deg,rgba(7,19,31,.96),rgba(
 
   <!-- ============ LEXIQUE ============ -->
   <section id="view-lexique" class="view" aria-labelledby="lex-h">
-    <button class="back" onclick="go('accueil')">← Accueil</button>
+    <button type="button" class="back" onclick="go('accueil')">← Accueil</button>
     <p class="eyebrow" id="lex-h">Lexique de voyage</p>
     <h1>Trouver un mot</h1>
     <p class="lead">Cherche en anglais ou en français dans tout le parcours. Tu peux écouter le mot et l’ajouter à tes favoris.</p>
@@ -1073,7 +1095,7 @@ body.dark-mode .topbar{background:linear-gradient(180deg,rgba(7,19,31,.96),rgba(
       <input id="dict-search" class="search-input" type="search" placeholder="Ex. réservation, luggage, opinion…" autocomplete="off">
       <div class="tool-row" style="margin-bottom:0">
         <select id="dict-level" class="select" aria-label="Filtrer par niveau"><option value="all">Tous les niveaux</option><option>A1</option><option>A2</option><option>B1</option><option>B2</option><option>C1</option></select>
-        <button id="dict-favs" class="pill">⭐ Favoris seulement</button>
+        <button type="button" id="dict-favs" class="pill" aria-pressed="false">⭐ Favoris seulement</button>
       </div>
     </div>
     <p class="quiz-score" id="dict-count"></p>
@@ -1084,20 +1106,20 @@ body.dark-mode .topbar{background:linear-gradient(180deg,rgba(7,19,31,.96),rgba(
 
 <footer>
   <p>Fait avec <span class="heart" aria-hidden="true">❤</span> pour Nathalie — parce que tu es <b>the best</b>, et que le monde t'attend.</p>
-  <p class="priv">🔒 Aucun compte et aucune progression envoyée à un serveur : tes résultats restent dans le stockage local de ce navigateur. Les vidéos YouTube ne se chargent qu’après ton clic et nécessitent internet. Les simulations utilisent uniquement les fonctions de ton navigateur. Les enregistrements vocaux restent localement dans la page, ne sont jamais envoyés par le site et disparaissent au rechargement. V9 permet aussi d’exporter manuellement une sauvegarde JSON de la progression, conserve la révision espacée locale et ajoute un passeport de voyage généré à partir des progrès. Le Listening Lab utilise la synthèse vocale locale du navigateur lorsque celle-ci est disponible.</p>
+  <p class="priv">🔒 Aucun compte et aucune progression envoyée à un serveur : tes résultats restent dans le stockage local de ce navigateur. Les vidéos YouTube ne se chargent qu’après ton clic et nécessitent internet. Les simulations utilisent uniquement les fonctions de ton navigateur. Les enregistrements vocaux restent localement dans la page, ne sont jamais envoyés par le site et disparaissent au rechargement. V10 conserve l’export JSON, la révision espacée et le passeport de voyage, tout en renforçant la fiabilité des sauvegardes, l’accessibilité et les contrôles internes. Le Listening Lab utilise la synthèse vocale locale du navigateur lorsque celle-ci est disponible.</p>
 </footer>
 
 <nav class="app-dock" aria-label="Navigation principale">
-  <button class="dock-btn" data-go="accueil" aria-current="page">🏠<span>Accueil</span></button>
-  <button class="dock-btn" data-go="programme">🗺️<span>Parcours</span></button>
-  <button class="dock-btn" data-go="games">🎮<span>Jeux</span></button>
-  <button class="dock-btn" data-go="missions">🎭<span>Missions</span></button>
-  <button class="dock-btn" data-go="speak">🎙️<span>Parler</span></button>
-  <button class="dock-btn" data-go="listening">🎧<span>Écouter</span></button>
-  <button class="dock-btn" data-go="myenglish">🧠<span>My English</span></button>
-  <button class="dock-btn" data-go="passport">🛂<span>Passeport</span></button>
-  <button class="dock-btn" data-go="revision">🎴<span>Réviser</span></button>
-  <button class="dock-btn" data-go="lexique">🔎<span>Lexique</span></button>
+  <button type="button" class="dock-btn" data-go="accueil" aria-current="page">🏠<span>Accueil</span></button>
+  <button type="button" class="dock-btn" data-go="programme">🗺️<span>Parcours</span></button>
+  <button type="button" class="dock-btn" data-go="games">🎮<span>Jeux</span></button>
+  <button type="button" class="dock-btn" data-go="missions">🎭<span>Missions</span></button>
+  <button type="button" class="dock-btn" data-go="speak">🎙️<span>Parler</span></button>
+  <button type="button" class="dock-btn" data-go="listening">🎧<span>Écouter</span></button>
+  <button type="button" class="dock-btn" data-go="myenglish">🧠<span>My English</span></button>
+  <button type="button" class="dock-btn" data-go="passport">🛂<span>Passeport</span></button>
+  <button type="button" class="dock-btn" data-go="revision">🎴<span>Réviser</span></button>
+  <button type="button" class="dock-btn" data-go="lexique">🔎<span>Lexique</span></button>
 </nav>
 
 <div class="update-banner" id="updateBanner" role="status" aria-live="polite"><span>✨ Une nouvelle version est prête.</span><button class="btn btn-sun" id="applyUpdate" type="button">Mettre à jour</button><button class="tiny-btn" id="dismissUpdate" type="button" aria-label="Fermer">✕</button></div>
@@ -2361,35 +2383,51 @@ const LEVELS = [
    État (sauvegardé sur l'appareil)
    ========================================================= */
 const KEY='nathalie_en_v1';
-const STATE_SCHEMA=9;
+const STATE_SCHEMA=10;
 const PRE_V6_BACKUP_KEY='nathalie_en_backup_pre_v6';
 const PRE_V7_BACKUP_KEY='nathalie_en_backup_pre_v7';
 const PRE_V8_BACKUP_KEY='nathalie_en_backup_pre_v8';
 const PRE_V9_BACKUP_KEY='nathalie_en_backup_pre_v9';
+const PRE_V10_BACKUP_KEY='nathalie_en_backup_pre_v10';
+const PRE_IMPORT_BACKUP_KEY='nathalie_en_backup_pre_import_v10';
 const RESET_BACKUP_KEY='nathalie_en_backup_before_reset_v6';
-const AUTO_BACKUP_KEY='nathalie_en_autobackup_v9';
+const AUTO_BACKUP_KEY='nathalie_en_autobackup_v10';
 function defaults(){ return { schemaVersion:STATE_SCHEMA, lastSavedAt:null, lastBackupDate:null, lastSeenVersion:null, done:{}, score:null, level:null, phraseIdx:null, phraseDate:null, lastModule:null, favorites:{}, mastery:{}, practice:{}, studyDates:[], moduleReview:{}, gameStats:{plays:0,matchWins:0,missingWins:0,speedBest:0,travelBest:0}, missionStats:{plays:0,best:{},perfect:{}}, missionListenFirst:false, dailyChallenge:{date:null,answers:{},spoken:false,completed:false}, dailyCompleted:0, levelCelebrations:{}, speakingStats:{recordings:0,shadowing:0,speak30:0,roleplays:0,express:0,travelDayBest:0,travelDayPlays:0,selfChecks:0}, phrasebook:{}, customPhrases:[], tomorrowStats:{sessions:0,best:{}}, listeningStats:{plays:0,correct:0,catchCorrect:0,readingCorrect:0,cultureCorrect:0,dailyDates:[]}, srs:{}, personalWords:[], weeklyGoal:{days:3,reviews:20,missions:2}, activityLog:[], adaptiveStats:{sessions:0,minutes:0}, uiLarge:false, uiContrast:false, uiReduceMotion:false, uiDark:false, hideTranslations:false, voiceURI:'' }; }
+function isPlainObject(v){ return !!v && typeof v==='object' && !Array.isArray(v); }
+function safeObject(v){ return isPlainObject(v)?v:{}; }
+function safeText(v,max=500){ return typeof v==='string'?v.slice(0,max):''; }
+function clampNum(v,min,max,fallback=0){ const n=Number(v); return Number.isFinite(n)?Math.max(min,Math.min(max,n)):fallback; }
 function normalizeState(raw){
-  raw=raw&&typeof raw==='object'?raw:{};
-  const d=defaults();
-  return Object.assign(d, raw, {
+  raw=isPlainObject(raw)?raw:{};
+  const d=defaults(), known={...d};
+  Object.keys(d).forEach(k=>{ if(Object.prototype.hasOwnProperty.call(raw,k)) known[k]=raw[k]; });
+  const personal=Array.isArray(raw.personalWords)?raw.personalWords.slice(-500).filter(isPlainObject).map(p=>({id:safeText(p.id,80)||('w'+Math.random().toString(36).slice(2)),en:safeText(p.en,300),fr:safeText(p.fr,300),note:safeText(p.note,500),list:safeText(p.list,80)||'À retenir',createdAt:safeText(p.createdAt,20)})).filter(p=>p.en):[];
+  const custom=Array.isArray(raw.customPhrases)?raw.customPhrases.slice(-300).filter(isPlainObject).map(p=>({id:safeText(p.id,80)||('p'+Math.random().toString(36).slice(2)),en:safeText(p.en,400),fr:safeText(p.fr,400)})).filter(p=>p.en):[];
+  const goal=safeObject(raw.weeklyGoal);
+  return Object.assign(known, {
     schemaVersion:STATE_SCHEMA,
-    done:raw.done||{}, favorites:raw.favorites||{}, mastery:raw.mastery||{}, practice:raw.practice||{},
-    studyDates:Array.isArray(raw.studyDates)?raw.studyDates:[], moduleReview:raw.moduleReview||{},
-    gameStats:Object.assign({},d.gameStats,raw.gameStats||{}),
-    missionStats:Object.assign({},d.missionStats,raw.missionStats||{}, {best:(raw.missionStats&&raw.missionStats.best)||{}, perfect:(raw.missionStats&&raw.missionStats.perfect)||{}}),
-    dailyChallenge:Object.assign({},d.dailyChallenge,raw.dailyChallenge||{}), levelCelebrations:raw.levelCelebrations||{},
-    speakingStats:Object.assign({},d.speakingStats,raw.speakingStats||{}), phrasebook:raw.phrasebook||{},
-    customPhrases:Array.isArray(raw.customPhrases)?raw.customPhrases:[], tomorrowStats:Object.assign({},d.tomorrowStats,raw.tomorrowStats||{}, {best:(raw.tomorrowStats&&raw.tomorrowStats.best)||{}}),
-    listeningStats:Object.assign({},d.listeningStats,raw.listeningStats||{}, {dailyDates:Array.isArray(raw.listeningStats?.dailyDates)?raw.listeningStats.dailyDates:[]}),
-    srs:raw.srs||{}, personalWords:Array.isArray(raw.personalWords)?raw.personalWords:[],
-    weeklyGoal:Object.assign({},d.weeklyGoal,raw.weeklyGoal||{}), activityLog:Array.isArray(raw.activityLog)?raw.activityLog:[],
-    adaptiveStats:Object.assign({},d.adaptiveStats,raw.adaptiveStats||{})
+    done:safeObject(raw.done), favorites:safeObject(raw.favorites), mastery:safeObject(raw.mastery), practice:safeObject(raw.practice),
+    studyDates:Array.isArray(raw.studyDates)?[...new Set(raw.studyDates.filter(x=>typeof x==='string').slice(-365))]:[], moduleReview:safeObject(raw.moduleReview),
+    gameStats:Object.assign({},d.gameStats,safeObject(raw.gameStats)),
+    missionStats:Object.assign({},d.missionStats,safeObject(raw.missionStats), {best:safeObject(raw.missionStats?.best), perfect:safeObject(raw.missionStats?.perfect)}),
+    dailyChallenge:Object.assign({},d.dailyChallenge,safeObject(raw.dailyChallenge)), levelCelebrations:safeObject(raw.levelCelebrations),
+    speakingStats:Object.assign({},d.speakingStats,safeObject(raw.speakingStats)), phrasebook:safeObject(raw.phrasebook),
+    customPhrases:custom, tomorrowStats:Object.assign({},d.tomorrowStats,safeObject(raw.tomorrowStats), {best:safeObject(raw.tomorrowStats?.best)}),
+    listeningStats:Object.assign({},d.listeningStats,safeObject(raw.listeningStats), {dailyDates:Array.isArray(raw.listeningStats?.dailyDates)?[...new Set(raw.listeningStats.dailyDates.filter(x=>typeof x==='string').slice(-365))]:[]}),
+    srs:safeObject(raw.srs), personalWords:personal,
+    weeklyGoal:{days:clampNum(goal.days,1,7,3),reviews:clampNum(goal.reviews,1,500,20),missions:clampNum(goal.missions,0,50,2)},
+    activityLog:Array.isArray(raw.activityLog)?raw.activityLog.slice(-1500).filter(isPlainObject):[],
+    adaptiveStats:Object.assign({},d.adaptiveStats,safeObject(raw.adaptiveStats)),
+    uiLarge:!!raw.uiLarge, uiContrast:!!raw.uiContrast, uiReduceMotion:!!raw.uiReduceMotion, uiDark:!!raw.uiDark, hideTranslations:!!raw.hideTranslations,
+    voiceURI:safeText(raw.voiceURI,500), lastModule:safeText(raw.lastModule,100)||null, level:safeText(raw.level,100)||null,
+    score:Number.isFinite(Number(raw.score))?Number(raw.score):null, phraseIdx:Number.isFinite(Number(raw.phraseIdx))?Number(raw.phraseIdx):null,
+    phraseDate:safeText(raw.phraseDate,20)||null, lastSeenVersion:safeText(raw.lastSeenVersion,20)||null
   });
 }
 function load(){
   try{
     const raw=JSON.parse(localStorage.getItem(KEY)) || {};
+    if(raw && Object.keys(raw).length && Number(raw.schemaVersion||0)<10 && !localStorage.getItem(PRE_V10_BACKUP_KEY)) localStorage.setItem(PRE_V10_BACKUP_KEY,JSON.stringify(raw));
     if(raw && Object.keys(raw).length && Number(raw.schemaVersion||0)<9 && !localStorage.getItem(PRE_V9_BACKUP_KEY)) localStorage.setItem(PRE_V9_BACKUP_KEY,JSON.stringify(raw));
     if(raw && Object.keys(raw).length && Number(raw.schemaVersion||0)<8 && !localStorage.getItem(PRE_V8_BACKUP_KEY)) localStorage.setItem(PRE_V8_BACKUP_KEY,JSON.stringify(raw));
     if(raw && Object.keys(raw).length && Number(raw.schemaVersion||0)<7 && !localStorage.getItem(PRE_V7_BACKUP_KEY)) localStorage.setItem(PRE_V7_BACKUP_KEY,JSON.stringify(raw));
@@ -2398,13 +2436,14 @@ function load(){
   }catch(e){ return defaults(); }
 }
 let state = load();
+let storageHealthy=true;
 function save(){
   try{
     state.schemaVersion=STATE_SCHEMA; state.lastSavedAt=new Date().toISOString();
     const d=todayKey();
     if(state.lastBackupDate!==d){ state.lastBackupDate=d; localStorage.setItem(AUTO_BACKUP_KEY,JSON.stringify(state)); }
-    localStorage.setItem(KEY, JSON.stringify(state));
-  }catch(e){}
+    localStorage.setItem(KEY, JSON.stringify(state)); storageHealthy=true; return true;
+  }catch(e){ storageHealthy=false; console.warn('Nathalie EN: local save failed',e); return false; }
 }
 function todayKey(){ const d=new Date(); return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'); }
 function dateKeyOffset(days){ const d=new Date(); d.setHours(12,0,0,0); d.setDate(d.getDate()+days); return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'); }
@@ -2417,10 +2456,13 @@ function esc(s){ return String(s??'').replace(/[&<>"]/g,ch=>({'&':'&amp;','<':'&
 function logStudy(){ const d=todayKey(); if(!state.studyDates.includes(d)){ state.studyDates.push(d); state.studyDates=state.studyDates.slice(-120); save(); } }
 function logActivity(type,count=1){ state.activityLog=state.activityLog||[]; state.activityLog.push({date:todayKey(),type,count:Number(count||1)}); state.activityLog=state.activityLog.slice(-1500); }
 function wordKey(moduleId,index){ return moduleId+'::'+index; }
+let BASE_WORDS_CACHE=null;
 function allWords(){
+  if(BASE_WORDS_CACHE) return BASE_WORDS_CACHE;
   const out=[];
   MODULES.forEach(m=>m.vocab.forEach((v,i)=>out.push({key:wordKey(m.id,i),moduleId:m.id,moduleTitle:m.title,level:m.level,color:m.color,index:i,en:v[0],ph:v[1],fr:v[2],emoji:v[3]||'🗣️'})));
-  return out;
+  BASE_WORDS_CACHE=out;
+  return BASE_WORDS_CACHE;
 }
 function cleanSearch(s){ return String(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase(); }
 function applyUiPrefs(){
@@ -2437,10 +2479,12 @@ function applyUiPrefs(){
 /* =========================================================
    Router
    ========================================================= */
+const VIEW_TITLES={accueil:'Accueil',programme:'Parcours',test:'Test de niveau',resultat:'Résultat',lecon:'Leçon',revision:'Réviser',games:'Jeux',missions:'Missions',speak:'Parler',listening:'Écouter',myenglish:'My English',passport:'Passeport',tomorrow:'Je pars demain',settings:'Réglages',lexique:'Lexique'};
 function go(view, opts={}){
   document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
   const el = document.getElementById('view-'+view);
-  if(el) el.classList.add('active');
+  if(!el){ view='accueil'; return go('accueil',opts); }
+  el.classList.add('active');
   window.scrollTo(0,0);
   if(view==='programme') renderProgramme();
   if(view==='accueil') renderHome();
@@ -2458,6 +2502,13 @@ function go(view, opts={}){
   if(view!=='games' && speedTimer){ clearInterval(speedTimer); speedTimer=null; }
   document.querySelectorAll('.dock-btn').forEach(b=>{ if(b.dataset.go===view) b.setAttribute('aria-current','page'); else b.removeAttribute('aria-current'); });
   if(!opts.keepHash) history.replaceState(null,'','#'+view);
+  requestAnimationFrame(()=>{
+    const heading=el.querySelector('h1');
+    const label=(heading?.textContent||VIEW_TITLES[view]||'Nathalie EN').trim();
+    document.title=(view==='accueil'?'Nathalie is the best — Travel English Passport · V10':label+' — Nathalie is the best');
+    const live=document.getElementById('route-status'); if(live) live.textContent='Page : '+label;
+    if(heading && !opts.noFocus){ heading.setAttribute('tabindex','-1'); try{heading.focus({preventScroll:true});}catch(e){heading.focus();} }
+  });
 }
 
 /* =========================================================
@@ -2496,19 +2547,19 @@ function renderHome(){
   const m=nextRecommendedModule();
   const target=document.getElementById('continue-card');
   if(doneMods.length===MODULES.length){
-    target.innerHTML='<div class="dash-top"><div class="dash-ic">🏆</div><div><h3>Passeport complet !</h3><p>Les 24 escales sont validées. Passe en mode révision active pour entretenir tout ça.</p></div></div><div class="btn-row"><button class="btn btn-sun btn-block" onclick="go(\'revision\')">Réviser maintenant →</button></div>';
+    target.innerHTML='<div class="dash-top"><div class="dash-ic">🏆</div><div><h3>Passeport complet !</h3><p>Les 24 escales sont validées. Passe en mode révision active pour entretenir tout ça.</p></div></div><div class="btn-row"><button type="button" class="btn btn-sun btn-block" onclick="go(\'revision\')">Réviser maintenant →</button></div>';
   }else{
     const label=state.lastModule?'Reprendre là où tu en étais':'Prochaine escale conseillée';
-    target.innerHTML='<div class="dash-top"><div class="dash-ic">'+m.emoji+'</div><div><h3>'+label+'</h3><p><b>'+m.level+' · '+m.title+'</b><br>'+m.subtitle+'</p></div></div><div class="btn-row"><button class="btn btn-primary btn-block" onclick="openLesson(\''+m.id+'\')">Continuer →</button></div>';
+    target.innerHTML='<div class="dash-top"><div class="dash-ic">'+m.emoji+'</div><div><h3>'+label+'</h3><p><b>'+m.level+' · '+m.title+'</b><br>'+m.subtitle+'</p></div></div><div class="btn-row"><button type="button" class="btn btn-primary btn-block" onclick="openLesson(\''+m.id+'\')">Continuer →</button></div>';
   }
   ensureDailyState();
   const hc=document.getElementById('home-challenge');
   hc.innerHTML=state.dailyChallenge.completed
-    ? '<div class="smart-card" style="background:linear-gradient(145deg,#0f6a58,#0c5144)"><h3>✅ Défi du jour terminé</h3><p>Mission accomplie. Si tu veux continuer, les jeux sont ouverts.</p><button class="btn btn-sun" onclick="go(\'games\')">Jouer encore →</button></div>'
-    : '<div class="smart-card"><h3>🎯 Défi du jour</h3><p>5 mots · 3 questions · 1 phrase à dire. Quelques minutes suffisent pour entretenir ta mémoire.</p><button class="btn btn-sun" onclick="go(\'games\')">Faire le défi →</button></div>';
+    ? '<div class="smart-card" style="background:linear-gradient(145deg,#0f6a58,#0c5144)"><h3>✅ Défi du jour terminé</h3><p>Mission accomplie. Si tu veux continuer, les jeux sont ouverts.</p><button type="button" class="btn btn-sun" onclick="go(\'games\')">Jouer encore →</button></div>'
+    : '<div class="smart-card"><h3>🎯 Défi du jour</h3><p>5 mots · 3 questions · 1 phrase à dire. Quelques minutes suffisent pour entretenir ta mémoire.</p><button type="button" class="btn btn-sun" onclick="go(\'games\')">Faire le défi →</button></div>';
   const wn=document.getElementById('home-v6-news');
-  if(wn) wn.innerHTML=state.lastSeenVersion==='V9'?'':'<div class="whats-new"><button class="whats-close" id="closeWhatsNew" aria-label="Fermer">✕</button><h3>✨ Nouveau dans V9</h3><p>My Travel Passport, carte du monde, destinations débloquées, tampons, Travel Wallet, dashboard graphique et mode nuit.</p></div>';
-  document.getElementById('closeWhatsNew')?.addEventListener('click',()=>{state.lastSeenVersion='V9';save();wn.innerHTML='';});
+  if(wn) wn.innerHTML=state.lastSeenVersion==='V10'?'':'<div class="whats-new"><button type="button" class="whats-close" id="closeWhatsNew" aria-label="Fermer">✕</button><h3>🛠️ V10 · Version stabilisée</h3><p>Accessibilité renforcée, sauvegardes plus sûres, diagnostic intégré, données mieux protégées, navigation clavier améliorée et moteur de révision nettoyé.</p></div>';
+  document.getElementById('closeWhatsNew')?.addEventListener('click',()=>{state.lastSeenVersion='V10';save();wn.innerHTML='';});
 }
 
 /* =========================================================
@@ -2559,11 +2610,11 @@ function renderQuestion(){
   c.innerHTML =
     '<div class="question">'+item.q+(item.hint?'<span class="hint">'+item.hint+'</span>':'')+'</div>'+
     '<div class="options">'+ item.o.map((op,i)=>
-      '<button class="opt" data-i="'+i+'"><span class="key">'+keys[i]+'</span><span>'+op+'</span></button>'
+      '<button type="button" class="opt" data-i="'+i+'"><span class="key">'+keys[i]+'</span><span>'+op+'</span></button>'
     ).join('') +'</div>'+
     '<div class="explain" id="explain"></div>'+
     '<div class="btn-row" id="q-next" style="margin-top:16px;display:none">'+
-      '<button class="btn btn-primary btn-block" onclick="nextQuestion()">'+
+      '<button type="button" class="btn btn-primary btn-block" onclick="nextQuestion()">'+
         (qIndex+1<DIAGNOSTIC.length?'Question suivante →':'Voir mon résultat 🎉')+
       '</button></div>';
   c.querySelectorAll('.opt').forEach(btn=>btn.addEventListener('click',()=>answer(btn)));
@@ -2647,7 +2698,7 @@ function getModule(id){ return MODULES.find(m=>m.id===id); }
 function moduleCardHTML(m){
   const done = !!state.done[m.id];
   const idx = MODULES.indexOf(m)+1;
-  return '<button class="module'+(done?' done':'')+'" data-id="'+m.id+'" style="--accent:'+m.color+'">'+
+  return '<button type="button" class="module'+(done?' done':'')+'" data-id="'+m.id+'" style="--accent:'+m.color+'">'+
     (done?'<span class="done-stamp">✓ Validé</span>':'')+
     '<span class="num" aria-hidden="true">'+m.emoji+'</span>'+
     '<span class="body"><span class="tag">'+m.tag+'</span>'+
@@ -2691,8 +2742,8 @@ function renderProgramme(){
   const next=nextRecommendedModule();
   const ns=document.getElementById('next-stop');
   if(doneCount<MODULES.length && next){
-    ns.innerHTML='<div class="smart-card"><h3>🧭 Ton prochain arrêt</h3><p><b>'+next.level+' · '+next.title+'</b><br>'+next.subtitle+'</p><button class="btn btn-sun" onclick="openLesson(\''+next.id+'\')">Continuer cette escale →</button></div>';
-  }else ns.innerHTML='<div class="smart-card"><h3>🏆 Tout est validé</h3><p>Bravo ! Passe maintenant en révision active pour garder les mots disponibles quand tu en as besoin.</p><button class="btn btn-sun" onclick="go(\'revision\')">Ouvrir les révisions →</button></div>';
+    ns.innerHTML='<div class="smart-card"><h3>🧭 Ton prochain arrêt</h3><p><b>'+next.level+' · '+next.title+'</b><br>'+next.subtitle+'</p><button type="button" class="btn btn-sun" onclick="openLesson(\''+next.id+'\')">Continuer cette escale →</button></div>';
+  }else ns.innerHTML='<div class="smart-card"><h3>🏆 Tout est validé</h3><p>Bravo ! Passe maintenant en révision active pour garder les mots disponibles quand tu en as besoin.</p><button type="button" class="btn btn-sun" onclick="go(\'revision\')">Ouvrir les révisions →</button></div>';
 }
 
 /* =========================================================
@@ -2711,20 +2762,20 @@ function openLesson(id){
         '<span class="ph">'+v[1]+'</span>'+
         '<span class="fr">'+v[2]+'</span>'+
       '</span>'+
-      '<button class="speak" title="Écouter" aria-label="Écouter la prononciation" data-say="'+encodeURIComponent(v[0])+'">🔊</button>'+
+      '<button type="button" class="speak" title="Écouter" aria-label="Écouter la prononciation" data-say="'+encodeURIComponent(v[0])+'">🔊</button>'+
       '<button class="star-btn'+(state.favorites[wordKey(id,i)]?' on':'')+'" type="button" data-fav="'+wordKey(id,i)+'" aria-label="Ajouter aux favoris" aria-pressed="'+String(!!state.favorites[wordKey(id,i)])+'">'+(state.favorites[wordKey(id,i)]?'★':'☆')+'</button>'+
     '</div>';
   }).join('');
 
   const egHTML = m.grammar.egs.map(e=>
-    '<div class="eg"><span class="en">'+e[0]+'</span> — <span class="fr">'+e[1]+'</span></div>'
+    '<div class="eg"><span class="en" lang="en">'+e[0]+'</span> — <span class="fr" lang="fr">'+e[1]+'</span></div>'
   ).join('');
 
   const practiceHTML = m.practice.map((p,pi)=>{
     return '<div class="card" style="margin:10px 0" data-p="'+pi+'">'+
       '<div class="question" style="font-size:17px;margin-bottom:12px">'+(pi+1)+'. '+p.q+'</div>'+
       '<div class="options">'+ p.o.map((op,i)=>
-        '<button class="opt" data-i="'+i+'" data-ans="'+p.a+'"><span class="key">'+['A','B','C'][i]+'</span><span>'+op+'</span></button>'
+        '<button type="button" class="opt" data-i="'+i+'" data-ans="'+p.a+'"><span class="key">'+['A','B','C'][i]+'</span><span>'+op+'</span></button>'
       ).join('') +'</div></div>';
   }).join('');
 
@@ -2737,15 +2788,15 @@ function openLesson(id){
   body.innerHTML =
     '<div class="lesson-hero">'+
       '<span class="big" aria-hidden="true">'+m.emoji+'</span>'+
-      '<div><p class="eyebrow" style="margin:0;color:'+m.color+'" id="lesson-h">'+m.tag+'</p><h1 style="margin:.1em 0">'+m.title+'</h1></div>'+
+      '<div><p class="eyebrow" style="margin:0;color:'+m.color+'">'+m.tag+'</p><h1 id="lesson-h" style="margin:.1em 0">'+m.title+'</h1></div>'+
     '</div>'+
     '<p class="lead">'+m.intro+'</p>'+
-    '<div class="lesson-tools"><button class="lesson-tool" onclick="startModuleReview(\''+m.id+'\')">🎴 Flashcards de cette escale</button><button class="lesson-tool" id="toggleFrBtn" type="button">🙈 Cacher le français</button><button class="lesson-tool" onclick="go(\'lexique\')">🔎 Ouvrir le lexique</button></div>'+
+    '<div class="lesson-tools"><button type="button" class="lesson-tool" onclick="startModuleReview(\''+m.id+'\')">🎴 Flashcards de cette escale</button><button class="lesson-tool" id="toggleFrBtn" type="button">🙈 Cacher le français</button><button type="button" class="lesson-tool" onclick="go(\'lexique\')">🔎 Ouvrir le lexique</button></div>'+
     safeNote+
     (state.moduleReview[id]?'<div class="review-alert">🔁 Cette escale contient des éléments à revoir : ils sont prioritaires dans les flashcards.</div>':'')+
     '<h2 class="sec"><span class="dot"></span>Vocabulaire <span style="font-family:var(--mono);font-size:12px;color:var(--muted);font-weight:400">('+m.vocab.length+' mots)</span></h2>'+
     '<p class="lead" style="font-size:14px;margin-bottom:6px">Appuie sur 🔊 à côté d\'un mot pour entendre sa prononciation, puis répète à voix haute. <i>(L\'écriture en italique est une aide à la prononciation.)</i></p>'+
-    '<button class="playall" id="playAll">🔊 Tout écouter, un par un</button>'+
+    '<button type="button" class="playall" id="playAll">🔊 Tout écouter, un par un</button>'+
     '<div class="vocab">'+vocabHTML+'</div>'+
     '<h2 class="sec"><span class="dot"></span>Grammaire</h2>'+
     '<div class="grammar" style="border-left-color:'+m.color+'"><h3>'+m.grammar.title+'</h3><p>'+m.grammar.html+'</p>'+egHTML+
@@ -2765,7 +2816,7 @@ function openLesson(id){
     '<p class="practice-status" id="practiceStatus">Réponds aux '+m.practice.length+' questions pour pouvoir tamponner cette escale.</p>'+
     '<div class="finish"><h3>Bien joué, Nathalie ! 👏</h3>'+
       '<p>Tu as vu le vocabulaire, la grammaire'+(m.video?' et une vidéo':' et un conseil')+'. Répète une phrase à voix haute, puis valide ton escale.</p>'+
-      '<button class="btn btn-sun btn-block" id="finishBtn" '+(state.done[id]?'':'disabled')+'>'+(state.done[id]?'✓ Escale déjà validée — revalider':'Valider cette escale 🛂')+'</button>'+
+      '<button type="button" class="btn btn-sun btn-block" id="finishBtn" '+(state.done[id]?'':'disabled')+'>'+(state.done[id]?'✓ Escale déjà validée — revalider':'Valider cette escale 🛂')+'</button>'+
     '</div>';
 
   // écouter (chaque mot) — le bouton s'anime pendant la lecture
@@ -2789,7 +2840,7 @@ function openLesson(id){
   });
   // favoris + masquer/afficher le français
   document.querySelectorAll('#lesson-body [data-fav]').forEach(b=>b.addEventListener('click',()=>toggleFavorite(b.dataset.fav,b)));
-  document.getElementById('toggleFrBtn')?.addEventListener('click',e=>{ const hidden=body.classList.toggle('hide-fr'); e.currentTarget.classList.toggle('active',hidden); e.currentTarget.textContent=hidden?'👀 Afficher le français':'🙈 Cacher le français'; });
+  document.getElementById('toggleFrBtn')?.addEventListener('click',e=>{ const hidden=body.classList.toggle('hide-fr'); e.currentTarget.classList.toggle('active',hidden); e.currentTarget.setAttribute('aria-pressed',String(hidden)); e.currentTarget.textContent=hidden?'👀 Afficher le français':'🙈 Cacher le français'; });
   // mission orale
   renderMission(m);
   // chargement volontaire de YouTube
@@ -2830,8 +2881,7 @@ function openLesson(id){
 
   go('lecon');
   history.replaceState(null,'','#lecon-'+id);
-  document.getElementById('lesson-h').focus?.();
-}
+  }
 
 /* =========================================================
    V2 · Favoris, mission minute, vidéos privées, révision et lexique
@@ -2843,8 +2893,8 @@ function toggleFavorite(key,btn){
 }
 function renderMission(m){
   const box=document.getElementById('missionBox'); if(!box) return;
-  const shuffled=[...m.vocab].sort(()=>Math.random()-.5).slice(0,3);
-  box.innerHTML='<h3>🗣️ 60 secondes, à voix haute</h3><p>Fais une mini-scène ou trois phrases en utilisant ces éléments :</p><div class="mission-words">'+shuffled.map(v=>'<span class="mission-word" lang="en">'+v[0]+'</span>').join('')+'</div><button class="pill" type="button" id="newMission">↻ Changer les mots</button>';
+  const shuffledWords=shuffled(m.vocab).slice(0,3);
+  box.innerHTML='<h3>🗣️ 60 secondes, à voix haute</h3><p>Fais une mini-scène ou trois phrases en utilisant ces éléments :</p><div class="mission-words">'+shuffledWords.map(v=>'<span class="mission-word" lang="en">'+v[0]+'</span>').join('')+'</div><button class="pill" type="button" id="newMission">↻ Changer les mots</button>';
   document.getElementById('newMission')?.addEventListener('click',()=>renderMission(m));
 }
 function loadVideo(box){
@@ -2894,7 +2944,7 @@ function showFlashCard(){
   const w=reviewQueue[reviewIndex]; const score=Number(state.mastery[w.key]||0);
   root.innerHTML='<div class="review-meta"><span>'+w.level+' · '+w.moduleTitle+'</span><span>'+(reviewIndex+1)+' / '+reviewQueue.length+'</span></div>'+ 
     '<div class="review-card" id="flashCard" tabindex="0" role="button" aria-label="Retourner la flashcard"><div class="kicker">Que veut dire… ?</div><div class="front" lang="en">'+w.en+'</div><div class="tap-hint">Clique pour retourner la carte</div><div class="back"><b>'+w.fr+'</b><span>'+w.ph+'</span><div style="margin-top:10px"><button class="pill" id="flashSpeak" type="button">🔊 Écouter</button></div></div></div>'+ 
-    '<div class="review-actions"><button class="btn btn-ghost" id="reviewAgain" disabled>↻ À revoir</button><button class="btn btn-primary" id="reviewKnow" disabled>✓ Je sais</button></div>'+ 
+    '<div class="review-actions"><button type="button" class="btn btn-ghost" id="reviewAgain" disabled>↻ À revoir</button><button type="button" class="btn btn-primary" id="reviewKnow" disabled>✓ Je sais</button></div>'+ 
     '<p class="quiz-score" style="text-align:center">Mémoire locale : '+(score>1?'bien acquis':score>0?'en cours':'à travailler')+'</p>';
   const card=document.getElementById('flashCard');
   const reveal=()=>{card.classList.add('revealed'); document.getElementById('reviewAgain').disabled=false; document.getElementById('reviewKnow').disabled=false;};
@@ -2908,20 +2958,20 @@ function renderMiniQuiz(reset=false){
   const root=document.getElementById('review-content'); if(!root) return;
   const scope=document.getElementById('review-scope')?.value||'all';
   if(reset || !miniQuiz){
-    const pool=scopedWords(scope).sort(()=>Math.random()-.5);
+    const pool=shuffled(scopedWords(scope));
     const qs=pool.slice(0,Math.min(10,pool.length)).map(w=>{
-      const distract=allWords().filter(x=>x.key!==w.key).sort(()=>Math.random()-.5).slice(0,2).map(x=>x.fr);
-      return {w, options:[w.fr,...distract].sort(()=>Math.random()-.5)};
+      const distract=shuffled(allWords().filter(x=>x.key!==w.key)).slice(0,2).map(x=>x.fr);
+      return {w, options:shuffled([w.fr,...distract])};
     });
     miniQuiz={qs,index:0,score:0,answered:false};
   }
   if(!miniQuiz.qs.length){root.innerHTML='<div class="empty-state">Aucun mot disponible dans cette sélection.</div>';return;}
   if(miniQuiz.index>=miniQuiz.qs.length){
-    root.innerHTML='<div class="card" style="text-align:center"><p class="eyebrow">Quiz terminé</p><h2 style="margin-top:0">'+miniQuiz.score+' / '+miniQuiz.qs.length+'</h2><p>'+(miniQuiz.score===miniQuiz.qs.length?'Sans faute ! ✨':'Les erreurs sont ajoutées aux mots à revoir.')+'</p><button class="btn btn-primary" id="quizRestart">Recommencer</button></div>';
+    root.innerHTML='<div class="card" style="text-align:center"><p class="eyebrow">Quiz terminé</p><h2 style="margin-top:0">'+miniQuiz.score+' / '+miniQuiz.qs.length+'</h2><p>'+(miniQuiz.score===miniQuiz.qs.length?'Sans faute ! ✨':'Les erreurs sont ajoutées aux mots à revoir.')+'</p><button type="button" class="btn btn-primary" id="quizRestart">Recommencer</button></div>';
     document.getElementById('quizRestart').addEventListener('click',()=>renderMiniQuiz(true)); return;
   }
   const q=miniQuiz.qs[miniQuiz.index];
-  root.innerHTML='<div class="quiz-score">Question '+(miniQuiz.index+1)+' / '+miniQuiz.qs.length+' · Score '+miniQuiz.score+'</div><div class="card"><div class="question">Que veut dire <span lang="en">“'+q.w.en+'”</span> ?</div><div class="options">'+q.options.map((op,i)=>'<button class="opt" data-op="'+encodeURIComponent(op)+'"><span class="key">'+['A','B','C'][i]+'</span><span>'+op+'</span></button>').join('')+'</div><div id="miniFeedback" class="explain"></div><div class="btn-row" id="miniNext" style="display:none;margin-top:12px"><button class="btn btn-primary btn-block">Suivant →</button></div></div>';
+  root.innerHTML='<div class="quiz-score">Question '+(miniQuiz.index+1)+' / '+miniQuiz.qs.length+' · Score '+miniQuiz.score+'</div><div class="card"><div class="question">Que veut dire <span lang="en">“'+q.w.en+'”</span> ?</div><div class="options">'+q.options.map((op,i)=>'<button type="button" class="opt" data-op="'+encodeURIComponent(op)+'"><span class="key">'+['A','B','C'][i]+'</span><span>'+op+'</span></button>').join('')+'</div><div id="miniFeedback" class="explain"></div><div class="btn-row" id="miniNext" style="display:none;margin-top:12px"><button type="button" class="btn btn-primary btn-block">Suivant →</button></div></div>';
   root.querySelectorAll('.opt').forEach(b=>b.addEventListener('click',()=>answerMiniQuiz(b,q)));
 }
 function answerMiniQuiz(btn,q){
@@ -2964,8 +3014,8 @@ const BADGES=[
   {id:'listen7',ic:'☀️',name:'Daily listener',desc:'Faire le Daily Listening 7 jours',ok:()=>Number(state.listeningStats?.dailyDates?.length||0)>=7},
   {id:'adaptive3',ic:'🧠',name:'Smart routine',desc:'Faire 3 séances My English',ok:()=>Number(state.adaptiveStats?.sessions||0)>=3},
   {id:'personal10',ic:'📝',name:'My own words',desc:'Ajouter 10 mots personnels',ok:()=>Number(state.personalWords?.length||0)>=10},
-  {id:'destination1',ic:'📍',name:'First destination',desc:'Débloquer une destination V9',ok:()=>unlockedDestinations().length>=1},
-  {id:'destination5',ic:'🌐',name:'Globe trotter',desc:'Débloquer 5 destinations V9',ok:()=>unlockedDestinations().length>=5},
+  {id:'destination1',ic:'📍',name:'First destination',desc:'Débloquer une destination',ok:()=>unlockedDestinations().length>=1},
+  {id:'destination5',ic:'🌐',name:'Globe trotter',desc:'Débloquer 5 destinations',ok:()=>unlockedDestinations().length>=5},
   {id:'all',ic:'🏆',name:'Passport legend',desc:'Valider les 24 escales',ok:()=>MODULES.every(m=>state.done[m.id])}
 ];
 function ensureDailyState(){
@@ -2993,7 +3043,7 @@ function renderDailyChallenge(){
 }
 function dailyQuestionHTML(w,i,dc){
   const prior=(dc.answers||{})[i]; const opts=dailyOptions(w,i);
-  return '<div class="daily-q"><b>'+(i+1)+'. Que veut dire <span lang="en">“'+esc(w.en)+'”</span> ?</b><div class="options">'+opts.map((op,j)=>'<button class="opt'+(prior!==undefined?(op===w.fr?' correct':(op===prior && prior!==w.fr?' wrong':'')):'')+'" '+(prior!==undefined?'disabled':'')+' data-daily-q="'+i+'" data-daily-opt="'+encodeURIComponent(op)+'"><span class="key">'+['A','B','C'][j]+'</span><span>'+esc(op)+'</span></button>').join('')+'</div></div>';
+  return '<div class="daily-q"><b>'+(i+1)+'. Que veut dire <span lang="en">“'+esc(w.en)+'”</span> ?</b><div class="options">'+opts.map((op,j)=>'<button type="button" class="opt'+(prior!==undefined?(op===w.fr?' correct':(op===prior && prior!==w.fr?' wrong':'')):'')+'" '+(prior!==undefined?'disabled':'')+' data-daily-q="'+i+'" data-daily-opt="'+encodeURIComponent(op)+'"><span class="key">'+['A','B','C'][j]+'</span><span>'+esc(op)+'</span></button>').join('')+'</div></div>';
 }
 function answerDaily(i,op){
   ensureDailyState(); if(state.dailyChallenge.answers[i]!==undefined)return; const w=dailyWords()[i]; state.dailyChallenge.answers[i]=op; const ok=op===w.fr;
@@ -3015,14 +3065,14 @@ function smartPool(n=30){ return allWords().map(w=>({...w,smart:Number(state.mas
 function noteGamePlay(){ state.gameStats.plays=Number(state.gameStats.plays||0)+1; logStudy();save(); }
 function startGame(kind){ if(speedTimer){clearInterval(speedTimer);speedTimer=null;} noteGamePlay(); activeGame=kind; if(kind==='match')startMatchGame(); if(kind==='missing')startMissingGame(); if(kind==='speed')startSpeedGame(); if(kind==='travel')startTravelGame(); renderGames(); document.getElementById('game-arena')?.scrollIntoView({behavior:'smooth',block:'start'}); }
 let activeGame=null,matchState=null,missingState=null,speedState=null,travelState=null,speedTimer=null;
-function shuffled(a){ return [...a].sort(()=>Math.random()-.5); }
+function shuffled(a){ const out=[...a]; for(let i=out.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[out[i],out[j]]=[out[j],out[i]];} return out; }
 
 function startMatchGame(){
   const words=shuffled(smartPool()).slice(0,6); const cards=shuffled(words.flatMap(w=>[{key:w.key,side:'en',label:w.en},{key:w.key,side:'fr',label:w.fr}])); matchState={cards,selected:null,matched:{},locked:false}; renderMatchGame();
 }
 function renderMatchGame(){
   const root=document.getElementById('game-arena'); const st=matchState; const count=Object.keys(st.matched).length;
-  root.innerHTML='<div class="arena-card"><div class="arena-head"><div><p class="eyebrow">🧩 Match the pairs</p><h2>Associe les paires</h2><p class="arena-sub">Clique un mot anglais puis sa traduction. '+count+' / 6 trouvées.</p></div><button class="pill" id="gameClose">Fermer</button></div><div class="match-grid">'+st.cards.map((c,i)=>'<button class="match-card '+c.side+(st.selected===i?' selected':'')+(st.matched[c.key]?' matched':'')+'" '+(st.matched[c.key]?'disabled':'')+' data-match="'+i+'">'+esc(c.label)+'</button>').join('')+'</div></div>';
+  root.innerHTML='<div class="arena-card"><div class="arena-head"><div><p class="eyebrow">🧩 Match the pairs</p><h2>Associe les paires</h2><p class="arena-sub">Clique un mot anglais puis sa traduction. '+count+' / 6 trouvées.</p></div><button type="button" class="pill" id="gameClose">Fermer</button></div><div class="match-grid">'+st.cards.map((c,i)=>'<button type="button" class="match-card '+c.side+(st.selected===i?' selected':'')+(st.matched[c.key]?' matched':'')+'" '+(st.matched[c.key]?'disabled':'')+' data-match="'+i+'">'+esc(c.label)+'</button>').join('')+'</div></div>';
   root.querySelectorAll('[data-match]').forEach(b=>b.addEventListener('click',()=>matchClick(+b.dataset.match))); document.getElementById('gameClose').addEventListener('click',closeGame);
 }
 function matchClick(i){
@@ -3034,24 +3084,24 @@ function matchClick(i){
 function startMissingGame(){ const words=shuffled(smartPool()).slice(0,5); missingState={words,stage:'study',missing:Math.floor(Math.random()*5),answered:false}; renderMissingGame(); }
 function renderMissingGame(){
   const root=document.getElementById('game-arena'),st=missingState;
-  if(st.stage==='study'){root.innerHTML='<div class="arena-card"><div class="arena-head"><div><p class="eyebrow">🫥 What’s missing?</p><h2>Mémorise ces 5 mots</h2><p class="arena-sub">Observe-les, puis cache-en un.</p></div><button class="pill" id="gameClose">Fermer</button></div><div class="memory-list">'+st.words.map(w=>'<span class="memory-chip">'+esc(w.en)+'</span>').join('')+'</div><button class="btn btn-primary" id="hideOne">Je suis prête →</button></div>';document.getElementById('hideOne').addEventListener('click',()=>{st.stage='guess';renderMissingGame()});}
-  else{const missing=st.words[st.missing],options=shuffled([missing,...shuffled(smartPool().filter(w=>!st.words.some(x=>x.key===w.key))).slice(0,2)]);root.innerHTML='<div class="arena-card"><div class="arena-head"><div><p class="eyebrow">🫥 What’s missing?</p><h2>Quel mot a disparu ?</h2></div><button class="pill" id="gameClose">Fermer</button></div><div class="memory-list">'+st.words.map((w,i)=>i===st.missing?'<span class="memory-chip hidden-word">????</span>':'<span class="memory-chip">'+esc(w.en)+'</span>').join('')+'</div><div class="options">'+options.map((w,i)=>'<button class="opt" data-miss="'+w.key+'"><span class="key">'+['A','B','C'][i]+'</span><span>'+esc(w.en)+'</span></button>').join('')+'</div><div id="missingFeedback" class="explain"></div><div class="btn-row" id="missingAgain" style="display:none"><button class="btn btn-primary btn-block">Nouvelle manche →</button></div></div>';root.querySelectorAll('[data-miss]').forEach(b=>b.addEventListener('click',()=>answerMissing(b,missing)));}
+  if(st.stage==='study'){root.innerHTML='<div class="arena-card"><div class="arena-head"><div><p class="eyebrow">🫥 What’s missing?</p><h2>Mémorise ces 5 mots</h2><p class="arena-sub">Observe-les, puis cache-en un.</p></div><button type="button" class="pill" id="gameClose">Fermer</button></div><div class="memory-list">'+st.words.map(w=>'<span class="memory-chip">'+esc(w.en)+'</span>').join('')+'</div><button type="button" class="btn btn-primary" id="hideOne">Je suis prête →</button></div>';document.getElementById('hideOne').addEventListener('click',()=>{st.stage='guess';renderMissingGame()});}
+  else{const missing=st.words[st.missing],options=shuffled([missing,...shuffled(smartPool().filter(w=>!st.words.some(x=>x.key===w.key))).slice(0,2)]);root.innerHTML='<div class="arena-card"><div class="arena-head"><div><p class="eyebrow">🫥 What’s missing?</p><h2>Quel mot a disparu ?</h2></div><button type="button" class="pill" id="gameClose">Fermer</button></div><div class="memory-list">'+st.words.map((w,i)=>i===st.missing?'<span class="memory-chip hidden-word">????</span>':'<span class="memory-chip">'+esc(w.en)+'</span>').join('')+'</div><div class="options">'+options.map((w,i)=>'<button type="button" class="opt" data-miss="'+w.key+'"><span class="key">'+['A','B','C'][i]+'</span><span>'+esc(w.en)+'</span></button>').join('')+'</div><div id="missingFeedback" class="explain"></div><div class="btn-row" id="missingAgain" style="display:none"><button type="button" class="btn btn-primary btn-block">Nouvelle manche →</button></div></div>';root.querySelectorAll('[data-miss]').forEach(b=>b.addEventListener('click',()=>answerMissing(b,missing)));}
   document.getElementById('gameClose')?.addEventListener('click',closeGame);
 }
 function answerMissing(btn,missing){if(missingState.answered)return;missingState.answered=true;const ok=btn.dataset.miss===missing.key;document.querySelectorAll('[data-miss]').forEach(b=>{b.disabled=true;if(b.dataset.miss===missing.key)b.classList.add('correct')});if(!ok)btn.classList.add('wrong');state.mastery[missing.key]=Math.max(-2,Math.min(5,Number(state.mastery[missing.key]||0)+(ok?1:-1)));if(ok)state.gameStats.missingWins=Number(state.gameStats.missingWins||0)+1;save();const f=document.getElementById('missingFeedback');f.innerHTML=ok?'✅ <b>Bien vu !</b>':'💡 Le mot manquant était <b>'+esc(missing.en)+'</b>.';f.classList.add('show');const again=document.getElementById('missingAgain');again.style.display='flex';again.querySelector('button').addEventListener('click',startMissingGame);renderGames();}
 
 function speedQuestion(){const pool=shuffled(smartPool());const w=pool[0];const translations=[];for(const x of pool.slice(1)){if(x.fr!==w.fr&&!translations.includes(x.fr))translations.push(x.fr);if(translations.length===2)break;}return{w,opts:shuffled([w.fr,...translations])};}
 function startSpeedGame(){speedState={score:0,remaining:45,q:speedQuestion(),answered:0};renderSpeedGame();speedTimer=setInterval(()=>{speedState.remaining--;const t=document.getElementById('speedTime');if(t)t.textContent=speedState.remaining+' s';if(speedState.remaining<=0)finishSpeedGame();},1000);}
-function renderSpeedGame(){const root=document.getElementById('game-arena'),st=speedState,q=st.q;root.innerHTML='<div class="arena-card"><div class="arena-head"><div><p class="eyebrow">⚡ Speed quiz</p><h2>Traduction express</h2><p class="arena-sub">Score '+st.score+' · '+st.answered+' réponses</p></div><span class="timer-badge" id="speedTime">'+st.remaining+' s</span></div><div class="question" style="margin-top:18px">Que veut dire <span lang="en">“'+esc(q.w.en)+'”</span> ?</div><div class="options">'+q.opts.map((op,i)=>'<button class="opt" data-speed="'+encodeURIComponent(op)+'"><span class="key">'+['A','B','C'][i]+'</span><span>'+esc(op)+'</span></button>').join('')+'</div><div class="btn-row"><button class="pill" id="gameClose">Arrêter</button></div></div>';root.querySelectorAll('[data-speed]').forEach(b=>b.addEventListener('click',()=>answerSpeed(decodeURIComponent(b.dataset.speed))));document.getElementById('gameClose').addEventListener('click',finishSpeedGame);}
+function renderSpeedGame(){const root=document.getElementById('game-arena'),st=speedState,q=st.q;root.innerHTML='<div class="arena-card"><div class="arena-head"><div><p class="eyebrow">⚡ Speed quiz</p><h2>Traduction express</h2><p class="arena-sub">Score '+st.score+' · '+st.answered+' réponses</p></div><span class="timer-badge" id="speedTime">'+st.remaining+' s</span></div><div class="question" style="margin-top:18px">Que veut dire <span lang="en">“'+esc(q.w.en)+'”</span> ?</div><div class="options">'+q.opts.map((op,i)=>'<button type="button" class="opt" data-speed="'+encodeURIComponent(op)+'"><span class="key">'+['A','B','C'][i]+'</span><span>'+esc(op)+'</span></button>').join('')+'</div><div class="btn-row"><button type="button" class="pill" id="gameClose">Arrêter</button></div></div>';root.querySelectorAll('[data-speed]').forEach(b=>b.addEventListener('click',()=>answerSpeed(decodeURIComponent(b.dataset.speed))));document.getElementById('gameClose').addEventListener('click',finishSpeedGame);}
 function answerSpeed(op){if(!speedState||speedState.remaining<=0)return;const q=speedState.q,ok=op===q.w.fr;speedState.answered++;if(ok){speedState.score++;state.mastery[q.w.key]=Math.min(5,Number(state.mastery[q.w.key]||0)+1);}else state.mastery[q.w.key]=Math.max(-2,Number(state.mastery[q.w.key]||0)-1);save();speedState.q=speedQuestion();renderSpeedGame();}
-function finishSpeedGame(){if(speedTimer){clearInterval(speedTimer);speedTimer=null;}if(!speedState)return;state.gameStats.speedBest=Math.max(Number(state.gameStats.speedBest||0),speedState.score);save();const root=document.getElementById('game-arena');root.innerHTML='<div class="arena-card" style="text-align:center"><p class="eyebrow">Temps écoulé</p><h2>'+speedState.score+' bonne'+(speedState.score>1?'s':'')+' réponse'+(speedState.score>1?'s':'')+'</h2><p>Record personnel : <b>'+state.gameStats.speedBest+'</b>.</p><div class="btn-row" style="justify-content:center"><button class="btn btn-primary" id="speedAgain">Rejouer</button><button class="btn btn-ghost" id="gameClose">Fermer</button></div></div>';document.getElementById('speedAgain').addEventListener('click',startSpeedGame);document.getElementById('gameClose').addEventListener('click',closeGame);renderGames();}
+function finishSpeedGame(){if(speedTimer){clearInterval(speedTimer);speedTimer=null;}if(!speedState)return;state.gameStats.speedBest=Math.max(Number(state.gameStats.speedBest||0),speedState.score);save();const root=document.getElementById('game-arena');root.innerHTML='<div class="arena-card" style="text-align:center"><p class="eyebrow">Temps écoulé</p><h2>'+speedState.score+' bonne'+(speedState.score>1?'s':'')+' réponse'+(speedState.score>1?'s':'')+'</h2><p>Record personnel : <b>'+state.gameStats.speedBest+'</b>.</p><div class="btn-row" style="justify-content:center"><button type="button" class="btn btn-primary" id="speedAgain">Rejouer</button><button type="button" class="btn btn-ghost" id="gameClose">Fermer</button></div></div>';document.getElementById('speedAgain').addEventListener('click',startSpeedGame);document.getElementById('gameClose').addEventListener('click',closeGame);renderGames();}
 
 function travelQuestions(){const ids=['aeroport','hotel','resto','chemin','urgences'];return ids.map(id=>{const m=getModule(id),p=shuffled(m.practice)[0];return{m,p};});}
 function startTravelGame(){travelState={qs:travelQuestions(),index:0,score:0,answered:false};renderTravelGame();}
-function renderTravelGame(){const root=document.getElementById('game-arena'),st=travelState;if(st.index>=st.qs.length){state.gameStats.travelBest=Math.max(Number(state.gameStats.travelBest||0),st.score);save();if(st.score===5)confetti('#2E86AB');root.innerHTML='<div class="arena-card" style="text-align:center"><p class="eyebrow">🌍 Travel challenge terminé</p><h2>'+st.score+' / 5</h2><p>'+(st.score===5?'Prête pour le départ ! ✈️':'Rejoue : les situations changent à chaque partie.')+'</p><div class="btn-row" style="justify-content:center"><button class="btn btn-primary" id="travelAgain">Rejouer</button><button class="btn btn-ghost" id="gameClose">Fermer</button></div></div>';document.getElementById('travelAgain').addEventListener('click',startTravelGame);document.getElementById('gameClose').addEventListener('click',closeGame);renderGames();return;}const q=st.qs[st.index],p=q.p;root.innerHTML='<div class="arena-card"><div class="arena-head"><div><p class="eyebrow">'+q.m.emoji+' '+esc(q.m.title)+'</p><h2>Situation '+(st.index+1)+' / 5</h2></div><span class="timer-badge" style="color:var(--sky);border-color:rgba(46,134,171,.3);background:rgba(46,134,171,.08)">'+st.score+' pt</span></div><div class="question" style="margin-top:18px">'+esc(p.q)+'</div><div class="options">'+p.o.map((op,i)=>'<button class="opt" data-travel="'+i+'"><span class="key">'+['A','B','C'][i]+'</span><span>'+esc(op)+'</span></button>').join('')+'</div><div id="travelFeedback" class="explain"></div><div class="btn-row" id="travelNext" style="display:none"><button class="btn btn-primary btn-block">Situation suivante →</button></div></div>';root.querySelectorAll('[data-travel]').forEach(b=>b.addEventListener('click',()=>answerTravel(b,p)));}
+function renderTravelGame(){const root=document.getElementById('game-arena'),st=travelState;if(st.index>=st.qs.length){state.gameStats.travelBest=Math.max(Number(state.gameStats.travelBest||0),st.score);save();if(st.score===5)confetti('#2E86AB');root.innerHTML='<div class="arena-card" style="text-align:center"><p class="eyebrow">🌍 Travel challenge terminé</p><h2>'+st.score+' / 5</h2><p>'+(st.score===5?'Prête pour le départ ! ✈️':'Rejoue : les situations changent à chaque partie.')+'</p><div class="btn-row" style="justify-content:center"><button type="button" class="btn btn-primary" id="travelAgain">Rejouer</button><button type="button" class="btn btn-ghost" id="gameClose">Fermer</button></div></div>';document.getElementById('travelAgain').addEventListener('click',startTravelGame);document.getElementById('gameClose').addEventListener('click',closeGame);renderGames();return;}const q=st.qs[st.index],p=q.p;root.innerHTML='<div class="arena-card"><div class="arena-head"><div><p class="eyebrow">'+q.m.emoji+' '+esc(q.m.title)+'</p><h2>Situation '+(st.index+1)+' / 5</h2></div><span class="timer-badge" style="color:var(--sky);border-color:rgba(46,134,171,.3);background:rgba(46,134,171,.08)">'+st.score+' pt</span></div><div class="question" style="margin-top:18px">'+esc(p.q)+'</div><div class="options">'+p.o.map((op,i)=>'<button type="button" class="opt" data-travel="'+i+'"><span class="key">'+['A','B','C'][i]+'</span><span>'+esc(op)+'</span></button>').join('')+'</div><div id="travelFeedback" class="explain"></div><div class="btn-row" id="travelNext" style="display:none"><button type="button" class="btn btn-primary btn-block">Situation suivante →</button></div></div>';root.querySelectorAll('[data-travel]').forEach(b=>b.addEventListener('click',()=>answerTravel(b,p)));}
 function answerTravel(btn,p){if(travelState.answered)return;travelState.answered=true;const i=+btn.dataset.travel,ok=i===p.a;document.querySelectorAll('[data-travel]').forEach((b,j)=>{b.disabled=true;if(j===p.a)b.classList.add('correct')});if(!ok)btn.classList.add('wrong');else travelState.score++;const f=document.getElementById('travelFeedback');f.innerHTML=ok?'✅ <b>Correct !</b>':'💡 Bonne réponse : <b>'+esc(p.o[p.a])+'</b>';f.classList.add('show');const n=document.getElementById('travelNext');n.style.display='flex';n.querySelector('button').addEventListener('click',()=>{travelState.index++;travelState.answered=false;renderTravelGame()});}
 function closeGame(){if(speedTimer){clearInterval(speedTimer);speedTimer=null;}activeGame=null;document.getElementById('game-arena').innerHTML='';}
-function showLevelCelebration(levelId){const lv=LEVELS.find(x=>x.id===levelId);if(!lv){go('programme');return;}const overlay=document.createElement('div');overlay.className='celebration-overlay';overlay.setAttribute('role','dialog');overlay.setAttribute('aria-modal','true');overlay.innerHTML='<div class="celebration-card"><div class="celebration-stamp">'+(levelId==='A1'?'🧳':levelId==='A2'?'🗺️':levelId==='B1'?'🌍':levelId==='B2'?'💬':'🏆')+'</div><p class="eyebrow">Niveau '+lv.id+' terminé</p><h2>'+esc(lv.name)+' !</h2><p>'+esc(lv.desc)+'</p><p><b>Ton passeport vient de prendre un sérieux niveau. ✨</b></p><button class="btn btn-primary btn-block" id="celebrateContinue">Voir la suite →</button></div>';document.body.appendChild(overlay);document.body.style.overflow='hidden';document.getElementById('celebrateContinue').focus();document.getElementById('celebrateContinue').addEventListener('click',()=>{overlay.remove();document.body.style.overflow='';go('programme')});}
+function showLevelCelebration(levelId){const lv=LEVELS.find(x=>x.id===levelId);if(!lv){go('programme');return;}const overlay=document.createElement('div');overlay.className='celebration-overlay';overlay.setAttribute('role','dialog');overlay.setAttribute('aria-modal','true');overlay.innerHTML='<div class="celebration-card"><div class="celebration-stamp">'+(levelId==='A1'?'🧳':levelId==='A2'?'🗺️':levelId==='B1'?'🌍':levelId==='B2'?'💬':'🏆')+'</div><p class="eyebrow">Niveau '+lv.id+' terminé</p><h2>'+esc(lv.name)+' !</h2><p>'+esc(lv.desc)+'</p><p><b>Ton passeport vient de prendre un sérieux niveau. ✨</b></p><button type="button" class="btn btn-primary btn-block" id="celebrateContinue">Voir la suite →</button></div>';document.body.appendChild(overlay);document.body.style.overflow='hidden';document.getElementById('celebrateContinue').focus();document.getElementById('celebrateContinue').addEventListener('click',()=>{overlay.remove();document.body.style.overflow='';go('programme')});}
 
 
 /* =========================================================
@@ -3369,23 +3419,23 @@ function skillScore(sk){const m=getModule(sk.module);let score=state.done[sk.mod
 function renderSkillMap(){const root=document.getElementById('skill-map');if(!root)return;root.innerHTML=SPEAK_SKILLS.map(sk=>{const n=skillScore(sk);return '<div class="skill-row"><span class="skill-name">'+sk.name+'</span><span class="skill-track"><i class="skill-fill" style="width:'+n+'%"></i></span><span class="skill-score">'+n+'%</span></div>';}).join('');}
 function renderSpeak(){renderSpeakStats();renderSpeakRework();renderSkillMap();document.querySelectorAll('[data-speak-open]').forEach(b=>b.onclick=()=>openSpeakTool(b.dataset.speakOpen));}
 function openSpeakTool(kind){stopActiveRecording();speakArenaTool=kind;if(kind==='shadow')renderShadowing();if(kind==='thirty')renderThirty();if(kind==='roleplay')renderRoleplay();if(kind==='phrasebook')renderPhrasebook();if(kind==='express')startExpressSession();if(kind==='travelday')startTravelDay();document.getElementById('speak-arena')?.scrollIntoView({behavior:'smooth',block:'start'});}
-function renderShadowing(){const root=document.getElementById('speak-arena');const p=SHADOW_PHRASES[shadowIndex%SHADOW_PHRASES.length];root.innerHTML='<div class="speak-card"><p class="eyebrow">🗣️ Shadowing</p><h2>Écoute → répète → compare</h2><div class="prompt" lang="en">'+esc(p.en)+'</div><p>'+esc(p.fr)+'</p><div class="focus-chips"><span class="focus-chip">🎯 '+esc(p.focus)+'</span></div><div class="btn-row"><button class="btn btn-sun" id="shadowListen" type="button">🔊 Écouter le modèle</button><button class="btn btn-ghost" id="shadowNext" type="button">Autre phrase →</button></div>'+recorderHTML('shadowRec')+'<div class="self-check"><button class="self-btn" data-shadow-rate="clear">✅ Clair</button><button class="self-btn" data-shadow-rate="almost">🙂 Presque</button><button class="self-btn" data-shadow-rate="again">↻ À refaire</button></div><p class="privacy-mini">Le site ne te donne pas une fausse “note d’accent”. Tu fais ici une auto-évaluation après comparaison avec le modèle.</p></div>';document.getElementById('shadowListen').onclick=()=>speak(p.en,document.getElementById('shadowListen'));document.getElementById('shadowNext').onclick=()=>{shadowIndex=(shadowIndex+1)%SHADOW_PHRASES.length;renderShadowing();};bindRecorder('shadowRec');root.querySelectorAll('[data-shadow-rate]').forEach(b=>b.onclick=()=>{state.speakingStats.shadowing=Number(state.speakingStats.shadowing||0)+1;state.speakingStats.selfChecks=Number(state.speakingStats.selfChecks||0)+1;logStudy();save();renderSpeakStats();renderBadges();toast(b.dataset.shadowRate==='again'?'Bonne idée : écoute encore une fois puis recommence.':'Shadowing enregistré dans ton entraînement ✓');});}
+function renderShadowing(){const root=document.getElementById('speak-arena');const p=SHADOW_PHRASES[shadowIndex%SHADOW_PHRASES.length];root.innerHTML='<div class="speak-card"><p class="eyebrow">🗣️ Shadowing</p><h2>Écoute → répète → compare</h2><div class="prompt" lang="en">'+esc(p.en)+'</div><p>'+esc(p.fr)+'</p><div class="focus-chips"><span class="focus-chip">🎯 '+esc(p.focus)+'</span></div><div class="btn-row"><button class="btn btn-sun" id="shadowListen" type="button">🔊 Écouter le modèle</button><button class="btn btn-ghost" id="shadowNext" type="button">Autre phrase →</button></div>'+recorderHTML('shadowRec')+'<div class="self-check"><button type="button" class="self-btn" data-shadow-rate="clear">✅ Clair</button><button type="button" class="self-btn" data-shadow-rate="almost">🙂 Presque</button><button type="button" class="self-btn" data-shadow-rate="again">↻ À refaire</button></div><p class="privacy-mini">Le site ne te donne pas une fausse “note d’accent”. Tu fais ici une auto-évaluation après comparaison avec le modèle.</p></div>';document.getElementById('shadowListen').onclick=()=>speak(p.en,document.getElementById('shadowListen'));document.getElementById('shadowNext').onclick=()=>{shadowIndex=(shadowIndex+1)%SHADOW_PHRASES.length;renderShadowing();};bindRecorder('shadowRec');root.querySelectorAll('[data-shadow-rate]').forEach(b=>b.onclick=()=>{state.speakingStats.shadowing=Number(state.speakingStats.shadowing||0)+1;state.speakingStats.selfChecks=Number(state.speakingStats.selfChecks||0)+1;logStudy();save();renderSpeakStats();renderBadges();toast(b.dataset.shadowRate==='again'?'Bonne idée : écoute encore une fois puis recommence.':'Shadowing enregistré dans ton entraînement ✓');});}
 function renderThirty(){const root=document.getElementById('speak-arena');const p=SPEAK30_PROMPTS[Math.floor(Math.random()*SPEAK30_PROMPTS.length)];root.innerHTML='<div class="speak-card"><p class="eyebrow">⏱️ Speak for 30 seconds</p><h2>'+esc(p.title)+'</h2><div class="prompt" lang="en">'+esc(p.text)+'</div><p><b>Avant de parler :</b> prends dix secondes pour choisir 2 ou 3 idées. Tu n’as pas besoin d’être parfaite : l’objectif est de continuer à parler.</p><div class="focus-chips">'+p.help.map(x=>'<span class="focus-chip" lang="en">'+esc(x)+'</span>').join('')+'</div>'+recorderHTML('thirtyRec',30)+'<div class="btn-row"><button class="btn btn-ghost" id="thirtyNew" type="button">🎲 Nouveau sujet</button></div><p class="privacy-mini">Le badge “30-second speaker” se débloque à partir de 25 secondes enregistrées.</p></div>';bindRecorder('thirtyRec',30,meta=>{if(meta.duration>=25){state.speakingStats.speak30=Number(state.speakingStats.speak30||0)+1;save();renderBadges();toast('⏱️ '+meta.duration+' secondes : défi réussi !');}});document.getElementById('thirtyNew').onclick=renderThirty;}
 function renderRoleplay(){const root=document.getElementById('speak-arena');const r=FREE_ROLEPLAYS[Math.floor(Math.random()*FREE_ROLEPLAYS.length)];root.innerHTML='<div class="speak-card"><p class="eyebrow">'+r.ic+' Roleplay semi-libre</p><h2>'+esc(r.title)+'</h2><div class="prompt">'+esc(r.scene)+'</div><h3>Tes trois objectifs</h3><div class="role-goals">'+r.goals.map(g=>'<div class="role-goal">'+esc(g)+'</div>').join('')+'</div><h3>Useful language — si tu bloques</h3><div class="focus-chips">'+r.useful.map(x=>'<span class="focus-chip" lang="en">'+esc(x)+'</span>').join('')+'</div>'+recorderHTML('roleRec',45)+'<div class="btn-row"><button class="btn btn-ghost" id="roleNew" type="button">🎲 Autre situation</button><button class="btn btn-primary" id="roleDone" type="button">✓ J’ai atteint mes 3 objectifs</button></div></div>';bindRecorder('roleRec',45);document.getElementById('roleNew').onclick=renderRoleplay;document.getElementById('roleDone').onclick=()=>{state.speakingStats.roleplays=Number(state.speakingStats.roleplays||0)+1;logStudy();save();renderSpeakStats();toast('Roleplay ajouté à ton entraînement ✓');};}
 function pocketPhraseItems(){const pinned=SURVIVAL_PHRASES.filter(p=>state.phrasebook[p.id]).map(p=>({kind:'survival',id:p.id,en:p.en,fr:p.fr}));const fav=allWords().filter(w=>state.favorites[w.key]).slice(0,25).map(w=>({kind:'word',id:w.key,en:w.en,fr:w.fr}));const custom=(state.customPhrases||[]).map(p=>({kind:'custom',id:p.id,en:p.en,fr:p.fr}));return [...pinned,...fav,...custom];}
 function renderPhrasebook(){const root=document.getElementById('speak-arena');const pocket=pocketPhraseItems();root.innerHTML='<div class="speak-card"><p class="eyebrow">🆘 Survival English</p><h2>Ton phrasebook de poche</h2><p>Épingle les phrases dont tu veux disposer immédiatement en voyage. Tes mots favoris du lexique apparaissent aussi ici.</p><div class="phrasebook-list">'+SURVIVAL_PHRASES.map(p=>'<div class="phrase-row"><span><b lang="en">'+esc(p.en)+'</b><small>'+esc(p.fr)+' · '+esc(p.ctx)+'</small></span><button class="pin-btn" type="button" data-psay="'+encodeURIComponent(p.en)+'" aria-label="Écouter">🔊</button><button class="pin-btn '+(state.phrasebook[p.id]?'on':'')+'" type="button" data-pin="'+p.id+'" aria-pressed="'+String(!!state.phrasebook[p.id])+'">'+(state.phrasebook[p.id]?'📌':'＋')+'</button></div>').join('')+'</div><h3>Ajouter ma propre phrase</h3><div class="custom-form"><input id="customEn" type="text" placeholder="English phrase" aria-label="Phrase en anglais"><input id="customFr" type="text" placeholder="Traduction française" aria-label="Traduction française"><button id="customAdd" type="button">Ajouter</button></div><h3>Dans ma poche ('+pocket.length+')</h3><div class="phrasebook-list">'+(pocket.length?pocket.map(x=>'<div class="phrase-row"><span><b lang="en">'+esc(x.en)+'</b><small>'+esc(x.fr)+'</small></span><button class="pin-btn" type="button" data-pocket-say="'+encodeURIComponent(x.en)+'">🔊</button>'+(x.kind==='custom'?'<button class="pin-btn" type="button" data-custom-del="'+esc(x.id)+'" aria-label="Supprimer">✕</button>':'<span></span>')+'</div>').join(''):'<div class="empty-state">Épingle quelques phrases ou ajoute les tiennes : ton phrasebook personnel apparaîtra ici.</div>')+'</div></div>';root.querySelectorAll('[data-psay],[data-pocket-say]').forEach(b=>b.onclick=()=>speak(decodeURIComponent(b.dataset.psay||b.dataset.pocketSay),b));root.querySelectorAll('[data-pin]').forEach(b=>b.onclick=()=>{state.phrasebook[b.dataset.pin]=!state.phrasebook[b.dataset.pin];save();renderPhrasebook();});document.getElementById('customAdd').onclick=()=>{const en=document.getElementById('customEn').value.trim(),fr=document.getElementById('customFr').value.trim();if(!en){toast('Ajoute au moins la phrase anglaise.');return;}state.customPhrases.push({id:'p'+Date.now(),en,fr});save();renderPhrasebook();};root.querySelectorAll('[data-custom-del]').forEach(b=>b.onclick=()=>{state.customPhrases=state.customPhrases.filter(x=>x.id!==b.dataset.customDel);save();renderPhrasebook();});}
 function expressProgressHTML(step){return '<div class="express-progress">'+[1,2,3,4,5].map(n=>'<i class="'+(n<step?'done':'')+'"></i>').join('')+'</div>';}
 function startExpressSession(){const pool=smartPool(25);const words=pool.slice(0,3);expressState={step:1,flash:0,quiz:0,quizScore:0,words,listening:pool[4]||words[0],spoken:false};renderExpress();}
-function renderExpress(){const root=document.getElementById('speak-arena'),st=expressState;if(!st)return;if(st.step===1){const w=st.words[st.flash];root.innerHTML='<div class="speak-card"><p class="eyebrow">⚡ Session express · étape 1/5</p><h2>3 flashcards</h2>'+expressProgressHTML(1)+'<div class="express-card" id="expressFlash"><p class="eyebrow">Carte '+(st.flash+1)+' / 3</p><div class="express-word" lang="en">'+esc(w.en)+'</div><p id="expressAnswer" style="display:none"><b>'+esc(w.fr)+'</b><br>'+esc(w.ph)+'</p><button class="btn btn-sun" id="expressReveal">Voir la réponse</button></div><div class="review-actions" id="expressGrade" style="display:none;margin-top:10px"><button class="btn btn-ghost" data-eg="-1">↻ À revoir</button><button class="btn btn-primary" data-eg="1">✓ Je savais</button></div></div>';document.getElementById('expressReveal').onclick=()=>{document.getElementById('expressAnswer').style.display='block';document.getElementById('expressGrade').style.display='grid';};root.querySelectorAll('[data-eg]').forEach(b=>b.onclick=()=>{state.mastery[w.key]=Math.max(-2,Math.min(5,Number(state.mastery[w.key]||0)+Number(b.dataset.eg)));st.flash++;save();if(st.flash>=3){st.step=2;st.quiz=0;}renderExpress();});return;}
-  if(st.step===2){const w=st.words[st.quiz],opts=[w.fr,...allWords().filter(x=>x.key!==w.key&&x.fr!==w.fr).sort(()=>Math.random()-.5).slice(0,2).map(x=>x.fr)].sort(()=>Math.random()-.5);root.innerHTML='<div class="speak-card"><p class="eyebrow">⚡ Session express · étape 2/5</p><h2>3 questions</h2>'+expressProgressHTML(2)+'<div class="question">Que veut dire <span lang="en">“'+esc(w.en)+'”</span> ?</div><div class="options">'+opts.map((o,i)=>'<button class="opt" data-eq="'+encodeURIComponent(o)+'"><span class="key">'+['A','B','C'][i]+'</span><span>'+esc(o)+'</span></button>').join('')+'</div><div id="eqFeedback" class="explain"></div></div>';root.querySelectorAll('[data-eq]').forEach(b=>b.onclick=()=>{const chosen=decodeURIComponent(b.dataset.eq),ok=chosen===w.fr;root.querySelectorAll('[data-eq]').forEach(x=>{x.disabled=true;if(decodeURIComponent(x.dataset.eq)===w.fr)x.classList.add('correct')});if(!ok)b.classList.add('wrong');else st.quizScore++;state.mastery[w.key]=Math.max(-2,Math.min(5,Number(state.mastery[w.key]||0)+(ok?1:-1)));save();const f=document.getElementById('eqFeedback');f.innerHTML=ok?'✅ Correct':'💡 '+esc(w.fr);f.classList.add('show');setTimeout(()=>{st.quiz++;if(st.quiz>=3)st.step=3;renderExpress();},650);});return;}
-  if(st.step===3){const w=st.listening,opts=[w.fr,...allWords().filter(x=>x.key!==w.key&&x.fr!==w.fr).sort(()=>Math.random()-.5).slice(0,2).map(x=>x.fr)].sort(()=>Math.random()-.5);root.innerHTML='<div class="speak-card"><p class="eyebrow">⚡ Session express · étape 3/5</p><h2>1 listening</h2>'+expressProgressHTML(3)+'<div class="listen-first"><span class="ear">🎧</span><p>Ne regarde pas le mot : écoute-le, puis choisis son sens.</p><button class="btn btn-sun" id="expressListen">🔊 Écouter</button></div><div class="options" style="margin-top:12px">'+opts.map((o,i)=>'<button class="opt" data-el="'+encodeURIComponent(o)+'"><span class="key">'+['A','B','C'][i]+'</span><span>'+esc(o)+'</span></button>').join('')+'</div></div>';document.getElementById('expressListen').onclick=()=>speak(w.en,document.getElementById('expressListen'));root.querySelectorAll('[data-el]').forEach(b=>b.onclick=()=>{const ok=decodeURIComponent(b.dataset.el)===w.fr;state.mastery[w.key]=Math.max(-2,Math.min(5,Number(state.mastery[w.key]||0)+(ok?1:-1)));save();st.step=4;renderExpress();});return;}
-  if(st.step===4){root.innerHTML='<div class="speak-card"><p class="eyebrow">⚡ Session express · étape 4/5</p><h2>1 production orale</h2>'+expressProgressHTML(4)+'<div class="prompt">Parle pendant 20 à 30 secondes et utilise au moins <b>deux</b> de ces éléments.</div><div class="focus-chips">'+st.words.map(w=>'<span class="focus-chip" lang="en">'+esc(w.en)+'</span>').join('')+'</div>'+recorderHTML('expressRec',30)+'<div class="btn-row"><button class="btn btn-primary btn-block" id="expressSpoken">✓ J’ai fait ma production orale</button></div></div>';bindRecorder('expressRec',30);document.getElementById('expressSpoken').onclick=()=>{st.spoken=true;st.step=5;renderExpress();};return;}
-  state.speakingStats.express=Number(state.speakingStats.express||0)+1;logStudy();save();renderSpeakStats();renderBadges();root.innerHTML='<div class="speak-card" style="text-align:center"><p class="eyebrow">⚡ Session express terminée</p><h2>10 minutes bien utilisées ✓</h2>'+expressProgressHTML(6)+'<p>3 flashcards, 3 questions, 1 listening et 1 production orale. Score des questions : <b>'+st.quizScore+'/3</b>.</p><div class="btn-row" style="justify-content:center"><button class="btn btn-primary" id="expressAgain">Nouvelle session</button><button class="btn btn-ghost" id="expressClose">Fermer</button></div></div>';document.getElementById('expressAgain').onclick=startExpressSession;document.getElementById('expressClose').onclick=()=>{root.innerHTML='';};renderSpeakRework();renderSkillMap();}
+function renderExpress(){const root=document.getElementById('speak-arena'),st=expressState;if(!st)return;if(st.step===1){const w=st.words[st.flash];root.innerHTML='<div class="speak-card"><p class="eyebrow">⚡ Session express · étape 1/5</p><h2>3 flashcards</h2>'+expressProgressHTML(1)+'<div class="express-card" id="expressFlash"><p class="eyebrow">Carte '+(st.flash+1)+' / 3</p><div class="express-word" lang="en">'+esc(w.en)+'</div><p id="expressAnswer" style="display:none"><b>'+esc(w.fr)+'</b><br>'+esc(w.ph)+'</p><button type="button" class="btn btn-sun" id="expressReveal">Voir la réponse</button></div><div class="review-actions" id="expressGrade" style="display:none;margin-top:10px"><button type="button" class="btn btn-ghost" data-eg="-1">↻ À revoir</button><button type="button" class="btn btn-primary" data-eg="1">✓ Je savais</button></div></div>';document.getElementById('expressReveal').onclick=()=>{document.getElementById('expressAnswer').style.display='block';document.getElementById('expressGrade').style.display='grid';};root.querySelectorAll('[data-eg]').forEach(b=>b.onclick=()=>{state.mastery[w.key]=Math.max(-2,Math.min(5,Number(state.mastery[w.key]||0)+Number(b.dataset.eg)));st.flash++;save();if(st.flash>=3){st.step=2;st.quiz=0;}renderExpress();});return;}
+  if(st.step===2){const w=st.words[st.quiz],opts=shuffled([w.fr,...shuffled(allWords().filter(x=>x.key!==w.key&&x.fr!==w.fr)).slice(0,2).map(x=>x.fr)]);root.innerHTML='<div class="speak-card"><p class="eyebrow">⚡ Session express · étape 2/5</p><h2>3 questions</h2>'+expressProgressHTML(2)+'<div class="question">Que veut dire <span lang="en">“'+esc(w.en)+'”</span> ?</div><div class="options">'+opts.map((o,i)=>'<button type="button" class="opt" data-eq="'+encodeURIComponent(o)+'"><span class="key">'+['A','B','C'][i]+'</span><span>'+esc(o)+'</span></button>').join('')+'</div><div id="eqFeedback" class="explain"></div></div>';root.querySelectorAll('[data-eq]').forEach(b=>b.onclick=()=>{const chosen=decodeURIComponent(b.dataset.eq),ok=chosen===w.fr;root.querySelectorAll('[data-eq]').forEach(x=>{x.disabled=true;if(decodeURIComponent(x.dataset.eq)===w.fr)x.classList.add('correct')});if(!ok)b.classList.add('wrong');else st.quizScore++;state.mastery[w.key]=Math.max(-2,Math.min(5,Number(state.mastery[w.key]||0)+(ok?1:-1)));save();const f=document.getElementById('eqFeedback');f.innerHTML=ok?'✅ Correct':'💡 '+esc(w.fr);f.classList.add('show');setTimeout(()=>{st.quiz++;if(st.quiz>=3)st.step=3;renderExpress();},650);});return;}
+  if(st.step===3){const w=st.listening,opts=shuffled([w.fr,...shuffled(allWords().filter(x=>x.key!==w.key&&x.fr!==w.fr)).slice(0,2).map(x=>x.fr)]);root.innerHTML='<div class="speak-card"><p class="eyebrow">⚡ Session express · étape 3/5</p><h2>1 listening</h2>'+expressProgressHTML(3)+'<div class="listen-first"><span class="ear">🎧</span><p>Ne regarde pas le mot : écoute-le, puis choisis son sens.</p><button type="button" class="btn btn-sun" id="expressListen">🔊 Écouter</button></div><div class="options" style="margin-top:12px">'+opts.map((o,i)=>'<button type="button" class="opt" data-el="'+encodeURIComponent(o)+'"><span class="key">'+['A','B','C'][i]+'</span><span>'+esc(o)+'</span></button>').join('')+'</div></div>';document.getElementById('expressListen').onclick=()=>speak(w.en,document.getElementById('expressListen'));root.querySelectorAll('[data-el]').forEach(b=>b.onclick=()=>{const ok=decodeURIComponent(b.dataset.el)===w.fr;state.mastery[w.key]=Math.max(-2,Math.min(5,Number(state.mastery[w.key]||0)+(ok?1:-1)));save();st.step=4;renderExpress();});return;}
+  if(st.step===4){root.innerHTML='<div class="speak-card"><p class="eyebrow">⚡ Session express · étape 4/5</p><h2>1 production orale</h2>'+expressProgressHTML(4)+'<div class="prompt">Parle pendant 20 à 30 secondes et utilise au moins <b>deux</b> de ces éléments.</div><div class="focus-chips">'+st.words.map(w=>'<span class="focus-chip" lang="en">'+esc(w.en)+'</span>').join('')+'</div>'+recorderHTML('expressRec',30)+'<div class="btn-row"><button type="button" class="btn btn-primary btn-block" id="expressSpoken">✓ J’ai fait ma production orale</button></div></div>';bindRecorder('expressRec',30);document.getElementById('expressSpoken').onclick=()=>{st.spoken=true;st.step=5;renderExpress();};return;}
+  state.speakingStats.express=Number(state.speakingStats.express||0)+1;logStudy();save();renderSpeakStats();renderBadges();root.innerHTML='<div class="speak-card" style="text-align:center"><p class="eyebrow">⚡ Session express terminée</p><h2>10 minutes bien utilisées ✓</h2>'+expressProgressHTML(6)+'<p>3 flashcards, 3 questions, 1 listening et 1 production orale. Score des questions : <b>'+st.quizScore+'/3</b>.</p><div class="btn-row" style="justify-content:center"><button type="button" class="btn btn-primary" id="expressAgain">Nouvelle session</button><button type="button" class="btn btn-ghost" id="expressClose">Fermer</button></div></div>';document.getElementById('expressAgain').onclick=startExpressSession;document.getElementById('expressClose').onclick=()=>{root.innerHTML='';};renderSpeakRework();renderSkillMap();}
 function travelRouteHTML(index){return '<div class="travel-route">'+TRAVEL_DAY.map((x,i)=>'<span class="travel-stop '+(i<index?'done':'')+'">'+x.ic+'</span>'+(i<TRAVEL_DAY.length-1?'<span class="travel-line"></span>':'')).join('')+'</div>';}
 function startTravelDay(){stopActiveRecording();travelDayState={index:0,score:0,history:[],answered:false};renderTravelDay();}
-function renderTravelDay(){const root=document.getElementById('speak-arena'),st=travelDayState;if(!st)return;if(st.index>=TRAVEL_DAY.length){finishTravelDay();return;}const sc=TRAVEL_DAY[st.index];root.innerHTML='<div class="travelday"><p class="eyebrow" style="color:var(--sun)">🧳 Nathalie’s Travel Day</p><h2>Étape '+(st.index+1)+' / '+TRAVEL_DAY.length+' · '+esc(sc.place)+'</h2>'+travelRouteHTML(st.index)+'<p>Score actuel : <b>'+st.score+' / '+(st.index*2)+'</b></p><div class="travel-scene"><div class="bubble npc" style="max-width:100%"><span class="who">Local / staff</span><span lang="en">'+esc(sc.npc)+'</span><div class="bubble-tools"><button class="tiny-btn" id="tdListen">🔊 Écouter</button></div></div><h3>Que réponds-tu ?</h3>'+sc.options.map((o,i)=>'<button class="travel-choice" type="button" data-td="'+i+'" lang="en">'+esc(o.t)+'</button>').join('')+'<div id="tdFeedback"></div><div class="btn-row" id="tdNextWrap" style="display:none"><button class="btn btn-primary btn-block" id="tdNext">Continuer le voyage →</button></div></div></div>';document.getElementById('tdListen').onclick=()=>speak(sc.npc,document.getElementById('tdListen'));root.querySelectorAll('[data-td]').forEach(b=>b.onclick=()=>answerTravelDay(+b.dataset.td));}
+function renderTravelDay(){const root=document.getElementById('speak-arena'),st=travelDayState;if(!st)return;if(st.index>=TRAVEL_DAY.length){finishTravelDay();return;}const sc=TRAVEL_DAY[st.index];root.innerHTML='<div class="travelday"><p class="eyebrow" style="color:var(--sun)">🧳 Nathalie’s Travel Day</p><h2>Étape '+(st.index+1)+' / '+TRAVEL_DAY.length+' · '+esc(sc.place)+'</h2>'+travelRouteHTML(st.index)+'<p>Score actuel : <b>'+st.score+' / '+(st.index*2)+'</b></p><div class="travel-scene"><div class="bubble npc" style="max-width:100%"><span class="who">Local / staff</span><span lang="en">'+esc(sc.npc)+'</span><div class="bubble-tools"><button type="button" class="tiny-btn" id="tdListen">🔊 Écouter</button></div></div><h3>Que réponds-tu ?</h3>'+sc.options.map((o,i)=>'<button class="travel-choice" type="button" data-td="'+i+'" lang="en">'+esc(o.t)+'</button>').join('')+'<div id="tdFeedback"></div><div class="btn-row" id="tdNextWrap" style="display:none"><button type="button" class="btn btn-primary btn-block" id="tdNext">Continuer le voyage →</button></div></div></div>';document.getElementById('tdListen').onclick=()=>speak(sc.npc,document.getElementById('tdListen'));root.querySelectorAll('[data-td]').forEach(b=>b.onclick=()=>answerTravelDay(+b.dataset.td));}
 function answerTravelDay(i){const st=travelDayState;if(!st||st.answered)return;const sc=TRAVEL_DAY[st.index],o=sc.options[i];st.answered=true;st.score+=o.s;st.history.push({place:sc.place,choice:o.t,score:o.s});document.querySelectorAll('[data-td]').forEach((b,j)=>{b.disabled=true;if(j===i)b.classList.add('selected');});const best=sc.options.find(x=>x.s===2);const fb=document.getElementById('tdFeedback');fb.className='mission-feedback';fb.innerHTML=(o.s===2?'✅ <b>Naturel et efficace.</b>':o.s===1?'👍 <b>Ça passe.</b>':'💡 <b>On peut faire plus naturel.</b>')+'<br><span lang="en">“'+esc(o.r)+'”</span>'+(o.s<2?'<br><small>À retenir : <span lang="en">'+esc(best.t)+'</span></small>':'');document.getElementById('tdNextWrap').style.display='flex';document.getElementById('tdNext').onclick=()=>{st.index++;st.answered=false;renderTravelDay();};logStudy();}
-function finishTravelDay(){const root=document.getElementById('speak-arena'),st=travelDayState;state.speakingStats.travelDayPlays=Number(state.speakingStats.travelDayPlays||0)+1;state.speakingStats.travelDayBest=Math.max(Number(state.speakingStats.travelDayBest||0),st.score);save();logStudy();if(st.score>=12)confetti('#FFC145');const copy=st.score>=13?'Tu as traversé la journée avec des formulations très naturelles.':st.score>=10?'Très solide : tu peux gérer toute la chaîne du voyage.':st.score>=7?'Tu transmets l’essentiel. Rejoue pour rendre les formulations plus naturelles.':'Tu as survécu à la journée ! Une deuxième tentative va déjà faire une grosse différence.';root.innerHTML='<div class="mission-result"><div class="stamp-big">🧳</div><p class="eyebrow">Travel Day terminé</p><h2>'+st.score+' / 14</h2><p>'+copy+'</p><div class="result-phrases">'+st.history.map(x=>'<div class="result-phrase"><b>'+x.place+' · '+x.score+'/2</b><span lang="en">'+esc(x.choice)+'</span></div>').join('')+'</div><div style="text-align:left;margin-top:18px"><h3>🎙️ Final challenge · raconte ta journée</h3><p style="color:var(--muted);font-size:13px">Imagine qu’un ami anglophone t’appelle ce soir. Résume ta journée de voyage en 30 à 45 secondes, sans lire les phrases ci-dessus mot à mot.</p>'+recorderHTML('tdStoryRec',45)+'</div><div class="btn-row" style="justify-content:center"><button class="btn btn-primary" id="tdAgain">↻ Rejouer la journée</button><button class="btn btn-ghost" id="tdClose">Fermer</button></div></div>';bindRecorder('tdStoryRec',45);document.getElementById('tdAgain').onclick=startTravelDay;document.getElementById('tdClose').onclick=()=>{stopActiveRecording();root.innerHTML='';};renderSpeakStats();renderSkillMap();renderBadges();}
+function finishTravelDay(){const root=document.getElementById('speak-arena'),st=travelDayState;state.speakingStats.travelDayPlays=Number(state.speakingStats.travelDayPlays||0)+1;state.speakingStats.travelDayBest=Math.max(Number(state.speakingStats.travelDayBest||0),st.score);save();logStudy();if(st.score>=12)confetti('#FFC145');const copy=st.score>=13?'Tu as traversé la journée avec des formulations très naturelles.':st.score>=10?'Très solide : tu peux gérer toute la chaîne du voyage.':st.score>=7?'Tu transmets l’essentiel. Rejoue pour rendre les formulations plus naturelles.':'Tu as survécu à la journée ! Une deuxième tentative va déjà faire une grosse différence.';root.innerHTML='<div class="mission-result"><div class="stamp-big">🧳</div><p class="eyebrow">Travel Day terminé</p><h2>'+st.score+' / 14</h2><p>'+copy+'</p><div class="result-phrases">'+st.history.map(x=>'<div class="result-phrase"><b>'+x.place+' · '+x.score+'/2</b><span lang="en">'+esc(x.choice)+'</span></div>').join('')+'</div><div style="text-align:left;margin-top:18px"><h3>🎙️ Final challenge · raconte ta journée</h3><p style="color:var(--muted);font-size:13px">Imagine qu’un ami anglophone t’appelle ce soir. Résume ta journée de voyage en 30 à 45 secondes, sans lire les phrases ci-dessus mot à mot.</p>'+recorderHTML('tdStoryRec',45)+'</div><div class="btn-row" style="justify-content:center"><button type="button" class="btn btn-primary" id="tdAgain">↻ Rejouer la journée</button><button type="button" class="btn btn-ghost" id="tdClose">Fermer</button></div></div>';bindRecorder('tdStoryRec',45);document.getElementById('tdAgain').onclick=startTravelDay;document.getElementById('tdClose').onclick=()=>{stopActiveRecording();root.innerHTML='';};renderSpeakStats();renderSkillMap();renderBadges();}
 
 
 
@@ -3483,7 +3533,7 @@ function startListeningScene(item,source,target){
 }
 function renderListeningScene(target){
   const st=listeningSession;if(!st||!target)return;const x=st.item;
-  target.innerHTML='<div class="audio-card"><p class="eyebrow">'+x.ic+' '+esc(x.cat)+' · '+esc(x.accent)+'</p><h2>'+esc(x.title)+'</h2><div class="audio-screen"><div><div class="ear">🎧</div><b>Écoute avant de lire.</b><p>Essaie de repérer les mots porteurs de sens.</p></div></div><div class="btn-row"><button class="btn btn-primary" id="scenePlay">▶ Écoute normale</button><button class="btn btn-ghost" id="sceneSlow">🐢 Plus lentement</button><button class="btn btn-ghost" id="sceneTranscript">👁️ Transcription</button></div>'+(st.revealed?'<div class="transcript"><b>Transcription</b><p lang="en">'+esc(x.text)+'</p></div>':'')+'<div class="card" style="margin-top:14px"><div class="question" style="font-size:18px">'+esc(x.q)+'</div><div class="options">'+x.o.map((op,i)=>'<button class="opt" data-scene-answer="'+i+'" '+((st.answered||!st.played)?'disabled':'')+'><span class="key">'+['A','B','C'][i]+'</span><span>'+esc(op)+'</span></button>').join('')+'</div><div id="sceneFeedback"></div></div></div>';
+  target.innerHTML='<div class="audio-card"><p class="eyebrow">'+x.ic+' '+esc(x.cat)+' · '+esc(x.accent)+'</p><h2>'+esc(x.title)+'</h2><div class="audio-screen"><div><div class="ear">🎧</div><b>Écoute avant de lire.</b><p>Essaie de repérer les mots porteurs de sens.</p></div></div><div class="btn-row"><button type="button" class="btn btn-primary" id="scenePlay">▶ Écoute normale</button><button type="button" class="btn btn-ghost" id="sceneSlow">🐢 Plus lentement</button><button type="button" class="btn btn-ghost" id="sceneTranscript">👁️ Transcription</button></div>'+(st.revealed?'<div class="transcript"><b>Transcription</b><p lang="en">'+esc(x.text)+'</p></div>':'')+'<div class="card" style="margin-top:14px"><div class="question" style="font-size:18px">'+esc(x.q)+'</div><div class="options">'+x.o.map((op,i)=>'<button type="button" class="opt" data-scene-answer="'+i+'" '+((st.answered||!st.played)?'disabled':'')+'><span class="key">'+['A','B','C'][i]+'</span><span>'+esc(op)+'</span></button>').join('')+'</div><div id="sceneFeedback"></div></div></div>';
   document.getElementById('scenePlay').onclick=e=>{if(!st.played){st.played=true;state.listeningStats.plays++;logStudy();save();document.getElementById('listen-plays').textContent=state.listeningStats.plays;target.querySelectorAll('[data-scene-answer]').forEach(b=>b.disabled=false);}speakAccent(x.text,x.accent,e.currentTarget,1);};
   document.getElementById('sceneSlow').onclick=e=>speakAccent(x.text,x.accent,e.currentTarget,.78);
   document.getElementById('sceneTranscript').onclick=()=>{st.revealed=true;renderListeningScene(target);};
@@ -3497,25 +3547,25 @@ function answerListeningScene(i,target){
 }
 function renderCatch(root){
   const x=CATCH_ITEMS[catchIndex%CATCH_ITEMS.length];
-  root.innerHTML='<div class="audio-card"><p class="eyebrow">👂 I didn’t catch that! · '+(catchIndex+1)+' / '+CATCH_ITEMS.length+'</p><h2>Une seule écoute normale d’abord</h2><div class="audio-screen"><div><div class="ear">👂</div><p>Ne cherche pas à entendre chaque mot séparément.</p></div></div><div class="btn-row"><button class="btn btn-primary" id="catchPlay">▶ Écouter</button><button class="btn btn-ghost" id="catchSlow">🐢 Réécouter lentement</button></div><div class="options" style="margin-top:14px">'+x.heard.map((o,i)=>'<button class="opt" data-catch="'+i+'"><span class="key">'+['A','B','C'][i]+'</span><span lang="en">'+esc(o)+'</span></button>').join('')+'</div><div id="catchFeedback"></div></div>';
+  root.innerHTML='<div class="audio-card"><p class="eyebrow">👂 I didn’t catch that! · '+(catchIndex+1)+' / '+CATCH_ITEMS.length+'</p><h2>Une seule écoute normale d’abord</h2><div class="audio-screen"><div><div class="ear">👂</div><p>Ne cherche pas à entendre chaque mot séparément.</p></div></div><div class="btn-row"><button type="button" class="btn btn-primary" id="catchPlay">▶ Écouter</button><button type="button" class="btn btn-ghost" id="catchSlow">🐢 Réécouter lentement</button></div><div class="options" style="margin-top:14px">'+x.heard.map((o,i)=>'<button type="button" class="opt" data-catch="'+i+'"><span class="key">'+['A','B','C'][i]+'</span><span lang="en">'+esc(o)+'</span></button>').join('')+'</div><div id="catchFeedback"></div></div>';
   document.getElementById('catchPlay').onclick=e=>{state.listeningStats.plays++;logStudy();save();document.getElementById('listen-plays').textContent=state.listeningStats.plays;speakAccent(x.text,'en-GB',e.currentTarget,1.06);};
   document.getElementById('catchSlow').onclick=e=>speakAccent(x.text,'en-GB',e.currentTarget,.76);
-  root.querySelectorAll('[data-catch]').forEach(b=>b.onclick=()=>{const i=+b.dataset.catch,ok=i===x.a;root.querySelectorAll('[data-catch]').forEach(z=>{z.disabled=true;if(+z.dataset.catch===x.a)z.classList.add('correct');else if(z===b)z.classList.add('wrong');});if(ok){state.listeningStats.correct++;state.listeningStats.catchCorrect++;}logStudy();save();document.getElementById('catchFeedback').innerHTML='<div class="sound-note"><b class="catch-focus">'+esc(x.focus)+'</b><div lang="en"><b>'+esc(x.display)+'</b></div><p>'+esc(x.note)+'</p><button class="btn btn-sun" id="catchNext">Phrase suivante →</button></div>';document.getElementById('catchNext').onclick=()=>{catchIndex=(catchIndex+1)%CATCH_ITEMS.length;renderCatch(root);};renderBadges();document.getElementById('listen-correct').textContent=state.listeningStats.correct;});
+  root.querySelectorAll('[data-catch]').forEach(b=>b.onclick=()=>{const i=+b.dataset.catch,ok=i===x.a;root.querySelectorAll('[data-catch]').forEach(z=>{z.disabled=true;if(+z.dataset.catch===x.a)z.classList.add('correct');else if(z===b)z.classList.add('wrong');});if(ok){state.listeningStats.correct++;state.listeningStats.catchCorrect++;}logStudy();save();document.getElementById('catchFeedback').innerHTML='<div class="sound-note"><b class="catch-focus">'+esc(x.focus)+'</b><div lang="en"><b>'+esc(x.display)+'</b></div><p>'+esc(x.note)+'</p><button type="button" class="btn btn-sun" id="catchNext">Phrase suivante →</button></div>';document.getElementById('catchNext').onclick=()=>{catchIndex=(catchIndex+1)%CATCH_ITEMS.length;renderCatch(root);};renderBadges();document.getElementById('listen-correct').textContent=state.listeningStats.correct;});
 }
 function renderAccents(root){
   const sample='Could you tell me where the nearest train station is, please?';
-  root.innerHTML='<div class="audio-card"><p class="eyebrow">🌍 Accents & Englishes</p><h2>Une langue, beaucoup de voix</h2><p class="lead">Cette page utilise uniquement les voix installées sur ton appareil. Si la voix demandée manque, l’application le dit clairement : elle ne fabrique pas un faux accent.</p><div class="accent-grid">'+ACCENT_PROFILES.map((a,i)=>{const v=voiceForLang(a.lang),exact=v&&String(v.lang).toLowerCase()===a.lang.toLowerCase();return '<div class="accent-card"><h3>'+a.flag+' '+esc(a.name)+'</h3><span class="voice-status '+(exact?'ok':'fallback')+'">'+(exact?'voix '+esc(v.name)+' disponible':'accent exact non disponible')+'</span><p>'+esc(a.note)+'</p><button class="btn btn-ghost" data-accent="'+i+'">🔊 Écouter la même phrase</button></div>';}).join('')+'</div><div class="note-safe" style="margin-top:14px">Les remarques ci-dessus décrivent des tendances fréquentes, pas des règles valables pour tous les locuteurs d’un pays.</div></div>';
+  root.innerHTML='<div class="audio-card"><p class="eyebrow">🌍 Accents & Englishes</p><h2>Une langue, beaucoup de voix</h2><p class="lead">Cette page utilise uniquement les voix installées sur ton appareil. Si la voix demandée manque, l’application le dit clairement : elle ne fabrique pas un faux accent.</p><div class="accent-grid">'+ACCENT_PROFILES.map((a,i)=>{const v=voiceForLang(a.lang),exact=v&&String(v.lang).toLowerCase()===a.lang.toLowerCase();return '<div class="accent-card"><h3>'+a.flag+' '+esc(a.name)+'</h3><span class="voice-status '+(exact?'ok':'fallback')+'">'+(exact?'voix '+esc(v.name)+' disponible':'accent exact non disponible')+'</span><p>'+esc(a.note)+'</p><button type="button" class="btn btn-ghost" data-accent="'+i+'">🔊 Écouter la même phrase</button></div>';}).join('')+'</div><div class="note-safe" style="margin-top:14px">Les remarques ci-dessus décrivent des tendances fréquentes, pas des règles valables pour tous les locuteurs d’un pays.</div></div>';
   root.querySelectorAll('[data-accent]').forEach(b=>b.onclick=()=>{const a=ACCENT_PROFILES[+b.dataset.accent];const v=voiceForLang(a.lang);if(!v||String(v.lang).toLowerCase()!==a.lang.toLowerCase())toast('Pas de voix '+a.lang+' exacte sur cet appareil : lecture avec la meilleure voix anglaise disponible.');speakAccent(sample,a.lang,b,1);});
 }
 function renderReading(root){
   const x=READING_ITEMS[readingIndex%READING_ITEMS.length];
-  root.innerHTML='<div class="audio-card"><p class="eyebrow">🪧 Real-life reading · document simulé '+(readingIndex+1)+' / '+READING_ITEMS.length+'</p><h2>'+esc(x.title)+'</h2><p class="lead">Lis comme en voyage : cherche l’information utile, pas la traduction de chaque mot.</p><div class="real-doc '+x.kind+'">'+x.html+'</div><div class="question" style="font-size:18px">'+esc(x.q)+'</div><div class="options">'+x.o.map((o,i)=>'<button class="opt" data-read="'+i+'"><span class="key">'+['A','B','C'][i]+'</span><span>'+esc(o)+'</span></button>').join('')+'</div><div id="readingFeedback"></div></div>';
-  root.querySelectorAll('[data-read]').forEach(b=>b.onclick=()=>{const i=+b.dataset.read,ok=i===x.a;root.querySelectorAll('[data-read]').forEach(z=>{z.disabled=true;if(+z.dataset.read===x.a)z.classList.add('correct');else if(z===b)z.classList.add('wrong');});if(ok){state.listeningStats.correct++;state.listeningStats.readingCorrect++;}logStudy();save();document.getElementById('readingFeedback').innerHTML='<div class="mission-feedback"><b>'+(ok?'✅ Exact.':'💡 Regarde l’information clé.')+'</b> '+esc(x.note)+'<div class="btn-row"><button class="btn btn-sun" id="readNext">Document suivant →</button></div></div>';document.getElementById('readNext').onclick=()=>{readingIndex=(readingIndex+1)%READING_ITEMS.length;renderReading(root);};document.getElementById('listen-correct').textContent=state.listeningStats.correct;});
+  root.innerHTML='<div class="audio-card"><p class="eyebrow">🪧 Real-life reading · document simulé '+(readingIndex+1)+' / '+READING_ITEMS.length+'</p><h2>'+esc(x.title)+'</h2><p class="lead">Lis comme en voyage : cherche l’information utile, pas la traduction de chaque mot.</p><div class="real-doc '+x.kind+'">'+x.html+'</div><div class="question" style="font-size:18px">'+esc(x.q)+'</div><div class="options">'+x.o.map((o,i)=>'<button type="button" class="opt" data-read="'+i+'"><span class="key">'+['A','B','C'][i]+'</span><span>'+esc(o)+'</span></button>').join('')+'</div><div id="readingFeedback"></div></div>';
+  root.querySelectorAll('[data-read]').forEach(b=>b.onclick=()=>{const i=+b.dataset.read,ok=i===x.a;root.querySelectorAll('[data-read]').forEach(z=>{z.disabled=true;if(+z.dataset.read===x.a)z.classList.add('correct');else if(z===b)z.classList.add('wrong');});if(ok){state.listeningStats.correct++;state.listeningStats.readingCorrect++;}logStudy();save();document.getElementById('readingFeedback').innerHTML='<div class="mission-feedback"><b>'+(ok?'✅ Exact.':'💡 Regarde l’information clé.')+'</b> '+esc(x.note)+'<div class="btn-row"><button type="button" class="btn btn-sun" id="readNext">Document suivant →</button></div></div>';document.getElementById('readNext').onclick=()=>{readingIndex=(readingIndex+1)%READING_ITEMS.length;renderReading(root);};document.getElementById('listen-correct').textContent=state.listeningStats.correct;});
 }
 function renderCulture(root){
   const x=CULTURE_ITEMS[cultureIndex%CULTURE_ITEMS.length];
-  root.innerHTML='<div class="culture-card"><p class="eyebrow">🤝 Culture in context · '+(cultureIndex+1)+' / '+CULTURE_ITEMS.length+'</p><div class="scenario">'+esc(x.scenario)+'</div><div class="question" style="font-size:17px">'+esc(x.q)+'</div><div class="options">'+x.o.map((o,i)=>'<button class="opt" data-culture="'+i+'"><span class="key">'+['A','B','C'][i]+'</span><span>'+esc(o)+'</span></button>').join('')+'</div><div id="cultureFeedback"></div></div>';
-  root.querySelectorAll('[data-culture]').forEach(b=>b.onclick=()=>{const i=+b.dataset.culture,ok=i===x.a;root.querySelectorAll('[data-culture]').forEach(z=>{z.disabled=true;if(+z.dataset.culture===x.a)z.classList.add('correct');else if(z===b)z.classList.add('wrong');});if(ok){state.listeningStats.correct++;state.listeningStats.cultureCorrect++;}logStudy();save();document.getElementById('cultureFeedback').innerHTML='<div class="mission-feedback"><b>'+(ok?'✅ Bonne stratégie.':'💡 Une réponse plus sûre :')+'</b><div class="culture-note">'+esc(x.note)+'</div><div class="btn-row"><button class="btn btn-sun" id="cultureNext">Situation suivante →</button></div></div>';document.getElementById('cultureNext').onclick=()=>{cultureIndex=(cultureIndex+1)%CULTURE_ITEMS.length;renderCulture(root);};document.getElementById('listen-correct').textContent=state.listeningStats.correct;});
+  root.innerHTML='<div class="culture-card"><p class="eyebrow">🤝 Culture in context · '+(cultureIndex+1)+' / '+CULTURE_ITEMS.length+'</p><div class="scenario">'+esc(x.scenario)+'</div><div class="question" style="font-size:17px">'+esc(x.q)+'</div><div class="options">'+x.o.map((o,i)=>'<button type="button" class="opt" data-culture="'+i+'"><span class="key">'+['A','B','C'][i]+'</span><span>'+esc(o)+'</span></button>').join('')+'</div><div id="cultureFeedback"></div></div>';
+  root.querySelectorAll('[data-culture]').forEach(b=>b.onclick=()=>{const i=+b.dataset.culture,ok=i===x.a;root.querySelectorAll('[data-culture]').forEach(z=>{z.disabled=true;if(+z.dataset.culture===x.a)z.classList.add('correct');else if(z===b)z.classList.add('wrong');});if(ok){state.listeningStats.correct++;state.listeningStats.cultureCorrect++;}logStudy();save();document.getElementById('cultureFeedback').innerHTML='<div class="mission-feedback"><b>'+(ok?'✅ Bonne stratégie.':'💡 Une réponse plus sûre :')+'</b><div class="culture-note">'+esc(x.note)+'</div><div class="btn-row"><button type="button" class="btn btn-sun" id="cultureNext">Situation suivante →</button></div></div>';document.getElementById('cultureNext').onclick=()=>{cultureIndex=(cultureIndex+1)%CULTURE_ITEMS.length;renderCulture(root);};document.getElementById('listen-correct').textContent=state.listeningStats.correct;});
 }
 
 /* =========================================================
@@ -3550,30 +3600,30 @@ function renderTomorrowSession(){
   const root=document.getElementById('tomorrow-arena'),st=tomorrowState;if(!root||!st)return;
   if(st.phase==='flash'){
     const w=st.words[st.index];
-    root.innerHTML='<div class="tomorrow-session"><p class="eyebrow">'+st.cat.ic+' '+st.cat.name+' · 1/4</p><h2>5 mots prioritaires</h2>'+tomorrowTrack('flash')+'<p class="lead" style="font-size:13px">Les mots les moins maîtrisés passent en premier.</p><div class="tomorrow-word"><div class="bigword" lang="en">'+esc(w.en)+'</div><p id="tmAnswer" style="display:none"><b>'+esc(w.fr)+'</b><br><span class="quiz-score">'+esc(w.ph)+'</span></p><div class="btn-row" style="justify-content:center"><button class="btn btn-sun" id="tmListen">🔊 Écouter</button><button class="btn btn-primary" id="tmReveal">Voir la réponse</button></div></div><div id="tmGrade" class="review-actions" style="display:none;margin-top:10px"><button class="btn btn-ghost" data-tmg="-1">↻ À revoir</button><button class="btn btn-primary" data-tmg="1">✓ Je savais</button></div><p class="tomorrow-score">Carte '+(st.index+1)+' / '+st.words.length+'</p></div>';
+    root.innerHTML='<div class="tomorrow-session"><p class="eyebrow">'+st.cat.ic+' '+st.cat.name+' · 1/4</p><h2>5 mots prioritaires</h2>'+tomorrowTrack('flash')+'<p class="lead" style="font-size:13px">Les mots les moins maîtrisés passent en premier.</p><div class="tomorrow-word"><div class="bigword" lang="en">'+esc(w.en)+'</div><p id="tmAnswer" style="display:none"><b>'+esc(w.fr)+'</b><br><span class="quiz-score">'+esc(w.ph)+'</span></p><div class="btn-row" style="justify-content:center"><button type="button" class="btn btn-sun" id="tmListen">🔊 Écouter</button><button type="button" class="btn btn-primary" id="tmReveal">Voir la réponse</button></div></div><div id="tmGrade" class="review-actions" style="display:none;margin-top:10px"><button type="button" class="btn btn-ghost" data-tmg="-1">↻ À revoir</button><button type="button" class="btn btn-primary" data-tmg="1">✓ Je savais</button></div><p class="tomorrow-score">Carte '+(st.index+1)+' / '+st.words.length+'</p></div>';
     document.getElementById('tmListen').onclick=()=>speak(w.en,document.getElementById('tmListen'));
     document.getElementById('tmReveal').onclick=()=>{document.getElementById('tmAnswer').style.display='block';document.getElementById('tmGrade').style.display='grid';};
     root.querySelectorAll('[data-tmg]').forEach(b=>b.onclick=()=>{state.mastery[w.key]=Math.max(-2,Math.min(5,Number(state.mastery[w.key]||0)+Number(b.dataset.tmg)));save();st.index++;if(st.index>=st.words.length){st.phase='quiz';st.index=0;}renderTomorrowSession();});return;
   }
   if(st.phase==='quiz'){
     const p=st.m.practice[st.quizIndex%st.m.practice.length];
-    root.innerHTML='<div class="tomorrow-session"><p class="eyebrow">'+st.cat.ic+' '+st.cat.name+' · 2/4</p><h2>3 réflexes utiles</h2>'+tomorrowTrack('quiz')+'<div class="question">'+esc(p.q)+'</div><div class="options">'+p.o.map((o,i)=>'<button class="opt" data-tmq="'+i+'"><span class="key">'+['A','B','C','D'][i]+'</span><span>'+esc(o)+'</span></button>').join('')+'</div><div id="tmqFeedback" class="explain"></div><p class="tomorrow-score">Question '+(st.quizIndex+1)+' / 3 · '+st.quizScore+' point'+(st.quizScore>1?'s':'')+'</p></div>';
+    root.innerHTML='<div class="tomorrow-session"><p class="eyebrow">'+st.cat.ic+' '+st.cat.name+' · 2/4</p><h2>3 réflexes utiles</h2>'+tomorrowTrack('quiz')+'<div class="question">'+esc(p.q)+'</div><div class="options">'+p.o.map((o,i)=>'<button type="button" class="opt" data-tmq="'+i+'"><span class="key">'+['A','B','C','D'][i]+'</span><span>'+esc(o)+'</span></button>').join('')+'</div><div id="tmqFeedback" class="explain"></div><p class="tomorrow-score">Question '+(st.quizIndex+1)+' / 3 · '+st.quizScore+' point'+(st.quizScore>1?'s':'')+'</p></div>';
     root.querySelectorAll('[data-tmq]').forEach(b=>b.onclick=()=>{const choice=Number(b.dataset.tmq),ok=choice===p.a;root.querySelectorAll('[data-tmq]').forEach((x,i)=>{x.disabled=true;if(i===p.a)x.classList.add('correct')});if(!ok)b.classList.add('wrong');if(ok)st.quizScore++;else state.moduleReview[st.m.id]=Number(state.moduleReview[st.m.id]||0)+1;save();const f=document.getElementById('tmqFeedback');f.innerHTML=ok?'✅ <b>Exact.</b>':'💡 <b>À retenir :</b> '+esc(p.o[p.a]);f.classList.add('show');setTimeout(()=>{st.quizIndex++;if(st.quizIndex>=3)st.phase='listen';renderTomorrowSession();},700);});return;
   }
   if(st.phase==='listen'){
-    const w=st.listening; const distract=allWords().filter(x=>x.moduleId===st.m.id&&x.key!==w.key&&x.fr!==w.fr).sort(()=>Math.random()-.5).slice(0,2);const opts=[w.fr,...distract.map(x=>x.fr)].sort(()=>Math.random()-.5);
-    root.innerHTML='<div class="tomorrow-session"><p class="eyebrow">'+st.cat.ic+' '+st.cat.name+' · 3/4</p><h2>1 listening</h2>'+tomorrowTrack('listen')+'<div class="listen-first"><span class="ear">🎧</span><p>Écoute sans regarder le mot anglais, puis choisis le sens.</p><button class="btn btn-sun" id="tmlisten">🔊 Écouter</button></div><div class="options" style="margin-top:12px">'+opts.map((o,i)=>'<button class="opt" data-tml="'+encodeURIComponent(o)+'"><span class="key">'+['A','B','C'][i]+'</span><span>'+esc(o)+'</span></button>').join('')+'</div></div>';
+    const w=st.listening; const distract=shuffled(allWords().filter(x=>x.moduleId===st.m.id&&x.key!==w.key&&x.fr!==w.fr)).slice(0,2);const opts=shuffled([w.fr,...distract.map(x=>x.fr)]);
+    root.innerHTML='<div class="tomorrow-session"><p class="eyebrow">'+st.cat.ic+' '+st.cat.name+' · 3/4</p><h2>1 listening</h2>'+tomorrowTrack('listen')+'<div class="listen-first"><span class="ear">🎧</span><p>Écoute sans regarder le mot anglais, puis choisis le sens.</p><button type="button" class="btn btn-sun" id="tmlisten">🔊 Écouter</button></div><div class="options" style="margin-top:12px">'+opts.map((o,i)=>'<button type="button" class="opt" data-tml="'+encodeURIComponent(o)+'"><span class="key">'+['A','B','C'][i]+'</span><span>'+esc(o)+'</span></button>').join('')+'</div></div>';
     document.getElementById('tmlisten').onclick=()=>speak(w.en,document.getElementById('tmlisten'));
     root.querySelectorAll('[data-tml]').forEach(b=>b.onclick=()=>{const ok=decodeURIComponent(b.dataset.tml)===w.fr;state.mastery[w.key]=Math.max(-2,Math.min(5,Number(state.mastery[w.key]||0)+(ok?1:-1)));save();st.phase='speak';renderTomorrowSession();});return;
   }
   if(st.phase==='speak'){
-    root.innerHTML='<div class="tomorrow-session"><p class="eyebrow">'+st.cat.ic+' '+st.cat.name+' · 4/4</p><h2>À toi de parler</h2>'+tomorrowTrack('speak')+'<div class="prompt" lang="en">'+esc(st.cat.speak)+'</div><div class="focus-chips">'+st.words.slice(0,4).map(w=>'<span class="focus-chip" lang="en">'+esc(w.en)+'</span>').join('')+'</div>'+recorderHTML('tomorrowRec',35)+'<div class="btn-row"><button class="btn btn-primary btn-block" id="tomorrowDone">✓ C’est fait — je peux partir</button></div></div>';
+    root.innerHTML='<div class="tomorrow-session"><p class="eyebrow">'+st.cat.ic+' '+st.cat.name+' · 4/4</p><h2>À toi de parler</h2>'+tomorrowTrack('speak')+'<div class="prompt" lang="en">'+esc(st.cat.speak)+'</div><div class="focus-chips">'+st.words.slice(0,4).map(w=>'<span class="focus-chip" lang="en">'+esc(w.en)+'</span>').join('')+'</div>'+recorderHTML('tomorrowRec',35)+'<div class="btn-row"><button type="button" class="btn btn-primary btn-block" id="tomorrowDone">✓ C’est fait — je peux partir</button></div></div>';
     bindRecorder('tomorrowRec',35); document.getElementById('tomorrowDone').onclick=finishTomorrow;return;
   }
 }
 function finishTomorrow(){
   const st=tomorrowState;if(!st)return; stopActiveRecording(); state.tomorrowStats.sessions=Number(state.tomorrowStats.sessions||0)+1;state.tomorrowStats.best[st.cat.id]=Math.max(Number(state.tomorrowStats.best[st.cat.id]||0),st.quizScore);logStudy();save();renderBadges();
-  const root=document.getElementById('tomorrow-arena');confetti(st.m.color);root.innerHTML='<div class="mission-result"><div class="stamp-big">'+st.cat.ic+'</div><p class="eyebrow">Révision express terminée</p><h2>Prête pour '+st.cat.name.toLowerCase()+' ✓</h2><p>5 mots revus, 3 réflexes testés, 1 listening et 1 production orale. Score quiz : <b>'+st.quizScore+'/3</b>.</p><div class="btn-row" style="justify-content:center"><button class="btn btn-primary" id="tmAgain">↻ Refaire cette session</button><button class="btn btn-ghost" id="tmMenu">Changer de situation</button></div></div>';
+  const root=document.getElementById('tomorrow-arena');confetti(st.m.color);root.innerHTML='<div class="mission-result"><div class="stamp-big">'+st.cat.ic+'</div><p class="eyebrow">Révision express terminée</p><h2>Prête pour '+st.cat.name.toLowerCase()+' ✓</h2><p>5 mots revus, 3 réflexes testés, 1 listening et 1 production orale. Score quiz : <b>'+st.quizScore+'/3</b>.</p><div class="btn-row" style="justify-content:center"><button type="button" class="btn btn-primary" id="tmAgain">↻ Refaire cette session</button><button type="button" class="btn btn-ghost" id="tmMenu">Changer de situation</button></div></div>';
   document.getElementById('tmAgain').onclick=()=>startTomorrow(st.cat.id);document.getElementById('tmMenu').onclick=renderTomorrow;
 }
 
@@ -3595,12 +3645,12 @@ function addPersonalWord(){const en=document.getElementById('noteEn')?.value.tri
 function saveWeeklyGoal(){state.weeklyGoal={days:Math.max(1,Math.min(7,Number(document.getElementById('goalDays').value||3))),reviews:Math.max(5,Math.min(200,Number(document.getElementById('goalReviews').value||20))),missions:Math.max(0,Math.min(20,Number(document.getElementById('goalMissions').value||2)))};save();renderWeeklyGoal();toast('Objectif de semaine enregistré ✓');}
 function renderMyEnglish(){const due=dueWords();const set=(id,v)=>{const e=document.getElementById(id);if(e)e.textContent=v;};set('my-due',due.length);set('my-mastered',masteredCount());set('my-personal',(state.personalWords||[]).length);set('my-streak',currentStreak());renderWeeklyGoal();renderMyStrengths();renderPriorities();renderWeekSummary();renderNotebook();document.querySelectorAll('[data-adapt-min]').forEach(b=>b.onclick=()=>startAdaptiveSession(Number(b.dataset.adaptMin)));document.getElementById('saveGoal').onclick=saveWeeklyGoal;document.getElementById('addPersonalWord').onclick=addPersonalWord;document.getElementById('reviewDueBtn').onclick=()=>{const s=document.getElementById('review-scope');s.value='due';reviewMode='flash';go('revision');};renderV9MyEnglishSummary();}
 function startAdaptiveSession(minutes){const cfg=minutes<=5?{words:3,listen:false,speak:true}:minutes<=10?{words:6,listen:true,speak:true}:{words:10,listen:true,speak:true};adaptiveState={minutes,words:adaptiveCandidates().slice(0,cfg.words),index:0,stage:'words',listen:cfg.listen,speak:cfg.speak,listenDone:false,speakDone:false};logStudy();renderAdaptiveSession();document.getElementById('adaptive-arena')?.scrollIntoView({behavior:'smooth',block:'start'});}
-function renderAdaptiveSession(){const root=document.getElementById('adaptive-arena'),st=adaptiveState;if(!root||!st)return;const total=st.words.length+(st.listen?1:0)+(st.speak?1:0),done=Math.min(st.index,st.words.length)+(st.listenDone?1:0)+(st.speakDone?1:0),pct=Math.round(done/Math.max(1,total)*100);if(st.stage==='words'&&st.index<st.words.length){const w=st.words[st.index];root.innerHTML='<div class="adapt-session"><p class="eyebrow">🧠 Séance '+st.minutes+' minutes · vocabulaire</p><div class="adapt-progress"><i style="width:'+pct+'%"></i></div><div class="adapt-word" id="adaptWord"><div class="en" lang="en">'+esc(w.en)+'</div><div class="fr" id="adaptAnswer" hidden>'+esc(w.fr||'')+(w.ph?' · '+esc(w.ph):'')+'</div><button class="pill" id="adaptReveal" type="button" style="margin-top:12px">Voir la réponse</button><button class="pill" id="adaptSay" type="button" style="margin-top:12px">🔊 Écouter</button></div><div class="adapt-actions"><button class="btn btn-ghost" id="adaptAgain" disabled>↻ À revoir</button><button class="btn btn-primary" id="adaptKnow" disabled>✓ Je sais</button></div><p class="quiz-score" style="text-align:center">'+(st.index+1)+' / '+st.words.length+' · prochaine échéance actuelle : '+esc(srsLabel(w.key))+'</p></div>';document.getElementById('adaptReveal').onclick=()=>{document.getElementById('adaptAnswer').hidden=false;document.getElementById('adaptAgain').disabled=false;document.getElementById('adaptKnow').disabled=false;};document.getElementById('adaptSay').onclick=e=>speak(w.en,e.currentTarget);document.getElementById('adaptAgain').onclick=()=>adaptiveGrade(w,false);document.getElementById('adaptKnow').onclick=()=>adaptiveGrade(w,true);return;}if(st.stage==='words'){st.stage=st.listen?'listen':(st.speak?'speak':'done');}
-if(st.stage==='listen'){const x=LISTENING_SCENES[hashString(todayKey()+'|adapt')%LISTENING_SCENES.length];root.innerHTML='<div class="adapt-session"><p class="eyebrow">🎧 Séance adaptative · listening</p><div class="adapt-progress"><i style="width:'+pct+'%"></i></div><div class="adapt-listen"><h2>'+esc(x.title)+'</h2><p>Écoute sans lire, puis coche quand tu as compris l’essentiel.</p><button class="btn btn-sun" id="adaptListen" type="button">🔊 Écouter</button><details style="margin-top:10px"><summary>Voir la transcription après écoute</summary><p lang="en">'+esc(x.text)+'</p></details></div><button class="btn btn-primary btn-block" id="adaptListenDone" style="margin-top:12px">✓ J’ai travaillé cette écoute</button></div>';document.getElementById('adaptListen').onclick=e=>speakAccent(x.text,x.accent,e.currentTarget,1);document.getElementById('adaptListenDone').onclick=()=>{st.listenDone=true;st.stage=st.speak?'speak':'done';renderAdaptiveSession();};return;}
-if(st.stage==='speak'){const p=SPEAK30_PROMPTS[hashString(todayKey()+'|speak|'+st.minutes)%SPEAK30_PROMPTS.length];root.innerHTML='<div class="adapt-session"><p class="eyebrow">🎙️ Séance adaptative · production</p><div class="adapt-progress"><i style="width:'+pct+'%"></i></div><div class="adapt-speak"><h2>'+esc(p.title)+'</h2><p lang="en"><b>'+esc(p.text)+'</b></p><div class="focus-chips">'+p.help.map(x=>'<span class="focus-chip" lang="en">'+esc(x)+'</span>').join('')+'</div><p>Parle 30 secondes. Tu peux utiliser l’enregistreur dans l’onglet Parler si tu veux te réécouter.</p></div><div class="btn-row"><button class="btn btn-ghost" id="adaptSpeakOpen">🎙️ Ouvrir Parler</button><button class="btn btn-primary" id="adaptSpeakDone">✓ Je l’ai fait à voix haute</button></div></div>';document.getElementById('adaptSpeakOpen').onclick=()=>go('speak');document.getElementById('adaptSpeakDone').onclick=()=>{st.speakDone=true;st.stage='done';renderAdaptiveSession();};return;}
+function renderAdaptiveSession(){const root=document.getElementById('adaptive-arena'),st=adaptiveState;if(!root||!st)return;const total=st.words.length+(st.listen?1:0)+(st.speak?1:0),done=Math.min(st.index,st.words.length)+(st.listenDone?1:0)+(st.speakDone?1:0),pct=Math.round(done/Math.max(1,total)*100);if(st.stage==='words'&&st.index<st.words.length){const w=st.words[st.index];root.innerHTML='<div class="adapt-session"><p class="eyebrow">🧠 Séance '+st.minutes+' minutes · vocabulaire</p><div class="adapt-progress"><i style="width:'+pct+'%"></i></div><div class="adapt-word" id="adaptWord"><div class="en" lang="en">'+esc(w.en)+'</div><div class="fr" id="adaptAnswer" hidden>'+esc(w.fr||'')+(w.ph?' · '+esc(w.ph):'')+'</div><button class="pill" id="adaptReveal" type="button" style="margin-top:12px">Voir la réponse</button><button class="pill" id="adaptSay" type="button" style="margin-top:12px">🔊 Écouter</button></div><div class="adapt-actions"><button type="button" class="btn btn-ghost" id="adaptAgain" disabled>↻ À revoir</button><button type="button" class="btn btn-primary" id="adaptKnow" disabled>✓ Je sais</button></div><p class="quiz-score" style="text-align:center">'+(st.index+1)+' / '+st.words.length+' · prochaine échéance actuelle : '+esc(srsLabel(w.key))+'</p></div>';document.getElementById('adaptReveal').onclick=()=>{document.getElementById('adaptAnswer').hidden=false;document.getElementById('adaptAgain').disabled=false;document.getElementById('adaptKnow').disabled=false;};document.getElementById('adaptSay').onclick=e=>speak(w.en,e.currentTarget);document.getElementById('adaptAgain').onclick=()=>adaptiveGrade(w,false);document.getElementById('adaptKnow').onclick=()=>adaptiveGrade(w,true);return;}if(st.stage==='words'){st.stage=st.listen?'listen':(st.speak?'speak':'done');}
+if(st.stage==='listen'){const x=LISTENING_SCENES[hashString(todayKey()+'|adapt')%LISTENING_SCENES.length];root.innerHTML='<div class="adapt-session"><p class="eyebrow">🎧 Séance adaptative · listening</p><div class="adapt-progress"><i style="width:'+pct+'%"></i></div><div class="adapt-listen"><h2>'+esc(x.title)+'</h2><p>Écoute sans lire, puis coche quand tu as compris l’essentiel.</p><button class="btn btn-sun" id="adaptListen" type="button">🔊 Écouter</button><details style="margin-top:10px"><summary>Voir la transcription après écoute</summary><p lang="en">'+esc(x.text)+'</p></details></div><button type="button" class="btn btn-primary btn-block" id="adaptListenDone" style="margin-top:12px">✓ J’ai travaillé cette écoute</button></div>';document.getElementById('adaptListen').onclick=e=>speakAccent(x.text,x.accent,e.currentTarget,1);document.getElementById('adaptListenDone').onclick=()=>{st.listenDone=true;st.stage=st.speak?'speak':'done';renderAdaptiveSession();};return;}
+if(st.stage==='speak'){const p=SPEAK30_PROMPTS[hashString(todayKey()+'|speak|'+st.minutes)%SPEAK30_PROMPTS.length];root.innerHTML='<div class="adapt-session"><p class="eyebrow">🎙️ Séance adaptative · production</p><div class="adapt-progress"><i style="width:'+pct+'%"></i></div><div class="adapt-speak"><h2>'+esc(p.title)+'</h2><p lang="en"><b>'+esc(p.text)+'</b></p><div class="focus-chips">'+p.help.map(x=>'<span class="focus-chip" lang="en">'+esc(x)+'</span>').join('')+'</div><p>Parle 30 secondes. Tu peux utiliser l’enregistreur dans l’onglet Parler si tu veux te réécouter.</p></div><div class="btn-row"><button type="button" class="btn btn-ghost" id="adaptSpeakOpen">🎙️ Ouvrir Parler</button><button type="button" class="btn btn-primary" id="adaptSpeakDone">✓ Je l’ai fait à voix haute</button></div></div>';document.getElementById('adaptSpeakOpen').onclick=()=>go('speak');document.getElementById('adaptSpeakDone').onclick=()=>{st.speakDone=true;st.stage='done';renderAdaptiveSession();};return;}
 finishAdaptiveSession();}
 function adaptiveGrade(w,know){state.mastery[w.key]=Math.max(-2,Math.min(5,Number(state.mastery[w.key]||0)+(know?1:-1)));updateSRS(w.key,know?'know':'again');logActivity('review',1);logStudy();save();adaptiveState.index++;renderAdaptiveSession();}
-function finishAdaptiveSession(){const root=document.getElementById('adaptive-arena'),st=adaptiveState;if(!root||!st)return;state.adaptiveStats.sessions=Number(state.adaptiveStats.sessions||0)+1;state.adaptiveStats.minutes=Number(state.adaptiveStats.minutes||0)+Number(st.minutes||0);logActivity('adaptiveMinutes',Number(st.minutes||0));save();root.innerHTML='<div class="adapt-session" style="text-align:center"><div style="font-size:46px">✅</div><p class="eyebrow">Séance terminée</p><h2>'+st.minutes+' minutes prévues · mission accomplie</h2><p>Les prochaines échéances ont été recalculées selon tes réponses. Les mots difficiles reviendront plus tôt.</p><div class="btn-row" style="justify-content:center"><button class="btn btn-primary" id="adaptAgainSession">Nouvelle séance</button><button class="btn btn-ghost" id="adaptCloseSession">Fermer</button></div></div>';document.getElementById('adaptAgainSession').onclick=()=>startAdaptiveSession(st.minutes);document.getElementById('adaptCloseSession').onclick=()=>{adaptiveState=null;root.innerHTML='';renderMyEnglish();};renderBadges();}
+function finishAdaptiveSession(){const root=document.getElementById('adaptive-arena'),st=adaptiveState;if(!root||!st)return;state.adaptiveStats.sessions=Number(state.adaptiveStats.sessions||0)+1;state.adaptiveStats.minutes=Number(state.adaptiveStats.minutes||0)+Number(st.minutes||0);logActivity('adaptiveMinutes',Number(st.minutes||0));save();root.innerHTML='<div class="adapt-session" style="text-align:center"><div style="font-size:46px">✅</div><p class="eyebrow">Séance terminée</p><h2>'+st.minutes+' minutes prévues · mission accomplie</h2><p>Les prochaines échéances ont été recalculées selon tes réponses. Les mots difficiles reviendront plus tôt.</p><div class="btn-row" style="justify-content:center"><button type="button" class="btn btn-primary" id="adaptAgainSession">Nouvelle séance</button><button type="button" class="btn btn-ghost" id="adaptCloseSession">Fermer</button></div></div>';document.getElementById('adaptAgainSession').onclick=()=>startAdaptiveSession(st.minutes);document.getElementById('adaptCloseSession').onclick=()=>{adaptiveState=null;root.innerHTML='';renderMyEnglish();};renderBadges();}
 
 
 /* =========================================================
@@ -3631,7 +3681,7 @@ function unlockedDestinations(){return V9_DESTINATIONS.filter(d=>d.rule());}
 function passportLevelLabel(){const d=doneCount();if(d>=24)return'World Traveller';if(d>=18)return'Frequent Flyer';if(d>=12)return'Confident Traveller';if(d>=6)return'Independent Explorer';if(d>=1)return'First Departure';return'Boarding Soon';}
 function passportNumber(){const seed=String(hashString('NATHALIE|'+(state.level||'start'))).padStart(10,'0').slice(0,9);return'NT'+seed;}
 function renderPassportHub(){renderV9Passport();renderV9Map();renderV9Wallet();document.querySelectorAll('[data-v9-tab]').forEach(b=>{b.onclick=()=>switchV9Tab(b.dataset.v9Tab);});switchV9Tab(document.querySelector('.travel-tab.active')?.dataset.v9Tab||'passport');}
-function switchV9Tab(tab){document.querySelectorAll('.travel-tab').forEach(b=>b.classList.toggle('active',b.dataset.v9Tab===tab));document.querySelectorAll('.v9-panel').forEach(p=>p.classList.toggle('active',p.id==='v9-'+tab));}
+function switchV9Tab(tab){document.querySelectorAll('.travel-tab').forEach(b=>{const on=b.dataset.v9Tab===tab;b.classList.toggle('active',on);b.setAttribute('aria-pressed',String(on));});document.querySelectorAll('.v9-panel').forEach(p=>p.classList.toggle('active',p.id==='v9-'+tab));}
 function renderV9Passport(){const root=document.getElementById('v9-passport');if(!root)return;const dc=doneCount(),stamps=V9_STAMPS.filter(x=>x.ok()).length,dests=unlockedDestinations().length;root.innerHTML='<div class="passport-book"><div class="passport-cover"><div><div class="crest">✈️</div><h2>NATHALIE</h2><p>Travel English Passport</p></div><div class="passport-no">PASSPORT · '+passportNumber()+'</div></div><div class="passport-page"><div class="passport-id"><div class="passport-photo" aria-hidden="true">🌍</div><div class="passport-data"><div class="passport-field"><label>Name</label><b>NATHALIE</b></div><div class="passport-field"><label>Status</label><b>'+esc(passportLevelLabel())+'</b></div><div class="passport-field"><label>English route</label><b>'+esc(state.level||'À découvrir')+'</b></div><div class="passport-field"><label>Stops</label><b>'+dc+' / '+MODULES.length+'</b></div><div class="passport-field"><label>Words mastered</label><b>'+masteredCount()+'</b></div><div class="passport-field"><label>Destinations</label><b>'+dests+' / '+V9_DESTINATIONS.length+'</b></div><div class="passport-field"><label>Stamps</label><b>'+stamps+' / '+V9_STAMPS.length+'</b></div><div class="passport-field"><label>Streak</label><b>'+currentStreak()+' day'+(currentStreak()>1?'s':'')+'</b></div></div></div><div class="passport-sign">Nathalie ✈</div><div class="mrz">P&lt;ENGNATHALIE&lt;&lt;THE&lt;BEST&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;<br>'+passportNumber()+'&lt;'+String(dc).padStart(2,'0')+'STOPS&lt;'+String(masteredCount()).padStart(3,'0')+'WORDS&lt;&lt;&lt;&lt;</div></div></div><div class="stamp-head"><div><p class="eyebrow">Collection</p><h2>Mes tampons</h2></div><span class="stamp-count">'+stamps+' / '+V9_STAMPS.length+' débloqués</span></div><div class="stamp-grid">'+V9_STAMPS.map((x,i)=>'<div class="travel-stamp '+(x.ok()?'unlocked':'locked')+'" style="--stamp:'+x.color+';--rot:'+([-4,3,-2,5,-5,2,-3,4,0][i]||0)+'deg"><div><span class="sic">'+x.ic+'</span><b>'+esc(x.name)+'</b><small>'+esc(x.ok()?x.desc:'À débloquer · '+x.desc)+'</small></div></div>').join('')+'</div>';}
 function renderV9Map(){const root=document.getElementById('v9-map');if(!root)return;const pts=V9_DESTINATIONS.map(d=>d.x+','+d.y).join(' ');root.innerHTML='<div class="stamp-head"><div><p class="eyebrow">My Travel Map</p><h2>Destinations débloquées</h2></div><span class="stamp-count">'+unlockedDestinations().length+' / '+V9_DESTINATIONS.length+'</span></div><p class="lead" style="font-size:14px">La carte est une récompense visuelle : elle n’ajoute aucun travail obligatoire. Tes progrès existants ouvrent les destinations.</p><div class="travel-map" id="travelMap"><svg class="map-route-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M47 27 C40 26,34 29,28 34 S22 31,25 28 M47 27 C58 32,73 45,84 72 M47 27 C54 34,60 39,65 44"></path></svg>'+V9_DESTINATIONS.map(d=>'<button class="map-pin '+(d.rule()?'unlocked':'')+'" type="button" style="left:'+d.x+'%;top:'+d.y+'%;--pin:'+d.color+'" data-dest="'+d.id+'" aria-label="'+esc(d.name)+(d.rule()?' débloquée':' verrouillée')+'"><span class="pin-dot"><span>'+d.flag+'</span></span><span class="pin-label">'+esc(d.name)+'</span></button>').join('')+'</div><div class="destination-list">'+V9_DESTINATIONS.map(d=>'<div class="destination-card '+(d.rule()?'unlocked':'')+'"><span class="flag">'+d.flag+'</span><div><b>'+esc(d.name)+'</b><small>'+(d.rule()?'Tampon '+esc(d.stamp)+' obtenu.':'À débloquer : '+esc(d.how)+'.')+'</small></div><span class="unlock">'+(d.rule()?'✓ OPEN':'🔒 LOCKED')+'</span></div>').join('')+'</div>';root.querySelectorAll('[data-dest]').forEach(b=>b.onclick=()=>{const d=V9_DESTINATIONS.find(x=>x.id===b.dataset.dest);toast(d.rule()?d.flag+' '+d.name+' débloquée · '+d.stamp:'🔒 '+d.name+' · '+d.how);});}
 function renderV9Wallet(){const root=document.getElementById('v9-wallet');if(!root)return;const fav=allWords().filter(w=>state.favorites[w.key]).slice(0,6),personal=(state.personalWords||[]).slice(-6).reverse(),earned=BADGES.filter(b=>b.ok()).length;root.innerHTML='<div class="wallet-grid"><div class="wallet-card"><h2>⭐ Mes essentiels</h2><p>Favoris du parcours à garder sous la main.</p><div class="wallet-list">'+(fav.length?fav.map(w=>'<div class="wallet-item"><span class="wi">'+w.emoji+'</span><div><b lang="en">'+esc(w.en)+'</b><small>'+esc(w.fr)+'</small></div><button class="mini-speak" type="button" data-wallet-say="'+encodeURIComponent(w.en)+'">🔊</button></div>').join(''):'<p>Ajoute des ⭐ dans les leçons ou le lexique : elles apparaîtront ici.</p>')+'</div></div><div class="wallet-card"><h2>📝 Mon carnet</h2><p>Tes derniers mots personnels.</p><div class="wallet-list">'+(personal.length?personal.map(w=>'<div class="wallet-item"><span class="wi">📝</span><div><b lang="en">'+esc(w.en)+'</b><small>'+esc(w.fr||w.note||'Mot personnel')+'</small></div></div>').join(''):'<p>Ton carnet est encore vide. Tu peux l’alimenter dans My English.</p>')+'</div><button class="btn btn-ghost btn-block" type="button" onclick="go(\'myenglish\')" style="margin-top:10px">Ouvrir mon carnet →</button></div><div class="wallet-card"><h2>🏅 Achievements</h2><p>'+earned+' badge'+(earned>1?'s':'')+' gagné'+(earned>1?'s':'')+' sur '+BADGES.length+'.</p><div class="wallet-list">'+BADGES.filter(b=>b.ok()).slice(-5).reverse().map(b=>'<div class="wallet-item"><span class="wi">'+b.ic+'</span><div><b>'+esc(b.name)+'</b><small>'+esc(b.desc)+'</small></div></div>').join('')+'</div><button class="btn btn-ghost btn-block" type="button" onclick="go(\'games\')" style="margin-top:10px">Voir tous mes badges →</button></div><div class="wallet-card"><h2>🧳 Départ imminent</h2><p>Besoin d’une révision express avant un vrai voyage ?</p><div class="wallet-item"><span class="wi">✈️</span><div><b>Je pars demain</b><small>5 mots · 3 questions · listening · oral</small></div></div><button class="btn btn-primary btn-block" type="button" onclick="go(\'tomorrow\')" style="margin-top:10px">Préparer mon départ →</button></div></div>';root.querySelectorAll('[data-wallet-say]').forEach(b=>b.onclick=()=>speak(decodeURIComponent(b.dataset.walletSay),b));}
@@ -3663,14 +3713,52 @@ function renderSettings(){
   const inst=isStandalone();const id=document.getElementById('installDot'),it=document.getElementById('installText');if(id)id.className='status-dot '+(inst?'ok':'warn');if(it)it.textContent=inst?'Installation : application ouverte en mode installé':'Installation : site ouvert dans le navigateur';
   const guide=document.getElementById('installGuide');if(guide)guide.innerHTML=installInstructions();
   const b=document.getElementById('backupStatus');if(b)b.textContent='Schéma V'+STATE_SCHEMA+(state.lastSavedAt?' · dernière sauvegarde locale : '+new Date(state.lastSavedAt).toLocaleString('fr-FR'):'');
+  renderRecoveryStatus();
 }
 function toggleSetting(field){state[field]=!state[field];save();applyUiPrefs();renderSettings();}
 function exportProgress(){
-  const payload={app:'Nathalie is the best',version:'V9',schemaVersion:STATE_SCHEMA,exportedAt:new Date().toISOString(),data:state};
+  const payload={app:'Nathalie is the best',version:'V10',schemaVersion:STATE_SCHEMA,exportedAt:new Date().toISOString(),data:state};
   const blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='nathalie-progress-'+todayKey()+'.json';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);toast('Sauvegarde exportée ✓');
 }
 function importProgressFile(file){
-  const r=new FileReader();r.onload=()=>{try{const parsed=JSON.parse(r.result);const raw=parsed&&parsed.data?parsed.data:parsed;if(!raw||typeof raw!=='object')throw new Error('format');if(!confirm('Importer cette sauvegarde remplacera la progression actuelle sur cet appareil. Continuer ?'))return;state=normalizeState(raw);save();applyUiPrefs();renderSettings();toast('Progression restaurée ✓');}catch(e){toast('Ce fichier ne ressemble pas à une sauvegarde valide.');}};r.readAsText(file);
+  if(!file) return;
+  if(file.size>2*1024*1024){ toast('Sauvegarde trop volumineuse : import annulé.'); return; }
+  const r=new FileReader();
+  r.onload=()=>{try{
+    const parsed=JSON.parse(r.result), raw=parsed&&parsed.data?parsed.data:parsed;
+    if(parsed?.app && parsed.app!=='Nathalie is the best') throw new Error('Cette sauvegarde appartient à une autre application.');
+    if(!isPlainObject(raw)) throw new Error('Format invalide.');
+    if(!confirm('Importer cette sauvegarde remplacera la progression actuelle sur cet appareil. Continuer ?'))return;
+    try{localStorage.setItem(PRE_IMPORT_BACKUP_KEY,JSON.stringify(state));}catch(e){}
+    state=normalizeState(raw); save(); applyUiPrefs(); renderSettings(); toast('Progression restaurée ✓');
+  }catch(e){toast('Import impossible : '+esc(e.message||'fichier invalide'));}};
+  r.onerror=()=>toast('Impossible de lire ce fichier.');
+  r.readAsText(file);
+}
+function localStorageWritable(){ try{const k='__nathalie_v10_test__';localStorage.setItem(k,'1');localStorage.removeItem(k);return true;}catch(e){return false;} }
+function recoveryPoints(){
+  const defs=[[PRE_IMPORT_BACKUP_KEY,'Avant le dernier import'],[RESET_BACKUP_KEY,'Avant la dernière remise à zéro'],[AUTO_BACKUP_KEY,'Sauvegarde automatique V10'],[PRE_V10_BACKUP_KEY,'Avant le passage en V10'],[PRE_V9_BACKUP_KEY,'Avant le passage en V9']];
+  return defs.map(([key,label])=>{try{const raw=JSON.parse(localStorage.getItem(key)||'null');if(!raw)return null;return {key,label,raw,date:raw.lastSavedAt||raw.lastBackupDate||''};}catch(e){return null;}}).filter(Boolean).sort((a,b)=>String(b.date).localeCompare(String(a.date)));
+}
+function renderRecoveryStatus(){const e=document.getElementById('recoveryStatus');if(!e)return;const pts=recoveryPoints();e.textContent=pts.length?'Dernier point disponible : '+pts[0].label+(pts[0].date?' · '+new Date(pts[0].date).toLocaleString('fr-FR'):''):'Aucun point de récupération local trouvé pour le moment.';}
+function restoreLatestLocalBackup(){const pts=recoveryPoints();if(!pts.length){toast('Aucune sauvegarde locale de récupération disponible.');return;}const p=pts[0];if(!confirm('Restaurer « '+p.label+' » ? La progression actuelle sera conservée comme sauvegarde avant import.'))return;try{localStorage.setItem(PRE_IMPORT_BACKUP_KEY,JSON.stringify(state));state=normalizeState(p.raw);save();applyUiPrefs();renderSettings();toast('Sauvegarde locale restaurée ✓');}catch(e){toast('Restauration impossible.');}}
+function runDiagnostics(){
+  const duplicateIds=[...document.querySelectorAll('[id]')].map(e=>e.id).filter((x,i,a)=>a.indexOf(x)!==i);
+  const badAria=[...document.querySelectorAll('[aria-labelledby]')].filter(e=>e.getAttribute('aria-labelledby').split(/\\s+/).some(id=>!document.getElementById(id))).length;
+  const noType=document.querySelectorAll('button:not([type])').length;
+  const badPractice=MODULES.reduce((n,m)=>n+m.practice.filter(p=>!Array.isArray(p.o)||p.o.length<2||p.a<0||p.a>=p.o.length).length,0);
+  const missionOk=MISSIONS.length===6&&MISSIONS.every(m=>Array.isArray(m.steps)&&m.steps.length===5);
+  const checks=[
+    {name:'Contenu pédagogique',detail:MODULES.length+' escales · '+allWords().length+' entrées · '+MISSIONS.length+' missions',ok:MODULES.length===24&&allWords().length===720&&badPractice===0&&missionOk},
+    {name:'Structure HTML',detail:duplicateIds.length+' ID dupliqué · '+badAria+' référence ARIA cassée',ok:duplicateIds.length===0&&badAria===0},
+    {name:'Boutons & clavier',detail:noType+' bouton sans type explicite',ok:noType===0},
+    {name:'Stockage local',detail:localStorageWritable()&&storageHealthy?'Lecture/écriture disponibles':'Stockage indisponible ou saturé',ok:localStorageWritable()&&storageHealthy},
+    {name:'Audio navigateur',detail:'speechSynthesis' in window?'Synthèse vocale disponible':'Synthèse vocale indisponible sur ce navigateur',ok:'speechSynthesis' in window,warn:!('speechSynthesis' in window)},
+    {name:'Enregistrement oral',detail:(navigator.mediaDevices&&window.MediaRecorder)?'API micro disponible (permission seulement au clic)':'Enregistrement non pris en charge ici',ok:!!(navigator.mediaDevices&&window.MediaRecorder),warn:!(navigator.mediaDevices&&window.MediaRecorder)},
+    {name:'Mode hors connexion',detail:navigator.serviceWorker?.controller?'Service worker actif':'S’activera après un chargement HTTPS/rechargement',ok:!!navigator.serviceWorker?.controller,warn:!navigator.serviceWorker?.controller}
+  ];
+  const root=document.getElementById('diagnosticResults');if(root)root.innerHTML=checks.map(c=>'<div class="health-row"><span class="health-icon" aria-hidden="true">'+(c.ok?'✅':c.warn?'⚠️':'❌')+'</span><span><b>'+esc(c.name)+'</b><small>'+esc(c.detail)+'</small></span><span class="health-state '+(c.ok?'ok':c.warn?'warn':'bad')+'">'+(c.ok?'OK':c.warn?'INFO':'À vérifier')+'</span></div>').join('');
+  renderRecoveryStatus(); return checks;
 }
 function resetPart(kind){
   const d=defaults();
@@ -3687,6 +3775,7 @@ function wireSettings(){
   document.getElementById('voiceSelect')?.addEventListener('change',e=>{state.voiceURI=e.target.value;save();});document.getElementById('voiceTest')?.addEventListener('click',e=>speak('Could you tell me where the station is, please?',e.currentTarget));
   document.getElementById('exportProgress')?.addEventListener('click',exportProgress);document.getElementById('importProgress')?.addEventListener('click',()=>document.getElementById('importFile')?.click());document.getElementById('importFile')?.addEventListener('change',e=>{const f=e.target.files?.[0];if(f)importProgressFile(f);e.target.value='';});
   document.getElementById('resetGames')?.addEventListener('click',()=>resetPart('games'));document.getElementById('resetReview')?.addEventListener('click',()=>resetPart('review'));document.getElementById('resetMissions')?.addEventListener('click',()=>resetPart('missions'));document.getElementById('resetAll')?.addEventListener('click',()=>resetPart('all'));
+  document.getElementById('runDiagnostic')?.addEventListener('click',runDiagnostics);document.getElementById('restoreLocalBackup')?.addEventListener('click',restoreLatestLocalBackup);
   document.getElementById('settingsInstall')?.addEventListener('click',()=>document.getElementById('installBtn')?.click());document.getElementById('checkUpdate')?.addEventListener('click',async()=>{try{const reg=await navigator.serviceWorker?.getRegistration();if(reg){await reg.update();toast('Recherche de mise à jour terminée.');}else toast('Mode hors connexion pas encore actif. Recharge la page une fois en ligne.');}catch(e){toast('Impossible de vérifier la mise à jour pour le moment.');}});
 }
 
@@ -3730,15 +3819,16 @@ function confetti(accent){
    ========================================================= */
 let toastTimer;
 function toast(msg){
-  const t=document.getElementById('toast');
-  t.innerHTML = msg+' <button class="close" onclick="document.getElementById(\'toast\').classList.remove(\'show\')">✕</button>';
+  const t=document.getElementById('toast'); if(!t)return;
+  t.textContent=String(msg||'');
+  const close=document.createElement('button');close.type='button';close.className='close';close.setAttribute('aria-label','Fermer la notification');close.textContent='✕';close.onclick=()=>t.classList.remove('show');t.append(' ',close);
   t.classList.add('show');
   clearTimeout(toastTimer);
   toastTimer=setTimeout(()=>t.classList.remove('show'),3800);
 }
 
 /* =========================================================
-   PWA V6 : installation, statut réseau et mises à jour
+   PWA V10 : installation, statut réseau et mises à jour
    ========================================================= */
 let deferredPrompt=null, waitingWorker=null;
 function showUpdateBanner(worker){waitingWorker=worker;document.getElementById('updateBanner')?.classList.add('show');}
@@ -3780,18 +3870,19 @@ window.addEventListener('hashchange',()=>{
   document.querySelectorAll('.dock-btn').forEach(b=>b.addEventListener('click',()=>go(b.dataset.go)));
   document.getElementById('textSizeBtn')?.addEventListener('click',()=>{state.uiLarge=!state.uiLarge;save();applyUiPrefs();});
   document.getElementById('contrastBtn')?.addEventListener('click',()=>{state.uiContrast=!state.uiContrast;save();applyUiPrefs();});
-  document.querySelectorAll('[data-prog-filter]').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('[data-prog-filter]').forEach(x=>x.classList.remove('active'));b.classList.add('active');renderProgramme();}));
+  document.querySelectorAll('[data-prog-filter]').forEach(b=>{b.setAttribute('aria-pressed',String(b.classList.contains('active')));b.addEventListener('click',()=>{document.querySelectorAll('[data-prog-filter]').forEach(x=>{x.classList.remove('active');x.setAttribute('aria-pressed','false');});b.classList.add('active');b.setAttribute('aria-pressed','true');renderProgramme();});});
   document.getElementById('review-scope')?.addEventListener('change',()=>{miniQuiz=null;renderReview();});
-  document.getElementById('mode-flash')?.addEventListener('click',()=>{reviewMode='flash';renderReview();});
-  document.getElementById('mode-quiz')?.addEventListener('click',()=>{reviewMode='quiz';miniQuiz=null;renderReview();});
+  document.getElementById('mode-flash')?.addEventListener('click',()=>{reviewMode='flash';document.getElementById('mode-flash')?.setAttribute('aria-pressed','true');document.getElementById('mode-quiz')?.setAttribute('aria-pressed','false');renderReview();});
+  document.getElementById('mode-quiz')?.addEventListener('click',()=>{reviewMode='quiz';document.getElementById('mode-flash')?.setAttribute('aria-pressed','false');document.getElementById('mode-quiz')?.setAttribute('aria-pressed','true');miniQuiz=null;renderReview();});
   document.getElementById('dict-search')?.addEventListener('input',renderDictionary);
   document.getElementById('dict-level')?.addEventListener('change',renderDictionary);
-  document.getElementById('dict-favs')?.addEventListener('click',e=>{dictFavOnly=!dictFavOnly;e.currentTarget.classList.toggle('active',dictFavOnly);renderDictionary();});
+  document.getElementById('dict-favs')?.addEventListener('click',e=>{dictFavOnly=!dictFavOnly;e.currentTarget.classList.toggle('active',dictFavOnly);e.currentTarget.setAttribute('aria-pressed',String(dictFavOnly));renderDictionary();});
   document.querySelectorAll('[data-game]').forEach(b=>b.addEventListener('click',()=>startGame(b.dataset.game)));
+  document.getElementById('mode-flash')?.setAttribute('aria-pressed','true');document.getElementById('mode-quiz')?.setAttribute('aria-pressed','false');document.getElementById('dict-favs')?.setAttribute('aria-pressed',String(dictFavOnly));
   const hash=(location.hash||'').replace('#','');
   if(hash.startsWith('lecon-')) openLesson(hash.slice(6));
-  else if(['programme','games','missions','speak','listening','myenglish','passport','tomorrow','settings','revision','lexique'].includes(hash)) go(hash);
-  else go('accueil');
+  else if(['programme','games','missions','speak','listening','myenglish','passport','tomorrow','settings','revision','lexique'].includes(hash)) go(hash,{noFocus:true});
+  else go('accueil',{noFocus:true});
 })();
 </script>
 </body>

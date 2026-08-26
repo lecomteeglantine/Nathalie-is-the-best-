@@ -1,5 +1,5 @@
-/* Nathalie EN · Service Worker V9 */
-const CACHE_VERSION = 'nathalie-v9-2026-08-26';
+/* Nathalie EN · Service Worker V10 */
+const CACHE_VERSION = 'nathalie-v10-2026-08-26';
 const CORE = [
   './',
   './index.html',
@@ -42,10 +42,10 @@ self.addEventListener('fetch', event => {
       try {
         const fresh = await fetch(req);
         const cache = await caches.open(CACHE_VERSION);
-        cache.put('./index.html', fresh.clone()).catch(() => {});
+        if (fresh && fresh.ok) cache.put('./index.html', fresh.clone()).catch(() => {});
         return fresh;
       } catch (err) {
-        return (await caches.match('./index.html')) || (await caches.match('./')) || Response.error();
+        return (await caches.match('./index.html')) || (await caches.match('./')) || new Response('<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Nathalie EN · hors ligne</title><body style="font-family:system-ui;padding:2rem;line-height:1.5"><h1>Mode hors connexion</h1><p>Cette page n’a pas encore été mise en cache. Reviens une fois avec une connexion internet, puis l’application pourra fonctionner hors ligne.</p></body></html>', {headers:{'Content-Type':'text/html; charset=utf-8'}});
       }
     })());
     return;
