@@ -1,7 +1,7 @@
 {
   "name": "Nathalie is the best — English for travel",
   "short_name": "Nathalie EN",
-  "description": "Un compagnon d’anglais pour voyager : parcours A1-C1, jeux, missions, oral et révisions.",
+  "description": "Un compagnon d’anglais pour voyager : parcours A1-C1, jeux, missions, oral, Listening Lab et révisions.",
   "lang": "fr",
   "start_url": "./#accueil",
   "scope": "./",
@@ -9,7 +9,10 @@
   "orientation": "any",
   "background_color": "#FBF9F4",
   "theme_color": "#16324F",
-  "categories": ["education", "travel"],
+  "categories": [
+    "education",
+    "travel"
+  ],
   "icons": [
     {
       "src": "icons/apple-touch-icon.png",

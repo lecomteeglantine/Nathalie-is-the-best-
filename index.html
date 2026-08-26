@@ -480,6 +480,22 @@ body.high-contrast{--paper:#fff;--card:#fff;--text:#07131f;--muted:#334453;--lin
 body.large-text{font-size:112%}body.large-text .dock-btn span{font-size:8px}
 @media(max-width:560px){.v6-callout{align-items:flex-start;flex-wrap:wrap}.v6-callout .btn{width:100%;margin-left:0}.tomorrow-grid{grid-template-columns:1fr}.data-actions{grid-template-columns:1fr}.setting-row{align-items:flex-start;flex-wrap:wrap}.setting-select{max-width:none}.update-banner{bottom:82px}.net-pill{padding:5px 7px}.net-pill .net-label{display:none}}
 
+
+/* ============ V7 · Listening Lab & real-world English ============ */
+.listening-hero{position:relative;overflow:hidden;background:linear-gradient(145deg,#113a55,#0b2238);color:#fff;border-radius:24px;padding:22px;margin:4px 0 18px;box-shadow:var(--shadow)}
+.listening-hero:after{content:"🎧";position:absolute;right:-10px;bottom:-34px;font-size:132px;opacity:.08;transform:rotate(-9deg)}.listening-hero h1{color:#fff;margin:.15em 0}.listening-hero p{color:#d4e5ee;max-width:60ch}.listening-hero .eyebrow{color:var(--sun)}
+.listen-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0 18px}.listen-stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:11px 8px;text-align:center;box-shadow:var(--shadow-sm)}.listen-stat b{display:block;font-family:var(--display);font-size:24px;color:var(--ink)}.listen-stat small{display:block;font-size:10px;color:var(--muted);margin-top:4px}
+.listen-modes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:12px 0 18px}.listen-mode{border:1px solid var(--line);background:var(--card);border-radius:16px;padding:14px;text-align:left;cursor:pointer;color:var(--text);box-shadow:var(--shadow-sm)}.listen-mode:hover,.listen-mode.active{border-color:var(--sky);background:rgba(46,134,171,.055)}.listen-mode .lic{font-size:24px;display:block;margin-bottom:6px}.listen-mode b{display:block;color:var(--ink);font-size:15px}.listen-mode small{display:block;color:var(--muted);font-size:11px;line-height:1.35;margin-top:3px}
+.listen-arena{margin:12px 0 22px}.audio-card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:18px;box-shadow:var(--shadow-sm);margin:10px 0}.audio-card h2{margin:.15em 0 .4em}.audio-screen{display:grid;place-items:center;text-align:center;min-height:145px;border:1px dashed var(--line-strong);border-radius:16px;background:linear-gradient(145deg,#f3f9fc,#fff);padding:18px;margin:12px 0}.audio-screen .ear{font-size:42px}.audio-screen p{color:var(--muted);font-size:13px;margin:6px 0 0}.transcript{margin:10px 0;padding:13px 14px;border-left:4px solid var(--mint);background:rgba(23,184,144,.07);border-radius:0 12px 12px 0}.transcript b{display:block;color:var(--ink);margin-bottom:4px}.transcript p{margin:0;font-size:14px}
+.scene-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.scene-card{border:1px solid var(--line);background:var(--card);border-radius:16px;padding:14px;cursor:pointer;text-align:left;color:var(--text);box-shadow:var(--shadow-sm)}.scene-card:hover{border-color:var(--sky);transform:translateY(-2px)}.scene-card .scene-icon{font-size:25px}.scene-card b{display:block;color:var(--ink);margin:4px 0}.scene-card small{color:var(--muted);font-size:11px}.accent-pill{display:inline-flex;border:1px solid var(--line);background:rgba(22,50,79,.04);border-radius:999px;padding:4px 7px;font-family:var(--mono);font-size:9px;color:var(--muted)}
+.catch-focus{font-family:var(--display);font-size:25px;font-weight:800;color:var(--ink);text-align:center;padding:14px}.sound-note{border:1px solid rgba(255,193,69,.45);background:rgba(255,193,69,.1);border-radius:13px;padding:12px;margin-top:12px;font-size:13px;color:var(--text)}
+.accent-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.accent-card{background:var(--card);border:1px solid var(--line);border-radius:17px;padding:15px;box-shadow:var(--shadow-sm)}.accent-card h3{margin:0 0 4px}.accent-card p{font-size:12px;color:var(--muted)}.voice-status{font-family:var(--mono);font-size:9px;border-radius:999px;padding:4px 7px;display:inline-block;margin:5px 0}.voice-status.ok{background:rgba(23,184,144,.1);color:#0f6a58}.voice-status.fallback{background:rgba(255,193,69,.14);color:#72530a}
+.real-doc{border:1px solid var(--line-strong);border-radius:16px;background:#fff;padding:16px;margin:12px 0;box-shadow:var(--shadow-sm)}.real-doc.board{background:#102535;color:#edf5f8;font-family:var(--mono)}.real-doc.board b{color:var(--sun)}.real-doc.ticket{border-left:7px solid var(--sky);font-family:var(--mono)}.real-doc.menu{font-family:var(--display);background:#fffdf7}.real-doc.sign{text-align:center;font-weight:900;font-size:22px;border:3px solid var(--ink);color:var(--ink)}.real-doc .doc-row{display:flex;justify-content:space-between;gap:12px;border-bottom:1px dashed currentColor;padding:6px 0}.real-doc .doc-row:last-child{border-bottom:0}
+.culture-card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:17px;box-shadow:var(--shadow-sm)}.culture-card .scenario{font-family:var(--display);font-size:20px;font-weight:700;color:var(--ink);margin-bottom:10px}.culture-note{font-size:12px;color:var(--muted);margin-top:10px;border-top:1px solid var(--line);padding-top:9px}.daily-listen{background:linear-gradient(145deg,#fff7dd,#fff);border:1px solid rgba(255,193,69,.55);border-radius:20px;padding:18px;box-shadow:var(--shadow-sm)}
+.listen-progress{height:7px;background:rgba(22,50,79,.1);border-radius:999px;overflow:hidden;margin:10px 0}.listen-progress i{display:block;height:100%;background:linear-gradient(90deg,var(--sun),var(--coral));border-radius:999px}
+@media(max-width:560px){.listen-modes,.scene-grid,.accent-grid{grid-template-columns:1fr}.listen-stats{grid-template-columns:repeat(3,1fr)}.app-dock{grid-template-columns:repeat(8,1fr)}.dock-btn span{font-size:6.8px}}
+@media(min-width:561px){.app-dock{grid-template-columns:repeat(8,1fr)}}
+
 </style>
 </head>
 <body>
@@ -564,6 +580,13 @@ body.large-text{font-size:112%}body.large-text .dock-btn span{font-size:8px}
       <div class="ic" aria-hidden="true" style="background:rgba(255,193,69,.2)">🎙️</div>
       <div style="flex:1"><b>V5 · Cette fois, c’est toi qui parles</b><small>Shadowing, défi 30 secondes, enregistrement local, session express et une journée complète de voyage.</small></div>
       <button class="btn btn-sun" type="button" onclick="go('speak')">Speak for real →</button>
+    </div>
+
+
+    <div class="mission-callout" style="border-color:rgba(46,134,171,.38);background:linear-gradient(145deg,#eef8ff,#fff)">
+      <div class="ic" aria-hidden="true" style="background:rgba(46,134,171,.14)">🎧</div>
+      <div style="flex:1"><b>V7 · Comprendre l’anglais du vrai monde</b><small>Listening Lab, anglais oral, accents, annonces et documents de voyage à décoder.</small></div>
+      <button class="btn btn-primary" type="button" onclick="go('listening')">Ouvrir le Listening Lab →</button>
     </div>
 
     <div id="home-v6-news"></div>
@@ -799,11 +822,36 @@ body.large-text{font-size:112%}body.large-text .dock-btn span{font-size:8px}
     <div id="tomorrow-arena" aria-live="polite"></div>
   </section>
 
+
+  <!-- ============ LISTENING LAB · V7 ============ -->
+  <section id="view-listening" class="view" aria-labelledby="listening-h">
+    <button class="back" onclick="go('accueil')">← Accueil</button>
+    <div class="listening-hero">
+      <p class="eyebrow" id="listening-h">V7 · Real-world English</p>
+      <h1>Tu l’entends vraiment&nbsp;?</h1>
+      <p>Comprendre une phrase connue à l’écrit n’est pas toujours la reconnaître quand quelqu’un la dit vite. Ici, on entraîne l’oreille : annonces, conversations, accents, anglais oral et documents de voyage.</p>
+    </div>
+    <div class="listen-stats" aria-label="Statistiques de compréhension orale">
+      <div class="listen-stat"><b id="listen-plays">0</b><small>écoutes travaillées</small></div>
+      <div class="listen-stat"><b id="listen-correct">0</b><small>bonnes réponses</small></div>
+      <div class="listen-stat"><b id="listen-days">0</b><small>Daily Listening</small></div>
+    </div>
+    <div class="listen-modes" id="listen-modes">
+      <button class="listen-mode active" type="button" data-listen-mode="daily"><span class="lic">☀️</span><b>Daily Listening</b><small>Une mini-scène différente chaque jour.</small></button>
+      <button class="listen-mode" type="button" data-listen-mode="lab"><span class="lic">🎧</span><b>Listening Lab</b><small>Annonces, hôtel, train, restaurant, voicemail…</small></button>
+      <button class="listen-mode" type="button" data-listen-mode="catch"><span class="lic">👂</span><b>I didn’t catch that!</b><small>Formes réduites et mots qui se collent à l’oral.</small></button>
+      <button class="listen-mode" type="button" data-listen-mode="accents"><span class="lic">🌍</span><b>Accents & Englishes</b><small>Écoute les voix anglaises disponibles sur ton appareil.</small></button>
+      <button class="listen-mode" type="button" data-listen-mode="reading"><span class="lic">🪧</span><b>Real-life reading</b><small>Billets, panneaux, menus et écrans à décoder.</small></button>
+      <button class="listen-mode" type="button" data-listen-mode="culture"><span class="lic">🤝</span><b>Culture in context</b><small>Choisir la réaction la plus adaptée, sans clichés.</small></button>
+    </div>
+    <div id="listen-arena" class="listen-arena" aria-live="polite"></div>
+  </section>
+
   <!-- ============ RÉGLAGES · V6 ============ -->
   <section id="view-settings" class="view" aria-labelledby="settings-h">
     <button class="back" onclick="go('accueil')">← Accueil</button>
     <div class="settings-hero">
-      <p class="eyebrow" id="settings-h">V6 · Réglages & sauvegardes</p>
+      <p class="eyebrow" id="settings-h">V7 · Réglages & sauvegardes</p>
       <h1>Mon application</h1>
       <p>Affichage, voix, mode hors connexion et sauvegarde de la progression — toujours sans compte.</p>
     </div>
@@ -875,7 +923,7 @@ body.large-text{font-size:112%}body.large-text .dock-btn span{font-size:8px}
 
 <footer>
   <p>Fait avec <span class="heart" aria-hidden="true">❤</span> pour Nathalie — parce que tu es <b>the best</b>, et que le monde t'attend.</p>
-  <p class="priv">🔒 Aucun compte et aucune progression envoyée à un serveur : tes résultats restent dans le stockage local de ce navigateur. Les vidéos YouTube ne se chargent qu’après ton clic et nécessitent internet. Les simulations utilisent uniquement les fonctions de ton navigateur. Les enregistrements vocaux restent localement dans la page, ne sont jamais envoyés par le site et disparaissent au rechargement. V6 permet aussi d’exporter manuellement une sauvegarde JSON de la progression.</p>
+  <p class="priv">🔒 Aucun compte et aucune progression envoyée à un serveur : tes résultats restent dans le stockage local de ce navigateur. Les vidéos YouTube ne se chargent qu’après ton clic et nécessitent internet. Les simulations utilisent uniquement les fonctions de ton navigateur. Les enregistrements vocaux restent localement dans la page, ne sont jamais envoyés par le site et disparaissent au rechargement. V7 permet aussi d’exporter manuellement une sauvegarde JSON de la progression. Le Listening Lab utilise la synthèse vocale locale du navigateur lorsque celle-ci est disponible.</p>
 </footer>
 
 <nav class="app-dock" aria-label="Navigation principale">
@@ -884,6 +932,7 @@ body.large-text{font-size:112%}body.large-text .dock-btn span{font-size:8px}
   <button class="dock-btn" data-go="games">🎮<span>Jeux</span></button>
   <button class="dock-btn" data-go="missions">🎭<span>Missions</span></button>
   <button class="dock-btn" data-go="speak">🎙️<span>Parler</span></button>
+  <button class="dock-btn" data-go="listening">🎧<span>Écouter</span></button>
   <button class="dock-btn" data-go="revision">🎴<span>Réviser</span></button>
   <button class="dock-btn" data-go="lexique">🔎<span>Lexique</span></button>
 </nav>
@@ -2149,11 +2198,12 @@ const LEVELS = [
    État (sauvegardé sur l'appareil)
    ========================================================= */
 const KEY='nathalie_en_v1';
-const STATE_SCHEMA=6;
+const STATE_SCHEMA=7;
 const PRE_V6_BACKUP_KEY='nathalie_en_backup_pre_v6';
+const PRE_V7_BACKUP_KEY='nathalie_en_backup_pre_v7';
 const RESET_BACKUP_KEY='nathalie_en_backup_before_reset_v6';
-const AUTO_BACKUP_KEY='nathalie_en_autobackup_v6';
-function defaults(){ return { schemaVersion:STATE_SCHEMA, lastSavedAt:null, lastBackupDate:null, lastSeenVersion:null, done:{}, score:null, level:null, phraseIdx:null, phraseDate:null, lastModule:null, favorites:{}, mastery:{}, practice:{}, studyDates:[], moduleReview:{}, gameStats:{plays:0,matchWins:0,missingWins:0,speedBest:0,travelBest:0}, missionStats:{plays:0,best:{},perfect:{}}, missionListenFirst:false, dailyChallenge:{date:null,answers:{},spoken:false,completed:false}, dailyCompleted:0, levelCelebrations:{}, speakingStats:{recordings:0,shadowing:0,speak30:0,roleplays:0,express:0,travelDayBest:0,travelDayPlays:0,selfChecks:0}, phrasebook:{}, customPhrases:[], tomorrowStats:{sessions:0,best:{}}, uiLarge:false, uiContrast:false, uiReduceMotion:false, hideTranslations:false, voiceURI:'' }; }
+const AUTO_BACKUP_KEY='nathalie_en_autobackup_v7';
+function defaults(){ return { schemaVersion:STATE_SCHEMA, lastSavedAt:null, lastBackupDate:null, lastSeenVersion:null, done:{}, score:null, level:null, phraseIdx:null, phraseDate:null, lastModule:null, favorites:{}, mastery:{}, practice:{}, studyDates:[], moduleReview:{}, gameStats:{plays:0,matchWins:0,missingWins:0,speedBest:0,travelBest:0}, missionStats:{plays:0,best:{},perfect:{}}, missionListenFirst:false, dailyChallenge:{date:null,answers:{},spoken:false,completed:false}, dailyCompleted:0, levelCelebrations:{}, speakingStats:{recordings:0,shadowing:0,speak30:0,roleplays:0,express:0,travelDayBest:0,travelDayPlays:0,selfChecks:0}, phrasebook:{}, customPhrases:[], tomorrowStats:{sessions:0,best:{}}, listeningStats:{plays:0,correct:0,catchCorrect:0,readingCorrect:0,cultureCorrect:0,dailyDates:[]}, uiLarge:false, uiContrast:false, uiReduceMotion:false, hideTranslations:false, voiceURI:'' }; }
 function normalizeState(raw){
   raw=raw&&typeof raw==='object'?raw:{};
   const d=defaults();
@@ -2165,13 +2215,15 @@ function normalizeState(raw){
     missionStats:Object.assign({},d.missionStats,raw.missionStats||{}, {best:(raw.missionStats&&raw.missionStats.best)||{}, perfect:(raw.missionStats&&raw.missionStats.perfect)||{}}),
     dailyChallenge:Object.assign({},d.dailyChallenge,raw.dailyChallenge||{}), levelCelebrations:raw.levelCelebrations||{},
     speakingStats:Object.assign({},d.speakingStats,raw.speakingStats||{}), phrasebook:raw.phrasebook||{},
-    customPhrases:Array.isArray(raw.customPhrases)?raw.customPhrases:[], tomorrowStats:Object.assign({},d.tomorrowStats,raw.tomorrowStats||{}, {best:(raw.tomorrowStats&&raw.tomorrowStats.best)||{}})
+    customPhrases:Array.isArray(raw.customPhrases)?raw.customPhrases:[], tomorrowStats:Object.assign({},d.tomorrowStats,raw.tomorrowStats||{}, {best:(raw.tomorrowStats&&raw.tomorrowStats.best)||{}}),
+    listeningStats:Object.assign({},d.listeningStats,raw.listeningStats||{}, {dailyDates:Array.isArray(raw.listeningStats?.dailyDates)?raw.listeningStats.dailyDates:[]})
   });
 }
 function load(){
   try{
     const raw=JSON.parse(localStorage.getItem(KEY)) || {};
-    if(raw && Object.keys(raw).length && Number(raw.schemaVersion||0)<STATE_SCHEMA && !localStorage.getItem(PRE_V6_BACKUP_KEY)) localStorage.setItem(PRE_V6_BACKUP_KEY,JSON.stringify(raw));
+    if(raw && Object.keys(raw).length && Number(raw.schemaVersion||0)<7 && !localStorage.getItem(PRE_V7_BACKUP_KEY)) localStorage.setItem(PRE_V7_BACKUP_KEY,JSON.stringify(raw));
+    if(raw && Object.keys(raw).length && Number(raw.schemaVersion||0)<6 && !localStorage.getItem(PRE_V6_BACKUP_KEY)) localStorage.setItem(PRE_V6_BACKUP_KEY,JSON.stringify(raw));
     return normalizeState(raw);
   }catch(e){ return defaults(); }
 }
@@ -2223,6 +2275,7 @@ function go(view, opts={}){
   if(view==='games') renderGames();
   if(view==='missions') renderMissions();
   if(view==='speak') renderSpeak();
+  if(view==='listening') renderListening();
   if(view==='tomorrow') renderTomorrow();
   if(view==='settings') renderSettings();
   if(view==='lexique') renderDictionary();
@@ -2279,8 +2332,8 @@ function renderHome(){
     ? '<div class="smart-card" style="background:linear-gradient(145deg,#0f6a58,#0c5144)"><h3>✅ Défi du jour terminé</h3><p>Mission accomplie. Si tu veux continuer, les jeux sont ouverts.</p><button class="btn btn-sun" onclick="go(\'games\')">Jouer encore →</button></div>'
     : '<div class="smart-card"><h3>🎯 Défi du jour</h3><p>5 mots · 3 questions · 1 phrase à dire. Quelques minutes suffisent pour entretenir ta mémoire.</p><button class="btn btn-sun" onclick="go(\'games\')">Faire le défi →</button></div>';
   const wn=document.getElementById('home-v6-news');
-  if(wn) wn.innerHTML=state.lastSeenVersion==='V6'?'':'<div class="whats-new"><button class="whats-close" id="closeWhatsNew" aria-label="Fermer">✕</button><h3>✨ Nouveau dans V6</h3><p>Mode hors connexion plus robuste, sauvegarde/restauration, réglages avancés et révision express « Je pars demain ».</p></div>';
-  document.getElementById('closeWhatsNew')?.addEventListener('click',()=>{state.lastSeenVersion='V6';save();wn.innerHTML='';});
+  if(wn) wn.innerHTML=state.lastSeenVersion==='V7'?'':'<div class="whats-new"><button class="whats-close" id="closeWhatsNew" aria-label="Fermer">✕</button><h3>✨ Nouveau dans V7</h3><p>Listening Lab, Daily Listening, formes réduites de l’anglais oral, accents disponibles sur ton appareil, documents de voyage et culture en contexte.</p></div>';
+  document.getElementById('closeWhatsNew')?.addEventListener('click',()=>{state.lastSeenVersion='V7';save();wn.innerHTML='';});
 }
 
 /* =========================================================
@@ -2288,7 +2341,7 @@ function renderHome(){
    ========================================================= */
 let voices=[];
 function loadVoices(){ voices = window.speechSynthesis ? speechSynthesis.getVoices() : []; }
-if('speechSynthesis' in window){ loadVoices(); speechSynthesis.onvoiceschanged = ()=>{loadVoices(); if(document.getElementById('view-settings')?.classList.contains('active')) renderSettings();}; }
+if('speechSynthesis' in window){ loadVoices(); speechSynthesis.onvoiceschanged = ()=>{loadVoices(); if(document.getElementById('view-settings')?.classList.contains('active')) renderSettings(); if(document.getElementById('view-listening')?.classList.contains('active')) renderListening();}; }
 function pickVoice(){
   if(!voices.length) loadVoices();
   if(state.voiceURI){ const chosen=voices.find(v=>v.voiceURI===state.voiceURI); if(chosen) return chosen; }
@@ -2724,6 +2777,9 @@ const BADGES=[
   {id:'travelday',ic:'🧳',name:'Full travel day',desc:'Terminer une journée de voyage',ok:()=>Number(state.speakingStats.travelDayPlays||0)>=1},
   {id:'daily5',ic:'🎯',name:'Daily habit',desc:'5 défis du jour',ok:()=>Number(state.dailyCompleted||0)>=5},
   {id:'tomorrow',ic:'🧳',name:'Ready to go',desc:'Faire 3 sessions « Je pars demain »',ok:()=>Number(state.tomorrowStats?.sessions||0)>=3},
+  {id:'listener1',ic:'🎧',name:'All ears',desc:'Faire 5 écoutes du Listening Lab',ok:()=>Number(state.listeningStats?.plays||0)>=5},
+  {id:'catch5',ic:'👂',name:'Caught it!',desc:'Réussir 5 pièges d’anglais oral',ok:()=>Number(state.listeningStats?.catchCorrect||0)>=5},
+  {id:'listen7',ic:'☀️',name:'Daily listener',desc:'Faire le Daily Listening 7 jours',ok:()=>Number(state.listeningStats?.dailyDates?.length||0)>=7},
   {id:'all',ic:'🏆',name:'Passport legend',desc:'Valider les 24 escales',ok:()=>MODULES.every(m=>state.done[m.id])}
 ];
 function ensureDailyState(){
@@ -3146,6 +3202,136 @@ function answerTravelDay(i){const st=travelDayState;if(!st||st.answered)return;c
 function finishTravelDay(){const root=document.getElementById('speak-arena'),st=travelDayState;state.speakingStats.travelDayPlays=Number(state.speakingStats.travelDayPlays||0)+1;state.speakingStats.travelDayBest=Math.max(Number(state.speakingStats.travelDayBest||0),st.score);save();logStudy();if(st.score>=12)confetti('#FFC145');const copy=st.score>=13?'Tu as traversé la journée avec des formulations très naturelles.':st.score>=10?'Très solide : tu peux gérer toute la chaîne du voyage.':st.score>=7?'Tu transmets l’essentiel. Rejoue pour rendre les formulations plus naturelles.':'Tu as survécu à la journée ! Une deuxième tentative va déjà faire une grosse différence.';root.innerHTML='<div class="mission-result"><div class="stamp-big">🧳</div><p class="eyebrow">Travel Day terminé</p><h2>'+st.score+' / 14</h2><p>'+copy+'</p><div class="result-phrases">'+st.history.map(x=>'<div class="result-phrase"><b>'+x.place+' · '+x.score+'/2</b><span lang="en">'+esc(x.choice)+'</span></div>').join('')+'</div><div style="text-align:left;margin-top:18px"><h3>🎙️ Final challenge · raconte ta journée</h3><p style="color:var(--muted);font-size:13px">Imagine qu’un ami anglophone t’appelle ce soir. Résume ta journée de voyage en 30 à 45 secondes, sans lire les phrases ci-dessus mot à mot.</p>'+recorderHTML('tdStoryRec',45)+'</div><div class="btn-row" style="justify-content:center"><button class="btn btn-primary" id="tdAgain">↻ Rejouer la journée</button><button class="btn btn-ghost" id="tdClose">Fermer</button></div></div>';bindRecorder('tdStoryRec',45);document.getElementById('tdAgain').onclick=startTravelDay;document.getElementById('tdClose').onclick=()=>{stopActiveRecording();root.innerHTML='';};renderSpeakStats();renderSkillMap();renderBadges();}
 
 
+
+
+/* =========================================================
+   V7 · Listening Lab, accents & real-world English
+   ========================================================= */
+const LISTENING_SCENES=[
+  {id:'airport-final',ic:'🛫',cat:'Airport',title:'Final boarding call',accent:'en-GB',text:'This is the final boarding call for passengers travelling to Manchester on flight BA two eight four. Please proceed immediately to gate twenty four.',q:'Que doivent faire les passagers ?',o:['Aller immédiatement à la porte 24','Récupérer leurs bagages','Attendre une nouvelle annonce'],a:0,note:'Final boarding call = dernier appel avant la fermeture de l’embarquement.'},
+  {id:'airport-delay',ic:'⏳',cat:'Airport',title:'A delayed flight',accent:'en-GB',text:'We are sorry to announce that flight EZY six one seven to Edinburgh has been delayed by approximately forty minutes.',q:'Que se passe-t-il ?',o:['Le vol est annulé','Le vol a environ 40 minutes de retard','La porte ferme dans 40 minutes'],a:1,note:'Delayed by forty minutes = retardé d’environ quarante minutes.'},
+  {id:'train-platform',ic:'🚆',cat:'Transport',title:'Platform change',accent:'en-GB',text:'The ten forty two service to York will now depart from platform seven instead of platform four.',q:'Que faut-il faire ?',o:['Aller au quai 7','Prendre le train de 10 h 47','Rester au quai 4'],a:0,note:'Instead of = au lieu de. L’information importante est le changement de quai.'},
+  {id:'hotel-breakfast',ic:'🏨',cat:'Hotel',title:'At reception',accent:'en-GB',text:'Breakfast is served from seven until ten thirty. Your room is on the third floor, and the lift is just around the corner.',q:'Jusqu’à quelle heure peut-on prendre le petit-déjeuner ?',o:['7 h','10 h','10 h 30'],a:2,note:'From seven until ten thirty = de 7 h à 10 h 30.'},
+  {id:'restaurant-water',ic:'🍽️',cat:'Restaurant',title:'Still or sparkling?',accent:'en-GB',text:'Would you like still or sparkling water, and are you ready to order or would you like another minute?',q:'Que demande le serveur ?',o:['Le type d’eau et si vous êtes prêts à commander','Si le repas était bon','Si vous voulez payer séparément'],a:0,note:'Still water = eau plate ; sparkling water = eau gazeuse.'},
+  {id:'street-directions',ic:'🧭',cat:'Directions',title:'Quick directions',accent:'en-GB',text:'Go straight on, take the second left, and you will see the chemist just past the bank on your right.',q:'Où se trouve la pharmacie ?',o:['Avant la banque à gauche','Juste après la banque à droite','Au deuxième carrefour à droite'],a:1,note:'Just past the bank = juste après la banque.'},
+  {id:'voicemail',ic:'📱',cat:'Everyday',title:'A voicemail',accent:'en-US',text:'Hey Nathalie, just letting you know we moved dinner to seven thirty. No rush. Text me when you get here.',q:'Qu’est-ce qui a changé ?',o:['Le lieu du dîner','L’heure du dîner','La personne invitée'],a:1,note:'We moved dinner to seven thirty = on a décalé le dîner à 19 h 30.'},
+  {id:'coffee-us',ic:'☕',cat:'Everyday',title:'Coffee shop',accent:'en-US',text:'Can I get you anything else, or are you all set?',q:'Que signifie ici “Are you all set?”',o:['Êtes-vous installé à une table ?','Est-ce que c’est bon pour vous / vous avez tout ?','Avez-vous payé en espèces ?'],a:1,note:'Dans ce contexte américain, all set signifie souvent que l’on n’a besoin de rien d’autre.'},
+  {id:'australia-tour',ic:'🦘',cat:'Travel',title:'Tour meeting point',accent:'en-AU',text:'We will meet outside the visitor centre at quarter past nine, so try to be there about ten minutes early.',q:'À quelle heure est le rendez-vous ?',o:['9 h 10','9 h 15','9 h 25'],a:1,note:'Quarter past nine = 9 h 15.'},
+  {id:'irish-hotel',ic:'🍀',cat:'Hotel',title:'Your room is ready',accent:'en-IE',text:'Your room is ready now. If you need anything at all, just give reception a ring and we will sort it out for you.',q:'Que conseille la réception ?',o:['De téléphoner à la réception en cas de besoin','De descendre immédiatement','De changer de chambre'],a:0,note:'Give reception a ring = appelez la réception.'},
+  {id:'gate-close',ic:'🎫',cat:'Airport',title:'Gate closing',accent:'en-GB',text:'Passengers for Dublin, please note that gate eighteen will close in five minutes.',q:'Quelle information est urgente ?',o:['Le vol part dans 18 minutes','La porte 18 ferme dans 5 minutes','Le vol a cinq minutes de retard'],a:1,note:'Will close in five minutes = fermera dans cinq minutes.'},
+  {id:'hotel-checkout',ic:'🛎️',cat:'Hotel',title:'Late check-out',accent:'en-US',text:'We can offer you a late check-out until one p.m., but there is an additional charge of twenty dollars.',q:'Quelle est la condition ?',o:['Il faut changer de chambre','Le départ tardif coûte 20 dollars','Le départ doit se faire avant midi'],a:1,note:'Additional charge = supplément.'}
+];
+const CATCH_ITEMS=[
+  {text:'Could you tell me where the station is?',display:'Could you tell me where the station is?',heard:['Could you tell me where the station is?','Did you tell me the station is closed?','Could you telephone the station?'],a:0,focus:'could you',note:'Dans un débit naturel, “could you” peut se rapprocher de “couldja”. Les sons se lient.'},
+  {text:'What do you want to do?',display:'What do you want to do?',heard:['What did you want to do?','What do you want to do?','Where do you want to go?'],a:1,focus:'want to',note:'“Want to” est souvent fortement réduit à l’oral. Tu peux entendre quelque chose qui ressemble à “wanna”, surtout dans un registre informel.'},
+  {text:'Did you get my message?',display:'Did you get my message?',heard:['Did you get my message?','Do you get many messages?','Did you get my luggage?'],a:0,focus:'did you',note:'“Did you” peut s’enchaîner et sonner proche de “didja” dans certains accents et débits.'},
+  {text:'I have got to get going.',display:'I’ve got to get going.',heard:['I have got to get going.','I have got your booking.','I forgot to get going.'],a:0,focus:'got to',note:'“Got to” peut être très réduit dans la conversation informelle. L’important est d’apprendre à reconnaître le groupe dans son contexte.'},
+  {text:'Would you like a little more?',display:'Would you like a little more?',heard:['Would you like a little more?','Would you like the bill?','Would you like to leave?'],a:0,focus:'would you',note:'“Would you” s’enchaîne souvent : le d et le y se rapprochent phonétiquement.'},
+  {text:'Let me check that for you.',display:'Let me check that for you.',heard:['Let me check that for you.','Let me take that from you.','Let me check your room.'],a:0,focus:'let me',note:'En conversation rapide, “let me” peut être réduit et sembler former un seul bloc.'},
+  {text:'Do you want a cup of tea?',display:'Do you want a cup of tea?',heard:['Do you want a cup of tea?','Do you want a coffee?','Do you want to copy me?'],a:0,focus:'cup of',note:'Les mots grammaticaux comme “of” deviennent souvent très faibles : “cup of” fonctionne presque comme un seul groupe sonore.'},
+  {text:'Can you give me a hand?',display:'Can you give me a hand?',heard:['Can you give me a hand?','Can you give me your handbag?','Can you get me a taxi?'],a:0,focus:'can you',note:'Le “can” non accentué est souvent plus faible que le “can’t”. Écoute surtout le rythme et les mots porteurs de sens.'}
+];
+const ACCENT_PROFILES=[
+  {lang:'en-GB',flag:'🇬🇧',name:'British English',note:'Il existe de très nombreux accents britanniques. Beaucoup d’accents d’Angleterre sont non rhotiques : le r final n’est pas toujours prononcé.'},
+  {lang:'en-US',flag:'🇺🇸',name:'American English',note:'L’anglais américain est lui aussi très varié. De nombreux accents américains sont rhotiques : le r de “car” ou “hard” est généralement audible.'},
+  {lang:'en-AU',flag:'🇦🇺',name:'Australian English',note:'L’anglais australien possède de nombreuses variétés. Beaucoup sont non rhotiques et certaines voyelles peuvent surprendre une oreille habituée au britannique scolaire.'},
+  {lang:'en-IE',flag:'🇮🇪',name:'Irish English',note:'Les accents irlandais sont très divers. Beaucoup sont rhotiques, ce qui rend souvent le r clairement audible.'}
+];
+const READING_ITEMS=[
+  {id:'board',kind:'board',title:'Departure board',html:'<div class="doc-row"><b>BA284 · MANCHESTER</b><span>18:55</span></div><div class="doc-row"><span>GATE 24</span><span>BOARDING</span></div><div class="doc-row"><span>Gate closes</span><b>18:40</b></div>',q:'Il est 18 h 36. Quelle est l’information la plus importante ?',o:['Tu as quatre minutes avant la fermeture de la porte','Le vol décolle à 18 h 40','L’embarquement commence à 18 h 55'],a:0,note:'Sur un écran de départ, distingue l’heure du vol de l’heure de fermeture de la porte.'},
+  {id:'ticket',kind:'ticket',title:'Train ticket',html:'<div class="doc-row"><b>LONDON KINGS CROSS → YORK</b><span>10:42</span></div><div class="doc-row"><span>COACH</span><b>C</b></div><div class="doc-row"><span>SEAT</span><b>32A</b></div><div class="doc-row"><span>ADVANCE</span><span>Valid booked train only</span></div>',q:'Peux-tu prendre librement un train plus tôt avec ce billet ?',o:['Oui','Non, il est valable pour le train réservé','Seulement le week-end'],a:1,note:'“Valid booked train only” signifie que le billet est lié au train réservé.'},
+  {id:'menu',kind:'menu',title:'A menu',html:'<div class="doc-row"><b>SOUP OF THE DAY</b><span>£7</span></div><div class="doc-row"><b>GRILLED HALLOUMI</b><span>£14 · V</span></div><div class="doc-row"><b>FISH & CHIPS</b><span>£17</span></div><div class="doc-row"><small>V = vegetarian · Please ask about allergens</small></div>',q:'Quel plat est explicitement indiqué végétarien ?',o:['La soupe','Le halloumi grillé','Le fish & chips'],a:1,note:'Les menus utilisent souvent des lettres ou symboles : vérifie toujours la légende.'},
+  {id:'sign',kind:'sign',title:'A hotel sign',html:'PLEASE LEAVE YOUR KEY CARD AT RECEPTION BEFORE CHECK-OUT',q:'Que faut-il faire avant de quitter l’hôtel ?',o:['Laisser la carte-clé à la réception','Laisser les bagages dans la chambre','Téléphoner à la réception'],a:0,note:'“Leave your key card at reception” = laisser/remettre la carte-clé à la réception.'},
+  {id:'notice',kind:'ticket',title:'Transport notice',html:'<b>WEEKEND ENGINEERING WORKS</b><p>Buses replace trains between Brighton and Lewes on Saturday and Sunday.</p>',q:'Que se passe-t-il ce week-end ?',o:['Les trains circulent plus vite','Des bus remplacent les trains sur une partie du trajet','La ligne est gratuite'],a:1,note:'“Buses replace trains” = des bus de remplacement circulent à la place des trains.'}
+];
+const CULTURE_ITEMS=[
+  {scenario:'Au Royaume-Uni, tu arrives devant un arrêt de bus où plusieurs personnes attendent déjà.',q:'Que fais-tu ?',o:['Tu te places naturellement à la fin de la file','Tu te mets devant pour demander qui monte','Tu demandes à tout le monde de se ranger'],a:0,note:'Faire la queue est une convention sociale courante au Royaume-Uni. Comme toujours, observe la situation réelle plutôt que d’appliquer une règle mécaniquement.'},
+  {scenario:'Aux États-Unis, une vendeuse te dit “Hi, how are you?” en passant directement à la commande.',q:'La réponse la plus naturelle ?',o:['Un bref “Good, thanks. How are you?”','Un récit détaillé de ta journée','Ne rien dire car elle ne pose pas vraiment une question'],a:0,note:'“How are you?” sert souvent de salutation rapide dans les interactions de service, mais le degré de conversation varie selon la personne et le contexte.'},
+  {scenario:'Dans un restaurant aux États-Unis, le service n’est pas inclus de la même façon qu’en France.',q:'Que faut-il surtout faire ?',o:['Vérifier les usages locaux et la facture avant de décider du pourboire','Ne jamais laisser de pourboire','Toujours ajouter exactement 25 %'],a:0,note:'Les pratiques de pourboire varient selon le pays, le lieu et parfois le type de service. Vérifier la facture évite les automatismes.'},
+  {scenario:'Dans un pub britannique très fréquenté, il n’y a pas de serveur qui vient immédiatement à ta table.',q:'Que peux-tu faire ?',o:['Te renseigner et, souvent, commander au bar','Attendre obligatoirement une heure','Entrer dans la cuisine'],a:0,note:'Dans de nombreux pubs britanniques, on commande au bar, mais certains établissements proposent aussi le service à table.'},
+  {scenario:'Quelqu’un te dit “Cheers!” après que tu lui as tenu la porte.',q:'Que peut signifier “Cheers” ici ?',o:['Uniquement “Santé !”','Un merci informel','Une invitation à boire'],a:1,note:'Au Royaume-Uni notamment, “cheers” peut servir de remerciement informel en plus de son emploi pour trinquer.'},
+  {scenario:'Tu ne comprends pas un interlocuteur qui parle vite.',q:'Quelle stratégie est la plus efficace ?',o:['Faire semblant d’avoir compris','Dire “Sorry, could you say that again a little more slowly?”','Répondre au hasard'],a:1,note:'Demander de répéter ou de ralentir est parfaitement normal. C’est une compétence de communication, pas un échec linguistique.'}
+];
+let listeningMode='daily', listeningSession=null, catchIndex=0, readingIndex=0, cultureIndex=0;
+function voiceForLang(lang){
+  if(!voices.length)loadVoices();
+  const exact=voices.find(v=>String(v.lang||'').toLowerCase()===lang.toLowerCase());
+  if(exact)return exact;
+  const prefix=lang.split('-')[0].toLowerCase();
+  return voices.find(v=>String(v.lang||'').toLowerCase().startsWith(prefix))||null;
+}
+function speakAccent(text,lang,btn,rate=1){
+  if(!('speechSynthesis' in window)){toast('La synthèse vocale n’est pas disponible sur ce navigateur.');return;}
+  try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);const v=voiceForLang(lang);if(v)u.voice=v;u.lang=v?.lang||lang||'en-GB';u.rate=rate;u.pitch=1;if(btn)btn.classList.add('playing');u.onend=u.onerror=()=>btn&&btn.classList.remove('playing');speechSynthesis.speak(u);}catch(e){toast('Impossible de lancer cette écoute.');}
+}
+function listenStatsEnsure(){if(!state.listeningStats)state.listeningStats=defaults().listeningStats;if(!Array.isArray(state.listeningStats.dailyDates))state.listeningStats.dailyDates=[];}
+function dailyListeningItem(){return LISTENING_SCENES[hashString(todayKey()+'|daily-listening')%LISTENING_SCENES.length];}
+function renderListening(){
+  listenStatsEnsure();
+  document.getElementById('listen-plays').textContent=state.listeningStats.plays||0;
+  document.getElementById('listen-correct').textContent=state.listeningStats.correct||0;
+  document.getElementById('listen-days').textContent=state.listeningStats.dailyDates.length;
+  document.querySelectorAll('[data-listen-mode]').forEach(b=>{b.classList.toggle('active',b.dataset.listenMode===listeningMode);b.onclick=()=>{listeningMode=b.dataset.listenMode;listeningSession=null;document.querySelectorAll('[data-listen-mode]').forEach(x=>x.classList.toggle('active',x===b));renderListeningArena();};});
+  renderListeningArena();
+}
+function renderListeningArena(){
+  const root=document.getElementById('listen-arena');if(!root)return;
+  if(listeningMode==='daily')return renderDailyListening(root);
+  if(listeningMode==='lab')return renderListeningLab(root);
+  if(listeningMode==='catch')return renderCatch(root);
+  if(listeningMode==='accents')return renderAccents(root);
+  if(listeningMode==='reading')return renderReading(root);
+  if(listeningMode==='culture')return renderCulture(root);
+}
+function renderDailyListening(root){
+  const item=dailyListeningItem(),done=state.listeningStats.dailyDates.includes(todayKey());
+  root.innerHTML='<div class="daily-listen"><p class="eyebrow">☀️ Daily Listening · '+esc(todayKey())+'</p><h2>'+(done?'Déjà fait aujourd’hui ✅':'Une écoute. Pas de marathon.')+'</h2><p>'+(done?'Tu peux la refaire sans modifier ton compteur.':'Écoute normalement une première fois, puis réponds. La transcription reste cachée au départ.')+'</p><button class="btn btn-primary" id="dailyListenStart" type="button">🎧 '+(done?'Réécouter':'Commencer')+'</button></div><div id="dailyListenArena"></div>';
+  document.getElementById('dailyListenStart').onclick=()=>startListeningScene(item,'daily',document.getElementById('dailyListenArena'));
+}
+function renderListeningLab(root){
+  root.innerHTML='<h2>Choisis une situation</h2><p class="lead">Une première écoute à vitesse normale. Ensuite seulement : réécoute lente et transcription.</p><div class="scene-grid">'+LISTENING_SCENES.map((x,i)=>'<button class="scene-card" type="button" data-scene="'+i+'"><span class="scene-icon">'+x.ic+'</span><b>'+esc(x.title)+'</b><small>'+esc(x.cat)+' · <span class="accent-pill">'+esc(x.accent)+'</span></small></button>').join('')+'</div><div id="sceneArena"></div>';
+  root.querySelectorAll('[data-scene]').forEach(b=>b.onclick=()=>startListeningScene(LISTENING_SCENES[+b.dataset.scene],'lab',document.getElementById('sceneArena')));
+}
+function startListeningScene(item,source,target){
+  listeningSession={item,source,revealed:false,answered:false,played:false};renderListeningScene(target);
+}
+function renderListeningScene(target){
+  const st=listeningSession;if(!st||!target)return;const x=st.item;
+  target.innerHTML='<div class="audio-card"><p class="eyebrow">'+x.ic+' '+esc(x.cat)+' · '+esc(x.accent)+'</p><h2>'+esc(x.title)+'</h2><div class="audio-screen"><div><div class="ear">🎧</div><b>Écoute avant de lire.</b><p>Essaie de repérer les mots porteurs de sens.</p></div></div><div class="btn-row"><button class="btn btn-primary" id="scenePlay">▶ Écoute normale</button><button class="btn btn-ghost" id="sceneSlow">🐢 Plus lentement</button><button class="btn btn-ghost" id="sceneTranscript">👁️ Transcription</button></div>'+(st.revealed?'<div class="transcript"><b>Transcription</b><p lang="en">'+esc(x.text)+'</p></div>':'')+'<div class="card" style="margin-top:14px"><div class="question" style="font-size:18px">'+esc(x.q)+'</div><div class="options">'+x.o.map((op,i)=>'<button class="opt" data-scene-answer="'+i+'" '+((st.answered||!st.played)?'disabled':'')+'><span class="key">'+['A','B','C'][i]+'</span><span>'+esc(op)+'</span></button>').join('')+'</div><div id="sceneFeedback"></div></div></div>';
+  document.getElementById('scenePlay').onclick=e=>{if(!st.played){st.played=true;state.listeningStats.plays++;logStudy();save();document.getElementById('listen-plays').textContent=state.listeningStats.plays;target.querySelectorAll('[data-scene-answer]').forEach(b=>b.disabled=false);}speakAccent(x.text,x.accent,e.currentTarget,1);};
+  document.getElementById('sceneSlow').onclick=e=>speakAccent(x.text,x.accent,e.currentTarget,.78);
+  document.getElementById('sceneTranscript').onclick=()=>{st.revealed=true;renderListeningScene(target);};
+  target.querySelectorAll('[data-scene-answer]').forEach(b=>b.onclick=()=>answerListeningScene(+b.dataset.sceneAnswer,target));
+}
+function answerListeningScene(i,target){
+  const st=listeningSession;if(!st||st.answered)return;st.answered=true;const ok=i===st.item.a;if(ok){state.listeningStats.correct++;}if(st.source==='daily'&&!state.listeningStats.dailyDates.includes(todayKey()))state.listeningStats.dailyDates.push(todayKey());logStudy();save();
+  target.querySelectorAll('[data-scene-answer]').forEach(b=>{b.disabled=true;const n=+b.dataset.sceneAnswer;if(n===st.item.a)b.classList.add('correct');else if(n===i)b.classList.add('wrong');});
+  const f=document.getElementById('sceneFeedback');if(f)f.innerHTML='<div class="mission-feedback"><b>'+(ok?'✅ Bien entendu.':'💡 À repérer :')+'</b> '+esc(st.item.note)+'</div>';
+  renderBadges();document.getElementById('listen-correct').textContent=state.listeningStats.correct||0;document.getElementById('listen-days').textContent=state.listeningStats.dailyDates.length;
+}
+function renderCatch(root){
+  const x=CATCH_ITEMS[catchIndex%CATCH_ITEMS.length];
+  root.innerHTML='<div class="audio-card"><p class="eyebrow">👂 I didn’t catch that! · '+(catchIndex+1)+' / '+CATCH_ITEMS.length+'</p><h2>Une seule écoute normale d’abord</h2><div class="audio-screen"><div><div class="ear">👂</div><p>Ne cherche pas à entendre chaque mot séparément.</p></div></div><div class="btn-row"><button class="btn btn-primary" id="catchPlay">▶ Écouter</button><button class="btn btn-ghost" id="catchSlow">🐢 Réécouter lentement</button></div><div class="options" style="margin-top:14px">'+x.heard.map((o,i)=>'<button class="opt" data-catch="'+i+'"><span class="key">'+['A','B','C'][i]+'</span><span lang="en">'+esc(o)+'</span></button>').join('')+'</div><div id="catchFeedback"></div></div>';
+  document.getElementById('catchPlay').onclick=e=>{state.listeningStats.plays++;logStudy();save();document.getElementById('listen-plays').textContent=state.listeningStats.plays;speakAccent(x.text,'en-GB',e.currentTarget,1.06);};
+  document.getElementById('catchSlow').onclick=e=>speakAccent(x.text,'en-GB',e.currentTarget,.76);
+  root.querySelectorAll('[data-catch]').forEach(b=>b.onclick=()=>{const i=+b.dataset.catch,ok=i===x.a;root.querySelectorAll('[data-catch]').forEach(z=>{z.disabled=true;if(+z.dataset.catch===x.a)z.classList.add('correct');else if(z===b)z.classList.add('wrong');});if(ok){state.listeningStats.correct++;state.listeningStats.catchCorrect++;}logStudy();save();document.getElementById('catchFeedback').innerHTML='<div class="sound-note"><b class="catch-focus">'+esc(x.focus)+'</b><div lang="en"><b>'+esc(x.display)+'</b></div><p>'+esc(x.note)+'</p><button class="btn btn-sun" id="catchNext">Phrase suivante →</button></div>';document.getElementById('catchNext').onclick=()=>{catchIndex=(catchIndex+1)%CATCH_ITEMS.length;renderCatch(root);};renderBadges();document.getElementById('listen-correct').textContent=state.listeningStats.correct;});
+}
+function renderAccents(root){
+  const sample='Could you tell me where the nearest train station is, please?';
+  root.innerHTML='<div class="audio-card"><p class="eyebrow">🌍 Accents & Englishes</p><h2>Une langue, beaucoup de voix</h2><p class="lead">Cette page utilise uniquement les voix installées sur ton appareil. Si la voix demandée manque, l’application le dit clairement : elle ne fabrique pas un faux accent.</p><div class="accent-grid">'+ACCENT_PROFILES.map((a,i)=>{const v=voiceForLang(a.lang),exact=v&&String(v.lang).toLowerCase()===a.lang.toLowerCase();return '<div class="accent-card"><h3>'+a.flag+' '+esc(a.name)+'</h3><span class="voice-status '+(exact?'ok':'fallback')+'">'+(exact?'voix '+esc(v.name)+' disponible':'accent exact non disponible')+'</span><p>'+esc(a.note)+'</p><button class="btn btn-ghost" data-accent="'+i+'">🔊 Écouter la même phrase</button></div>';}).join('')+'</div><div class="note-safe" style="margin-top:14px">Les remarques ci-dessus décrivent des tendances fréquentes, pas des règles valables pour tous les locuteurs d’un pays.</div></div>';
+  root.querySelectorAll('[data-accent]').forEach(b=>b.onclick=()=>{const a=ACCENT_PROFILES[+b.dataset.accent];const v=voiceForLang(a.lang);if(!v||String(v.lang).toLowerCase()!==a.lang.toLowerCase())toast('Pas de voix '+a.lang+' exacte sur cet appareil : lecture avec la meilleure voix anglaise disponible.');speakAccent(sample,a.lang,b,1);});
+}
+function renderReading(root){
+  const x=READING_ITEMS[readingIndex%READING_ITEMS.length];
+  root.innerHTML='<div class="audio-card"><p class="eyebrow">🪧 Real-life reading · document simulé '+(readingIndex+1)+' / '+READING_ITEMS.length+'</p><h2>'+esc(x.title)+'</h2><p class="lead">Lis comme en voyage : cherche l’information utile, pas la traduction de chaque mot.</p><div class="real-doc '+x.kind+'">'+x.html+'</div><div class="question" style="font-size:18px">'+esc(x.q)+'</div><div class="options">'+x.o.map((o,i)=>'<button class="opt" data-read="'+i+'"><span class="key">'+['A','B','C'][i]+'</span><span>'+esc(o)+'</span></button>').join('')+'</div><div id="readingFeedback"></div></div>';
+  root.querySelectorAll('[data-read]').forEach(b=>b.onclick=()=>{const i=+b.dataset.read,ok=i===x.a;root.querySelectorAll('[data-read]').forEach(z=>{z.disabled=true;if(+z.dataset.read===x.a)z.classList.add('correct');else if(z===b)z.classList.add('wrong');});if(ok){state.listeningStats.correct++;state.listeningStats.readingCorrect++;}logStudy();save();document.getElementById('readingFeedback').innerHTML='<div class="mission-feedback"><b>'+(ok?'✅ Exact.':'💡 Regarde l’information clé.')+'</b> '+esc(x.note)+'<div class="btn-row"><button class="btn btn-sun" id="readNext">Document suivant →</button></div></div>';document.getElementById('readNext').onclick=()=>{readingIndex=(readingIndex+1)%READING_ITEMS.length;renderReading(root);};document.getElementById('listen-correct').textContent=state.listeningStats.correct;});
+}
+function renderCulture(root){
+  const x=CULTURE_ITEMS[cultureIndex%CULTURE_ITEMS.length];
+  root.innerHTML='<div class="culture-card"><p class="eyebrow">🤝 Culture in context · '+(cultureIndex+1)+' / '+CULTURE_ITEMS.length+'</p><div class="scenario">'+esc(x.scenario)+'</div><div class="question" style="font-size:17px">'+esc(x.q)+'</div><div class="options">'+x.o.map((o,i)=>'<button class="opt" data-culture="'+i+'"><span class="key">'+['A','B','C'][i]+'</span><span>'+esc(o)+'</span></button>').join('')+'</div><div id="cultureFeedback"></div></div>';
+  root.querySelectorAll('[data-culture]').forEach(b=>b.onclick=()=>{const i=+b.dataset.culture,ok=i===x.a;root.querySelectorAll('[data-culture]').forEach(z=>{z.disabled=true;if(+z.dataset.culture===x.a)z.classList.add('correct');else if(z===b)z.classList.add('wrong');});if(ok){state.listeningStats.correct++;state.listeningStats.cultureCorrect++;}logStudy();save();document.getElementById('cultureFeedback').innerHTML='<div class="mission-feedback"><b>'+(ok?'✅ Bonne stratégie.':'💡 Une réponse plus sûre :')+'</b><div class="culture-note">'+esc(x.note)+'</div><div class="btn-row"><button class="btn btn-sun" id="cultureNext">Situation suivante →</button></div></div>';document.getElementById('cultureNext').onclick=()=>{cultureIndex=(cultureIndex+1)%CULTURE_ITEMS.length;renderCulture(root);};document.getElementById('listen-correct').textContent=state.listeningStats.correct;});
+}
+
 /* =========================================================
    V6 · Révision « Je pars demain »
    ========================================================= */
@@ -3234,7 +3420,7 @@ function renderSettings(){
 }
 function toggleSetting(field){state[field]=!state[field];save();applyUiPrefs();renderSettings();}
 function exportProgress(){
-  const payload={app:'Nathalie is the best',version:'V6',schemaVersion:STATE_SCHEMA,exportedAt:new Date().toISOString(),data:state};
+  const payload={app:'Nathalie is the best',version:'V7',schemaVersion:STATE_SCHEMA,exportedAt:new Date().toISOString(),data:state};
   const blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='nathalie-progress-'+todayKey()+'.json';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);toast('Sauvegarde exportée ✓');
 }
 function importProgressFile(file){
@@ -3242,11 +3428,11 @@ function importProgressFile(file){
 }
 function resetPart(kind){
   const d=defaults();
-  const labels={games:'les scores des jeux',review:'les données de révision',missions:'les missions et l’entraînement oral',all:'TOUTE la progression'};
+  const labels={games:'les scores des jeux',review:'les données de révision',missions:'les missions, l’entraînement oral et le Listening Lab',all:'TOUTE la progression'};
   if(!confirm('Effacer '+labels[kind]+' ?'))return;
   if(kind==='games') state.gameStats=d.gameStats;
   if(kind==='review'){state.mastery={};state.moduleReview={};state.dailyChallenge=d.dailyChallenge;state.dailyCompleted=0;}
-  if(kind==='missions'){state.missionStats=d.missionStats;state.speakingStats=d.speakingStats;state.tomorrowStats=d.tomorrowStats;}
+  if(kind==='missions'){state.missionStats=d.missionStats;state.speakingStats=d.speakingStats;state.tomorrowStats=d.tomorrowStats;state.listeningStats=d.listeningStats;}
   if(kind==='all'){localStorage.setItem(RESET_BACKUP_KEY,JSON.stringify(state));state=defaults();state.lastBackupDate=todayKey();}
   save();applyUiPrefs();renderSettings();toast(kind==='all'?'Progression remise à zéro.':'Données effacées ✓');
 }
@@ -3336,7 +3522,7 @@ if('serviceWorker' in navigator){
 window.addEventListener('hashchange',()=>{
   const h=(location.hash||'').replace('#','');
   if(h.startsWith('lecon-')) openLesson(h.slice(6));
-  else if(['programme','games','missions','speak','tomorrow','settings','revision','lexique','test','resultat','accueil'].includes(h)) go(h,{keepHash:true});
+  else if(['programme','games','missions','speak','listening','tomorrow','settings','revision','lexique','test','resultat','accueil'].includes(h)) go(h,{keepHash:true});
   else go('accueil',{keepHash:true});
 });
 
@@ -3358,7 +3544,7 @@ window.addEventListener('hashchange',()=>{
   document.querySelectorAll('[data-game]').forEach(b=>b.addEventListener('click',()=>startGame(b.dataset.game)));
   const hash=(location.hash||'').replace('#','');
   if(hash.startsWith('lecon-')) openLesson(hash.slice(6));
-  else if(['programme','games','missions','speak','tomorrow','settings','revision','lexique'].includes(hash)) go(hash);
+  else if(['programme','games','missions','speak','listening','tomorrow','settings','revision','lexique'].includes(hash)) go(hash);
   else go('accueil');
 })();
 </script>
