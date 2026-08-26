@@ -1,5 +1,5 @@
-/* Nathalie EN · Service Worker V8 */
-const CACHE_VERSION = 'nathalie-v8-2026-08-26';
+/* Nathalie EN · Service Worker V9 */
+const CACHE_VERSION = 'nathalie-v9-2026-08-26';
 const CORE = [
   './',
   './index.html',
@@ -32,14 +32,11 @@ self.addEventListener('fetch', event => {
   if (req.method !== 'GET') return;
   const url = new URL(req.url);
 
-  // Never cache third-party content (YouTube, etc.).
   if (url.origin !== self.location.origin) {
     event.respondWith(fetch(req));
     return;
   }
 
-  // Page navigation: network first so GitHub updates arrive immediately;
-  // fall back to the last cached application when offline.
   if (req.mode === 'navigate') {
     event.respondWith((async () => {
       try {
@@ -54,7 +51,6 @@ self.addEventListener('fetch', event => {
     return;
   }
 
-  // Same-origin assets: cache first, refresh silently in the background.
   event.respondWith((async () => {
     const cached = await caches.match(req);
     const refresh = fetch(req).then(async res => {

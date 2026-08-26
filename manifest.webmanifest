@@ -1,7 +1,7 @@
 {
-  "name": "Nathalie is the best — English for travel",
+  "name": "Nathalie is the best — Travel English Passport",
   "short_name": "Nathalie EN",
-  "description": "Un compagnon d’anglais pour voyager : parcours A1-C1, My English adaptatif, révision espacée, jeux, missions, oral et Listening Lab.",
+  "description": "Une application d’anglais pour voyager : parcours A1-C1, jeux, missions, oral, listening, révision adaptative et passeport de progression.",
   "lang": "fr",
   "start_url": "./#accueil",
   "scope": "./",
