@@ -1,11 +1,9 @@
-/* Nathalie EN · Service Worker V8 */
-const CACHE_VERSION = 'nathalie-v8-2026-08-26';
+/* Nathalie EN · Service Worker V7 */
+const CACHE_VERSION = 'nathalie-v7-2026-08-26';
 const CORE = [
   './',
   './index.html',
-  './manifest.webmanifest',
-  './icons/favicon-32.png',
-  './icons/apple-touch-icon.png'
+  './manifest.webmanifest'
 ];
 
 self.addEventListener('install', event => {
