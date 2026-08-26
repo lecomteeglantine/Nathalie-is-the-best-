@@ -341,7 +341,7 @@ body.high-contrast{--paper:#fff;--card:#fff;--text:#000;--muted:#343434;--ink:#0
 .icon-btn:hover{border-color:var(--sky)}
 .top-tools{display:flex;gap:7px;align-items:center}
 
-.app-dock{position:fixed;z-index:55;left:50%;bottom:max(8px,env(safe-area-inset-bottom));transform:translateX(-50%);width:min(720px,calc(100% - 18px));height:64px;border:1px solid var(--line-strong);background:rgba(255,255,255,.94);backdrop-filter:blur(14px);border-radius:20px;box-shadow:0 16px 40px -18px rgba(11,34,56,.55);display:grid;grid-template-columns:repeat(6,1fr);padding:6px;gap:4px}
+.app-dock{position:fixed;z-index:55;left:50%;bottom:max(8px,env(safe-area-inset-bottom));transform:translateX(-50%);width:min(720px,calc(100% - 18px));height:64px;border:1px solid var(--line-strong);background:rgba(255,255,255,.94);backdrop-filter:blur(14px);border-radius:20px;box-shadow:0 16px 40px -18px rgba(11,34,56,.55);display:grid;grid-template-columns:repeat(7,1fr);padding:6px;gap:4px}
 .dock-btn{border:0;background:transparent;border-radius:14px;color:var(--muted);cursor:pointer;display:grid;place-items:center;align-content:center;gap:1px;min-width:0;font-size:19px}
 .dock-btn span{font-size:10px;font-weight:700;white-space:nowrap}
 .dock-btn[aria-current="page"]{background:rgba(46,134,171,.12);color:var(--ink)}
@@ -437,6 +437,25 @@ footer{padding-bottom:calc(40px + var(--dock-h))}
 .mission-callout{display:flex;gap:13px;align-items:center;border:1px solid rgba(46,134,171,.3);background:linear-gradient(145deg,#f3f9fc,#fff);border-radius:18px;padding:16px;margin:14px 0;box-shadow:var(--shadow-sm)}.mission-callout .ic{width:48px;height:48px;border-radius:15px;display:grid;place-items:center;background:rgba(46,134,171,.12);font-size:26px;flex:0 0 auto}.mission-callout b{display:block;color:var(--ink);margin-bottom:2px}.mission-callout small{display:block;color:var(--muted);line-height:1.35}.mission-callout .btn{margin-left:auto;flex:0 0 auto}
 @media(max-width:560px){.mission-grid{grid-template-columns:1fr}.mission-callout{align-items:flex-start;flex-wrap:wrap}.mission-callout .btn{width:100%;margin-left:0}.mission-stats{grid-template-columns:repeat(3,1fr)}.bubble{max-width:94%}.app-dock{padding:5px;gap:2px}.dock-btn{font-size:17px}.dock-btn span{font-size:8px}}
 
+
+/* ============ V5 · Speak for real & Travel Day ============ */
+.speak-hero{position:relative;overflow:hidden;background:linear-gradient(145deg,#172f4a,#0b2238);color:#fff;border-radius:24px;padding:22px;margin:4px 0 18px;box-shadow:var(--shadow)}
+.speak-hero:after{content:"🎙️";position:absolute;right:-12px;bottom:-30px;font-size:128px;opacity:.08;transform:rotate(-10deg)}
+.speak-hero h1{color:#fff;margin:.15em 0}.speak-hero p{color:#d6e3ec;max-width:58ch}.speak-hero .eyebrow{color:var(--sun)}
+.speak-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:12px 0 20px}.speak-stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:11px;text-align:center;box-shadow:var(--shadow-sm)}.speak-stat b{display:block;font-family:var(--display);font-size:24px;color:var(--ink)}.speak-stat small{display:block;color:var(--muted);font-size:10px;margin-top:3px}
+.speak-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:12px 0 20px}.speak-tile{position:relative;text-align:left;border:1px solid var(--line);background:var(--card);border-radius:18px;padding:17px;box-shadow:var(--shadow-sm);cursor:pointer;min-height:156px;color:var(--text);transition:transform .12s ease,border-color .12s ease}.speak-tile:hover{transform:translateY(-3px);border-color:var(--sky)}.speak-tile .sicon{width:48px;height:48px;border-radius:15px;display:grid;place-items:center;font-size:26px;background:rgba(46,134,171,.11);margin-bottom:10px}.speak-tile b{display:block;color:var(--ink);font-size:17px;margin-bottom:4px}.speak-tile small{display:block;color:var(--muted);line-height:1.4}.speak-tile.featured{background:linear-gradient(145deg,#fff9e6,#fff);border-color:rgba(255,193,69,.65)}
+.speak-arena{margin:12px 0 22px}.speak-card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:19px;box-shadow:var(--shadow-sm)}.speak-card h2{margin:.15em 0 .45em}.speak-card .prompt{font-family:var(--display);font-size:23px;font-weight:700;line-height:1.25;color:var(--ink);padding:16px;border-left:4px solid var(--sun);background:rgba(255,193,69,.08);border-radius:0 14px 14px 0;margin:12px 0}.focus-chips{display:flex;gap:7px;flex-wrap:wrap;margin:10px 0}.focus-chip{border:1px solid var(--line);background:rgba(46,134,171,.06);border-radius:999px;padding:6px 9px;font-size:12px;font-weight:700;color:var(--ink)}
+.recorder{border:1px solid rgba(229,72,77,.25);background:linear-gradient(145deg,#fff7f7,#fff);border-radius:16px;padding:14px;margin:14px 0}.rec-head{display:flex;align-items:center;justify-content:space-between;gap:10px}.rec-head b{color:var(--ink)}.rec-status{font-family:var(--mono);font-size:11px;color:var(--muted)}.rec-dot{display:inline-block;width:9px;height:9px;border-radius:50%;background:#b7b7b7;margin-right:5px}.recorder.recording .rec-dot{background:var(--coral);animation:pulse .8s ease infinite}.rec-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}.rec-playback{margin-top:11px}.rec-playback audio{width:100%;height:40px}.privacy-mini{font-size:11px;color:var(--muted);margin:8px 0 0}
+.self-check{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}.self-btn{border:1px solid var(--line);background:var(--card);border-radius:12px;padding:10px 7px;cursor:pointer;font-weight:700;color:var(--ink)}.self-btn:hover{border-color:var(--sky)}
+.rework-box{background:linear-gradient(145deg,#fff4f1,#fff);border:1px solid rgba(255,107,92,.28);border-radius:18px;padding:16px;margin:16px 0}.rework-list{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px}.rework-word{border:1px solid var(--line);background:#fff;border-radius:999px;padding:7px 10px;font-size:12px;color:var(--ink);cursor:pointer}
+.skill-map{display:grid;gap:10px;margin:12px 0 22px}.skill-row{display:grid;grid-template-columns:120px 1fr 44px;gap:10px;align-items:center}.skill-name{font-size:13px;font-weight:800;color:var(--ink)}.skill-track{height:11px;border-radius:999px;background:rgba(22,50,79,.09);border:1px solid var(--line);overflow:hidden}.skill-fill{height:100%;background:linear-gradient(90deg,var(--mint),var(--sky));border-radius:999px}.skill-score{font-family:var(--mono);font-size:10px;color:var(--muted);text-align:right}
+.phrasebook-list{display:grid;gap:8px;margin:12px 0}.phrase-row{display:grid;grid-template-columns:1fr auto auto;gap:8px;align-items:center;border:1px solid var(--line);background:var(--card);border-radius:13px;padding:10px 11px}.phrase-row b{display:block;color:var(--ink);font-size:14px}.phrase-row small{display:block;color:var(--muted);font-size:11px;margin-top:2px}.pin-btn{width:38px;height:38px;border-radius:10px;border:1px solid var(--line);background:#fff;cursor:pointer;font-size:17px}.pin-btn.on{background:rgba(255,193,69,.18);border-color:rgba(255,193,69,.65)}
+.custom-form{display:grid;grid-template-columns:1fr 1fr auto;gap:8px;margin:12px 0}.custom-form input{min-width:0;border:1px solid var(--line-strong);background:var(--card);border-radius:11px;padding:10px;font:inherit}.custom-form button{border:0;background:var(--ink);color:#fff;border-radius:11px;padding:10px 13px;font-weight:800;cursor:pointer}
+.express-progress{display:flex;gap:5px;margin:10px 0 16px}.express-progress i{height:7px;flex:1;border-radius:999px;background:rgba(22,50,79,.1)}.express-progress i.done{background:var(--mint)}.express-card{min-height:190px;display:grid;align-content:center;text-align:center;border:1px solid var(--line);border-radius:18px;padding:20px;background:linear-gradient(150deg,#fff,#f7fbfd)}.express-word{font-family:var(--display);font-size:34px;font-weight:900;color:var(--ink)}
+.travelday{background:linear-gradient(160deg,#0f2942,#091a2b);color:#fff;border-radius:22px;padding:20px;box-shadow:var(--shadow)}.travelday h2,.travelday h3{color:#fff}.travelday p{color:#d0deea}.travel-route{display:flex;gap:5px;align-items:center;overflow-x:auto;padding:7px 0 12px}.travel-stop{flex:0 0 auto;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.11);border:1px solid rgba(255,255,255,.18);font-size:16px}.travel-stop.done{background:var(--mint);border-color:var(--mint)}.travel-line{flex:0 0 14px;border-top:2px dashed rgba(255,255,255,.25)}.travel-scene{background:#fff;color:var(--text);border-radius:17px;padding:16px;margin-top:10px}.travel-scene h3{color:var(--ink)}.travel-scene p{color:var(--muted)}.travel-choice{width:100%;text-align:left;border:1px solid var(--line);background:#fff;border-radius:12px;padding:11px 12px;margin:5px 0;cursor:pointer;color:var(--text);font:inherit}.travel-choice:hover{border-color:var(--sky)}.travel-choice.selected{border-color:var(--mint);background:rgba(23,184,144,.07)}
+.role-goals{display:grid;gap:7px;margin:12px 0}.role-goal{display:flex;gap:8px;align-items:flex-start;padding:9px 10px;border-radius:11px;background:rgba(22,50,79,.04);border:1px solid var(--line);font-size:13px}.role-goal:before{content:"✓";color:var(--mint);font-weight:900}
+@media(max-width:560px){.speak-grid{grid-template-columns:1fr}.speak-stats{grid-template-columns:repeat(2,1fr)}.skill-row{grid-template-columns:92px 1fr 38px}.custom-form{grid-template-columns:1fr}.self-check{grid-template-columns:1fr}.app-dock{height:66px}.dock-btn span{font-size:7.4px}}
+
 </style>
 </head>
 <body>
@@ -513,6 +532,12 @@ footer{padding-bottom:calc(40px + var(--dock-h))}
       <div class="ic" aria-hidden="true">🎭</div>
       <div style="flex:1"><b>Prête pour une vraie conversation ?</b><small>Aéroport, hôtel, restaurant, chemin, santé ou rencontre : entraîne-toi dans une simulation complète.</small></div>
       <button class="btn btn-primary" type="button" onclick="go('missions')">Partir en mission →</button>
+    </div>
+
+    <div class="mission-callout" style="border-color:rgba(255,193,69,.55);background:linear-gradient(145deg,#fff9e8,#fff)">
+      <div class="ic" aria-hidden="true" style="background:rgba(255,193,69,.2)">🎙️</div>
+      <div style="flex:1"><b>V5 · Cette fois, c’est toi qui parles</b><small>Shadowing, défi 30 secondes, enregistrement local, session express et une journée complète de voyage.</small></div>
+      <button class="btn btn-sun" type="button" onclick="go('speak')">Speak for real →</button>
     </div>
 
     <div class="phrase-day card" aria-label="Phrase du jour">
@@ -690,6 +715,42 @@ footer{padding-bottom:calc(40px + var(--dock-h))}
     <div id="mission-arena" class="mission-shell" aria-live="polite"></div>
   </section>
 
+  <!-- ============ SPEAK FOR REAL V5 ============ -->
+  <section id="view-speak" class="view" aria-labelledby="speak-h">
+    <button class="back" onclick="go('accueil')">← Accueil</button>
+    <div class="speak-hero">
+      <p class="eyebrow" id="speak-h">V5 · Speak for real</p>
+      <h1>À toi de parler.</h1>
+      <p>Plus de réponse toute faite : tu écoutes, tu répètes, tu construis ta phrase et tu t’enregistres. Les enregistrements restent dans cette page et ne sont jamais envoyés par le site.</p>
+      <div class="btn-row"><button class="btn btn-sun" type="button" data-speak-open="express">⏱️ Session express</button><button class="btn btn-ghost" type="button" data-speak-open="travelday" style="color:#fff;border-color:rgba(255,255,255,.35);background:rgba(255,255,255,.08)">🧳 Start my Travel Day</button></div>
+    </div>
+
+    <div class="speak-stats" aria-label="Statistiques d'entraînement oral">
+      <div class="speak-stat"><b id="speak-recordings">0</b><small>prises de voix</small></div>
+      <div class="speak-stat"><b id="speak-shadow">0</b><small>shadowings</small></div>
+      <div class="speak-stat"><b id="speak-express">0</b><small>sessions express</small></div>
+      <div class="speak-stat"><b id="speak-travel-best">0</b><small>Travel Day /14</small></div>
+    </div>
+
+    <div id="speak-rework"></div>
+
+    <h2>Choisis ton entraînement</h2>
+    <div class="speak-grid">
+      <button class="speak-tile" type="button" data-speak-open="shadow"><span class="sicon">🗣️</span><b>Shadowing</b><small>Écoute une phrase naturelle, répète-la, puis compare ton rythme au modèle.</small></button>
+      <button class="speak-tile" type="button" data-speak-open="thirty"><span class="sicon">⏱️</span><b>Speak for 30 seconds</b><small>Un sujet concret, trente secondes pour parler sans réponses proposées.</small></button>
+      <button class="speak-tile" type="button" data-speak-open="roleplay"><span class="sicon">🎭</span><b>Roleplay semi-libre</b><small>Une situation et trois objectifs : à toi de construire toute la réponse.</small></button>
+      <button class="speak-tile" type="button" data-speak-open="phrasebook"><span class="sicon">🆘</span><b>Survival phrasebook</b><small>Les phrases essentielles du voyage + ton propre carnet de phrases.</small></button>
+      <button class="speak-tile" type="button" data-speak-open="express"><span class="sicon">⚡</span><b>Session express</b><small>3 flashcards → 3 questions → 1 listening → 1 production orale.</small></button>
+      <button class="speak-tile featured" type="button" data-speak-open="travelday"><span class="sicon">🧳</span><b>Travel Day</b><small>Une mini-aventure complète : aéroport, vol, hôtel, restaurant, ville et imprévu.</small></button>
+    </div>
+
+    <div id="speak-arena" class="speak-arena" aria-live="polite"></div>
+
+    <h2>Carte des compétences</h2>
+    <p class="lead" style="font-size:14px">Ce n’est pas une note CECRL : c’est un repère interne calculé à partir de tes escales, missions et révisions.</p>
+    <div id="skill-map" class="skill-map"></div>
+  </section>
+
   <!-- ============ LEXIQUE ============ -->
   <section id="view-lexique" class="view" aria-labelledby="lex-h">
     <button class="back" onclick="go('accueil')">← Accueil</button>
@@ -712,7 +773,7 @@ footer{padding-bottom:calc(40px + var(--dock-h))}
 
 <footer>
   <p>Fait avec <span class="heart" aria-hidden="true">❤</span> pour Nathalie — parce que tu es <b>the best</b>, et que le monde t'attend.</p>
-  <p class="priv">🔒 Aucun compte et aucune progression envoyée à un serveur : tes résultats restent dans le stockage local de ce navigateur. Les vidéos YouTube ne se chargent qu’après ton clic et nécessitent internet. Les simulations utilisent uniquement les fonctions de ton navigateur : aucun enregistrement vocal n’est envoyé par le site.</p>
+  <p class="priv">🔒 Aucun compte et aucune progression envoyée à un serveur : tes résultats restent dans le stockage local de ce navigateur. Les vidéos YouTube ne se chargent qu’après ton clic et nécessitent internet. Les simulations utilisent uniquement les fonctions de ton navigateur. Les enregistrements vocaux de V5 restent localement dans la page, ne sont jamais envoyés par le site et disparaissent au rechargement.</p>
 </footer>
 
 <nav class="app-dock" aria-label="Navigation principale">
@@ -720,6 +781,7 @@ footer{padding-bottom:calc(40px + var(--dock-h))}
   <button class="dock-btn" data-go="programme">🗺️<span>Parcours</span></button>
   <button class="dock-btn" data-go="games">🎮<span>Jeux</span></button>
   <button class="dock-btn" data-go="missions">🎭<span>Missions</span></button>
+  <button class="dock-btn" data-go="speak">🎙️<span>Parler</span></button>
   <button class="dock-btn" data-go="revision">🎴<span>Réviser</span></button>
   <button class="dock-btn" data-go="lexique">🔎<span>Lexique</span></button>
 </nav>
@@ -1983,12 +2045,12 @@ const LEVELS = [
    État (sauvegardé sur l'appareil)
    ========================================================= */
 const KEY='nathalie_en_v1';
-function defaults(){ return { done:{}, score:null, level:null, phraseIdx:null, phraseDate:null, lastModule:null, favorites:{}, mastery:{}, practice:{}, studyDates:[], moduleReview:{}, gameStats:{plays:0,matchWins:0,missingWins:0,speedBest:0,travelBest:0}, missionStats:{plays:0,best:{},perfect:{}}, missionListenFirst:false, dailyChallenge:{date:null,answers:{},spoken:false,completed:false}, dailyCompleted:0, levelCelebrations:{}, uiLarge:false, uiContrast:false }; }
+function defaults(){ return { done:{}, score:null, level:null, phraseIdx:null, phraseDate:null, lastModule:null, favorites:{}, mastery:{}, practice:{}, studyDates:[], moduleReview:{}, gameStats:{plays:0,matchWins:0,missingWins:0,speedBest:0,travelBest:0}, missionStats:{plays:0,best:{},perfect:{}}, missionListenFirst:false, dailyChallenge:{date:null,answers:{},spoken:false,completed:false}, dailyCompleted:0, levelCelebrations:{}, speakingStats:{recordings:0,shadowing:0,speak30:0,roleplays:0,express:0,travelDayBest:0,travelDayPlays:0,selfChecks:0}, phrasebook:{}, customPhrases:[], uiLarge:false, uiContrast:false }; }
 function load(){
   try{
     const raw=JSON.parse(localStorage.getItem(KEY)) || {};
     return Object.assign(defaults(), raw, {
-      done:raw.done||{}, favorites:raw.favorites||{}, mastery:raw.mastery||{}, practice:raw.practice||{}, studyDates:Array.isArray(raw.studyDates)?raw.studyDates:[], moduleReview:raw.moduleReview||{}, gameStats:Object.assign(defaults().gameStats,raw.gameStats||{}), missionStats:Object.assign(defaults().missionStats,raw.missionStats||{}, {best:(raw.missionStats&&raw.missionStats.best)||{}, perfect:(raw.missionStats&&raw.missionStats.perfect)||{}}), dailyChallenge:Object.assign(defaults().dailyChallenge,raw.dailyChallenge||{}), levelCelebrations:raw.levelCelebrations||{}
+      done:raw.done||{}, favorites:raw.favorites||{}, mastery:raw.mastery||{}, practice:raw.practice||{}, studyDates:Array.isArray(raw.studyDates)?raw.studyDates:[], moduleReview:raw.moduleReview||{}, gameStats:Object.assign(defaults().gameStats,raw.gameStats||{}), missionStats:Object.assign(defaults().missionStats,raw.missionStats||{}, {best:(raw.missionStats&&raw.missionStats.best)||{}, perfect:(raw.missionStats&&raw.missionStats.perfect)||{}}), dailyChallenge:Object.assign(defaults().dailyChallenge,raw.dailyChallenge||{}), levelCelebrations:raw.levelCelebrations||{}, speakingStats:Object.assign(defaults().speakingStats,raw.speakingStats||{}), phrasebook:raw.phrasebook||{}, customPhrases:Array.isArray(raw.customPhrases)?raw.customPhrases:[]
     });
   }catch(e){ return defaults(); }
 }
@@ -2030,7 +2092,9 @@ function go(view, opts={}){
   if(view==='revision') renderReview();
   if(view==='games') renderGames();
   if(view==='missions') renderMissions();
+  if(view==='speak') renderSpeak();
   if(view==='lexique') renderDictionary();
+  if(view!=='speak' && typeof activeRecorder!=='undefined' && activeRecorder) stopActiveRecording();
   if(view!=='games' && speedTimer){ clearInterval(speedTimer); speedTimer=null; }
   document.querySelectorAll('.dock-btn').forEach(b=>{ if(b.dataset.go===view) b.setAttribute('aria-current','page'); else b.removeAttribute('aria-current'); });
   if(!opts.keepHash) history.replaceState(null,'','#'+view);
@@ -2520,6 +2584,10 @@ const BADGES=[
   {id:'mission1',ic:'🎭',name:'First mission',desc:'Terminer une simulation',ok:()=>Number(state.missionStats.plays||0)>=1},
   {id:'mission3',ic:'🧳',name:'Seasoned traveller',desc:'Essayer 3 missions différentes',ok:()=>Object.keys(state.missionStats.best||{}).length>=3},
   {id:'missionperfect',ic:'🌟',name:'Natural speaker',desc:'10/10 dans une mission',ok:()=>Object.values(state.missionStats.perfect||{}).some(Boolean)},
+  {id:'voice1',ic:'🎙️',name:'First words',desc:'Faire un premier enregistrement local',ok:()=>Number(state.speakingStats.recordings||0)>=1},
+  {id:'speak30',ic:'⏱️',name:'30-second speaker',desc:'Tenir au moins 25 secondes',ok:()=>Number(state.speakingStats.speak30||0)>=1},
+  {id:'shadow5',ic:'🗣️',name:'Shadow star',desc:'Faire 5 shadowings',ok:()=>Number(state.speakingStats.shadowing||0)>=5},
+  {id:'travelday',ic:'🧳',name:'Full travel day',desc:'Terminer une journée de voyage',ok:()=>Number(state.speakingStats.travelDayPlays||0)>=1},
   {id:'daily5',ic:'🎯',name:'Daily habit',desc:'5 défis du jour',ok:()=>Number(state.dailyCompleted||0)>=5},
   {id:'all',ic:'🏆',name:'Passport legend',desc:'Valider les 24 escales',ok:()=>MODULES.every(m=>state.done[m.id])}
 ];
@@ -2811,6 +2879,137 @@ function finishMission(){
   document.getElementById('missionReplay').addEventListener('click',()=>startMission(m.id));document.getElementById('missionAnother').addEventListener('click',()=>{activeMission=null;root.innerHTML='';document.getElementById('mission-list-wrap').style.display='block';renderMissions();});renderBadges();
 }
 
+
+/* =========================================================
+   V5 · Speak for real, phrasebook & Travel Day
+   ========================================================= */
+const SHADOW_PHRASES=[
+  {en:"Excuse me, could you help me, please?",fr:"Excusez-moi, pourriez-vous m’aider ?",focus:"could you · rythme poli"},
+  {en:"I have a reservation under the name Nathalie.",fr:"J’ai une réservation au nom de Nathalie.",focus:"reservation under the name"},
+  {en:"Could I have a window seat, please?",fr:"Pourrais-je avoir une place côté fenêtre ?",focus:"Could I have…?"},
+  {en:"Sorry, I didn’t catch that. Could you say it again?",fr:"Désolée, je n’ai pas compris. Pourriez-vous répéter ?",focus:"didn’t catch that"},
+  {en:"Could we have the bill, please?",fr:"Pourrions-nous avoir l’addition ?",focus:"bill · British English"},
+  {en:"I’m looking for the nearest underground station.",fr:"Je cherche la station de métro la plus proche.",focus:"I’m looking for…"},
+  {en:"I don’t feel very well. Is there a chemist nearby?",fr:"Je ne me sens pas très bien. Y a-t-il une pharmacie près d’ici ?",focus:"chemist · British English"},
+  {en:"I’ve never been here before, but I really like it.",fr:"Je ne suis jamais venue ici, mais j’aime beaucoup.",focus:"present perfect"},
+  {en:"To be honest, I’d rather walk if it isn’t too far.",fr:"Pour être honnête, je préférerais marcher si ce n’est pas trop loin.",focus:"I’d rather · liaison"},
+  {en:"That sounds lovely. What would you recommend?",fr:"Ça a l’air très bien. Que recommanderiez-vous ?",focus:"sounds lovely"},
+  {en:"I’m sorry, there seems to be a problem with my room.",fr:"Désolée, il semble y avoir un problème avec ma chambre.",focus:"there seems to be"},
+  {en:"Anyway, as I was saying, the trip was absolutely worth it.",fr:"Bref, comme je le disais, le voyage en valait vraiment la peine.",focus:"discourse markers"}
+];
+const SPEAK30_PROMPTS=[
+  {title:"Your hotel room",text:"Explain that there are two problems with your hotel room and ask politely for a solution.",help:["There seems to be…","Could you…?","I’d really appreciate…"]},
+  {title:"Lost luggage",text:"Explain at the airport that your suitcase has not arrived. Describe it and ask what happens next.",help:["My suitcase hasn’t arrived.","It’s…","What should I do next?"]},
+  {title:"A great meal",text:"Tell an English-speaking friend about a meal you really enjoyed on holiday.",help:["We went to…","I had…","The best thing was…"]},
+  {title:"Finding your way",text:"Ask someone how to get to the city centre, check the directions, then thank them.",help:["Could you tell me…?","So I turn…?","Thanks for your help."]},
+  {title:"Small talk",text:"You have just met someone in a café. Introduce yourself and keep the conversation going.",help:["I’m from…","How about you?","Have you ever…?"]},
+  {title:"A travel problem",text:"Describe a small problem you had while travelling and explain how you solved it.",help:["At first…","So I decided to…","In the end…"]},
+  {title:"Recommend Lyon",text:"Recommend three things an English-speaking visitor should do in Lyon and explain why.",help:["You should definitely…","If you like…","It’s worth…"]},
+  {title:"Your next trip",text:"Talk about a trip you would like to take: where, when, with whom and why.",help:["I’d love to…","I’m thinking of…","because…"]}
+];
+const FREE_ROLEPLAYS=[
+  {ic:'🏨',title:'The room isn’t right',scene:'You are at hotel reception. The room is noisy and the air conditioning does not work.',goals:['Explain both problems clearly.','Ask whether another quiet room is available.','Stay polite but make it clear that you need a solution.'],useful:['There seems to be a problem with…','Would it be possible to…?','I’d appreciate your help.']},
+  {ic:'🛫',title:'Tight connection',scene:'Your first flight was delayed and you have very little time to catch your connection.',goals:['Explain what happened.','Ask where the next gate is.','Ask whether someone can help you get there quickly.'],useful:['My flight was delayed.','I have a connection to…','Could you tell me the quickest way…?']},
+  {ic:'🍽️',title:'Ordering with a question',scene:'You are ordering dinner and need to check whether a dish contains something you cannot eat.',goals:['Ask about the dish.','Order a main course and a drink.','Ask for the bill at the end.'],useful:['Does this contain…?','I’d like…','Could we have the bill, please?']},
+  {ic:'🧭',title:'Completely lost',scene:'Your phone has run out of battery and you need to reach the railway station.',goals:['Ask for directions.','Ask the person to repeat one part more slowly.','Check that you understood correctly.'],useful:['How do I get to…?','Could you say that again more slowly?','So I go straight and then…?']},
+  {ic:'🚑',title:'At the chemist',scene:'You feel unwell and need help at a chemist while travelling.',goals:['Describe two symptoms simply.','Say how long you have felt like this.','Ask what the pharmacist recommends.'],useful:['I don’t feel well.','I’ve had this since…','What would you recommend?']},
+  {ic:'💬',title:'A new acquaintance',scene:'Someone starts talking to you while you are waiting for a tour to begin.',goals:['Introduce yourself.','Ask two open questions.','React naturally to something the other person might say.'],useful:['What brings you here?','How long are you staying?','That sounds…']}
+];
+const SURVIVAL_PHRASES=[
+  {id:'help',en:'Could you help me, please?',fr:'Pourriez-vous m’aider ?',ctx:'Partout'},
+  {id:'repeat',en:'Sorry, could you say that again?',fr:'Désolée, pourriez-vous répéter ?',ctx:'Compréhension'},
+  {id:'slower',en:'Could you speak a little more slowly, please?',fr:'Pourriez-vous parler un peu plus lentement ?',ctx:'Compréhension'},
+  {id:'understand',en:"I’m sorry, I don’t understand.",fr:'Désolée, je ne comprends pas.',ctx:'Compréhension'},
+  {id:'where',en:'Could you tell me where this is?',fr:'Pourriez-vous me dire où cela se trouve ?',ctx:'Directions'},
+  {id:'lost',en:"I’m afraid I’m lost.",fr:'Je crois que je suis perdue.',ctx:'Directions'},
+  {id:'reservation',en:'I have a reservation under the name Nathalie.',fr:'J’ai une réservation au nom de Nathalie.',ctx:'Hôtel / restaurant'},
+  {id:'bill',en:'Could we have the bill, please?',fr:'Pourrions-nous avoir l’addition ?',ctx:'Restaurant'},
+  {id:'problem',en:'There seems to be a problem.',fr:'Il semble y avoir un problème.',ctx:'Problème'},
+  {id:'doctor',en:'I need a doctor, please.',fr:'J’ai besoin d’un médecin.',ctx:'Urgence'},
+  {id:'well',en:"I don’t feel well.",fr:'Je ne me sens pas bien.',ctx:'Santé'},
+  {id:'allergic',en:"I’m allergic to this.",fr:'Je suis allergique à cela.',ctx:'Santé'},
+  {id:'card',en:'Can I pay by card?',fr:'Puis-je payer par carte ?',ctx:'Paiement'},
+  {id:'recommend',en:'What would you recommend?',fr:'Que recommanderiez-vous ?',ctx:'Restaurant / visite'}
+];
+const SPEAK_SKILLS=[
+  {name:'Aéroport',module:'aeroport',mission:'airport'},
+  {name:'Hôtel',module:'hotel',mission:'hotel'},
+  {name:'Restaurant',module:'resto',mission:'restaurant'},
+  {name:'Directions',module:'chemin',mission:'directions'},
+  {name:'Urgences',module:'urgences',mission:'health'},
+  {name:'Conversation',module:'smalltalk',mission:'smalltalk'}
+];
+const TRAVEL_DAY=[
+  {ic:'🛫',place:'Airport check-in',npc:'Good morning. Where are you flying to today?',options:[
+    {t:'Good morning. I’m flying to Edinburgh.',s:2,r:'Perfect. May I see your passport, please?'},{t:'Edinburgh. Here.',s:1,r:'All right. May I see your passport?'},{t:'I go Edinburgh.',s:0,r:'Edinburgh? Are you flying there today?'}]},
+  {ic:'🛂',place:'Security',npc:'I’m afraid you need to take the liquids out of your bag.',options:[
+    {t:'Of course. Do I need to take my laptop out as well?',s:2,r:'Yes, please. Put it in a separate tray.'},{t:'OK. Laptop too?',s:1,r:'Yes, please. In a separate tray.'},{t:'Why? I don’t want.',s:0,r:'It’s part of the security procedure, madam.'}]},
+  {ic:'✈️',place:'On the plane',npc:'Would you like tea or coffee?',options:[
+    {t:'Tea, please. Could I have a little milk as well?',s:2,r:'Certainly.'},{t:'Tea with milk.',s:1,r:'Of course.'},{t:'Give tea.',s:0,r:'Tea, madam?'}]},
+  {ic:'🏨',place:'Hotel reception',npc:'Welcome. Do you have a reservation?',options:[
+    {t:'Yes, I have a reservation under the name Nathalie.',s:2,r:'Yes, I have it here. Your room is on the third floor.'},{t:'Yes. Nathalie.',s:1,r:'Let me check… yes, here it is.'},{t:'Reservation me Nathalie.',s:0,r:'Could you repeat the name, please?'}]},
+  {ic:'🍽️',place:'Dinner',npc:'Are you ready to order?',options:[
+    {t:'Yes, I’d like the fish, please. What would you recommend as a side dish?',s:2,r:'The roasted vegetables go very well with it.'},{t:'Fish, please.',s:1,r:'Certainly. Anything with it?'},{t:'I want fish.',s:0,r:'The fish, madam?'}]},
+  {ic:'🧭',place:'In town',npc:'You look a little lost. Can I help?',options:[
+    {t:'Yes, please. Could you tell me how to get to the castle?',s:2,r:'Of course. Go straight on and turn left at the lights.'},{t:'Yes. Where is castle?',s:1,r:'Go straight on and turn left at the lights.'},{t:'Castle?',s:0,r:'Are you looking for the castle?'}]},
+  {ic:'🚑',place:'Small emergency',npc:'Hello. How can I help you?',options:[
+    {t:"I don’t feel very well. I’ve had a bad headache since this morning. What would you recommend?",s:2,r:'I’ll ask you a few questions first.'},{t:'I have a headache since morning.',s:1,r:'All right. Is it very painful?'},{t:'Head bad. Medicine.',s:0,r:'You have a headache?'}]}
+];
+
+let activeRecorder=null, lastRecordingUrl=null, speakArenaTool=null, shadowIndex=0, expressState=null, travelDayState=null;
+function speakingStats(){return state.speakingStats||defaults().speakingStats;}
+function recorderHTML(id,maxSeconds=0){return '<div class="recorder" id="'+id+'"><div class="rec-head"><b><span class="rec-dot"></span> Enregistrement local</b><span class="rec-status" data-rec-status>Prêt'+(maxSeconds?' · max '+maxSeconds+' s':'')+'</span></div><div class="rec-actions"><button class="btn btn-primary" type="button" data-rec-start>🎙️ Enregistrer</button><button class="btn btn-ghost" type="button" data-rec-stop disabled>■ Stop</button></div><div class="rec-playback" data-rec-playback></div><p class="privacy-mini">🔒 Le son n’est envoyé nulle part. Il reste temporairement dans cette page et disparaît si tu la recharges.</p></div>';}
+function stopActiveRecording(){if(activeRecorder&&activeRecorder.rec&&activeRecorder.rec.state!=='inactive')activeRecorder.rec.stop();}
+function clearRecorderTimers(){if(activeRecorder?.interval)clearInterval(activeRecorder.interval);if(activeRecorder?.timeout)clearTimeout(activeRecorder.timeout);}
+async function startLocalRecording(boxId,maxSeconds=0,onDone=null){
+  if(activeRecorder){toast('Un enregistrement est déjà en cours. Arrête-le avant d’en commencer un autre.');return;}
+  const box=document.getElementById(boxId);if(!box)return;
+  if(!navigator.mediaDevices?.getUserMedia||!window.MediaRecorder){toast('Ce navigateur ne permet pas l’enregistrement audio local. Tu peux quand même faire l’activité à voix haute.');return;}
+  try{
+    const stream=await navigator.mediaDevices.getUserMedia({audio:true});const chunks=[];const rec=new MediaRecorder(stream);const started=Date.now();
+    activeRecorder={rec,stream,chunks,boxId,started,onDone,interval:null,timeout:null};
+    const startBtn=box.querySelector('[data-rec-start]'),stopBtn=box.querySelector('[data-rec-stop]'),status=box.querySelector('[data-rec-status]');
+    box.classList.add('recording');startBtn.disabled=true;stopBtn.disabled=false;status.textContent='00:00 · REC';
+    rec.ondataavailable=e=>{if(e.data&&e.data.size)chunks.push(e.data);};
+    rec.onstop=()=>{
+      const duration=Math.max(1,Math.round((Date.now()-started)/1000));clearRecorderTimers();stream.getTracks().forEach(t=>t.stop());
+      const blob=new Blob(chunks,{type:rec.mimeType||'audio/webm'});if(lastRecordingUrl)URL.revokeObjectURL(lastRecordingUrl);lastRecordingUrl=URL.createObjectURL(blob);
+      box.classList.remove('recording');startBtn.disabled=false;stopBtn.disabled=true;status.textContent=duration+' s · enregistré';
+      box.querySelector('[data-rec-playback]').innerHTML='<audio controls src="'+lastRecordingUrl+'" aria-label="Réécouter mon enregistrement"></audio><p class="privacy-mini">Réécoute-toi : phrase complète ? rythme compréhensible ? mots clés bien audibles ?</p>';
+      state.speakingStats.recordings=Number(state.speakingStats.recordings||0)+1;logStudy();save();renderSpeakStats();renderBadges();
+      const cb=activeRecorder?.onDone;activeRecorder=null;if(cb)cb({duration,blob,url:lastRecordingUrl});
+    };
+    rec.start();
+    activeRecorder.interval=setInterval(()=>{const sec=Math.floor((Date.now()-started)/1000),m=String(Math.floor(sec/60)).padStart(2,'0'),ss=String(sec%60).padStart(2,'0');if(status)status.textContent=m+':'+ss+' · REC';},250);
+    if(maxSeconds)activeRecorder.timeout=setTimeout(stopActiveRecording,maxSeconds*1000);
+  }catch(e){toast('Micro non disponible ou autorisation refusée. Tu peux faire l’exercice à voix haute sans enregistrer.');}
+}
+function bindRecorder(id,maxSeconds=0,onDone=null){const box=document.getElementById(id);if(!box)return;box.querySelector('[data-rec-start]')?.addEventListener('click',()=>startLocalRecording(id,maxSeconds,onDone));box.querySelector('[data-rec-stop]')?.addEventListener('click',stopActiveRecording);}
+function renderSpeakStats(){const st=speakingStats();const set=(id,v)=>{const e=document.getElementById(id);if(e)e.textContent=v;};set('speak-recordings',st.recordings||0);set('speak-shadow',st.shadowing||0);set('speak-express',st.express||0);set('speak-travel-best',st.travelDayBest||0);}
+function reworkWords(){return allWords().filter(w=>Number(state.mastery[w.key]||0)<0||(state.moduleReview[w.moduleId]&&Number(state.mastery[w.key]||0)<2)).sort((a,b)=>(Number(state.mastery[a.key]||0)-Number(state.mastery[b.key]||0))).slice(0,8);}
+function renderSpeakRework(){const root=document.getElementById('speak-rework');if(!root)return;const words=reworkWords();root.innerHTML=words.length?'<div class="rework-box"><b>🔁 À retravailler aujourd’hui</b><p style="font-size:13px;color:var(--muted);margin:4px 0 0">Ces mots viennent de tes erreurs ou d’escales marquées à revoir.</p><div class="rework-list">'+words.map(w=>'<button class="rework-word" type="button" data-rw="'+encodeURIComponent(w.en)+'">🔊 '+esc(w.en)+'</button>').join('')+'</div></div>':'<div class="rework-box" style="background:linear-gradient(145deg,#effbf7,#fff);border-color:rgba(23,184,144,.28)"><b>✅ Rien d’urgent à retravailler</b><p style="font-size:13px;color:var(--muted);margin:4px 0 0">Bonne nouvelle : aucune erreur récente n’est actuellement prioritaire.</p></div>';root.querySelectorAll('[data-rw]').forEach(b=>b.addEventListener('click',()=>speak(decodeURIComponent(b.dataset.rw),b)));}
+function skillScore(sk){const m=getModule(sk.module);let score=state.done[sk.module]?35:0;const best=Number(state.missionStats?.best?.[sk.mission]||0);score+=best*5;if(m){const vals=m.vocab.slice(0,12).map((v,i)=>Number(state.mastery[wordKey(m.id,i)]||0));const avg=vals.reduce((a,b)=>a+b,0)/Math.max(1,vals.length);score+=Math.max(0,Math.min(15,Math.round((avg+1)*5)));}return Math.max(0,Math.min(100,Math.round(score)));}
+function renderSkillMap(){const root=document.getElementById('skill-map');if(!root)return;root.innerHTML=SPEAK_SKILLS.map(sk=>{const n=skillScore(sk);return '<div class="skill-row"><span class="skill-name">'+sk.name+'</span><span class="skill-track"><i class="skill-fill" style="width:'+n+'%"></i></span><span class="skill-score">'+n+'%</span></div>';}).join('');}
+function renderSpeak(){renderSpeakStats();renderSpeakRework();renderSkillMap();document.querySelectorAll('[data-speak-open]').forEach(b=>b.onclick=()=>openSpeakTool(b.dataset.speakOpen));}
+function openSpeakTool(kind){stopActiveRecording();speakArenaTool=kind;if(kind==='shadow')renderShadowing();if(kind==='thirty')renderThirty();if(kind==='roleplay')renderRoleplay();if(kind==='phrasebook')renderPhrasebook();if(kind==='express')startExpressSession();if(kind==='travelday')startTravelDay();document.getElementById('speak-arena')?.scrollIntoView({behavior:'smooth',block:'start'});}
+function renderShadowing(){const root=document.getElementById('speak-arena');const p=SHADOW_PHRASES[shadowIndex%SHADOW_PHRASES.length];root.innerHTML='<div class="speak-card"><p class="eyebrow">🗣️ Shadowing</p><h2>Écoute → répète → compare</h2><div class="prompt" lang="en">'+esc(p.en)+'</div><p>'+esc(p.fr)+'</p><div class="focus-chips"><span class="focus-chip">🎯 '+esc(p.focus)+'</span></div><div class="btn-row"><button class="btn btn-sun" id="shadowListen" type="button">🔊 Écouter le modèle</button><button class="btn btn-ghost" id="shadowNext" type="button">Autre phrase →</button></div>'+recorderHTML('shadowRec')+'<div class="self-check"><button class="self-btn" data-shadow-rate="clear">✅ Clair</button><button class="self-btn" data-shadow-rate="almost">🙂 Presque</button><button class="self-btn" data-shadow-rate="again">↻ À refaire</button></div><p class="privacy-mini">Le site ne te donne pas une fausse “note d’accent”. Tu fais ici une auto-évaluation après comparaison avec le modèle.</p></div>';document.getElementById('shadowListen').onclick=()=>speak(p.en,document.getElementById('shadowListen'));document.getElementById('shadowNext').onclick=()=>{shadowIndex=(shadowIndex+1)%SHADOW_PHRASES.length;renderShadowing();};bindRecorder('shadowRec');root.querySelectorAll('[data-shadow-rate]').forEach(b=>b.onclick=()=>{state.speakingStats.shadowing=Number(state.speakingStats.shadowing||0)+1;state.speakingStats.selfChecks=Number(state.speakingStats.selfChecks||0)+1;logStudy();save();renderSpeakStats();renderBadges();toast(b.dataset.shadowRate==='again'?'Bonne idée : écoute encore une fois puis recommence.':'Shadowing enregistré dans ton entraînement ✓');});}
+function renderThirty(){const root=document.getElementById('speak-arena');const p=SPEAK30_PROMPTS[Math.floor(Math.random()*SPEAK30_PROMPTS.length)];root.innerHTML='<div class="speak-card"><p class="eyebrow">⏱️ Speak for 30 seconds</p><h2>'+esc(p.title)+'</h2><div class="prompt" lang="en">'+esc(p.text)+'</div><p><b>Avant de parler :</b> prends dix secondes pour choisir 2 ou 3 idées. Tu n’as pas besoin d’être parfaite : l’objectif est de continuer à parler.</p><div class="focus-chips">'+p.help.map(x=>'<span class="focus-chip" lang="en">'+esc(x)+'</span>').join('')+'</div>'+recorderHTML('thirtyRec',30)+'<div class="btn-row"><button class="btn btn-ghost" id="thirtyNew" type="button">🎲 Nouveau sujet</button></div><p class="privacy-mini">Le badge “30-second speaker” se débloque à partir de 25 secondes enregistrées.</p></div>';bindRecorder('thirtyRec',30,meta=>{if(meta.duration>=25){state.speakingStats.speak30=Number(state.speakingStats.speak30||0)+1;save();renderBadges();toast('⏱️ '+meta.duration+' secondes : défi réussi !');}});document.getElementById('thirtyNew').onclick=renderThirty;}
+function renderRoleplay(){const root=document.getElementById('speak-arena');const r=FREE_ROLEPLAYS[Math.floor(Math.random()*FREE_ROLEPLAYS.length)];root.innerHTML='<div class="speak-card"><p class="eyebrow">'+r.ic+' Roleplay semi-libre</p><h2>'+esc(r.title)+'</h2><div class="prompt">'+esc(r.scene)+'</div><h3>Tes trois objectifs</h3><div class="role-goals">'+r.goals.map(g=>'<div class="role-goal">'+esc(g)+'</div>').join('')+'</div><h3>Useful language — si tu bloques</h3><div class="focus-chips">'+r.useful.map(x=>'<span class="focus-chip" lang="en">'+esc(x)+'</span>').join('')+'</div>'+recorderHTML('roleRec',45)+'<div class="btn-row"><button class="btn btn-ghost" id="roleNew" type="button">🎲 Autre situation</button><button class="btn btn-primary" id="roleDone" type="button">✓ J’ai atteint mes 3 objectifs</button></div></div>';bindRecorder('roleRec',45);document.getElementById('roleNew').onclick=renderRoleplay;document.getElementById('roleDone').onclick=()=>{state.speakingStats.roleplays=Number(state.speakingStats.roleplays||0)+1;logStudy();save();renderSpeakStats();toast('Roleplay ajouté à ton entraînement ✓');};}
+function pocketPhraseItems(){const pinned=SURVIVAL_PHRASES.filter(p=>state.phrasebook[p.id]).map(p=>({kind:'survival',id:p.id,en:p.en,fr:p.fr}));const fav=allWords().filter(w=>state.favorites[w.key]).slice(0,25).map(w=>({kind:'word',id:w.key,en:w.en,fr:w.fr}));const custom=(state.customPhrases||[]).map(p=>({kind:'custom',id:p.id,en:p.en,fr:p.fr}));return [...pinned,...fav,...custom];}
+function renderPhrasebook(){const root=document.getElementById('speak-arena');const pocket=pocketPhraseItems();root.innerHTML='<div class="speak-card"><p class="eyebrow">🆘 Survival English</p><h2>Ton phrasebook de poche</h2><p>Épingle les phrases dont tu veux disposer immédiatement en voyage. Tes mots favoris du lexique apparaissent aussi ici.</p><div class="phrasebook-list">'+SURVIVAL_PHRASES.map(p=>'<div class="phrase-row"><span><b lang="en">'+esc(p.en)+'</b><small>'+esc(p.fr)+' · '+esc(p.ctx)+'</small></span><button class="pin-btn" type="button" data-psay="'+encodeURIComponent(p.en)+'" aria-label="Écouter">🔊</button><button class="pin-btn '+(state.phrasebook[p.id]?'on':'')+'" type="button" data-pin="'+p.id+'" aria-pressed="'+String(!!state.phrasebook[p.id])+'">'+(state.phrasebook[p.id]?'📌':'＋')+'</button></div>').join('')+'</div><h3>Ajouter ma propre phrase</h3><div class="custom-form"><input id="customEn" type="text" placeholder="English phrase" aria-label="Phrase en anglais"><input id="customFr" type="text" placeholder="Traduction française" aria-label="Traduction française"><button id="customAdd" type="button">Ajouter</button></div><h3>Dans ma poche ('+pocket.length+')</h3><div class="phrasebook-list">'+(pocket.length?pocket.map(x=>'<div class="phrase-row"><span><b lang="en">'+esc(x.en)+'</b><small>'+esc(x.fr)+'</small></span><button class="pin-btn" type="button" data-pocket-say="'+encodeURIComponent(x.en)+'">🔊</button>'+(x.kind==='custom'?'<button class="pin-btn" type="button" data-custom-del="'+esc(x.id)+'" aria-label="Supprimer">✕</button>':'<span></span>')+'</div>').join(''):'<div class="empty-state">Épingle quelques phrases ou ajoute les tiennes : ton phrasebook personnel apparaîtra ici.</div>')+'</div></div>';root.querySelectorAll('[data-psay],[data-pocket-say]').forEach(b=>b.onclick=()=>speak(decodeURIComponent(b.dataset.psay||b.dataset.pocketSay),b));root.querySelectorAll('[data-pin]').forEach(b=>b.onclick=()=>{state.phrasebook[b.dataset.pin]=!state.phrasebook[b.dataset.pin];save();renderPhrasebook();});document.getElementById('customAdd').onclick=()=>{const en=document.getElementById('customEn').value.trim(),fr=document.getElementById('customFr').value.trim();if(!en){toast('Ajoute au moins la phrase anglaise.');return;}state.customPhrases.push({id:'p'+Date.now(),en,fr});save();renderPhrasebook();};root.querySelectorAll('[data-custom-del]').forEach(b=>b.onclick=()=>{state.customPhrases=state.customPhrases.filter(x=>x.id!==b.dataset.customDel);save();renderPhrasebook();});}
+function expressProgressHTML(step){return '<div class="express-progress">'+[1,2,3,4,5].map(n=>'<i class="'+(n<step?'done':'')+'"></i>').join('')+'</div>';}
+function startExpressSession(){const pool=smartPool(25);const words=pool.slice(0,3);expressState={step:1,flash:0,quiz:0,quizScore:0,words,listening:pool[4]||words[0],spoken:false};renderExpress();}
+function renderExpress(){const root=document.getElementById('speak-arena'),st=expressState;if(!st)return;if(st.step===1){const w=st.words[st.flash];root.innerHTML='<div class="speak-card"><p class="eyebrow">⚡ Session express · étape 1/5</p><h2>3 flashcards</h2>'+expressProgressHTML(1)+'<div class="express-card" id="expressFlash"><p class="eyebrow">Carte '+(st.flash+1)+' / 3</p><div class="express-word" lang="en">'+esc(w.en)+'</div><p id="expressAnswer" style="display:none"><b>'+esc(w.fr)+'</b><br>'+esc(w.ph)+'</p><button class="btn btn-sun" id="expressReveal">Voir la réponse</button></div><div class="review-actions" id="expressGrade" style="display:none;margin-top:10px"><button class="btn btn-ghost" data-eg="-1">↻ À revoir</button><button class="btn btn-primary" data-eg="1">✓ Je savais</button></div></div>';document.getElementById('expressReveal').onclick=()=>{document.getElementById('expressAnswer').style.display='block';document.getElementById('expressGrade').style.display='grid';};root.querySelectorAll('[data-eg]').forEach(b=>b.onclick=()=>{state.mastery[w.key]=Math.max(-2,Math.min(5,Number(state.mastery[w.key]||0)+Number(b.dataset.eg)));st.flash++;save();if(st.flash>=3){st.step=2;st.quiz=0;}renderExpress();});return;}
+  if(st.step===2){const w=st.words[st.quiz],opts=[w.fr,...allWords().filter(x=>x.key!==w.key&&x.fr!==w.fr).sort(()=>Math.random()-.5).slice(0,2).map(x=>x.fr)].sort(()=>Math.random()-.5);root.innerHTML='<div class="speak-card"><p class="eyebrow">⚡ Session express · étape 2/5</p><h2>3 questions</h2>'+expressProgressHTML(2)+'<div class="question">Que veut dire <span lang="en">“'+esc(w.en)+'”</span> ?</div><div class="options">'+opts.map((o,i)=>'<button class="opt" data-eq="'+encodeURIComponent(o)+'"><span class="key">'+['A','B','C'][i]+'</span><span>'+esc(o)+'</span></button>').join('')+'</div><div id="eqFeedback" class="explain"></div></div>';root.querySelectorAll('[data-eq]').forEach(b=>b.onclick=()=>{const chosen=decodeURIComponent(b.dataset.eq),ok=chosen===w.fr;root.querySelectorAll('[data-eq]').forEach(x=>{x.disabled=true;if(decodeURIComponent(x.dataset.eq)===w.fr)x.classList.add('correct')});if(!ok)b.classList.add('wrong');else st.quizScore++;state.mastery[w.key]=Math.max(-2,Math.min(5,Number(state.mastery[w.key]||0)+(ok?1:-1)));save();const f=document.getElementById('eqFeedback');f.innerHTML=ok?'✅ Correct':'💡 '+esc(w.fr);f.classList.add('show');setTimeout(()=>{st.quiz++;if(st.quiz>=3)st.step=3;renderExpress();},650);});return;}
+  if(st.step===3){const w=st.listening,opts=[w.fr,...allWords().filter(x=>x.key!==w.key&&x.fr!==w.fr).sort(()=>Math.random()-.5).slice(0,2).map(x=>x.fr)].sort(()=>Math.random()-.5);root.innerHTML='<div class="speak-card"><p class="eyebrow">⚡ Session express · étape 3/5</p><h2>1 listening</h2>'+expressProgressHTML(3)+'<div class="listen-first"><span class="ear">🎧</span><p>Ne regarde pas le mot : écoute-le, puis choisis son sens.</p><button class="btn btn-sun" id="expressListen">🔊 Écouter</button></div><div class="options" style="margin-top:12px">'+opts.map((o,i)=>'<button class="opt" data-el="'+encodeURIComponent(o)+'"><span class="key">'+['A','B','C'][i]+'</span><span>'+esc(o)+'</span></button>').join('')+'</div></div>';document.getElementById('expressListen').onclick=()=>speak(w.en,document.getElementById('expressListen'));root.querySelectorAll('[data-el]').forEach(b=>b.onclick=()=>{const ok=decodeURIComponent(b.dataset.el)===w.fr;state.mastery[w.key]=Math.max(-2,Math.min(5,Number(state.mastery[w.key]||0)+(ok?1:-1)));save();st.step=4;renderExpress();});return;}
+  if(st.step===4){root.innerHTML='<div class="speak-card"><p class="eyebrow">⚡ Session express · étape 4/5</p><h2>1 production orale</h2>'+expressProgressHTML(4)+'<div class="prompt">Parle pendant 20 à 30 secondes et utilise au moins <b>deux</b> de ces éléments.</div><div class="focus-chips">'+st.words.map(w=>'<span class="focus-chip" lang="en">'+esc(w.en)+'</span>').join('')+'</div>'+recorderHTML('expressRec',30)+'<div class="btn-row"><button class="btn btn-primary btn-block" id="expressSpoken">✓ J’ai fait ma production orale</button></div></div>';bindRecorder('expressRec',30);document.getElementById('expressSpoken').onclick=()=>{st.spoken=true;st.step=5;renderExpress();};return;}
+  state.speakingStats.express=Number(state.speakingStats.express||0)+1;logStudy();save();renderSpeakStats();renderBadges();root.innerHTML='<div class="speak-card" style="text-align:center"><p class="eyebrow">⚡ Session express terminée</p><h2>10 minutes bien utilisées ✓</h2>'+expressProgressHTML(6)+'<p>3 flashcards, 3 questions, 1 listening et 1 production orale. Score des questions : <b>'+st.quizScore+'/3</b>.</p><div class="btn-row" style="justify-content:center"><button class="btn btn-primary" id="expressAgain">Nouvelle session</button><button class="btn btn-ghost" id="expressClose">Fermer</button></div></div>';document.getElementById('expressAgain').onclick=startExpressSession;document.getElementById('expressClose').onclick=()=>{root.innerHTML='';};renderSpeakRework();renderSkillMap();}
+function travelRouteHTML(index){return '<div class="travel-route">'+TRAVEL_DAY.map((x,i)=>'<span class="travel-stop '+(i<index?'done':'')+'">'+x.ic+'</span>'+(i<TRAVEL_DAY.length-1?'<span class="travel-line"></span>':'')).join('')+'</div>';}
+function startTravelDay(){stopActiveRecording();travelDayState={index:0,score:0,history:[],answered:false};renderTravelDay();}
+function renderTravelDay(){const root=document.getElementById('speak-arena'),st=travelDayState;if(!st)return;if(st.index>=TRAVEL_DAY.length){finishTravelDay();return;}const sc=TRAVEL_DAY[st.index];root.innerHTML='<div class="travelday"><p class="eyebrow" style="color:var(--sun)">🧳 Nathalie’s Travel Day</p><h2>Étape '+(st.index+1)+' / '+TRAVEL_DAY.length+' · '+esc(sc.place)+'</h2>'+travelRouteHTML(st.index)+'<p>Score actuel : <b>'+st.score+' / '+(st.index*2)+'</b></p><div class="travel-scene"><div class="bubble npc" style="max-width:100%"><span class="who">Local / staff</span><span lang="en">'+esc(sc.npc)+'</span><div class="bubble-tools"><button class="tiny-btn" id="tdListen">🔊 Écouter</button></div></div><h3>Que réponds-tu ?</h3>'+sc.options.map((o,i)=>'<button class="travel-choice" type="button" data-td="'+i+'" lang="en">'+esc(o.t)+'</button>').join('')+'<div id="tdFeedback"></div><div class="btn-row" id="tdNextWrap" style="display:none"><button class="btn btn-primary btn-block" id="tdNext">Continuer le voyage →</button></div></div></div>';document.getElementById('tdListen').onclick=()=>speak(sc.npc,document.getElementById('tdListen'));root.querySelectorAll('[data-td]').forEach(b=>b.onclick=()=>answerTravelDay(+b.dataset.td));}
+function answerTravelDay(i){const st=travelDayState;if(!st||st.answered)return;const sc=TRAVEL_DAY[st.index],o=sc.options[i];st.answered=true;st.score+=o.s;st.history.push({place:sc.place,choice:o.t,score:o.s});document.querySelectorAll('[data-td]').forEach((b,j)=>{b.disabled=true;if(j===i)b.classList.add('selected');});const best=sc.options.find(x=>x.s===2);const fb=document.getElementById('tdFeedback');fb.className='mission-feedback';fb.innerHTML=(o.s===2?'✅ <b>Naturel et efficace.</b>':o.s===1?'👍 <b>Ça passe.</b>':'💡 <b>On peut faire plus naturel.</b>')+'<br><span lang="en">“'+esc(o.r)+'”</span>'+(o.s<2?'<br><small>À retenir : <span lang="en">'+esc(best.t)+'</span></small>':'');document.getElementById('tdNextWrap').style.display='flex';document.getElementById('tdNext').onclick=()=>{st.index++;st.answered=false;renderTravelDay();};logStudy();}
+function finishTravelDay(){const root=document.getElementById('speak-arena'),st=travelDayState;state.speakingStats.travelDayPlays=Number(state.speakingStats.travelDayPlays||0)+1;state.speakingStats.travelDayBest=Math.max(Number(state.speakingStats.travelDayBest||0),st.score);save();logStudy();if(st.score>=12)confetti('#FFC145');const copy=st.score>=13?'Tu as traversé la journée avec des formulations très naturelles.':st.score>=10?'Très solide : tu peux gérer toute la chaîne du voyage.':st.score>=7?'Tu transmets l’essentiel. Rejoue pour rendre les formulations plus naturelles.':'Tu as survécu à la journée ! Une deuxième tentative va déjà faire une grosse différence.';root.innerHTML='<div class="mission-result"><div class="stamp-big">🧳</div><p class="eyebrow">Travel Day terminé</p><h2>'+st.score+' / 14</h2><p>'+copy+'</p><div class="result-phrases">'+st.history.map(x=>'<div class="result-phrase"><b>'+x.place+' · '+x.score+'/2</b><span lang="en">'+esc(x.choice)+'</span></div>').join('')+'</div><div style="text-align:left;margin-top:18px"><h3>🎙️ Final challenge · raconte ta journée</h3><p style="color:var(--muted);font-size:13px">Imagine qu’un ami anglophone t’appelle ce soir. Résume ta journée de voyage en 30 à 45 secondes, sans lire les phrases ci-dessus mot à mot.</p>'+recorderHTML('tdStoryRec',45)+'</div><div class="btn-row" style="justify-content:center"><button class="btn btn-primary" id="tdAgain">↻ Rejouer la journée</button><button class="btn btn-ghost" id="tdClose">Fermer</button></div></div>';bindRecorder('tdStoryRec',45);document.getElementById('tdAgain').onclick=startTravelDay;document.getElementById('tdClose').onclick=()=>{stopActiveRecording();root.innerHTML='';};renderSpeakStats();renderSkillMap();renderBadges();}
+
 let dictFavOnly=false;
 function renderDictionary(){
   const root=document.getElementById('dict-results'); if(!root) return;
@@ -2894,7 +3093,7 @@ if('serviceWorker' in navigator){
 window.addEventListener('hashchange',()=>{
   const h=(location.hash||'').replace('#','');
   if(h.startsWith('lecon-')) openLesson(h.slice(6));
-  else if(['programme','games','missions','revision','lexique','test','resultat','accueil'].includes(h)) go(h,{keepHash:true});
+  else if(['programme','games','missions','speak','revision','lexique','test','resultat','accueil'].includes(h)) go(h,{keepHash:true});
   else go('accueil',{keepHash:true});
 });
 
@@ -2913,7 +3112,7 @@ window.addEventListener('hashchange',()=>{
   document.querySelectorAll('[data-game]').forEach(b=>b.addEventListener('click',()=>startGame(b.dataset.game)));
   const hash=(location.hash||'').replace('#','');
   if(hash.startsWith('lecon-')) openLesson(hash.slice(6));
-  else if(['programme','games','missions','revision','lexique'].includes(hash)) go(hash);
+  else if(['programme','games','missions','speak','revision','lexique'].includes(hash)) go(hash);
   else go('accueil');
 })();
 </script>
