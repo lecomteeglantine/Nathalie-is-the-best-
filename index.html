@@ -16,10 +16,6 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 <meta name="apple-mobile-web-app-title" content="Nathalie EN" />
 
-<!-- Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
 
 <style>
 /* ---------- Tokens ---------- */
@@ -40,9 +36,9 @@
   --shadow-sm:0 4px 14px -8px rgba(11,34,56,.4);
   --radius:18px;
   --maxw:760px;
-  --display:'Fraunces',Georgia,'Times New Roman',serif;
-  --body:'Plus Jakarta Sans',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
-  --mono:'Space Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+  --display:'Iowan Old Style','Palatino Linotype',Palatino,Georgia,'Times New Roman',serif;
+  --body:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace;
 }
 
 *{box-sizing:border-box}
@@ -148,6 +144,7 @@ p{margin:0 0 1em}
 .btn-ghost:hover{border-color:var(--sky)}
 .btn-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
 .btn-block{width:100%}
+.btn:disabled,.pill:disabled{opacity:.48;cursor:not-allowed;filter:grayscale(.25)}
 
 /* ---------- Cards / lists ---------- */
 .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow-sm)}
@@ -329,9 +326,84 @@ h2.sec .dot{width:10px;height:10px;border-radius:50%;background:var(--accent,#2E
 @media (prefers-reduced-motion:reduce){
   *{animation:none !important;transition:none !important}
 }
+
+
+/* ============ V2 · navigation, révision, lexique, accessibilité ============ */
+:root{--dock-h:72px}
+html{scroll-behavior:smooth}
+body{padding-bottom:calc(var(--dock-h) + env(safe-area-inset-bottom) + 16px)}
+body.large-text{font-size:112%}
+body.high-contrast{--paper:#fff;--card:#fff;--text:#000;--muted:#343434;--ink:#071d31;--ink-2:#000f1e;--line:rgba(0,0,0,.24);--line-strong:rgba(0,0,0,.55);--shadow:0 7px 20px -14px rgba(0,0,0,.55);--shadow-sm:0 3px 10px -8px rgba(0,0,0,.5)}
+.skip-link{position:fixed;left:10px;top:10px;z-index:999;background:#fff;color:#000;padding:10px 14px;border-radius:10px;border:2px solid #000;transform:translateY(-150%)}
+.skip-link:focus{transform:none}
+.sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+.icon-btn{border:1px solid var(--line-strong);background:var(--card);color:var(--ink);min-width:42px;height:38px;border-radius:999px;cursor:pointer;font-weight:800;box-shadow:var(--shadow-sm)}
+.icon-btn:hover{border-color:var(--sky)}
+.top-tools{display:flex;gap:7px;align-items:center}
+
+.app-dock{position:fixed;z-index:55;left:50%;bottom:max(8px,env(safe-area-inset-bottom));transform:translateX(-50%);width:min(720px,calc(100% - 18px));height:64px;border:1px solid var(--line-strong);background:rgba(255,255,255,.94);backdrop-filter:blur(14px);border-radius:20px;box-shadow:0 16px 40px -18px rgba(11,34,56,.55);display:grid;grid-template-columns:repeat(4,1fr);padding:6px;gap:4px}
+.dock-btn{border:0;background:transparent;border-radius:14px;color:var(--muted);cursor:pointer;display:grid;place-items:center;align-content:center;gap:1px;min-width:0;font-size:19px}
+.dock-btn span{font-size:10px;font-weight:700;white-space:nowrap}
+.dock-btn[aria-current="page"]{background:rgba(46,134,171,.12);color:var(--ink)}
+
+.home-dashboard{display:grid;grid-template-columns:1fr;gap:12px;margin:18px 0 6px}
+.dash-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow-sm)}
+.dash-top{display:flex;align-items:flex-start;gap:12px}
+.dash-ic{width:44px;height:44px;display:grid;place-items:center;border-radius:13px;background:rgba(46,134,171,.12);font-size:23px;flex:0 0 auto}
+.dash-card h3{font-size:17px;margin:0 0 3px}.dash-card p{font-size:13px;color:var(--muted);margin:0}
+.stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}
+.stat{background:rgba(22,50,79,.045);border:1px solid var(--line);border-radius:12px;padding:10px;text-align:center}
+.stat b{display:block;font-family:var(--display);font-size:23px;color:var(--ink);line-height:1}.stat small{display:block;color:var(--muted);font-size:10px;margin-top:5px}
+
+.smart-card{background:linear-gradient(145deg,var(--ink),var(--ink-2));color:#fff;border-radius:18px;padding:17px;margin:14px 0;box-shadow:var(--shadow)}
+.smart-card h3{color:#fff}.smart-card p{color:#c9dbe8;font-size:14px}
+.smart-card .btn{margin-top:3px}
+
+.tool-row{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 16px}
+.pill{border:1px solid var(--line-strong);background:var(--card);color:var(--ink);padding:8px 12px;border-radius:999px;font-size:13px;font-weight:700;cursor:pointer}
+.pill.active{background:var(--ink);color:#fff;border-color:var(--ink)}
+
+.review-shell{display:grid;gap:14px}
+.review-card{position:relative;min-height:245px;border-radius:22px;background:linear-gradient(150deg,#fff,#f6fbfd);border:1px solid var(--line);box-shadow:var(--shadow);padding:24px;display:grid;align-content:center;text-align:center;cursor:pointer;user-select:none}
+.review-card .kicker{font-family:var(--mono);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--sky);margin-bottom:14px}
+.review-card .front{font-family:var(--display);font-weight:900;font-size:clamp(30px,8vw,46px);color:var(--ink);line-height:1.05}
+.review-card .back{display:none;margin-top:18px;border-top:1px dashed var(--line-strong);padding-top:16px;color:var(--muted)}
+.review-card.revealed .back{display:block}.review-card.revealed .tap-hint{display:none}
+.review-card .back b{display:block;color:var(--ink);font-size:20px;margin-bottom:5px}
+.tap-hint{font-size:12px;color:var(--muted);margin-top:20px}
+.review-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.review-meta{display:flex;justify-content:space-between;gap:10px;color:var(--muted);font-family:var(--mono);font-size:11px}
+
+.searchbox{position:sticky;top:63px;z-index:20;background:linear-gradient(180deg,var(--paper) 82%,transparent);padding:8px 0 13px}
+.search-input{width:100%;border:1.5px solid var(--line-strong);background:var(--card);color:var(--text);font:inherit;padding:13px 15px;border-radius:14px;outline:none;box-shadow:var(--shadow-sm)}
+.search-input:focus{border-color:var(--sky);box-shadow:0 0 0 3px rgba(46,134,171,.12)}
+.select{border:1px solid var(--line-strong);background:var(--card);color:var(--ink);padding:9px 11px;border-radius:11px;font:inherit;font-size:13px}
+.dict-list{display:grid;gap:9px;margin-top:10px}
+.dict-row{display:grid;grid-template-columns:auto 1fr auto auto;gap:10px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:11px 12px}
+.dict-row .word{font-weight:800;color:var(--ink)}.dict-row .translation{display:block;color:var(--muted);font-size:13px}.dict-row .where{font-family:var(--mono);font-size:9px;color:var(--sky);text-transform:uppercase;letter-spacing:.7px}
+.star-btn{width:40px;height:40px;border:1px solid var(--line);background:var(--card);border-radius:10px;cursor:pointer;font-size:18px;color:#8a6b00}.star-btn.on{background:rgba(255,193,69,.18);border-color:rgba(255,193,69,.75)}
+
+.lesson-tools{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 14px}
+.lesson-tool{border:1px solid var(--line-strong);background:var(--card);color:var(--ink);border-radius:999px;padding:8px 12px;cursor:pointer;font-weight:700;font-size:12px}
+.vrow .star-btn{flex:0 0 auto}
+.mission{border:1px solid color-mix(in srgb,var(--accent,#2E86AB) 32%,#fff);background:color-mix(in srgb,var(--accent,#2E86AB) 8%,#fff);border-radius:16px;padding:16px;margin:12px 0}
+.mission-words{display:flex;flex-wrap:wrap;gap:7px;margin:10px 0}.mission-word{background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 10px;font-weight:800;color:var(--ink)}
+.practice-status{font-size:13px;color:var(--muted);margin:8px 0}.practice-status.good{color:var(--mint);font-weight:800}
+
+.video-consent{border-radius:16px;border:1px solid var(--line);background:linear-gradient(145deg,var(--ink),var(--ink-2));color:#fff;padding:24px;text-align:center;box-shadow:var(--shadow-sm)}
+.video-consent .play{font-size:44px;display:block;margin-bottom:4px}.video-consent p{color:#c9dbe8;font-size:13px}.video-consent .btn{margin-top:4px}
+
+.quiz-mini{display:grid;gap:10px}.quiz-score{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.empty-state{text-align:center;border:1px dashed var(--line-strong);border-radius:16px;padding:26px;color:var(--muted)}
+
+footer{padding-bottom:calc(40px + var(--dock-h))}
+@media (min-width:700px){.home-dashboard{grid-template-columns:1.25fr .75fr}.app-dock{bottom:14px}.dict-row{grid-template-columns:auto minmax(0,1fr) auto auto}.topbar-in{padding-left:18px;padding-right:18px}}
+@media (max-width:430px){.brand span span{display:none}.top-tools{gap:5px}.icon-btn{min-width:38px}.stat-grid{gap:6px}.stat{padding:9px 5px}.review-actions{grid-template-columns:1fr}.dict-row{grid-template-columns:auto 1fr auto}.dict-row .star-btn{grid-column:3}.dict-row .speak{grid-column:1}.dict-row .where{grid-column:2/4}.vrow{gap:8px}.vrow .star-btn{width:36px;height:36px}.vrow .speak{width:38px;height:38px}}
+
 </style>
 </head>
 <body>
+<a class="skip-link" href="#main-content">Aller au contenu</a>
 
 <header class="topbar">
   <div class="topbar-in">
@@ -343,11 +415,15 @@ h2.sec .dot{width:10px;height:10px;border-radius:50%;background:var(--accent,#2E
       </span>
     </button>
     <span class="spacer"></span>
-    <button id="installBtn" class="btn-install" aria-label="Installer l'application">⬇ Installer l'app</button>
+    <div class="top-tools" aria-label="Réglages d’affichage">
+      <button id="textSizeBtn" class="icon-btn" type="button" title="Agrandir le texte" aria-pressed="false">Aa+</button>
+      <button id="contrastBtn" class="icon-btn" type="button" title="Contraste renforcé" aria-pressed="false">◐</button>
+      <button id="installBtn" class="btn-install" aria-label="Installer l'application">⬇ Installer</button>
+    </div>
   </div>
 </header>
 
-<main>
+<main id="main-content">
 
   <!-- ============ ACCUEIL ============ -->
   <section id="view-accueil" class="view active" aria-labelledby="home-h1">
@@ -383,10 +459,22 @@ h2.sec .dot{width:10px;height:10px;border-radius:50%;background:var(--accent,#2E
       </div>
     </div>
 
+    <div class="home-dashboard" id="home-dashboard" aria-label="Tableau de bord">
+      <div class="dash-card" id="continue-card"></div>
+      <div class="dash-card">
+        <div class="dash-top"><div class="dash-ic" aria-hidden="true">📊</div><div><h3>Ton passeport</h3><p>Tout est enregistré uniquement sur cet appareil.</p></div></div>
+        <div class="stat-grid">
+          <div class="stat"><b id="home-done">0</b><small>escales</small></div>
+          <div class="stat"><b id="home-words">0</b><small>mots vus</small></div>
+          <div class="stat"><b id="home-favs">0</b><small>favoris</small></div>
+        </div>
+      </div>
+    </div>
+
     <div class="phrase-day card" aria-label="Phrase du jour">
       <div class="stamp" aria-hidden="true">💬</div>
       <div style="flex:1;min-width:0">
-        <p class="en" id="pd-en">Hello, how are you?</p>
+        <p class="en" id="pd-en" lang="en">Hello, how are you?</p>
         <p class="fr" id="pd-fr">Bonjour, comment ça va ?</p>
       </div>
       <button class="mini-speak" title="Écouter" aria-label="Écouter la phrase" onclick="speakEl('pd-en')">🔊</button>
@@ -421,9 +509,10 @@ h2.sec .dot{width:10px;height:10px;border-radius:50%;background:var(--accent,#2E
     <button class="back" onclick="go('accueil')">← Accueil</button>
     <div class="quiz-head">
       <p class="eyebrow" id="test-h" style="margin:0">Test de niveau</p>
-      <span class="quiz-progress" id="q-progress">1 / 12</span>
+      <span class="quiz-progress" id="q-progress">1 / 17</span>
     </div>
     <div class="qbar"><i id="q-fill"></i></div>
+    <p class="lead" style="font-size:13px">17 questions, de plus en plus difficiles. Ce test sert seulement à te proposer un point de départ : ce n’est pas une certification officielle CECRL.</p>
     <div id="q-container"></div>
   </section>
 
@@ -443,6 +532,7 @@ h2.sec .dot{width:10px;height:10px;border-radius:50%;background:var(--accent,#2E
         <p class="eyebrow" id="res-h">Embarquement immédiat</p>
         <h1 id="res-title">Bravo !</h1>
         <p class="lead" id="res-text"></p>
+        <p class="note-safe">ℹ️ Niveau indicatif : ce test maison sert à choisir un point de départ dans l’application, pas à certifier un niveau CECRL.</p>
         <h3 style="margin-top:6px">On commence par ici :</h3>
         <div id="res-reco" class="modules" style="margin-top:10px"></div>
         <div class="btn-row" style="margin-top:14px">
@@ -462,6 +552,12 @@ h2.sec .dot{width:10px;height:10px;border-radius:50%;background:var(--accent,#2E
       <span class="count" id="prog-count">0 / 8 tampons</span>
     </div>
     <p class="lead" id="prog-tip" style="margin-top:10px">Chaque escale terminée te donne un tampon dans ton passeport. 🛂</p>
+    <div id="next-stop"></div>
+    <div class="tool-row" aria-label="Filtrer les escales">
+      <button class="pill active" data-prog-filter="all">Toutes</button>
+      <button class="pill" data-prog-filter="todo">À faire</button>
+      <button class="pill" data-prog-filter="done">Validées</button>
+    </div>
     <div id="module-list" class="modules"></div>
     <div class="btn-row" style="margin-top:16px">
       <button class="btn btn-ghost" onclick="startTest()">↻ Refaire le test de niveau</button>
@@ -474,12 +570,55 @@ h2.sec .dot{width:10px;height:10px;border-radius:50%;background:var(--accent,#2E
     <div id="lesson-body"></div>
   </section>
 
+  <!-- ============ RÉVISER ============ -->
+  <section id="view-revision" class="view" aria-labelledby="review-h">
+    <button class="back" onclick="go('accueil')">← Accueil</button>
+    <p class="eyebrow" id="review-h">Révision active</p>
+    <h1>Réviser sans relire</h1>
+    <p class="lead">Flashcards, rappel actif et mini-quiz. Les mots marqués « à revoir » reviennent plus souvent.</p>
+    <div class="tool-row">
+      <select id="review-scope" class="select" aria-label="Choisir le contenu à réviser">
+        <option value="all">Tout le parcours</option>
+        <option value="favorites">Mes favoris ⭐</option>
+        <option value="A1">Niveau A1</option><option value="A2">Niveau A2</option><option value="B1">Niveau B1</option><option value="B2">Niveau B2</option><option value="C1">Niveau C1</option>
+      </select>
+      <button class="pill active" id="mode-flash">🎴 Flashcards</button>
+      <button class="pill" id="mode-quiz">⚡ Quiz 10 mots</button>
+    </div>
+    <div id="review-content" class="review-shell" aria-live="polite"></div>
+  </section>
+
+  <!-- ============ LEXIQUE ============ -->
+  <section id="view-lexique" class="view" aria-labelledby="lex-h">
+    <button class="back" onclick="go('accueil')">← Accueil</button>
+    <p class="eyebrow" id="lex-h">Lexique de voyage</p>
+    <h1>Trouver un mot</h1>
+    <p class="lead">Cherche en anglais ou en français dans tout le parcours. Tu peux écouter le mot et l’ajouter à tes favoris.</p>
+    <div class="searchbox">
+      <label class="sr-only" for="dict-search">Rechercher un mot</label>
+      <input id="dict-search" class="search-input" type="search" placeholder="Ex. réservation, luggage, opinion…" autocomplete="off">
+      <div class="tool-row" style="margin-bottom:0">
+        <select id="dict-level" class="select" aria-label="Filtrer par niveau"><option value="all">Tous les niveaux</option><option>A1</option><option>A2</option><option>B1</option><option>B2</option><option>C1</option></select>
+        <button id="dict-favs" class="pill">⭐ Favoris seulement</button>
+      </div>
+    </div>
+    <p class="quiz-score" id="dict-count"></p>
+    <div id="dict-results" class="dict-list"></div>
+  </section>
+
 </main>
 
 <footer>
   <p>Fait avec <span class="heart" aria-hidden="true">❤</span> pour Nathalie — parce que tu es <b>the best</b>, et que le monde t'attend.</p>
-  <p class="priv">🔒 Ta progression reste sur ce téléphone, dans ton navigateur. Rien n'est envoyé ailleurs. Les vidéos s'ouvrent depuis YouTube et ont besoin d'internet.</p>
+  <p class="priv">🔒 Aucun compte et aucune progression envoyée à un serveur : tes résultats restent dans le stockage local de ce navigateur. Les vidéos YouTube ne se chargent qu’après ton clic et nécessitent internet.</p>
 </footer>
+
+<nav class="app-dock" aria-label="Navigation principale">
+  <button class="dock-btn" data-go="accueil" aria-current="page">🏠<span>Accueil</span></button>
+  <button class="dock-btn" data-go="programme">🗺️<span>Programme</span></button>
+  <button class="dock-btn" data-go="revision">🎴<span>Réviser</span></button>
+  <button class="dock-btn" data-go="lexique">🔎<span>Lexique</span></button>
+</nav>
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
@@ -520,7 +659,7 @@ const DIAGNOSTIC = [
   { q:'Demander poliment l\'addition :', hint:'___ I have the bill, please?',
     o:['Am','Could','Do'], a:1, e:'“<b>Could</b> I have…?” ou “Can I have…?” = puis-je avoir…' },
   { q:'Le bon article :', hint:'I need ___ apple.',
-    o:['a','an','the'], a:1, e:'Devant un son voyelle (a-e-i-o-u), on met <b>an</b> : an apple.' },
+    o:['a','an','the'], a:1, e:'Devant un <b>son voyelle</b>, on met <b>an</b> : an apple.' },
   { q:'Au passé :', hint:'Yesterday, I ___ to London.',
     o:['go','goed','went'], a:2, e:'Le passé de « go » est irrégulier : <b>went</b>.' },
   { q:'« Turn right at the traffic lights » veut dire :', hint:'',
@@ -1740,37 +1879,89 @@ const LEVELS = [
    État (sauvegardé sur l'appareil)
    ========================================================= */
 const KEY='nathalie_en_v1';
-let state = load();
+function defaults(){ return { done:{}, score:null, level:null, phraseIdx:null, phraseDate:null, lastModule:null, favorites:{}, mastery:{}, practice:{}, studyDates:[], uiLarge:false, uiContrast:false }; }
 function load(){
-  try{ return JSON.parse(localStorage.getItem(KEY)) || defaults(); }
-  catch(e){ return defaults(); }
+  try{
+    const raw=JSON.parse(localStorage.getItem(KEY)) || {};
+    return Object.assign(defaults(), raw, {
+      done:raw.done||{}, favorites:raw.favorites||{}, mastery:raw.mastery||{}, practice:raw.practice||{}, studyDates:Array.isArray(raw.studyDates)?raw.studyDates:[]
+    });
+  }catch(e){ return defaults(); }
 }
-function defaults(){ return { done:{}, score:null, level:null, phraseIdx:0 }; }
+let state = load();
 function save(){ try{ localStorage.setItem(KEY, JSON.stringify(state)); }catch(e){} }
+function todayKey(){ return new Date().toISOString().slice(0,10); }
+function logStudy(){ const d=todayKey(); if(!state.studyDates.includes(d)){ state.studyDates.push(d); state.studyDates=state.studyDates.slice(-120); save(); } }
+function wordKey(moduleId,index){ return moduleId+'::'+index; }
+function allWords(){
+  const out=[];
+  MODULES.forEach(m=>m.vocab.forEach((v,i)=>out.push({key:wordKey(m.id,i),moduleId:m.id,moduleTitle:m.title,level:m.level,color:m.color,index:i,en:v[0],ph:v[1],fr:v[2],emoji:v[3]||'🗣️'})));
+  return out;
+}
+function cleanSearch(s){ return String(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase(); }
+function applyUiPrefs(){
+  document.body.classList.toggle('large-text',!!state.uiLarge);
+  document.body.classList.toggle('high-contrast',!!state.uiContrast);
+  const t=document.getElementById('textSizeBtn'), c=document.getElementById('contrastBtn');
+  if(t) t.setAttribute('aria-pressed',String(!!state.uiLarge)); if(c) c.setAttribute('aria-pressed',String(!!state.uiContrast));
+}
 
 /* =========================================================
    Router
    ========================================================= */
-function go(view){
+function go(view, opts={}){
   document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
   const el = document.getElementById('view-'+view);
   if(el) el.classList.add('active');
   window.scrollTo(0,0);
   if(view==='programme') renderProgramme();
-  if(view==='accueil') renderPhrase();
-  history.replaceState(null,'','#'+view);
+  if(view==='accueil') renderHome();
+  if(view==='revision') renderReview();
+  if(view==='lexique') renderDictionary();
+  document.querySelectorAll('.dock-btn').forEach(b=>{ if(b.dataset.go===view) b.setAttribute('aria-current','page'); else b.removeAttribute('aria-current'); });
+  if(!opts.keepHash) history.replaceState(null,'','#'+view);
 }
 
 /* =========================================================
    Phrase du jour
    ========================================================= */
+function dailyPhraseIndex(){
+  const d=new Date();
+  const n=Math.floor(Date.UTC(d.getFullYear(),d.getMonth(),d.getDate())/86400000);
+  return Math.abs(n)%PHRASES.length;
+}
 function renderPhrase(){
+  const d=todayKey();
+  if(state.phraseDate!==d || state.phraseIdx===null || state.phraseIdx===undefined){ state.phraseIdx=dailyPhraseIndex(); state.phraseDate=d; save(); }
   const p = PHRASES[state.phraseIdx % PHRASES.length];
   document.getElementById('pd-en').textContent = p[0];
   document.getElementById('pd-fr').textContent = p[1];
 }
 function newPhrase(){
-  state.phraseIdx = (state.phraseIdx+1) % PHRASES.length; save(); renderPhrase();
+  state.phraseDate=todayKey(); state.phraseIdx = ((state.phraseIdx??dailyPhraseIndex())+1) % PHRASES.length; save(); renderPhrase();
+}
+function nextRecommendedModule(){
+  if(state.lastModule && !state.done[state.lastModule]) return getModule(state.lastModule);
+  const levelId=(state.level||'').match(/\((A1|A2|B1|B2|C1)\)/)?.[1];
+  if(levelId){ const atLevel=MODULES.find(m=>m.level===levelId && !state.done[m.id]); if(atLevel) return atLevel; }
+  return MODULES.find(m=>!state.done[m.id]) || MODULES[0];
+}
+function renderHome(){
+  renderPhrase();
+  const doneMods=MODULES.filter(m=>state.done[m.id]);
+  const wordsSeen=doneMods.reduce((n,m)=>n+m.vocab.length,0);
+  const favs=Object.keys(state.favorites).filter(k=>state.favorites[k]).length;
+  document.getElementById('home-done').textContent=doneMods.length;
+  document.getElementById('home-words').textContent=wordsSeen;
+  document.getElementById('home-favs').textContent=favs;
+  const m=nextRecommendedModule();
+  const target=document.getElementById('continue-card');
+  if(doneMods.length===MODULES.length){
+    target.innerHTML='<div class="dash-top"><div class="dash-ic">🏆</div><div><h3>Passeport complet !</h3><p>Les 24 escales sont validées. Passe en mode révision active pour entretenir tout ça.</p></div></div><div class="btn-row"><button class="btn btn-sun btn-block" onclick="go(\'revision\')">Réviser maintenant →</button></div>';
+  }else{
+    const label=state.lastModule?'Reprendre là où tu en étais':'Prochaine escale conseillée';
+    target.innerHTML='<div class="dash-top"><div class="dash-ic">'+m.emoji+'</div><div><h3>'+label+'</h3><p><b>'+m.level+' · '+m.title+'</b><br>'+m.subtitle+'</p></div></div><div class="btn-row"><button class="btn btn-primary btn-block" onclick="openLesson(\''+m.id+'\')">Continuer →</button></div>';
+  }
 }
 
 /* =========================================================
@@ -1856,15 +2047,15 @@ function finishTest(){
 
   // 5 bandes → un niveau de départ recommandé (A1 … C1)
   let band;
-  if(pct < 0.30)      band=0;   // A1
-  else if(pct < 0.50) band=1;   // A2
-  else if(pct < 0.70) band=2;   // B1
-  else if(pct < 0.88) band=3;   // B2
-  else                band=4;   // C1
+  if(pct < 0.35)      band=0;   // A1
+  else if(pct < 0.58) band=1;   // A2
+  else if(pct < 0.76) band=2;   // B1
+  else if(pct < 0.94) band=3;   // B2
+  else                band=4;   // C1 (16-17/17)
 
   const lv = LEVELS[band];
   const level = lv.name+' ('+lv.id+')';
-  state.level = level; save();
+  state.level = level; logStudy(); save();
 
   document.getElementById('res-score').textContent = qScore+' / '+total;
   document.getElementById('res-level').textContent = level;
@@ -1920,23 +2111,27 @@ function moduleCardHTML(m){
 function renderProgramme(){
   const list = document.getElementById('module-list');
   const doneOf = m => !!state.done[m.id];
+  const filter=document.querySelector('.pill.active[data-prog-filter]')?.dataset.progFilter || 'all';
 
   let html = '';
   LEVELS.forEach(lv=>{
-    const mods = MODULES.filter(m=>m.level===lv.id);
-    if(!mods.length) return;
-    const done = mods.filter(doneOf).length;
-    const pct = Math.round(done/mods.length*100);
+    let mods = MODULES.filter(m=>m.level===lv.id);
+    const fullMods=mods.slice();
+    const done = fullMods.filter(doneOf).length;
+    const pct = Math.round(done/fullMods.length*100);
+    if(filter==='todo') mods=mods.filter(m=>!doneOf(m));
+    if(filter==='done') mods=mods.filter(doneOf);
+    if(!mods.length && filter!=='all') return;
     html += '<div class="level-sec" style="--lvl:'+lv.color+'">'+
       '<div class="level-head"><span class="level-badge">'+lv.tag+'</span><h2>'+lv.name+'</h2></div>'+
       '<p class="level-desc">'+lv.desc+'</p>'+
       '<div class="level-prog"><div class="track"><div class="fill" style="width:'+pct+'%"></div></div>'+
-        '<span class="count">'+(done===mods.length
+        '<span class="count">'+(done===fullMods.length
             ? '<span class="level-done">✓ niveau complet</span>'
-            : done+' / '+mods.length)+'</span></div>'+
+            : done+' / '+fullMods.length)+'</span></div>'+
       '<div class="modules">'+ mods.map(moduleCardHTML).join('') +'</div></div>';
   });
-  list.innerHTML = html;
+  list.innerHTML = html || '<div class="empty-state">Aucune escale dans ce filtre.</div>';
   list.querySelectorAll('.module').forEach(el=>el.addEventListener('click',()=>openLesson(el.dataset.id)));
 
   const doneCount = MODULES.filter(doneOf).length;
@@ -1945,7 +2140,13 @@ function renderProgramme(){
   const tip = document.getElementById('prog-tip');
   if(doneCount===0) tip.innerHTML='Ton parcours va du niveau grand débutant (A1) jusqu\'au C1. Choisis une escale pour commencer — chaque leçon terminée te donne un tampon. 🛂';
   else if(doneCount<MODULES.length) tip.innerHTML='Déjà '+doneCount+' tampon'+(doneCount>1?'s':'')+' sur '+MODULES.length+' ! Tu montes les niveaux petit à petit. Continue. ✈️';
-  else tip.innerHTML='🎉 Parcours complet, de A1 à C1 ! Tu es officiellement prête à voyager <i>et</i> à discuter en anglais. Je suis fier de toi. 💛';
+  else tip.innerHTML='🎉 Parcours complet, de A1 à C1 ! Tu es officiellement prête à voyager <i>et</i> à discuter en anglais. 💛';
+
+  const next=nextRecommendedModule();
+  const ns=document.getElementById('next-stop');
+  if(doneCount<MODULES.length && next){
+    ns.innerHTML='<div class="smart-card"><h3>🧭 Ton prochain arrêt</h3><p><b>'+next.level+' · '+next.title+'</b><br>'+next.subtitle+'</p><button class="btn btn-sun" onclick="openLesson(\''+next.id+'\')">Continuer cette escale →</button></div>';
+  }else ns.innerHTML='<div class="smart-card"><h3>🏆 Tout est validé</h3><p>Bravo ! Passe maintenant en révision active pour garder les mots disponibles quand tu en as besoin.</p><button class="btn btn-sun" onclick="go(\'revision\')">Ouvrir les révisions →</button></div>';
 }
 
 /* =========================================================
@@ -1954,16 +2155,18 @@ function renderProgramme(){
 function openLesson(id){
   const m = getModule(id);
   if(!m) return;
+  state.lastModule=id; logStudy(); save();
   const vocabHTML = m.vocab.map((v,i)=>{
     const spId='v-'+id+'-'+i;
     return '<div class="vrow">'+
       '<span class="vicon" aria-hidden="true">'+(v[3]||'🗣️')+'</span>'+
       '<span class="vtext">'+
-        '<span class="en" id="'+spId+'">'+v[0]+'</span>'+
+        '<span class="en" lang="en" id="'+spId+'">'+v[0]+'</span>'+
         '<span class="ph">'+v[1]+'</span>'+
         '<span class="fr">'+v[2]+'</span>'+
       '</span>'+
       '<button class="speak" title="Écouter" aria-label="Écouter la prononciation" data-say="'+encodeURIComponent(v[0])+'">🔊</button>'+
+      '<button class="star-btn'+(state.favorites[wordKey(id,i)]?' on':'')+'" type="button" data-fav="'+wordKey(id,i)+'" aria-label="Ajouter aux favoris" aria-pressed="'+String(!!state.favorites[wordKey(id,i)])+'">'+(state.favorites[wordKey(id,i)]?'★':'☆')+'</button>'+
     '</div>';
   }).join('');
 
@@ -1991,6 +2194,7 @@ function openLesson(id){
       '<div><p class="eyebrow" style="margin:0;color:'+m.color+'" id="lesson-h">'+m.tag+'</p><h1 style="margin:.1em 0">'+m.title+'</h1></div>'+
     '</div>'+
     '<p class="lead">'+m.intro+'</p>'+
+    '<div class="lesson-tools"><button class="lesson-tool" onclick="startModuleReview(\''+m.id+'\')">🎴 Flashcards de cette escale</button><button class="lesson-tool" onclick="go(\'lexique\')">🔎 Ouvrir le lexique</button></div>'+
     safeNote+
     '<h2 class="sec"><span class="dot"></span>Vocabulaire <span style="font-family:var(--mono);font-size:12px;color:var(--muted);font-weight:400">('+m.vocab.length+' mots)</span></h2>'+
     '<p class="lead" style="font-size:14px;margin-bottom:6px">Appuie sur 🔊 à côté d\'un mot pour entendre sa prononciation, puis répète à voix haute. <i>(L\'écriture en italique est une aide à la prononciation.)</i></p>'+
@@ -2009,10 +2213,13 @@ function openLesson(id){
         '<div class="grammar" style="border-left-color:'+m.color+'"><h3>Comment bien retenir cette escale 💪</h3>'+
         '<p>Relis les 30 phrases à voix haute, puis appuie sur « 🔊 Tout écouter » et répète après chaque mot. Ensuite, essaie d\'écrire ou de dire <b>3 phrases sur toi</b> avec ce vocabulaire.</p>'+
         '<p style="margin:.6em 0 0">Cinq minutes par jour valent mieux qu\'une heure une fois par semaine. Reviens ici demain : ça rentrera tout seul. 🌱</p></div>')+
+    '<h2 class="sec"><span class="dot"></span>Mission minute</h2>'+
+    '<div class="mission" id="missionBox"></div>'+
     '<h2 class="sec"><span class="dot"></span>À toi de jouer</h2>'+practiceHTML+
+    '<p class="practice-status" id="practiceStatus">Réponds aux '+m.practice.length+' questions pour pouvoir tamponner cette escale.</p>'+
     '<div class="finish"><h3>Bien joué, Nathalie ! 👏</h3>'+
       '<p>Tu as vu le vocabulaire, la grammaire'+(m.video?' et une vidéo':' et un conseil')+'. Répète une phrase à voix haute, puis valide ton escale.</p>'+
-      '<button class="btn btn-sun btn-block" id="finishBtn">'+(state.done[id]?'✓ Escale déjà validée — revalider':'Valider cette escale 🛂')+'</button>'+
+      '<button class="btn btn-sun btn-block" id="finishBtn" '+(state.done[id]?'':'disabled')+'>'+(state.done[id]?'✓ Escale déjà validée — revalider':'Valider cette escale 🛂')+'</button>'+
     '</div>';
 
   // écouter (chaque mot) — le bouton s'anime pendant la lecture
@@ -2034,13 +2241,31 @@ function openLesson(id){
     };
     next();
   });
+  // favoris
+  document.querySelectorAll('#lesson-body [data-fav]').forEach(b=>b.addEventListener('click',()=>toggleFavorite(b.dataset.fav,b)));
+  // mission orale
+  renderMission(m);
+  // chargement volontaire de YouTube
+  document.querySelectorAll('#lesson-body .load-video').forEach(b=>b.addEventListener('click',()=>loadVideo(b.closest('.video-consent'))));
   // pratique
+  let answeredPractice=0, correctPractice=0;
   document.querySelectorAll('#lesson-body .card[data-p] .opt').forEach(btn=>{
     btn.addEventListener('click',()=>{
       const parent = btn.closest('.options');
+      if(parent.dataset.answered) return;
+      parent.dataset.answered='1';
       const ans = +btn.dataset.ans;
       parent.querySelectorAll('.opt').forEach((b,i)=>{ b.disabled=true; if(i===ans)b.classList.add('correct'); });
-      if(+btn.dataset.i!==ans) btn.classList.add('wrong');
+      const ok=+btn.dataset.i===ans;
+      if(!ok) btn.classList.add('wrong'); else correctPractice++;
+      answeredPractice++;
+      const st=document.getElementById('practiceStatus');
+      if(answeredPractice<m.practice.length) st.textContent='Encore '+(m.practice.length-answeredPractice)+' question'+(m.practice.length-answeredPractice>1?'s':'')+'.';
+      else{
+        st.classList.add('good'); st.textContent='✓ Mini-quiz terminé : '+correctPractice+' / '+m.practice.length+'. Tu peux tamponner l’escale.';
+        document.getElementById('finishBtn').disabled=false;
+        state.practice[id]={score:correctPractice,total:m.practice.length,date:todayKey()}; logStudy(); save();
+      }
     });
   });
   // valider
@@ -2054,7 +2279,115 @@ function openLesson(id){
   });
 
   go('lecon');
+  history.replaceState(null,'','#lecon-'+id);
   document.getElementById('lesson-h').focus?.();
+}
+
+/* =========================================================
+   V2 · Favoris, mission minute, vidéos privées, révision et lexique
+   ========================================================= */
+function toggleFavorite(key,btn){
+  state.favorites[key]=!state.favorites[key]; save();
+  if(btn){ btn.classList.toggle('on',!!state.favorites[key]); btn.textContent=state.favorites[key]?'★':'☆'; btn.setAttribute('aria-pressed',String(!!state.favorites[key])); }
+  toast(state.favorites[key]?'Ajouté aux favoris ⭐':'Retiré des favoris');
+}
+function renderMission(m){
+  const box=document.getElementById('missionBox'); if(!box) return;
+  const shuffled=[...m.vocab].sort(()=>Math.random()-.5).slice(0,3);
+  box.innerHTML='<h3>🗣️ 60 secondes, à voix haute</h3><p>Fais une mini-scène ou trois phrases en utilisant ces éléments :</p><div class="mission-words">'+shuffled.map(v=>'<span class="mission-word" lang="en">'+v[0]+'</span>').join('')+'</div><button class="pill" type="button" id="newMission">↻ Changer les mots</button>';
+  document.getElementById('newMission')?.addEventListener('click',()=>renderMission(m));
+}
+function loadVideo(box){
+  if(!box) return; const id=box.dataset.video, title=decodeURIComponent(box.dataset.title||'Video');
+  box.outerHTML='<div class="videowrap"><iframe src="https://www.youtube-nocookie.com/embed/'+id+'?rel=0&hl=fr&cc_load_policy=1&autoplay=1" title="'+title.replace(/"/g,'&quot;')+'" allow="accelerometer; autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>';
+}
+function startModuleReview(id){
+  const s=document.getElementById('review-scope');
+  if(![...s.options].some(o=>o.value==='module:'+id)){ const m=getModule(id); const o=document.createElement('option'); o.value='module:'+id; o.textContent='Cette escale · '+m.title; s.appendChild(o); }
+  s.value='module:'+id; reviewMode='flash'; go('revision');
+}
+
+let reviewMode='flash', reviewQueue=[], reviewIndex=0, miniQuiz=null;
+function scopedWords(scope){
+  let words=allWords();
+  if(scope==='favorites') words=words.filter(w=>state.favorites[w.key]);
+  else if(/^A[12]$|^B[12]$|^C1$/.test(scope)) words=words.filter(w=>w.level===scope);
+  else if(scope.startsWith('module:')) words=words.filter(w=>w.moduleId===scope.slice(7));
+  return words;
+}
+function buildReviewQueue(){
+  const scope=document.getElementById('review-scope')?.value||'all';
+  let words=scopedWords(scope);
+  // À revoir d'abord, puis jamais vus, puis maîtrisés ; ordre varié à score égal.
+  words=words.map(w=>({...w,score:Number(state.mastery[w.key]||0),r:Math.random()})).sort((a,b)=>a.score-b.score || a.r-b.r);
+  reviewQueue=words; reviewIndex=0;
+}
+function renderReview(){
+  if(reviewMode==='flash') renderFlashReview(); else renderMiniQuiz(true);
+  document.getElementById('mode-flash')?.classList.toggle('active',reviewMode==='flash');
+  document.getElementById('mode-quiz')?.classList.toggle('active',reviewMode==='quiz');
+}
+function renderFlashReview(){
+  buildReviewQueue(); showFlashCard();
+}
+function showFlashCard(){
+  const root=document.getElementById('review-content'); if(!root) return;
+  if(!reviewQueue.length){ root.innerHTML='<div class="empty-state">Aucun mot dans cette sélection. Ajoute des favoris ⭐ ou choisis un autre niveau.</div>'; return; }
+  if(reviewIndex>=reviewQueue.length) reviewIndex=0;
+  const w=reviewQueue[reviewIndex]; const score=Number(state.mastery[w.key]||0);
+  root.innerHTML='<div class="review-meta"><span>'+w.level+' · '+w.moduleTitle+'</span><span>'+(reviewIndex+1)+' / '+reviewQueue.length+'</span></div>'+ 
+    '<div class="review-card" id="flashCard" tabindex="0" role="button" aria-label="Retourner la flashcard"><div class="kicker">Que veut dire… ?</div><div class="front" lang="en">'+w.en+'</div><div class="tap-hint">Clique pour retourner la carte</div><div class="back"><b>'+w.fr+'</b><span>'+w.ph+'</span><div style="margin-top:10px"><button class="pill" id="flashSpeak" type="button">🔊 Écouter</button></div></div></div>'+ 
+    '<div class="review-actions"><button class="btn btn-ghost" id="reviewAgain" disabled>↻ À revoir</button><button class="btn btn-primary" id="reviewKnow" disabled>✓ Je sais</button></div>'+ 
+    '<p class="quiz-score" style="text-align:center">Mémoire locale : '+(score>1?'bien acquis':score>0?'en cours':'à travailler')+'</p>';
+  const card=document.getElementById('flashCard');
+  const reveal=()=>{card.classList.add('revealed'); document.getElementById('reviewAgain').disabled=false; document.getElementById('reviewKnow').disabled=false;};
+  card.addEventListener('click',e=>{if(!e.target.closest('button')) reveal();}); card.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();reveal();}});
+  document.getElementById('flashSpeak').addEventListener('click',e=>{e.stopPropagation();speak(w.en,e.currentTarget)});
+  document.getElementById('reviewAgain').addEventListener('click',()=>gradeFlash(w,-1));
+  document.getElementById('reviewKnow').addEventListener('click',()=>gradeFlash(w,1));
+}
+function gradeFlash(w,delta){ state.mastery[w.key]=Math.max(-2,Math.min(5,Number(state.mastery[w.key]||0)+delta)); logStudy(); save(); reviewIndex++; showFlashCard(); }
+function renderMiniQuiz(reset=false){
+  const root=document.getElementById('review-content'); if(!root) return;
+  const scope=document.getElementById('review-scope')?.value||'all';
+  if(reset || !miniQuiz){
+    const pool=scopedWords(scope).sort(()=>Math.random()-.5);
+    const qs=pool.slice(0,Math.min(10,pool.length)).map(w=>{
+      const distract=allWords().filter(x=>x.key!==w.key).sort(()=>Math.random()-.5).slice(0,2).map(x=>x.fr);
+      return {w, options:[w.fr,...distract].sort(()=>Math.random()-.5)};
+    });
+    miniQuiz={qs,index:0,score:0,answered:false};
+  }
+  if(!miniQuiz.qs.length){root.innerHTML='<div class="empty-state">Aucun mot disponible dans cette sélection.</div>';return;}
+  if(miniQuiz.index>=miniQuiz.qs.length){
+    root.innerHTML='<div class="card" style="text-align:center"><p class="eyebrow">Quiz terminé</p><h2 style="margin-top:0">'+miniQuiz.score+' / '+miniQuiz.qs.length+'</h2><p>'+(miniQuiz.score===miniQuiz.qs.length?'Sans faute ! ✨':'Les erreurs sont ajoutées aux mots à revoir.')+'</p><button class="btn btn-primary" id="quizRestart">Recommencer</button></div>';
+    document.getElementById('quizRestart').addEventListener('click',()=>renderMiniQuiz(true)); return;
+  }
+  const q=miniQuiz.qs[miniQuiz.index];
+  root.innerHTML='<div class="quiz-score">Question '+(miniQuiz.index+1)+' / '+miniQuiz.qs.length+' · Score '+miniQuiz.score+'</div><div class="card"><div class="question">Que veut dire <span lang="en">“'+q.w.en+'”</span> ?</div><div class="options">'+q.options.map((op,i)=>'<button class="opt" data-op="'+encodeURIComponent(op)+'"><span class="key">'+['A','B','C'][i]+'</span><span>'+op+'</span></button>').join('')+'</div><div id="miniFeedback" class="explain"></div><div class="btn-row" id="miniNext" style="display:none;margin-top:12px"><button class="btn btn-primary btn-block">Suivant →</button></div></div>';
+  root.querySelectorAll('.opt').forEach(b=>b.addEventListener('click',()=>answerMiniQuiz(b,q)));
+}
+function answerMiniQuiz(btn,q){
+  if(miniQuiz.answered) return; miniQuiz.answered=true;
+  const chosen=decodeURIComponent(btn.dataset.op), ok=chosen===q.w.fr;
+  document.querySelectorAll('#review-content .opt').forEach(b=>{b.disabled=true;if(decodeURIComponent(b.dataset.op)===q.w.fr)b.classList.add('correct')}); if(!ok)btn.classList.add('wrong');
+  if(ok){miniQuiz.score++; state.mastery[q.w.key]=Math.min(5,Number(state.mastery[q.w.key]||0)+1);} else state.mastery[q.w.key]=Math.max(-2,Number(state.mastery[q.w.key]||0)-1);
+  logStudy();save();
+  const f=document.getElementById('miniFeedback'); f.innerHTML=(ok?'✅ <b>Oui !</b>':'💡 <b>'+q.w.fr+'</b>')+' <button class="mini-speak" type="button" id="miniSpeak">🔊</button>'; f.classList.add('show'); document.getElementById('miniSpeak').addEventListener('click',()=>speak(q.w.en));
+  const n=document.getElementById('miniNext'); n.style.display='flex'; n.querySelector('button').addEventListener('click',()=>{miniQuiz.index++;miniQuiz.answered=false;renderMiniQuiz(false)});
+}
+
+let dictFavOnly=false;
+function renderDictionary(){
+  const root=document.getElementById('dict-results'); if(!root) return;
+  const q=cleanSearch(document.getElementById('dict-search')?.value||''); const level=document.getElementById('dict-level')?.value||'all';
+  let rows=allWords(); if(level!=='all')rows=rows.filter(w=>w.level===level); if(dictFavOnly)rows=rows.filter(w=>state.favorites[w.key]);
+  if(q) rows=rows.filter(w=>cleanSearch(w.en+' '+w.fr+' '+w.moduleTitle).includes(q));
+  const total=rows.length; rows=rows.slice(0,120);
+  document.getElementById('dict-count').textContent=total+' résultat'+(total>1?'s':'')+(total>120?' · 120 affichés':'');
+  root.innerHTML=rows.length?rows.map(w=>'<div class="dict-row"><span class="vicon" aria-hidden="true" style="--accent:'+w.color+'">'+w.emoji+'</span><span><span class="word" lang="en">'+w.en+'</span><span class="translation">'+w.fr+' · '+w.ph+'</span><span class="where">'+w.level+' · '+w.moduleTitle+'</span></span><button class="speak" type="button" data-dsay="'+encodeURIComponent(w.en)+'" aria-label="Écouter">🔊</button><button class="star-btn'+(state.favorites[w.key]?' on':'')+'" type="button" data-dfav="'+w.key+'" aria-pressed="'+String(!!state.favorites[w.key])+'">'+(state.favorites[w.key]?'★':'☆')+'</button></div>').join(''):'<div class="empty-state">Aucun résultat. Essaie un autre mot ou retire un filtre.</div>';
+  root.querySelectorAll('[data-dsay]').forEach(b=>b.addEventListener('click',()=>speak(decodeURIComponent(b.dataset.dsay),b)));
+  root.querySelectorAll('[data-dfav]').forEach(b=>b.addEventListener('click',()=>{toggleFavorite(b.dataset.dfav,b);renderDictionary()}));
 }
 
 /* =========================================================
@@ -2126,15 +2459,27 @@ if('serviceWorker' in navigator){
    ========================================================= */
 window.addEventListener('hashchange',()=>{
   const h=(location.hash||'').replace('#','');
-  if(h==='programme') go('programme');
-  else if(h===''||h==='accueil') go('accueil');
+  if(h.startsWith('lecon-')) openLesson(h.slice(6));
+  else if(['programme','revision','lexique','test','resultat','accueil'].includes(h)) go(h,{keepHash:true});
+  else go('accueil',{keepHash:true});
 });
 
 (function init(){
-  renderPhrase();
+  applyUiPrefs();
+  document.querySelectorAll('.dock-btn').forEach(b=>b.addEventListener('click',()=>go(b.dataset.go)));
+  document.getElementById('textSizeBtn')?.addEventListener('click',()=>{state.uiLarge=!state.uiLarge;save();applyUiPrefs();});
+  document.getElementById('contrastBtn')?.addEventListener('click',()=>{state.uiContrast=!state.uiContrast;save();applyUiPrefs();});
+  document.querySelectorAll('[data-prog-filter]').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('[data-prog-filter]').forEach(x=>x.classList.remove('active'));b.classList.add('active');renderProgramme();}));
+  document.getElementById('review-scope')?.addEventListener('change',()=>{miniQuiz=null;renderReview();});
+  document.getElementById('mode-flash')?.addEventListener('click',()=>{reviewMode='flash';renderReview();});
+  document.getElementById('mode-quiz')?.addEventListener('click',()=>{reviewMode='quiz';miniQuiz=null;renderReview();});
+  document.getElementById('dict-search')?.addEventListener('input',renderDictionary);
+  document.getElementById('dict-level')?.addEventListener('change',renderDictionary);
+  document.getElementById('dict-favs')?.addEventListener('click',e=>{dictFavOnly=!dictFavOnly;e.currentTarget.classList.toggle('active',dictFavOnly);renderDictionary();});
   const hash=(location.hash||'').replace('#','');
-  if(hash==='programme'){ go('programme'); }
-  else { go('accueil'); }
+  if(hash.startsWith('lecon-')) openLesson(hash.slice(6));
+  else if(['programme','revision','lexique'].includes(hash)) go(hash);
+  else go('accueil');
 })();
 </script>
 </body>
