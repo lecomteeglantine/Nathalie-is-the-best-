@@ -1,5 +1,5 @@
-/* Nathalie EN · Service Worker V10 */
-const CACHE_VERSION = 'nathalie-v10-2026-08-26';
+/* Nathalie EN · Service Worker V11 */
+const CACHE_VERSION = 'nathalie-v11-2026-08-26';
 const CORE = [
   './',
   './index.html',
