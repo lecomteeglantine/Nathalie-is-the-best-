@@ -1,0 +1,172 @@
+NATHALIE IS THE BEST — AUDIT COMPLET & CORRECTIONS
+Version auditée : V12
+Date : 30 août 2026
+Cible : GitHub Pages — https://lecomteeglantine.github.io/Nathalie-is-the-best-/
+
+======================================================================
+1. PÉRIMÈTRE CONTRÔLÉ
+======================================================================
+
+Audit du fichier principal, du routage interne, de la sauvegarde locale,
+des 19 vues de l’application, des 24 modules pédagogiques, des jeux,
+missions, exercices d’oral, Listening Lab, Pronunciation Lab, Progress
+Checks, Trip Planner, Travel Mode, PWA, manifeste, service worker,
+accessibilité clavier et affichage responsive.
+
+Contenu vérifié :
+- 19 vues principales
+- 24 modules / escales
+- 720 entrées de vocabulaire (30 par module)
+- 3 exercices par module
+- 17 questions au test de niveau
+- 6 missions
+- 6 ateliers de prononciation
+- 5 Progress Checks (A1 à C1)
+- 6 priorités Trip Planner
+- 5 profils de voyage
+- 6 catégories Travel Mode
+- 14 vidéos référencées
+
+======================================================================
+2. BUGS ET DÉFAUTS CORRIGÉS
+======================================================================
+
+A. ROUTAGE / RECHARGEMENT
+- Ouverture directe de #test corrigée : la première question est maintenant
+  initialisée correctement après un rechargement ou un lien direct.
+- Routage des leçons consolidé et validation des identifiants de module.
+- Les URL/hash invalides reviennent proprement à l’accueil.
+- #resultat ne tente plus de restaurer un résultat temporaire inexistant
+  après un rechargement.
+- Une recommandation enregistrée vers un ancien module inexistant ne peut
+  plus casser la page d’accueil.
+
+B. SAUVEGARDE / LOCALSTORAGE
+- Les anciennes sauvegardes sont migrées en mode « best effort » : l’échec
+  d’une copie de sécurité (quota plein, stockage restreint) ne fait plus
+  perdre une progression valide déjà enregistrée.
+- La sauvegarde automatique est isolée de la sauvegarde principale : si le
+  backup quotidien échoue, l’état principal peut toujours être écrit.
+- La remise à zéro gère maintenant proprement un stockage indisponible et
+  affiche un message fidèle au résultat réel.
+- Normalisation renforcée des données importées : objets imbriqués, dates,
+  indice de phrase du jour et Trip Planner.
+
+C. TRIP PLANNER / DATES
+- BUG IMPORTANT : suppression de la limite cachée de 90 jours.
+  Un voyage lointain conserve maintenant la durée réelle du planning.
+- Les voyages longs n’alourdissent pas l’interface : seuls les 8 premiers
+  et 8 derniers jours sont affichés, tout en conservant le total exact.
+- Validation réelle des dates calendrier : une date impossible telle que
+  2026-02-31 est rejetée au lieu d’être normalisée silencieusement par JS.
+- Les dates de sessions terminées sont également filtrées/normalisées.
+- Les chaînes saisies par l’utilisateur (destination, etc.) restent échappées
+  lors du rendu HTML.
+
+D. AUDIO / SYNTHÈSE VOCALE
+- Les lectures audio en cours sont arrêtées lors d’un changement de page.
+- « Tout écouter » dispose maintenant d’un identifiant de séquence : une
+  ancienne file audio ne peut plus reprendre toute seule après navigation
+  ou après le lancement d’un autre audio.
+- Les états visuels « en lecture » sont nettoyés correctement.
+
+E. MISSIONS — MODE « LISTEN FIRST »
+- Le réglage « écouter avant de répondre » est désormais réellement appliqué.
+- Tant que l’audio n’a pas été lancé, les choix et le bouton de révélation
+  restent désactivés ; ils s’activent après l’écoute.
+
+F. ACCESSIBILITÉ
+- Test de niveau : vrai H1, barre de progression avec role=progressbar,
+  aria-valuemin/max/now, feedback annoncé par lecteur d’écran et meilleure
+  gestion du focus entre les questions.
+- Passeport : onglets convertis en vrais tabs accessibles avec aria-selected,
+  aria-controls, tabpanel, navigation Flèche gauche/droite, Home et End.
+- Boutons favoris : labels explicites « Ajouter aux favoris » / « Retirer des
+  favoris » mis à jour dynamiquement dans les leçons et le lexique.
+- Contrôles Trip Planner / Travel Mode : états aria-pressed renseignés.
+- Diagnostic interne étendu aux aria-labelledby, aria-describedby,
+  aria-controls et label[for].
+- Le réglage interne « réduire les animations » est désormais respecté par
+  les confettis et les défilements programmatiques, même si le système
+  d’exploitation n’a pas activé prefers-reduced-motion.
+
+G. PWA / INSTALLATION / HORS CONNEXION
+- Manifeste PWA renforcé : ajout d’icônes 192x192, 512x512 et 512x512
+  maskable, en plus des icônes 32 et 180 px.
+- Ajout d’un id d’application et métadonnées PWA cohérentes.
+- Service worker passé sur un cache V12 audité et pré-cache de l’ensemble
+  du shell local : index, manifeste et cinq icônes.
+- Nettoyage des anciens caches « nathalie-* » conservé.
+- Navigation : réseau en priorité puis dernier index en cache hors connexion.
+- Assets locaux : cache + actualisation silencieuse.
+- Contenus tiers (YouTube, etc.) volontairement non mis en cache.
+- Le badge Travel Mode ne prétend plus que le hors-ligne est prêt si aucun
+  service worker ne contrôle encore la page.
+
+H. VIDÉOS / CONFIDENTIALITÉ / CHARGEMENT
+- Les iframes YouTube créées après consentement utilisent youtube-nocookie,
+  loading=lazy et une politique de referrer plus restrictive.
+
+======================================================================
+3. TESTS DE NON-RÉGRESSION EFFECTUÉS
+======================================================================
+
+Contrôles statiques :
+- JavaScript principal : syntaxe valide
+- service worker : syntaxe valide
+- manifest.webmanifest : JSON valide
+- 184 ID HTML contrôlés, 0 doublon
+- 0 référence ARIA cassée
+- 0 label[for] cassé
+- 108 boutons contrôlés, 0 bouton sans type explicite
+- 14 références vidéo contrôlées
+- toutes les ressources PWA listées existent dans le paquet
+
+Contrôles dynamiques en navigateur headless :
+- 19 vues rendues sans exception JavaScript
+- 24 modules rendus ; 30 mots + 3 exercices chacun
+- les 24 quiz de module peuvent être terminés avec 3/3
+- les 6 Pronunciation Labs peuvent être terminés
+- les 5 Progress Checks peuvent aller jusqu’à 10/10
+- les 4 jeux testés jusqu’à leur état de réussite
+- les écrans Speak / Listening / Missions testés
+- verrou « Listen First » testé avant/après écoute
+- Trip Planner + Travel Mode + Final Travel Check testés
+- voyage long testé sur 139 jours : total exact conservé, affichage compact
+- date impossible testée : rejetée
+- favoris : labels accessibles testés avant/après bascule
+- sauvegarde testée avec échec simulé des backups : état principal conservé
+
+Responsive :
+- 320 px, 375 px, 768 px et 1024 px
+- mode normal ET combinaison texte agrandi + contraste + mode sombre
+  + animations réduites
+- aucun débordement horizontal détecté sur les 19 vues
+
+Limite du banc de test : le navigateur du bac de test interdit l’accès HTTP
+local par politique d’administration ; le cycle service-worker « installation
+réelle puis passage hors ligne » n’a donc pas pu être exécuté de bout en bout.
+La syntaxe du SW, la stratégie de cache, le manifeste et la présence de toutes
+les ressources pré-cachées ont en revanche été vérifiés.
+
+======================================================================
+4. FICHIERS À METTRE SUR GITHUB
+======================================================================
+
+À la racine du dépôt :
+- index.html
+- manifest.webmanifest
+- sw.js
+- dossier icons/
+
+Le fichier AUDIT_CORRECTIONS.txt est seulement informatif ; il peut rester
+sur GitHub ou être supprimé sans conséquence sur le site.
+
+IMPORTANT : remplacer les versions existantes, sans placer ces fichiers dans
+un sous-dossier supplémentaire.
+
+Après publication GitHub Pages, un ancien service worker peut afficher encore
+l’ancienne version pendant un court instant. Un rechargement de la page puis
+l’acceptation éventuelle de la bannière de mise à jour force le passage à la
+nouvelle version. La progression utilisateur reste stockée sous la même clé
+locale et n’est pas volontairement réinitialisée par ces corrections.
