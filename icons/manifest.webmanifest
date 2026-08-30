@@ -1,0 +1,23 @@
+{
+  "id": "./",
+  "name": "Nathalie is the best — Travel English Passport",
+  "short_name": "Nathalie EN",
+  "description": "Une application d’anglais pour voyager : parcours A1-C1, jeux, missions, oral, listening, révision adaptative, passeport, Pronunciation Lab, Progress Checks et Trip Planner V12 avec Travel Mode.",
+  "lang": "fr",
+  "dir": "ltr",
+  "start_url": "./#accueil",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#FBF9F4",
+  "theme_color": "#16324F",
+  "categories": ["education", "travel"],
+  "prefer_related_applications": false,
+  "icons": [
+    {"src":"icons/favicon-32.png","sizes":"32x32","type":"image/png","purpose":"any"},
+    {"src":"icons/apple-touch-icon.png","sizes":"180x180","type":"image/png","purpose":"any"},
+    {"src":"icons/icon-192.png","sizes":"192x192","type":"image/png","purpose":"any"},
+    {"src":"icons/icon-512.png","sizes":"512x512","type":"image/png","purpose":"any"},
+    {"src":"icons/maskable-512.png","sizes":"512x512","type":"image/png","purpose":"maskable"}
+  ]
+}
