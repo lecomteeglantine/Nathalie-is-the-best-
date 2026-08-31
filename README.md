@@ -36,7 +36,7 @@ icons/
   maskable-512.png
 assets/
   README-MUSIC.txt
-  nathalie-city-travel-theme.mp3   ← à ajouter après génération Suno
+  nathalie-city-travel-theme.mp3   ← inclus dans cette V13
 README.md
 ```
 
@@ -55,7 +55,7 @@ Fait avec ❤️ pour Nathalie — the best.
 
 ## V13 · musique
 
-Le bouton `Music ON/OFF` utilise `assets/nathalie-city-travel-theme.mp3`. Le ZIP contient le prompt Suno et les instructions dans `assets/README-MUSIC.txt`. Tant que le MP3 n’est pas ajouté, le bouton reste sans danger et affiche un message explicatif.
+Le bouton `Music ON/OFF` utilise le morceau Suno inclus `assets/nathalie-city-travel-theme.mp3`. La musique démarre volontairement sur OFF afin de respecter les règles d’autoplay des navigateurs. Le morceau est inclus dans le cache PWA pour rester disponible hors connexion après l’installation/chargement initial.
 
 ## V13 · sauvegarde
 

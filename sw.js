@@ -1,10 +1,11 @@
 /* Nathalie EN · Service Worker V13 · 2026-08-31 */
-const CACHE_VERSION = 'nathalie-v13-2026-08-31';
+const CACHE_VERSION = 'nathalie-v13-final-2026-08-31';
 const CORE = [
   './',
   './index.html',
   './sauvegarde-progression.html',
   './manifest.webmanifest',
+  './assets/nathalie-city-travel-theme.mp3',
   './icons/favicon-32.png',
   './icons/apple-touch-icon.png',
   './icons/icon-192.png',
@@ -69,7 +70,7 @@ self.addEventListener('fetch', event => {
     return;
   }
 
-  // Same-origin assets: cache-first + silent refresh. The Suno MP3 is cached on demand once it exists and is fetched successfully.
+  // Same-origin assets: cache-first + silent refresh. The bundled Suno MP3 is precached for offline use.
   event.respondWith((async () => {
     const cached = await caches.match(req);
     const refresh = fetch(req).then(async res => {

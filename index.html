@@ -2739,7 +2739,7 @@ async function toggleMusic(){
   if(musicOn){a.pause();musicButtonState(false);toast('Music OFF');return;}
   a.volume=.24;
   try{await a.play();musicButtonState(true);toast('Music ON ♫');}
-  catch(e){musicButtonState(false);toast('Musique non disponible : ajoute le fichier Suno « '+BG_MUSIC_FILE.split('/').pop()+' » dans le dossier assets.');}
+  catch(e){musicButtonState(false);toast('Impossible de lancer la musique sur ce navigateur. Réessaie avec le bouton Music.');}
 }
 document.addEventListener('visibilitychange',()=>{const a=document.getElementById('bgMusic');if(!a||!musicOn)return;if(document.hidden)a.pause();else a.play().catch(()=>{});});
 

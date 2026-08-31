@@ -6,9 +6,9 @@ AJOUT 1 · MUSIC ON/OFF
 - lecture en boucle ;
 - pause lorsque l’onglet est masqué ;
 - baisse automatique du volume pendant la synthèse vocale ;
-- message clair si le MP3 n’a pas encore été ajouté.
+- morceau Suno intégré au paquet final ;
 
-FICHIER AUDIO ATTENDU :
+FICHIER AUDIO INCLUS :
 assets/nathalie-city-travel-theme.mp3
 
 Le prompt Suno complet se trouve dans :
@@ -28,5 +28,5 @@ PWA
 - nouvelle page incluse dans le cache hors connexion ;
 - correction du routage de cache pour éviter qu’une seconde page HTML n’écrase la copie hors ligne de l’accueil.
 
-AVANT DEPLOIEMENT
-Pour que le bouton Music soit réellement fonctionnel : générer le morceau Suno, télécharger le MP3, le renommer exactement nathalie-city-travel-theme.mp3 et le placer dans le dossier assets/.
+PAQUET FINAL
+Le MP3 est déjà intégré au bon emplacement. Aucun ajout manuel n’est nécessaire avant déploiement.
