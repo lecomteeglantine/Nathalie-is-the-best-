@@ -48,24 +48,147 @@ const PREFIX='nathalie_';
 const PRE_IMPORT='nathalie_en_backup_pre_import_v12';
 let selectedPayload=null;
 const $=id=>document.getElementById(id);
-function today(){const d=new Date(),p=n=>String(n).padStart(2,'0');return d.getFullYear()+'-'+p(d.getMonth()+1)+'-'+p(d.getDate());}
-function appEntries(){const out={};for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i);if(k&&k.startsWith(PREFIX))out[k]=localStorage.getItem(k);}return out;}
-function bytesOf(v){try{return new Blob([JSON.stringify(v)]).size}catch(e){return 0}}
-function humanBytes(n){return n<1024?n+' o':n<1048576?(n/1024).toFixed(1)+' Ko':(n/1048576).toFixed(1)+' Mo'}
-function currentSummary(){let s={};try{s=JSON.parse(localStorage.getItem(APP_KEY)||'{}')}catch(e){}const done=s.done&&typeof s.done==='object'?Object.values(s.done).filter(Boolean).length:0;const fav=s.favorites&&typeof s.favorites==='object'?Object.values(s.favorites).filter(Boolean).length:0;return {done,fav,last:s.lastSavedAt||'',level:s.level||''};}
-function renderLocal(){const entries=appEntries(),sum=currentSummary(),n=Object.keys(entries).length,size=humanBytes(bytesOf(entries));const el=$('localStatus');if(!n){el.className='status warn';el.innerHTML='<b>Aucune progression trouvée sur cet appareil.</b><br>Tu peux quand même exporter un fichier vide, mais il n’y a rien à transférer pour le moment.';return;}el.className='status ok';el.innerHTML='<b>'+n+' élément'+(n>1?'s':'')+' local'+(n>1?'aux':'')+' trouvé'+(n>1?'s':'')+'</b> · '+size+'<br>'+sum.done+' escale'+(sum.done>1?'s':'')+' validée'+(sum.done>1?'s':'')+' · '+sum.fav+' favori'+(sum.fav>1?'s':'')+(sum.level?' · '+sum.level:'')+(sum.last?' · sauvegardé '+new Date(sum.last).toLocaleString('fr-FR'):'');}
-function download(){const entries=appEntries();const payload={format:'nathalie-local-backup-v1',app:'Nathalie is the best',version:'V13',exportedAt:new Date().toISOString(),origin:location.origin,entries};const blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='nathalie-backup-'+today()+'.json';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);}
-function validate(parsed){if(!parsed||typeof parsed!=='object')throw new Error('Fichier JSON invalide.');if(parsed.format==='nathalie-local-backup-v1'){if(!parsed.entries||typeof parsed.entries!=='object'||Array.isArray(parsed.entries))throw new Error('Sauvegarde incomplète.');const entries={};for(const [k,v] of Object.entries(parsed.entries)){if(k.startsWith(PREFIX)&&typeof v==='string')entries[k]=v;}if(!Object.keys(entries).length)throw new Error('Aucune donnée Nathalie trouvée dans cette sauvegarde.');return entries;}
-// Compatibilité avec l’ancien export rapide de la page Réglages.
-if(parsed.app==='Nathalie is the best'&&parsed.data&&typeof parsed.data==='object'){return {[APP_KEY]:JSON.stringify(parsed.data)};}
-// Compatibilité avec un export brut de l’état.
-if(parsed.schemaVersion&&typeof parsed==='object'){return {[APP_KEY]:JSON.stringify(parsed)};}
-throw new Error('Ce fichier ne ressemble pas à une sauvegarde Nathalie EN.');}
+
+function today(){
+  const d=new Date(),p=n=>String(n).padStart(2,'0');
+  return d.getFullYear()+'-'+p(d.getMonth()+1)+'-'+p(d.getDate());
+}
+function appEntries(){
+  const out={};
+  for(let i=0;i<localStorage.length;i++){
+    const k=localStorage.key(i);
+    if(k&&k.startsWith(PREFIX)) out[k]=localStorage.getItem(k);
+  }
+  return out;
+}
+function bytesOf(v){
+  try{return new Blob([JSON.stringify(v)]).size}catch(e){return 0}
+}
+function humanBytes(n){
+  return n<1024?n+' o':n<1048576?(n/1024).toFixed(1)+' Ko':(n/1048576).toFixed(1)+' Mo';
+}
+function currentSummary(){
+  let s={};
+  try{s=JSON.parse(localStorage.getItem(APP_KEY)||'{}')}catch(e){}
+  const done=s.done&&typeof s.done==='object'?Object.values(s.done).filter(Boolean).length:0;
+  const fav=s.favorites&&typeof s.favorites==='object'?Object.values(s.favorites).filter(Boolean).length:0;
+  return {done,fav,last:s.lastSavedAt||'',level:s.level||''};
+}
+function renderLocal(){
+  const entries=appEntries(),sum=currentSummary(),n=Object.keys(entries).length;
+  const size=humanBytes(bytesOf(entries));
+  const el=$('localStatus');
+  if(!n){
+    el.className='status warn';
+    el.innerHTML='<b>Aucune progression trouvée sur cet appareil.</b><br>Tu peux quand même exporter un fichier vide, mais il n’y a rien à transférer pour le moment.';
+    return;
+  }
+  el.className='status ok';
+  el.innerHTML='<b>'+n+' élément'+(n>1?'s':'')+' local'+(n>1?'aux':'')+' trouvé'+(n>1?'s':'')+'</b> · '+size+'<br>'+sum.done+' escale'+(sum.done>1?'s':'')+' validée'+(sum.done>1?'s':'')+' · '+sum.fav+' favori'+(sum.fav>1?'s':'')+(sum.level?' · '+sum.level:'')+(sum.last?' · sauvegardé '+new Date(sum.last).toLocaleString('fr-FR'):'');
+}
+function download(){
+  const entries=appEntries();
+  const payload={
+    format:'nathalie-local-backup-v1',
+    app:'Nathalie is the best',
+    version:'V13',
+    exportedAt:new Date().toISOString(),
+    origin:location.origin,
+    entries
+  };
+  const blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'});
+  const url=URL.createObjectURL(blob),a=document.createElement('a');
+  a.href=url;
+  a.download='nathalie-backup-'+today()+'.json';
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  setTimeout(()=>URL.revokeObjectURL(url),1000);
+}
+function validate(parsed){
+  if(!parsed||typeof parsed!=='object') throw new Error('Fichier JSON invalide.');
+  if(parsed.format==='nathalie-local-backup-v1'){
+    if(!parsed.entries||typeof parsed.entries!=='object'||Array.isArray(parsed.entries)) throw new Error('Sauvegarde incomplète.');
+    const entries={};
+    for(const [k,v] of Object.entries(parsed.entries)){
+      if(k.startsWith(PREFIX)&&typeof v==='string') entries[k]=v;
+    }
+    if(!Object.keys(entries).length) throw new Error('Aucune donnée Nathalie trouvée dans cette sauvegarde.');
+    return entries;
+  }
+  // Compatibilité avec l’ancien export rapide de la page Réglages.
+  if(parsed.app==='Nathalie is the best'&&parsed.data&&typeof parsed.data==='object'){
+    return {[APP_KEY]:JSON.stringify(parsed.data)};
+  }
+  // Compatibilité avec un export brut de l’état.
+  if(parsed.schemaVersion&&typeof parsed==='object'){
+    return {[APP_KEY]:JSON.stringify(parsed)};
+  }
+  throw new Error('Ce fichier ne ressemble pas à une sauvegarde Nathalie EN.');
+}
+
 $('exportBtn').addEventListener('click',download);
-$('backupFile').addEventListener('change',()=>{selectedPayload=null;$('doneBox').style.display='none';const f=$('backupFile').files[0];$('fileName').textContent=f?f.name:'Aucun fichier sélectionné.';$('importBtn').disabled=true;if(!f){$('importStatus').className='status';$('importStatus').textContent='En attente d’un fichier.';return;}if(f.size>5*1024*1024){$('importStatus').className='status warn';$('importStatus').innerHTML='<span class="bad">Fichier trop volumineux.</span>';return;}const r=new FileReader();r.onload=()=>{try{selectedPayload=validate(JSON.parse(r.result));$('importBtn').disabled=false;$('importStatus').className='status ok';$('importStatus').innerHTML='<span class="good">✓ Sauvegarde valide</span> · '+Object.keys(selectedPayload).length+' élément'+(Object.keys(selectedPayload).length>1?'s':'')+' à restaurer.';}catch(e){$('importStatus').className='status warn';$('importStatus').innerHTML='<span class="bad">✕ '+String(e.message||'Fichier invalide')+'</span>';}};r.onerror=()=>{$('importStatus').className='status warn';$('importStatus').textContent='Impossible de lire ce fichier.';};r.readAsText(f);});
-$('importBtn').addEventListener('click',()=>{if(!selectedPayload)return;if(!confirm('Importer cette sauvegarde remplacera les données Nathalie actuellement présentes sur cet appareil. Continuer ?'))return;try{const current=localStorage.getItem(APP_KEY);for(let i=localStorage.length-1;i>=0;i--){const k=localStorage.key(i);if(k&&k.startsWith(PREFIX))localStorage.removeItem(k);}if(current)localStorage.setItem(PRE_IMPORT,current);for(const [k,v] of Object.entries(selectedPayload))localStorage.setItem(k,v);$('importStatus').className='status ok';$('importStatus').innerHTML='<span class="good">✓ Progression restaurée.</span> Retourne maintenant à l’accueil.';$('doneBox').style.display='block';renderLocal();}catch(e){$('importStatus').className='status warn';$('importStatus').innerHTML='<span class="bad">Import impossible : '+String(e.message||e)+'</span>';}});
+$('backupFile').addEventListener('change',()=>{
+  selectedPayload=null;
+  $('doneBox').style.display='none';
+  const f=$('backupFile').files[0];
+  $('fileName').textContent=f?f.name:'Aucun fichier sélectionné.';
+  $('importBtn').disabled=true;
+  if(!f){
+    $('importStatus').className='status';
+    $('importStatus').textContent='En attente d’un fichier.';
+    return;
+  }
+  if(f.size>5*1024*1024){
+    $('importStatus').className='status warn';
+    $('importStatus').innerHTML='<span class="bad">Fichier trop volumineux.</span>';
+    return;
+  }
+  const r=new FileReader();
+  r.onload=()=>{
+    try{
+      selectedPayload=validate(JSON.parse(r.result));
+      $('importBtn').disabled=false;
+      $('importStatus').className='status ok';
+      $('importStatus').innerHTML='<span class="good">✓ Sauvegarde valide</span> · '+Object.keys(selectedPayload).length+' élément'+(Object.keys(selectedPayload).length>1?'s':'')+' à restaurer.';
+    }catch(e){
+      $('importStatus').className='status warn';
+      $('importStatus').innerHTML='<span class="bad">✕ '+String(e.message||'Fichier invalide')+'</span>';
+    }
+  };
+  r.onerror=()=>{
+    $('importStatus').className='status warn';
+    $('importStatus').textContent='Impossible de lire ce fichier.';
+  };
+  r.readAsText(f);
+});
+$('importBtn').addEventListener('click',()=>{
+  if(!selectedPayload) return;
+  const message=`Importer cette sauvegarde remplacera les données Nathalie actuellement présentes sur cet appareil.
+
+Continuer ?`;
+  if(!confirm(message)) return;
+  try{
+    const current=localStorage.getItem(APP_KEY);
+    for(let i=localStorage.length-1;i>=0;i--){
+      const k=localStorage.key(i);
+      if(k&&k.startsWith(PREFIX)) localStorage.removeItem(k);
+    }
+    if(current) localStorage.setItem(PRE_IMPORT,current);
+    for(const [k,v] of Object.entries(selectedPayload)) localStorage.setItem(k,v);
+    $('importStatus').className='status ok';
+    $('importStatus').innerHTML='<span class="good">✓ Progression restaurée.</span> Retourne maintenant à l’accueil.';
+    $('doneBox').style.display='block';
+    renderLocal();
+  }catch(e){
+    $('importStatus').className='status warn';
+    $('importStatus').innerHTML='<span class="bad">Import impossible : '+String(e.message||e)+'</span>';
+  }
+});
 renderLocal();
-if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));}
+if('serviceWorker' in navigator){
+  window.addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));
+}
 </script>
 </body>
 </html>

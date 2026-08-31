@@ -30,3 +30,7 @@ PWA
 
 PAQUET FINAL
 Le MP3 est déjà intégré au bon emplacement. Aucun ajout manuel n’est nécessaire avant déploiement.
+
+HOTFIX 31/08/2026
+- page de sauvegarde durcie contre les retours à la ligne dans la boîte de confirmation ;
+- cache PWA incrémenté pour forcer le remplacement de la page corrigée.

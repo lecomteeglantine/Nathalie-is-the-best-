@@ -1188,7 +1188,7 @@ body.dark-mode :where(.trip-setup,.trip-panel,.trip-profile,.trip-ready,.trip-da
 
       <div class="setting-card">
         <h2>🩺 Diagnostic & récupération</h2>
-        <p>V12 peut vérifier les éléments essentiels de l’application et restaurer le point de récupération local le plus récent en cas de mauvaise manipulation.</p>
+        <p>V13 peut vérifier les éléments essentiels de l’application et restaurer le point de récupération local le plus récent en cas de mauvaise manipulation.</p>
         <div class="btn-row"><button class="btn btn-primary" id="runDiagnostic" type="button">✓ Lancer le diagnostic</button><button class="btn btn-ghost" id="restoreLocalBackup" type="button">↶ Restaurer une sauvegarde locale</button></div>
         <div id="diagnosticResults" class="health-grid" aria-live="polite"></div>
         <p class="recovery-note" id="recoveryStatus">Les sauvegardes de récupération restent uniquement sur cet appareil.</p>
@@ -2716,8 +2716,8 @@ function renderHome(){
     ? '<div class="smart-card" style="background:linear-gradient(145deg,#0f6a58,#0c5144)"><h3>✅ Défi du jour terminé</h3><p>Mission accomplie. Si tu veux continuer, les jeux sont ouverts.</p><button type="button" class="btn btn-sun" onclick="go(\'games\')">Jouer encore →</button></div>'
     : '<div class="smart-card"><h3>🎯 Défi du jour</h3><p>5 mots · 3 questions · 1 phrase à dire. Quelques minutes suffisent pour entretenir ta mémoire.</p><button type="button" class="btn btn-sun" onclick="go(\'games\')">Faire le défi →</button></div>';
   const wn=document.getElementById('home-v6-news');
-  if(wn) wn.innerHTML=state.lastSeenVersion==='V12'?'':'<div class="whats-new"><button type="button" class="whats-close" id="closeWhatsNew" aria-label="Fermer">✕</button><h3>🧳 V12 · Je pars à…</h3><p>Trip Planner, compte à rebours, programme adaptatif jusqu’au départ, Final Travel Check et Travel Mode simplifié pour le jour J.</p></div>';
-  document.getElementById('closeWhatsNew')?.addEventListener('click',()=>{state.lastSeenVersion='V12';save();wn.innerHTML='';});
+  if(wn) wn.innerHTML=state.lastSeenVersion==='V13'?'':'<div class="whats-new"><button type="button" class="whats-close" id="closeWhatsNew" aria-label="Fermer">✕</button><h3>🎵💾 V13 · Musique & sauvegarde</h3><p>Music ON/OFF avec ton thème de voyage, plus une page guidée pour sauvegarder et transférer toute ta progression.</p></div>';
+  document.getElementById('closeWhatsNew')?.addEventListener('click',()=>{state.lastSeenVersion='V13';save();wn.innerHTML='';});
 }
 
 /* =========================================================
