@@ -1,0 +1,32 @@
+NATHALIE IS THE BEST · V13
+
+AJOUT 1 · MUSIC ON/OFF
+- bouton intégré dans la barre supérieure ;
+- musique OFF au démarrage (respect des règles d’autoplay) ;
+- lecture en boucle ;
+- pause lorsque l’onglet est masqué ;
+- baisse automatique du volume pendant la synthèse vocale ;
+- message clair si le MP3 n’a pas encore été ajouté.
+
+FICHIER AUDIO ATTENDU :
+assets/nathalie-city-travel-theme.mp3
+
+Le prompt Suno complet se trouve dans :
+assets/README-MUSIC.txt
+
+AJOUT 2 · SAUVEGARDE / TRANSFERT
+- nouvelle page : sauvegarde-progression.html ;
+- accès depuis l’accueil et depuis Réglages ;
+- export de toutes les données locales Nathalie (progression + sauvegardes de récupération) ;
+- import vérifié avec confirmation ;
+- conservation d’un point de récupération avant import ;
+- compatibilité avec les anciens exports V12 ;
+- aucune donnée envoyée au serveur.
+
+PWA
+- service worker V13 ;
+- nouvelle page incluse dans le cache hors connexion ;
+- correction du routage de cache pour éviter qu’une seconde page HTML n’écrase la copie hors ligne de l’accueil.
+
+AVANT DEPLOIEMENT
+Pour que le bouton Music soit réellement fonctionnel : générer le morceau Suno, télécharger le MP3, le renommer exactement nathalie-city-travel-theme.mp3 et le placer dans le dossier assets/.

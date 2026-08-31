@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-<title>Nathalie is the best — Travel English Passport · V12</title>
+<title>Nathalie is the best — Travel English Passport · V13</title>
 <meta name="description" content="Le compagnon d'anglais de Nathalie pour voyager avec confiance : parcours A1-C1, jeux, missions, oral, listening, révisions adaptatives et passeport de voyage." />
 
 <!-- PWA -->
@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 <meta name="apple-mobile-web-app-title" content="Nathalie EN" />
 <meta name="application-name" content="Nathalie EN" />
-<meta name="nathalie-app-version" content="V12" />
+<meta name="nathalie-app-version" content="V13" />
 <meta name="nathalie-audit-fix" content="2026-08-30" />
 
 
@@ -344,6 +344,11 @@ body.high-contrast{--paper:#fff;--card:#fff;--text:#000;--muted:#343434;--ink:#0
 .icon-btn:hover{border-color:var(--sky)}
 .top-tools{display:flex;gap:7px;align-items:center}
 
+.music-btn{height:38px;border:1px solid rgba(155,93,229,.42);background:linear-gradient(145deg,#fff,#fbf7ff);color:#5d35a4;border-radius:999px;padding:0 11px;display:inline-flex;align-items:center;gap:6px;cursor:pointer;font-weight:850;box-shadow:var(--shadow-sm);white-space:nowrap}
+.music-btn:hover{border-color:#9B5DE5}.music-btn[aria-pressed="true"]{background:linear-gradient(145deg,#9B5DE5,#6d3fc1);border-color:#6d3fc1;color:#fff;box-shadow:0 5px 16px -8px rgba(109,63,193,.75)}
+.music-btn .music-note{font-size:16px;line-height:1}.music-btn .music-label{font-size:10px;letter-spacing:.2px}
+@media(max-width:610px){.music-btn{width:38px;padding:0;justify-content:center}.music-btn .music-label{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}}
+
 .app-dock{position:fixed;z-index:55;left:50%;bottom:max(8px,env(safe-area-inset-bottom));transform:translateX(-50%);width:min(720px,calc(100% - 18px));height:64px;border:1px solid var(--line-strong);background:rgba(255,255,255,.94);backdrop-filter:blur(14px);border-radius:20px;box-shadow:0 16px 40px -18px rgba(11,34,56,.55);display:grid;grid-template-columns:repeat(7,1fr);padding:6px;gap:4px}
 .dock-btn{border:0;background:transparent;border-radius:14px;color:var(--muted);cursor:pointer;display:grid;place-items:center;align-content:center;gap:1px;min-width:0;font-size:19px}
 .dock-btn span{font-size:10px;font-weight:700;white-space:nowrap}
@@ -611,12 +616,15 @@ body.dark-mode :where(.trip-setup,.trip-panel,.trip-profile,.trip-ready,.trip-da
     <div class="top-tools" aria-label="Réglages d’affichage">
       <button id="textSizeBtn" class="icon-btn" type="button" title="Agrandir le texte" aria-pressed="false">Aa+</button>
       <button id="contrastBtn" class="icon-btn" type="button" title="Contraste renforcé" aria-pressed="false">◐</button>
+      <button id="musicBtn" class="music-btn" type="button" aria-pressed="false" aria-label="Activer la musique d’ambiance" title="Musique d’ambiance : OFF"><span class="music-note" aria-hidden="true">♫</span><span class="music-label">Music OFF</span></button>
       <span id="netStatus" class="net-pill" role="status"><span aria-hidden="true">●</span><span class="net-label">Hors ligne</span></span>
       <button id="settingsBtn" class="settings-btn" type="button" title="Réglages" aria-label="Ouvrir les réglages" onclick="go('settings')">⚙️</button>
       <button type="button" id="installBtn" class="btn-install" aria-label="Installer l'application">⬇ Installer</button>
     </div>
   </div>
 </header>
+
+<audio id="bgMusic" loop preload="none" aria-hidden="true"><source src="assets/nathalie-city-travel-theme.mp3" type="audio/mpeg"></audio>
 
 <div id="route-status" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
 
@@ -667,6 +675,11 @@ body.dark-mode :where(.trip-setup,.trip-panel,.trip-profile,.trip-ready,.trip-da
           <div class="stat"><b id="home-streak">0</b><small>jours 🔥</small></div>
         </div>
       </div>
+    </div>
+    <div class="mission-callout" style="border-color:rgba(46,134,171,.42);background:linear-gradient(145deg,#f3fbff,#fff)">
+      <div class="ic" aria-hidden="true" style="background:rgba(46,134,171,.12)">💾</div>
+      <div style="flex:1"><b>Sauvegarde ta progression</b><small>Change de téléphone, tablette ou navigateur sans repartir de zéro : exporte un fichier JSON puis réimporte-le sur le nouvel appareil.</small></div>
+      <a class="btn btn-ghost" href="sauvegarde-progression.html">Sauvegarder / transférer →</a>
     </div>
     <div id="home-challenge"></div>
     <div class="mission-callout">
@@ -1128,7 +1141,7 @@ body.dark-mode :where(.trip-setup,.trip-panel,.trip-profile,.trip-ready,.trip-da
   <section id="view-settings" class="view" aria-labelledby="settings-h">
     <button type="button" class="back" onclick="go('accueil')">← Accueil</button>
     <div class="settings-hero">
-      <p class="eyebrow" id="settings-h">V12 · Réglages, sauvegardes & diagnostic</p>
+      <p class="eyebrow" id="settings-h">V13 · Réglages, sauvegardes & diagnostic</p>
       <h1>Mon application</h1>
       <p>Affichage, voix, mode hors connexion et sauvegarde de la progression — toujours sans compte.</p>
     </div>
@@ -1168,6 +1181,7 @@ body.dark-mode :where(.trip-setup,.trip-panel,.trip-profile,.trip-ready,.trip-da
         <h2>💾 Sauvegarder ma progression</h2>
         <p>Pratique avant de changer de téléphone ou de navigateur. Le fichier exporté contient uniquement les données locales de cette application.</p>
         <div class="data-actions"><button class="btn btn-primary" id="exportProgress" type="button">⬇ Exporter ma progression</button><button class="btn btn-ghost" id="importProgress" type="button">⬆ Importer une sauvegarde</button></div>
+        <p style="margin:.8rem 0 0"><a class="btn btn-ghost" href="sauvegarde-progression.html">🧳 Ouvrir la page de transfert guidée</a></p>
         <input id="importFile" type="file" accept="application/json,.json" hidden>
         <p class="backup-note" id="backupStatus"></p>
       </div>
@@ -1210,7 +1224,7 @@ body.dark-mode :where(.trip-setup,.trip-panel,.trip-profile,.trip-ready,.trip-da
 
 <footer>
   <p>Fait avec <span class="heart" aria-hidden="true">❤</span> pour Nathalie — parce que tu es <b>the best</b>, et que le monde t'attend.</p>
-  <p class="priv">🔒 Aucun compte et aucune progression envoyée à un serveur : tes résultats restent dans le stockage local de ce navigateur. Les vidéos YouTube ne se chargent qu’après ton clic et nécessitent internet. Les simulations utilisent uniquement les fonctions de ton navigateur. Les enregistrements vocaux restent localement dans la page, ne sont jamais envoyés par le site et disparaissent au rechargement. V12 conserve toutes les fonctions précédentes et ajoute un Trip Planner local, un programme adaptatif jusqu’au départ, un Final Travel Check interne et un Travel Mode simplifié. Les Progress Checks et Final Travel Check restent des repères pédagogiques internes, jamais des certifications officielles. Le Listening Lab utilise la synthèse vocale locale du navigateur lorsque celle-ci est disponible.</p>
+  <p class="priv">🔒 Aucun compte et aucune progression envoyée à un serveur : tes résultats restent dans le stockage local de ce navigateur. Les vidéos YouTube ne se chargent qu’après ton clic et nécessitent internet. Les simulations utilisent uniquement les fonctions de ton navigateur. Les enregistrements vocaux restent localement dans la page, ne sont jamais envoyés par le site et disparaissent au rechargement. V13 conserve toutes les fonctions précédentes, ajoute une musique d’ambiance activable à la demande et une page guidée de sauvegarde/transfert. Le Trip Planner local, le programme adaptatif, le Final Travel Check interne et le Travel Mode restent disponibles. Les Progress Checks et Final Travel Check restent des repères pédagogiques internes, jamais des certifications officielles. Le Listening Lab utilise la synthèse vocale locale du navigateur lorsque celle-ci est disponible.</p>
 </footer>
 
 <nav class="app-dock" aria-label="Navigation principale">
@@ -2649,7 +2663,7 @@ function go(view, opts={}){
   requestAnimationFrame(()=>{
     const heading=el.querySelector('h1');
     const label=(heading?.textContent||VIEW_TITLES[view]||'Nathalie EN').trim();
-    document.title=(view==='accueil'?'Nathalie is the best — Travel English Passport · V12':label+' — Nathalie is the best');
+    document.title=(view==='accueil'?'Nathalie is the best — Travel English Passport · V13':label+' — Nathalie is the best');
     const live=document.getElementById('route-status'); if(live) live.textContent='Page : '+label;
     if(heading && !opts.noFocus){ heading.setAttribute('tabindex','-1'); try{heading.focus({preventScroll:true});}catch(e){heading.focus();} }
   });
@@ -2707,6 +2721,29 @@ function renderHome(){
 }
 
 /* =========================================================
+   V13 · Musique d’ambiance locale
+   ========================================================= */
+const BG_MUSIC_FILE='assets/nathalie-city-travel-theme.mp3';
+let musicOn=false;
+function musicButtonState(on){
+  musicOn=!!on;
+  const b=document.getElementById('musicBtn'); if(!b)return;
+  b.setAttribute('aria-pressed',String(musicOn));
+  b.setAttribute('aria-label',musicOn?'Couper la musique d’ambiance':'Activer la musique d’ambiance');
+  b.title='Musique d’ambiance : '+(musicOn?'ON':'OFF');
+  const l=b.querySelector('.music-label'); if(l)l.textContent='Music '+(musicOn?'ON':'OFF');
+}
+function duckMusic(down){const a=document.getElementById('bgMusic');if(!a||!musicOn)return;a.volume=down?.08:.24;}
+async function toggleMusic(){
+  const a=document.getElementById('bgMusic'); if(!a)return;
+  if(musicOn){a.pause();musicButtonState(false);toast('Music OFF');return;}
+  a.volume=.24;
+  try{await a.play();musicButtonState(true);toast('Music ON ♫');}
+  catch(e){musicButtonState(false);toast('Musique non disponible : ajoute le fichier Suno « '+BG_MUSIC_FILE.split('/').pop()+' » dans le dossier assets.');}
+}
+document.addEventListener('visibilitychange',()=>{const a=document.getElementById('bgMusic');if(!a||!musicOn)return;if(document.hidden)a.pause();else a.play().catch(()=>{});});
+
+/* =========================================================
    Synthèse vocale (écouter l'anglais)
    ========================================================= */
 let voices=[];
@@ -2733,11 +2770,9 @@ function speak(text, btn, fromSequence=false){
     const u = new SpeechSynthesisUtterance(clean || text);
     const v = pickVoice(); if(v) u.voice=v;
     u.lang = v ? v.lang : 'en-GB'; u.rate=0.88; u.pitch=1;
-    if(btn){
-      u.onstart=()=>btn.classList.add('playing');
-      u.onend=()=>btn.classList.remove('playing');
-      u.onerror=()=>btn.classList.remove('playing');
-    }
+    u.onstart=()=>{duckMusic(true);if(btn)btn.classList.add('playing');};
+    u.onend=()=>{duckMusic(false);if(btn)btn.classList.remove('playing');};
+    u.onerror=()=>{duckMusic(false);if(btn)btn.classList.remove('playing');};
     speechSynthesis.speak(u);
   }catch(e){}
 }
@@ -4055,7 +4090,7 @@ function renderSettings(){
 }
 function toggleSetting(field){state[field]=!state[field];save();applyUiPrefs();renderSettings();}
 function exportProgress(){
-  const payload={app:'Nathalie is the best',version:'V12',schemaVersion:STATE_SCHEMA,exportedAt:new Date().toISOString(),data:state};
+  const payload={app:'Nathalie is the best',version:'V13',schemaVersion:STATE_SCHEMA,exportedAt:new Date().toISOString(),data:state};
   const blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='nathalie-progress-'+todayKey()+'.json';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);toast('Sauvegarde exportée ✓');
 }
 function importProgressFile(file){
@@ -4228,6 +4263,7 @@ window.addEventListener('hashchange',()=>routeFromHash(false));
   document.querySelectorAll('.dock-btn').forEach(b=>b.addEventListener('click',()=>go(b.dataset.go)));
   document.getElementById('textSizeBtn')?.addEventListener('click',()=>{state.uiLarge=!state.uiLarge;save();applyUiPrefs();});
   document.getElementById('contrastBtn')?.addEventListener('click',()=>{state.uiContrast=!state.uiContrast;save();applyUiPrefs();});
+  document.getElementById('musicBtn')?.addEventListener('click',toggleMusic);
   document.querySelectorAll('[data-prog-filter]').forEach(b=>{b.setAttribute('aria-pressed',String(b.classList.contains('active')));b.addEventListener('click',()=>{document.querySelectorAll('[data-prog-filter]').forEach(x=>{x.classList.remove('active');x.setAttribute('aria-pressed','false');});b.classList.add('active');b.setAttribute('aria-pressed','true');renderProgramme();});});
   document.getElementById('review-scope')?.addEventListener('change',()=>{miniQuiz=null;renderReview();});
   document.getElementById('mode-flash')?.addEventListener('click',()=>{reviewMode='flash';document.getElementById('mode-flash')?.setAttribute('aria-pressed','true');document.getElementById('mode-quiz')?.setAttribute('aria-pressed','false');renderReview();});
