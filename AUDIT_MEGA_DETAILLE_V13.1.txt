@@ -1,0 +1,386 @@
+NATHALIE IS THE BEST — AUDIT COMPLET V13.1
+Date : 31 août 2026
+Site : https://lecomteeglantine.github.io/Nathalie-is-the-best-/
+
+============================================================
+1. VERDICT GÉNÉRAL
+============================================================
+
+La V13 avait une base technique solide : aucun effondrement général du JavaScript, 24 modules complets, navigation interne fonctionnelle, stockage local déjà protégé par normalisation et sauvegardes, et une PWA opérationnelle.
+
+L’audit approfondi a toutefois révélé plusieurs défauts invisibles lors d’un simple parcours manuel :
+- biais très important dans la position des bonnes réponses des QCM ;
+- risque de perdre le vrai point de retour lors d’un import complet ;
+- installation PWA trop dépendante du préchargement du gros fichier musical ;
+- gestion insuffisante des requêtes audio partielles hors ligne ;
+- incohérence des limites d’objectifs hebdomadaires après import ;
+- une traduction réellement incorrecte / trompeuse de « fair enough » ;
+- trois références vidéo impossibles à confirmer de façon fiable lors de l’audit ;
+- quelques détails d’accessibilité mobile et de cohérence de version.
+
+Tous les défauts ci-dessus ont été corrigés dans cette V13.1.
+
+============================================================
+2. AUDIT DU CONTENU PÉDAGOGIQUE
+============================================================
+
+Structure vérifiée :
+- 24 escales ;
+- 720 entrées de vocabulaire / expressions ;
+- exactement 30 entrées par escale ;
+- 3 questions d’entraînement par escale, soit 72 mini-QCM ;
+- 6 missions ;
+- 6 Pronunciation Labs ;
+- 5 Progress Checks (A1, A2, B1, B2, C1) ;
+- Listening Lab : 12 scènes + Catch items + Reading + Culture ;
+- Trip Planner + Final Travel Check + Travel Mode.
+
+2.1. Biais de position des bonnes réponses — CORRIGÉ
+
+Avant correction :
+- 72 mini-QCM des leçons : A = 37, B = 34, C = 1 ;
+- test de niveau (17 questions) : A = 2, B = 13, C = 2 ;
+- Pronunciation Lab : 18/18 bonnes réponses en position A ;
+- situations pratiques des Progress Checks : toutes les bonnes réponses en A ;
+- Catch Listening : 7 réponses correctes en A sur 8.
+
+Ce biais rendait possible une stratégie de devinette fondée sur la position et affaiblissait la valeur pédagogique des scores.
+
+Après correction V13.1 :
+- mini-QCM des leçons : A = 24, B = 24, C = 24 ;
+- test de niveau : A = 6, B = 6, C = 5 ;
+- Pronunciation Lab : A = 6, B = 6, C = 6 ;
+- Progress Checks pratiques : A = 4, B = 3, C = 3 ;
+- Listening scènes : A = 4, B = 4, C = 4 ;
+- Catch : A = 3, B = 3, C = 2 ;
+- Reading : A = 2, B = 2, C = 1 ;
+- Culture : A = 2, B = 2, C = 2.
+
+Le rééquilibrage est déterministe : les réponses ne changent pas de place à chaque rechargement, ce qui évite une interface instable. Le contenu évalué et les explications restent inchangés.
+
+2.2. Validité structurelle des QCM — OK
+
+Contrôles automatisés sur toutes les banques :
+- aucune question sans réponse correcte ;
+- aucun index de réponse hors limites ;
+- aucune liste d’options insuffisante ;
+- aucune option dupliquée à l’intérieur d’une même question.
+
+2.3. Vocabulaire — CORRECTION + CONTRÔLE
+
+20 répétitions normalisées ont été détectées dans les 720 entrées (par exemple « How are you? », « Yesterday », « A reservation », certains nombres, « No worries », etc.).
+
+Elles ont été conservées lorsqu’elles servent un nouveau contexte ou une réactivation utile : hôtel / restaurant, nombres / courses, bases / small talk, etc. Les supprimer mécaniquement ferait perdre de la répétition espacée contextuelle.
+
+Correction réelle appliquée :
+- « Fair enough » n’est plus traduit par « C’est de bonne guerre » ;
+- traductions retenues : « D’accord / je comprends » et « D’accord / ça se tient » selon le module.
+
+2.4. Test de niveau — OK AVEC LIMITATION EXPLICITE
+
+Scénarios automatisés :
+- 17/17 -> résultat C1 interne ;
+- 0/17 -> résultat A1 interne ;
+- progression des questions et écran de résultat fonctionnels ;
+- rechargement direct de #test reconstruit correctement la première question ;
+- #resultat après rechargement revient vers un écran stable au lieu d’afficher un résultat sans contexte.
+
+Le site conserve ses avertissements : ce test et les Progress Checks ne sont pas des certifications CECRL.
+
+2.5. Vidéos externes — FIABILISÉES
+
+Les références externes ont été contrôlées. Plusieurs vidéos importantes ont pu être confirmées directement ou par des sources secondaires récentes (BBC Learning English, engVid, EasyTeaching, etc.).
+
+Trois références dont la disponibilité n’a pas pu être confirmée de façon satisfaisante ont été remplacées :
+- Aéroport -> « 20 Essential Airport English Phrases — listen & repeat » (gfqx0dclQnQ) ;
+- Directions -> « Asking for Directions — easy conversation (A1–A2) » (Frq4TZf0F1s) ;
+- Rencontre / amis -> « Meeting someone for the first time — beginner conversation » (GK0yMNnOeHA).
+
+Les vidéos restent externes : leur disponibilité future dépend de YouTube et ne peut jamais être garantie par le site.
+
+============================================================
+3. TESTS FONCTIONNELS DE L’APPLICATION
+============================================================
+
+Tests exécutés dans Chromium sur la source V13.1 corrigée.
+
+3.1. Navigation / écrans
+- 19 vues principales présentes ;
+- aucune exception JavaScript durant les scénarios de navigation testés ;
+- routes de leçon #lecon-ID vérifiées ;
+- route directe du test corrigée ;
+- titres de page et focus principal mis à jour lors des changements de vue.
+
+3.2. 24 leçons
+Pour chacune des 24 leçons :
+- 30 lignes de vocabulaire rendues ;
+- 3 cartes de pratique rendues ;
+- clic sur les 3 bonnes réponses ;
+- score enregistré = 3/3 ;
+- bouton de validation activé.
+
+Test d’erreur volontaire : 1 réponse fausse sur 3 -> score 2/3, module marqué pour révision, validation toujours possible.
+
+3.3. Missions
+Les 6 missions ont été jouées automatiquement jusqu’au bout avec les meilleures réponses :
+- airport : 10/10 ;
+- hotel : 10/10 ;
+- restaurant : 10/10 ;
+- directions : 10/10 ;
+- health : 10/10 ;
+- smalltalk : 10/10.
+
+3.4. Pronunciation Labs
+Les 6 ateliers ont été ouverts, leurs QCM terminés et leur état de complétion enregistré :
+- TH ;
+- H ;
+- voyelles ;
+- terminaison -ed ;
+- terminaison -s ;
+- word stress.
+
+3.5. Progress Checks
+A1, A2, B1, B2 et C1 ont été terminés en scénario parfait :
+- 10/10 enregistré pour chaque niveau ;
+- état « prêt » correctement calculé ;
+- contrainte d’écoute préalable sur les items listening conservée.
+
+3.6. Listening Lab
+- 12 scènes testées avec réponse correcte ;
+- 8 Catch items testés ;
+- 5 documents Reading testés ;
+- 6 situations Culture testées ;
+- compteurs et feedbacks mis à jour ;
+- aucun crash.
+
+3.7. Jeux
+Smoke tests effectués notamment sur :
+- Missing Word : victoire enregistrée ;
+- Travel Challenge : série complète et meilleur score enregistré.
+
+Les quatre jeux restent disponibles et leurs compteurs sont conservés dans le stockage local.
+
+3.8. My English / révisions adaptatives
+Une séance adaptative 5 minutes a été menée jusqu’à son écran de fin :
+- mots affichés ;
+- révélation / « je sais » ;
+- production orale ;
+- nombre de sessions et minutes prévues mis à jour.
+
+3.9. Passeport
+- trois onglets Passport / Map / Wallet fonctionnels ;
+- un seul onglet aria-selected à la fois ;
+- un seul panneau actif ;
+- navigation clavier ArrowLeft / ArrowRight / Home / End conservée.
+
+3.10. Trip Planner
+Test avec départ à J+139 :
+- J-139 correctement calculé ;
+- 140 jours planifiés en comptant aujourd’hui et le jour du départ ;
+- affichage condensé à 17 lignes (8 premières + ellipse + 8 dernières) ;
+- aucune ancienne limite artificielle à 90 jours.
+
+============================================================
+4. SAUVEGARDE, IMPORT ET STOCKAGE LOCAL
+============================================================
+
+4.1. Bug de point de retour avant import — CORRIGÉ
+
+Ancien comportement :
+- la page créait une sauvegarde PRE_IMPORT de l’état actuel ;
+- puis restaurait tout le JSON ;
+- si ce JSON contenait lui-même une ancienne clé PRE_IMPORT, cette ancienne clé écrasait le point de retour fraîchement créé.
+
+Conséquence : après un import, la fonction de récupération pouvait revenir vers une ancienne sauvegarde au lieu de l’état qui venait réellement d’être remplacé.
+
+Correction :
+- restauration du fichier importé d’abord ;
+- écriture EN DERNIER de l’état courant dans PRE_IMPORT.
+
+Test automatisé :
+- état avant import = CURRENT ;
+- état importé = IMPORTED ;
+- ancienne sauvegarde dans le JSON = OLD_IMPORTED_BACKUP ;
+- résultat V13.1 : état principal = IMPORTED, point de retour = CURRENT. OK.
+
+4.2. Export vide — CORRIGÉ
+
+Si aucune donnée Nathalie n’existe :
+- le bouton Export est désormais désactivé ;
+- le texte explique qu’il n’y a encore rien à transférer.
+
+4.3. Compatibilité des imports — CONSERVÉE
+
+La page accepte :
+- format complet `nathalie-local-backup-v1` ;
+- ancien export rapide `{app:'Nathalie is the best', data:...}` ;
+- état brut contenant `schemaVersion`.
+
+4.4. Protection de l’affichage des données importées — RENFORCÉE
+
+La page de sauvegarde insérait le niveau lu dans le stockage local dans une zone `innerHTML`. Un JSON fabriqué manuellement pouvait théoriquement y placer du balisage HTML.
+
+Correction V13.1 :
+- échappement HTML explicite des champs venant du stockage/import ;
+- messages d’erreur également échappés.
+
+Test avec une valeur volontairement malveillante `<img ... onerror=...>` :
+- aucun élément injecté dans le DOM ;
+- aucun code exécuté ;
+- la valeur apparaît uniquement comme texte.
+
+4.5. Normalisation des objectifs hebdomadaires — CORRIGÉE
+
+Ancienne incohérence :
+- interface : 5–200 révisions et 0–20 missions ;
+- normalisation d’une sauvegarde : autorisait 1–500 et 0–50.
+
+V13.1 aligne désormais import, stockage et formulaire :
+- jours : 1–7 ;
+- révisions : 5–200 ;
+- missions : 0–20.
+
+Test sur valeurs extrêmes importées : 99 / -1 / 999 -> 7 / 5 / 20.
+
+4.6. Stockage corrompu — OK
+
+Un JSON principal volontairement invalide ne bloque pas le chargement : l’application revient aux valeurs par défaut.
+Les objets de sauvegarde anciens ou mal formés sont normalisés avant utilisation.
+
+============================================================
+5. MUSIQUE, AUDIO ET ENREGISTREMENT
+============================================================
+
+5.1. Music ON/OFF — OK
+- démarre OFF, ce qui respecte les politiques d’autoplay ;
+- clic ON -> lecture, aria-pressed=true, volume 0,24 ;
+- clic OFF -> pause, aria-pressed=false ;
+- onglet masqué -> pause ;
+- retour sur l’onglet -> reprise tentée ; si le navigateur bloque la reprise, le bouton repasse correctement sur OFF ;
+- synthèse vocale -> musique abaissée à 0,08 puis restaurée à 0,24.
+
+5.2. Synthèse vocale — OK AVEC DÉPENDANCE NAVIGATEUR
+- voix en-GB prioritaire ;
+- fallback vers en-US puis autre voix anglaise ;
+- arrêt propre de la séquence « écouter tout » lors d’une nouvelle action/navigation ;
+- état visuel `playing` nettoyé.
+
+5.3. Enregistrement oral
+Le micro dépend de `MediaRecorder` et de `navigator.mediaDevices`. L’application ne demande pas la permission avant une action de l’utilisateur. Sur un navigateur qui ne prend pas cette API en charge, le diagnostic affiche une information au lieu de prétendre que la fonction est disponible.
+
+============================================================
+6. PWA ET MODE HORS CONNEXION
+============================================================
+
+6.1. Installation trop fragile — CORRIGÉE
+
+Ancien service worker V13 : `cache.addAll()` chargeait en bloc HTML + icônes + MP3 d’environ 5,5 Mo.
+Si le MP3 ou une icône échouait temporairement, toute l’installation du service worker pouvait échouer.
+
+V13.1 :
+- shell essentiel : accueil, sauvegarde, manifeste -> obligatoire ;
+- MP3 et icônes -> best effort via Promise.allSettled ;
+- une panne d’asset optionnel ne bloque plus l’application hors ligne.
+
+Test unitaire : échec simulé du MP3 pendant l’installation -> promesse d’installation résolue. OK.
+
+6.2. Audio MP3 hors connexion / requêtes Range — CORRIGÉ
+
+Les lecteurs audio demandent fréquemment des plages d’octets (`Range`). Le service worker sait maintenant créer une réponse HTTP 206 à partir du MP3 complet en cache.
+
+Tests :
+- bytes=0-99 -> 206, 100 octets ;
+- bytes=100-199 -> 206, 100 octets ;
+- bytes=-100 -> 206, 100 derniers octets ;
+- plage hors fichier -> 416 avec Content-Range correct.
+
+Cela rend la boucle et le déplacement dans le morceau beaucoup plus robustes hors connexion.
+
+6.3. Cache des pages — CORRIGÉ
+
+L’accueil et `sauvegarde-progression.html` gardent désormais des clés de cache distinctes. Une navigation réseau vers la page de sauvegarde ne peut plus remplacer par erreur la copie d’accueil.
+
+6.4. Mise à jour
+Nouveau cache : `nathalie-v13-1-auditfix-2026-08-31`.
+Les anciens caches commençant par `nathalie-` sont supprimés à l’activation.
+
+============================================================
+7. ACCESSIBILITÉ ET MOBILE
+============================================================
+
+Contrôles statiques finaux :
+- 0 ID dupliqué ;
+- 0 référence `aria-labelledby` cassée ;
+- 0 `label for` pointant vers un élément absent ;
+- 277 balises `<button>` repérées dans le code / templates, toutes avec `type="button"` explicite ;
+- aucun tabindex positif ;
+- lien « Aller au contenu » présent ;
+- états `aria-pressed`, `aria-selected`, `aria-current`, `role=switch`, zones live présents sur les contrôles concernés.
+
+Note : les trois champs d’objectif hebdomadaire sont correctement étiquetés par des `<label>` englobants ; l’absence d’attribut `for` n’est donc pas une erreur d’accessibilité.
+
+7.1. Cibles tactiles — AMÉLIORÉES
+Sur mobile :
+- Music, Réglages et boutons d’affichage -> 44 × 44 px ;
+- boutons écouter / favoris du vocabulaire -> 44 × 44 px ;
+- onglets principaux tactiles renforcés.
+
+7.2. Très petits écrans — CORRIGÉ
+L’agrandissement des boutons avait initialement créé un débordement à 320/360 px. La marque textuelle est maintenant masquée uniquement <= 360 px, l’icône avion reste visible et les boutons conservent leur taille tactile.
+
+Mesures finales du document : aucun débordement horizontal à 320, 360, 375, 430, 768, 1024 et 1366 px.
+
+Les barres volontairement scrollables (dock mobile et onglets Travel Mode) restent scrollables dans leur propre conteneur sans élargir la page.
+
+============================================================
+8. STRUCTURE TECHNIQUE ET INTÉGRITÉ
+============================================================
+
+- JavaScript `index.html` : syntaxe valide ;
+- JavaScript `sauvegarde-progression.html` : syntaxe valide ;
+- `sw.js` : syntaxe valide ;
+- `manifest.webmanifest` : JSON valide ;
+- fichiers PWA référencés présents ;
+- MP3 présent et inclus dans le package ;
+- version UI harmonisée en V13.1 ;
+- schéma de données reste volontairement `STATE_SCHEMA = 12` : V13/V13.1 n’introduit pas une structure d’état incompatible nécessitant une migration artificielle.
+
+Le diagnostic interne retourne OK pour le contenu, la progression, la préparation voyage, la structure HTML, les boutons et le stockage. Les lignes Micro / Service Worker restent naturellement informatives lorsqu’un test est exécuté dans un environnement Chromium isolé sans permission micro ni contrôleur SW réel.
+
+============================================================
+9. POINTS NON CONSIDÉRÉS COMME DES BUGS
+============================================================
+
+- Les 20 répétitions de vocabulaire ne sont pas supprimées : la majorité correspond à une réactivation contextuelle utile.
+- Le test de niveau n’est pas transformé en certification : les avertissements pédagogiques sont conservés.
+- La musique reste OFF au chargement : nécessaire pour respecter l’autoplay moderne et ne pas imposer du son.
+- Les vidéos YouTube ne peuvent pas fonctionner hors connexion et leur disponibilité future dépend de tiers.
+- Les voix de synthèse et accents disponibles dépendent du système de l’utilisateur.
+- La progression reste locale par conception ; pour changer d’appareil il faut utiliser l’export/import.
+
+============================================================
+10. RESTE À FAIRE MANUELLEMENT SUR GITHUB (HORS CODE)
+============================================================
+
+La description « About » du dépôt GitHub affiche encore au moment de l’audit :
+« Tout le nécessaire pour qu’Yvette devienne une pro de l’anglais ».
+
+Cette propriété appartient aux réglages du dépôt GitHub et n’est contenue dans aucun fichier du ZIP. Le ZIP ne peut donc pas la modifier.
+
+À corriger manuellement dans GitHub > dépôt > About > roue dentée, par exemple :
+« English for travel — a personalised learning app for Nathalie ».
+
+Fichiers historiques actuellement présents dans le dépôt mais inutiles au fonctionnement :
+- AUDIT_CORRECTIONS.txt
+- V13_AJOUTS.txt
+- assets/README-MUSIC.txt
+
+Ils peuvent rester sans provoquer de bug, ou être supprimés pour un dépôt plus propre.
+
+============================================================
+11. CONCLUSION
+============================================================
+
+La V13.1 corrige les défauts réels détectés lors de l’audit sans supprimer les fonctions existantes ni réinitialiser la progression. Les correctifs visent en priorité la fiabilité des évaluations, la sécurité de la sauvegarde, la robustesse hors connexion, l’accessibilité mobile et la cohérence du contenu.
+
+Le ZIP fourni avec ce rapport est conçu pour remplacer les fichiers actifs du dépôt GitHub.

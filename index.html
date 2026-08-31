@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-<title>Nathalie is the best — Travel English Passport · V13</title>
+<title>Nathalie is the best — Travel English Passport · V13.1</title>
 <meta name="description" content="Le compagnon d'anglais de Nathalie pour voyager avec confiance : parcours A1-C1, jeux, missions, oral, listening, révisions adaptatives et passeport de voyage." />
 
 <!-- PWA -->
@@ -16,8 +16,8 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 <meta name="apple-mobile-web-app-title" content="Nathalie EN" />
 <meta name="application-name" content="Nathalie EN" />
-<meta name="nathalie-app-version" content="V13" />
-<meta name="nathalie-audit-fix" content="2026-08-30" />
+<meta name="nathalie-app-version" content="V13.1" />
+<meta name="nathalie-audit-fix" content="2026-08-31" />
 
 
 <style>
@@ -598,6 +598,18 @@ body.dark-mode :where(.trip-setup,.trip-panel,.trip-profile,.trip-ready,.trip-da
 @media(max-width:700px){.trip-fields{grid-template-columns:1fr}.trip-profile-grid,.trip-priority-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.trip-dashboard{grid-template-columns:1fr}.trip-countdown{grid-column:auto;grid-template-columns:auto 1fr}.trip-countdown .btn{grid-column:1/-1;width:100%}.trip-ready-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.trip-day{grid-template-columns:58px 1fr auto}.trip-v12-callout{align-items:flex-start;flex-wrap:wrap}.trip-v12-callout .btn{width:100%}}
 @media(min-width:561px){.app-dock{width:min(970px,calc(100% - 18px));grid-template-columns:repeat(13,1fr)}}
 
+
+/* V13.1 · mobile accessibility audit: larger primary touch targets */
+@media(max-width:560px){
+  .icon-btn,.settings-btn,.music-btn{min-width:44px;width:44px;height:44px}
+  .vrow .speak,.vrow .star-btn{width:44px;height:44px}
+  .travel-mode-tab,.travel-tab{min-height:40px}
+}
+@media(max-width:360px){
+  .brand>span:last-child{display:none}
+  .brand{min-width:40px;padding:0;justify-content:center}
+  .top-tools{gap:3px}
+}
 </style>
 </head>
 <body>
@@ -698,7 +710,7 @@ body.dark-mode :where(.trip-setup,.trip-panel,.trip-profile,.trip-ready,.trip-da
 
     <div class="trip-v12-callout">
       <div class="ic" aria-hidden="true">🧳</div>
-      <div style="flex:1"><b>V12 · Je pars à…</b><small>Indique ta destination et ta date de départ : l’application construit un programme adaptatif jusqu’au voyage puis passe en Travel Mode le jour J.</small></div>
+      <div style="flex:1"><b>Je pars à…</b><small>Indique ta destination et ta date de départ : l’application construit un programme adaptatif jusqu’au voyage puis passe en Travel Mode le jour J.</small></div>
       <button class="btn btn-ghost" type="button" onclick="go('tripplanner')">Préparer mon voyage →</button>
     </div>
 
@@ -997,7 +1009,7 @@ body.dark-mode :where(.trip-setup,.trip-panel,.trip-profile,.trip-ready,.trip-da
 
     <div class="myenglish-v9-summary" aria-label="Progression générale">
       <div class="dashboard-ring" id="my-progress-ring" style="--pct:0"><div><b id="my-progress-pct">0%</b><small>parcours</small></div></div>
-      <div><p class="eyebrow">V12 · Vue d’ensemble</p><h2 id="my-progress-title">En route</h2><p id="my-progress-copy">Tes escales, tes mots et tes missions se combinent maintenant dans ton passeport.</p><div class="btn-row" style="margin-top:10px"><button class="btn btn-ghost" type="button" onclick="go('passport')">🛂 Voir le passeport</button><button class="btn btn-ghost" type="button" onclick="go('progresscheck')">✅ Faire un Progress Check</button></div></div>
+      <div><p class="eyebrow">Vue d’ensemble</p><h2 id="my-progress-title">En route</h2><p id="my-progress-copy">Tes escales, tes mots et tes missions se combinent maintenant dans ton passeport.</p><div class="btn-row" style="margin-top:10px"><button class="btn btn-ghost" type="button" onclick="go('passport')">🛂 Voir le passeport</button><button class="btn btn-ghost" type="button" onclick="go('progresscheck')">✅ Faire un Progress Check</button></div></div>
     </div>
 
     <div class="metric-grid" aria-label="Synthèse personnelle">
@@ -1069,7 +1081,7 @@ body.dark-mode :where(.trip-setup,.trip-panel,.trip-profile,.trip-ready,.trip-da
   <section id="view-passport" class="view" aria-labelledby="passport-h">
     <button type="button" class="back" onclick="go('accueil')">← Accueil</button>
     <div class="passport-hero">
-      <p class="eyebrow" id="passport-h">V12 · My Travel Passport</p>
+      <p class="eyebrow" id="passport-h">My Travel Passport</p>
       <h1>Le monde se débloque.</h1>
       <p>Tes progrès deviennent des tampons, des destinations et une vraie trace de voyage. Rien à refaire : ce passeport utilise tout ce que tu as déjà accompli.</p>
     </div>
@@ -1116,7 +1128,7 @@ body.dark-mode :where(.trip-setup,.trip-panel,.trip-profile,.trip-ready,.trip-da
   <section id="view-tripplanner" class="view" aria-labelledby="tripplanner-h">
     <button type="button" class="back" onclick="go('accueil')">← Accueil</button>
     <div class="trip-hero">
-      <p class="eyebrow" id="tripplanner-h">V12 · Trip Planner</p>
+      <p class="eyebrow" id="tripplanner-h">Trip Planner</p>
       <h1>Je pars à…</h1>
       <p>Destination, date, temps disponible et situations prioritaires : ton programme se réorganise jusqu’au départ selon ce que tu maîtrises déjà.</p>
     </div>
@@ -1129,7 +1141,7 @@ body.dark-mode :where(.trip-setup,.trip-panel,.trip-profile,.trip-ready,.trip-da
   <section id="view-travelmode" class="view" aria-labelledby="travelmode-h">
     <div class="travel-mode-head">
       <div class="btn-row" style="justify-content:space-between;align-items:center;margin:0 0 8px"><button type="button" class="btn btn-ghost" onclick="go('tripplanner')" style="padding:8px 12px">← Quitter Travel Mode</button><span class="accent-pill" id="travel-offline-pill">⏳ vérification hors connexion</span></div>
-      <p class="eyebrow" id="travelmode-h">V12 · Travel Mode</p>
+      <p class="eyebrow" id="travelmode-h">Travel Mode</p>
       <h1 id="travel-mode-title">Sur place</h1>
       <p>Les phrases essentielles, en gros, avec audio immédiat. Pas besoin de chercher dans tout le cours.</p>
       <div id="travel-mode-nav" class="travel-mode-nav" aria-label="Catégories du mode voyage"></div>
@@ -1141,7 +1153,7 @@ body.dark-mode :where(.trip-setup,.trip-panel,.trip-profile,.trip-ready,.trip-da
   <section id="view-settings" class="view" aria-labelledby="settings-h">
     <button type="button" class="back" onclick="go('accueil')">← Accueil</button>
     <div class="settings-hero">
-      <p class="eyebrow" id="settings-h">V13 · Réglages, sauvegardes & diagnostic</p>
+      <p class="eyebrow" id="settings-h">V13.1 · Réglages, sauvegardes & diagnostic</p>
       <h1>Mon application</h1>
       <p>Affichage, voix, mode hors connexion et sauvegarde de la progression — toujours sans compte.</p>
     </div>
@@ -1224,7 +1236,7 @@ body.dark-mode :where(.trip-setup,.trip-panel,.trip-profile,.trip-ready,.trip-da
 
 <footer>
   <p>Fait avec <span class="heart" aria-hidden="true">❤</span> pour Nathalie — parce que tu es <b>the best</b>, et que le monde t'attend.</p>
-  <p class="priv">🔒 Aucun compte et aucune progression envoyée à un serveur : tes résultats restent dans le stockage local de ce navigateur. Les vidéos YouTube ne se chargent qu’après ton clic et nécessitent internet. Les simulations utilisent uniquement les fonctions de ton navigateur. Les enregistrements vocaux restent localement dans la page, ne sont jamais envoyés par le site et disparaissent au rechargement. V13 conserve toutes les fonctions précédentes, ajoute une musique d’ambiance activable à la demande et une page guidée de sauvegarde/transfert. Le Trip Planner local, le programme adaptatif, le Final Travel Check interne et le Travel Mode restent disponibles. Les Progress Checks et Final Travel Check restent des repères pédagogiques internes, jamais des certifications officielles. Le Listening Lab utilise la synthèse vocale locale du navigateur lorsque celle-ci est disponible.</p>
+  <p class="priv">🔒 Aucun compte et aucune progression envoyée à un serveur : tes résultats restent dans le stockage local de ce navigateur. Les vidéos YouTube ne se chargent qu’après ton clic et nécessitent internet. Les simulations utilisent uniquement les fonctions de ton navigateur. Les enregistrements vocaux restent localement dans la page, ne sont jamais envoyés par le site et disparaissent au rechargement. V13.1 conserve toutes les fonctions précédentes, ajoute une musique d’ambiance activable à la demande et une page guidée de sauvegarde/transfert. Le Trip Planner local, le programme adaptatif, le Final Travel Check interne et le Travel Mode restent disponibles. Les Progress Checks et Final Travel Check restent des repères pédagogiques internes, jamais des certifications officielles. Le Listening Lab utilise la synthèse vocale locale du navigateur lorsque celle-ci est disponible.</p>
 </footer>
 
 <nav class="app-dock" aria-label="Navigation principale">
@@ -1453,7 +1465,7 @@ const MODULES = [
       { q:"Une carte d'embarquement se dit :", o:["a ticket seat","a boarding pass","a fly card"], a:1 },
       { q:"« Retardé » se dit :", o:["On time","Delayed","Arrival"], a:1 },
     ],
-    video:{ id:"_h3Ln40y8qY", title:"Airport English — phrases à répéter" }
+    video:{ id:"gfqx0dclQnQ", title:"20 Essential Airport English Phrases — listen & repeat" }
   },
   {
     id:"hotel", emoji:"🏨", level:"A1", tag:"Voyage", title:"À l'hôtel", color:"#7C5CFF",
@@ -1600,7 +1612,7 @@ const MODULES = [
       { q:"« Tout droit » se dit :", o:["straight ahead","over there","next to"], a:0 },
       { q:"« Je suis perdue » :", o:["I'm lost","I'm far","I'm map"], a:0 },
     ],
-    video:{ id:"AKn_D8V55DE", title:"Hotel check-in & asking directions" }
+    video:{ id:"Frq4TZf0F1s", title:"Asking for Directions — easy conversation (A1–A2)" }
   },
   {
     id:"courses", emoji:"🛍️", level:"A1", tag:"Voyage", title:"Faire les courses & les nombres", color:"#E85D9E",
@@ -1796,7 +1808,7 @@ const MODULES = [
       { q:"« Restons en contact » se dit :", o:["Goodbye forever","Let's stay in touch","Stay away"], a:1 },
       { q:"« Tu es libre ce soir ? » :", o:["Are you free tonight?","You free money?","Tonight go you"], a:0 },
     ],
-    video:{ id:"lLzxBcjbXBw", title:"Small Talk with a Friend (débutant)" }
+    video:{ id:"GK0yMNnOeHA", title:"Meeting someone for the first time — beginner conversation" }
   },
   {
     id:"vie", emoji:"👪", level:"A2", tag:"Parler de soi", title:"Ma vie, ma famille, mon travail", color:"#6C8EBF",
@@ -2073,7 +2085,7 @@ const MODULES = [
       ["Not really","not riï-li","Pas vraiment","😕"],
       ["It's up to you","its eup tou you","C'est comme tu veux","🤝"],
       ["I feel that…","aï fiil dat","J'ai le sentiment que…","💗"],
-      ["Fair enough","fère i-neuf","C'est juste / OK je comprends","👍"],
+      ["Fair enough","fère i-neuf","D'accord / je comprends","👍"],
       ["I couldn't agree more","aï coud-eunt a-grii mor","Je suis totalement d'accord","🙌"],
       ["I get what you mean","aï guèt wot you miin","Je vois où tu veux en venir","🧠"],
       ["Let's agree to disagree","lèts a-grii tou dis-a-grii","Restons-en à nos désaccords","🤝"],
@@ -2303,7 +2315,7 @@ const MODULES = [
       ["A rip-off","a rip-of","Une arnaque","🚫"],
       ["No worries","nô weu-riz","Pas de souci","😎"],
       ["Sounds good","sa-oundz goud","Ça marche","👍"],
-      ["Fair enough","fère i-neuf","C'est de bonne guerre","👌"],
+      ["Fair enough","fère i-neuf","D'accord / ça se tient","👌"],
       ["Long story short","lonng sto-ri chort","Bref","⏩"],
       ["Speak of the devil","spiik ov ze dè-veul","Quand on parle du loup","😏"],
       ["It's not my cup of tea","its not maï keup ov tii","Ce n'est pas mon truc","🍵"],
@@ -2552,7 +2564,7 @@ function normalizeState(raw){
     progressChecks:safeObject(raw.progressChecks), missionVariants:raw.missionVariants!==false,
     tripPlan:normalizeTripPlan(raw.tripPlan), tripStats:Object.assign({},d.tripStats,safeObject(raw.tripStats)),
     srs:safeObject(raw.srs), personalWords:personal,
-    weeklyGoal:{days:clampNum(goal.days,1,7,3),reviews:clampNum(goal.reviews,1,500,20),missions:clampNum(goal.missions,0,50,2)},
+    weeklyGoal:{days:clampNum(goal.days,1,7,3),reviews:clampNum(goal.reviews,5,200,20),missions:clampNum(goal.missions,0,20,2)},
     activityLog:Array.isArray(raw.activityLog)?raw.activityLog.slice(-1500).filter(isPlainObject):[],
     adaptiveStats:Object.assign({},d.adaptiveStats,safeObject(raw.adaptiveStats)),
     uiLarge:!!raw.uiLarge, uiContrast:!!raw.uiContrast, uiReduceMotion:!!raw.uiReduceMotion, uiDark:!!raw.uiDark, hideTranslations:!!raw.hideTranslations,
@@ -2663,7 +2675,7 @@ function go(view, opts={}){
   requestAnimationFrame(()=>{
     const heading=el.querySelector('h1');
     const label=(heading?.textContent||VIEW_TITLES[view]||'Nathalie EN').trim();
-    document.title=(view==='accueil'?'Nathalie is the best — Travel English Passport · V13':label+' — Nathalie is the best');
+    document.title=(view==='accueil'?'Nathalie is the best — Travel English Passport · V13.1':label+' — Nathalie is the best');
     const live=document.getElementById('route-status'); if(live) live.textContent='Page : '+label;
     if(heading && !opts.noFocus){ heading.setAttribute('tabindex','-1'); try{heading.focus({preventScroll:true});}catch(e){heading.focus();} }
   });
@@ -2741,7 +2753,7 @@ async function toggleMusic(){
   try{await a.play();musicButtonState(true);toast('Music ON ♫');}
   catch(e){musicButtonState(false);toast('Impossible de lancer la musique sur ce navigateur. Réessaie avec le bouton Music.');}
 }
-document.addEventListener('visibilitychange',()=>{const a=document.getElementById('bgMusic');if(!a||!musicOn)return;if(document.hidden)a.pause();else a.play().catch(()=>{});});
+document.addEventListener('visibilitychange',()=>{const a=document.getElementById('bgMusic');if(!a||!musicOn)return;if(document.hidden)a.pause();else a.play().catch(()=>musicButtonState(false));});
 
 /* =========================================================
    Synthèse vocale (écouter l'anglais)
@@ -4090,7 +4102,7 @@ function renderSettings(){
 }
 function toggleSetting(field){state[field]=!state[field];save();applyUiPrefs();renderSettings();}
 function exportProgress(){
-  const payload={app:'Nathalie is the best',version:'V13',schemaVersion:STATE_SCHEMA,exportedAt:new Date().toISOString(),data:state};
+  const payload={app:'Nathalie is the best',version:'V13.1',schemaVersion:STATE_SCHEMA,exportedAt:new Date().toISOString(),data:state};
   const blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='nathalie-progress-'+todayKey()+'.json';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);toast('Sauvegarde exportée ✓');
 }
 function importProgressFile(file){
@@ -4110,7 +4122,7 @@ function importProgressFile(file){
 }
 function localStorageWritable(){ try{const k='__nathalie_v12_test__';localStorage.setItem(k,'1');localStorage.removeItem(k);return true;}catch(e){return false;} }
 function recoveryPoints(){
-  const defs=[[PRE_IMPORT_BACKUP_KEY,'Avant le dernier import'],[RESET_BACKUP_KEY,'Avant la dernière remise à zéro'],[AUTO_BACKUP_KEY,'Sauvegarde automatique V12'],[PRE_V12_BACKUP_KEY,'Avant le passage en V12'],[PRE_V11_BACKUP_KEY,'Avant le passage en V11'],[PRE_V10_BACKUP_KEY,'Avant le passage en V10'],[PRE_V9_BACKUP_KEY,'Avant le passage en V9']];
+  const defs=[[PRE_IMPORT_BACKUP_KEY,'Avant le dernier import'],[RESET_BACKUP_KEY,'Avant la dernière remise à zéro'],[AUTO_BACKUP_KEY,'Sauvegarde automatique'],[PRE_V12_BACKUP_KEY,'Avant le passage en V12'],[PRE_V11_BACKUP_KEY,'Avant le passage en V11'],[PRE_V10_BACKUP_KEY,'Avant le passage en V10'],[PRE_V9_BACKUP_KEY,'Avant le passage en V9']];
   return defs.map(([key,label])=>{try{const raw=JSON.parse(localStorage.getItem(key)||'null');if(!raw)return null;return {key,label,raw,date:raw.lastSavedAt||raw.lastBackupDate||''};}catch(e){return null;}}).filter(Boolean).sort((a,b)=>String(b.date).localeCompare(String(a.date)));
 }
 function renderRecoveryStatus(){const e=document.getElementById('recoveryStatus');if(!e)return;const pts=recoveryPoints();e.textContent=pts.length?'Dernier point disponible : '+pts[0].label+(pts[0].date?' · '+new Date(pts[0].date).toLocaleString('fr-FR'):''):'Aucun point de récupération local trouvé pour le moment.';}
@@ -4126,9 +4138,9 @@ function runDiagnostics(){
   const levelCounts=Object.fromEntries(LEVELS.map(l=>[l.id,MODULES.filter(m=>m.level===l.id).length]));
   const vocabShapeOk=MODULES.every(m=>m.vocab.length===30&&m.practice.length===3&&m.grammar&&Array.isArray(m.grammar.egs));
   const checks=[
-    {name:'Contenu pédagogique',detail:MODULES.length+' escales · '+allWords().length+' entrées · '+MISSIONS.length+' missions · Progress Checks A1→C1 · Trip Planner V12',ok:MODULES.length===24&&allWords().length===720&&badPractice===0&&missionOk&&vocabShapeOk},
+    {name:'Contenu pédagogique',detail:MODULES.length+' escales · '+allWords().length+' entrées · '+MISSIONS.length+' missions · Progress Checks A1→C1 · Trip Planner',ok:MODULES.length===24&&allWords().length===720&&badPractice===0&&missionOk&&vocabShapeOk},
     {name:'Progression pédagogique',detail:'A1 '+levelCounts.A1+' · A2 '+levelCounts.A2+' · B1 '+levelCounts.B1+' · B2 '+levelCounts.B2+' · C1 '+levelCounts.C1+' · 6 ateliers de prononciation',ok:PRONUNCIATION_LABS.length===6&&Object.keys(CHECK_SCENARIOS).length===5},
-    {name:'Préparation voyage V12',detail:Object.keys(TRIP_PRIORITIES).length+' priorités · '+Object.keys(TRIP_PROFILES).length+' profils · '+Object.keys(TRAVEL_MODE_PHRASES).length+' catégories Travel Mode',ok:Object.keys(TRIP_PRIORITIES).length===6&&Object.keys(TRIP_PROFILES).length===5&&Object.keys(TRAVEL_MODE_PHRASES).length===6},
+    {name:'Préparation voyage',detail:Object.keys(TRIP_PRIORITIES).length+' priorités · '+Object.keys(TRIP_PROFILES).length+' profils · '+Object.keys(TRAVEL_MODE_PHRASES).length+' catégories Travel Mode',ok:Object.keys(TRIP_PRIORITIES).length===6&&Object.keys(TRIP_PROFILES).length===5&&Object.keys(TRAVEL_MODE_PHRASES).length===6},
     {name:'Structure HTML',detail:duplicateIds.length+' ID dupliqué · '+badAria+' référence ARIA cassée · '+badFor+' label cassé',ok:duplicateIds.length===0&&badAria===0&&badFor===0},
     {name:'Boutons & clavier',detail:noType+' bouton sans type explicite',ok:noType===0},
     {name:'Stockage local',detail:localStorageWritable()&&storageHealthy?'Lecture/écriture disponibles':'Stockage indisponible ou saturé',ok:localStorageWritable()&&storageHealthy},
@@ -4207,7 +4219,43 @@ function toast(msg){
 }
 
 /* =========================================================
-   PWA V12 : installation, statut réseau et mises à jour
+   V13.1 · Équilibrage déterministe des positions de réponses
+   Évite qu'un élève puisse deviner simplement "A" ou "B".
+   ========================================================= */
+function moveCorrectOption(question,target,field='o'){
+  const source=question?.[field];
+  if(!question||!Array.isArray(source)||source.length<2)return;
+  const old=Number(question.a);
+  if(!Number.isInteger(old)||old<0||old>=source.length)return;
+  target=((Number(target)||0)%source.length+source.length)%source.length;
+  if(old===target)return;
+  const opts=[...source],correct=opts.splice(old,1)[0];
+  opts.splice(target,0,correct); question[field]=opts; question.a=target;
+}
+function moveCorrectTuple(tuple,target){
+  if(!Array.isArray(tuple)||!Array.isArray(tuple[1])||tuple[1].length<2)return;
+  const old=Number(tuple[2]);
+  if(!Number.isInteger(old)||old<0||old>=tuple[1].length)return;
+  target=((Number(target)||0)%tuple[1].length+tuple[1].length)%tuple[1].length;
+  if(old===target)return;
+  const opts=[...tuple[1]],correct=opts.splice(old,1)[0];
+  opts.splice(target,0,correct); tuple[1]=opts; tuple[2]=target;
+}
+function balanceStaticQuestionBanks(){
+  let n=0;
+  DIAGNOSTIC.forEach(q=>moveCorrectOption(q,n++%q.o.length));
+  n=0; MODULES.forEach(m=>m.practice.forEach(q=>moveCorrectOption(q,n++%q.o.length)));
+  n=0; PRONUNCIATION_LABS.forEach(l=>l.quiz.forEach(q=>moveCorrectTuple(q,n++%q[1].length)));
+  n=0; Object.values(CHECK_SCENARIOS).flat().forEach(q=>moveCorrectOption(q,n++%q.o.length));
+  n=0; LISTENING_SCENES.forEach(q=>moveCorrectOption(q,n++%q.o.length));
+  n=0; CATCH_ITEMS.forEach(q=>moveCorrectOption(q,n++%q.heard.length,'heard'));
+  n=0; READING_ITEMS.forEach(q=>moveCorrectOption(q,n++%q.o.length));
+  n=0; CULTURE_ITEMS.forEach(q=>moveCorrectOption(q,n++%q.o.length));
+}
+balanceStaticQuestionBanks();
+
+/* =========================================================
+   PWA V13.1 : installation, statut réseau et mises à jour
    ========================================================= */
 let deferredPrompt=null, waitingWorker=null;
 function showUpdateBanner(worker){waitingWorker=worker;document.getElementById('updateBanner')?.classList.add('show');}

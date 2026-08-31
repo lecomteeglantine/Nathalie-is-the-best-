@@ -1,0 +1,16 @@
+NATHALIE IS THE BEST — V13.1
+
+1. Décompresser le ZIP.
+2. Dans le dépôt GitHub Nathalie-is-the-best-, choisir Add file > Upload files.
+3. Envoyer TOUT le contenu de ce dossier à la racine du dépôt, y compris assets/ et icons/.
+4. Accepter le remplacement des fichiers existants et Commit changes sur main.
+5. Attendre le déploiement GitHub Pages puis faire Ctrl + Shift + R une fois.
+
+Ce ZIP contient déjà le MP3. Aucun fichier supplémentaire n’est nécessaire.
+
+Optionnel pour nettoyer le dépôt (ces fichiers historiques ne cassent rien) :
+- supprimer AUDIT_CORRECTIONS.txt ;
+- supprimer V13_AJOUTS.txt ;
+- supprimer assets/README-MUSIC.txt.
+
+À faire manuellement dans About > roue dentée : remplacer la description qui mentionne encore Yvette par une description de Nathalie.
