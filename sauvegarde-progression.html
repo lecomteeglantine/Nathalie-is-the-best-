@@ -18,7 +18,7 @@
 <header class="top"><div class="wrap"><a class="brand" href="./#accueil">✈ Nathalie is the best<small>English for travel</small></a><span class="spacer"></span><a class="back" href="./#settings">← Mon application</a></div></header>
 <main id="main" class="wrap">
 <section class="hero">
-<p class="eyebrow">V13.1 · Sauvegarde locale</p>
+<p class="eyebrow">V13.2 · Sauvegarde locale</p>
 <h1>Sauvegarde ta progression.</h1>
 <p class="lead">Change d’appareil sans repartir de zéro. Télécharge les données de Nathalie EN depuis l’ancien appareil, puis réimporte le fichier sur le nouveau.</p>
 <div class="trust"><span class="pill">🔒 Rien n’est envoyé en ligne</span><span class="pill">📊 Progression + statistiques + sauvegardes locales</span><span class="pill">📁 Un fichier JSON</span></div>
@@ -95,7 +95,7 @@ function download(){
   const payload={
     format:'nathalie-local-backup-v1',
     app:'Nathalie is the best',
-    version:'V13.1',
+    version:'V13.2',
     exportedAt:new Date().toISOString(),
     origin:location.origin,
     entries

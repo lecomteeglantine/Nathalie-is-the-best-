@@ -4,7 +4,7 @@ Application d’anglais conçue pour aider Nathalie à voyager avec davantage d�
 
 🌍 **Site :** https://lecomteeglantine.github.io/Nathalie-is-the-best-/
 
-## V13.1 · audit complet du 31 août 2026
+## V13.2 · audit de non-régression du 31 août 2026
 
 Cette version conserve toutes les fonctions de V13 et ajoute les correctifs issus d’un audit complet :
 
@@ -20,6 +20,17 @@ Cette version conserve toutes les fonctions de V13 et ajoute les correctifs issu
 - navigation clavier des onglets du passeport et autres correctifs d’accessibilité conservés ;
 - trois références vidéo externes incertaines remplacées par des ressources vérifiées et pertinentes ;
 - libellés de version et diagnostic harmonisés.
+
+### Correctifs V13.2
+
+- réponses des QCM toujours équilibrées, mais ordre désormais mélangé de façon déterministe (plus de motif A → B → C répétitif) ;
+- options des 30 étapes de Travel Missions mélangées : la meilleure réponse n’est plus systématiquement la première ;
+- options des 7 étapes de Travel Day mélangées pour la même raison ;
+- options des variantes/imprévus des missions mélangées tout en conservant scores et feedbacks ;
+- compteur statique du programme corrigé de 0/8 à 0/24 avant initialisation JavaScript.
+- défi quotidien : les trois QCM utilisent exactement une bonne réponse en A, une en B et une en C, dans un ordre qui change selon la date ;
+- quiz de révision : répartition équilibrée des positions de bonnes réponses à chaque nouvelle série ;
+- Final Travel Check : répartition 4/3/3 sur ses 10 questions et suppression des situations ambiguës où deux choix étaient ex aequo comme meilleure réponse.
 
 ## Contenu
 

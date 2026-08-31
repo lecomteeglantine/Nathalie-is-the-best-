@@ -1,0 +1,119 @@
+NATHALIE IS THE BEST — RÉAUDIT COMPLET V13.2
+31 août 2026
+
+OBJECTIF
+Contrôler la V13.1 réellement uploadée, avec priorité absolue à la position des bonnes réponses dans tous les QCM, puis effectuer un contrôle de non-régression du site.
+
+1. VERSION AUDITÉE
+- La version uploadée sur GitHub est bien V13.1.
+- Le contrôle a été effectué sur le contenu exact du dernier commit V13.1 et sur les mêmes fichiers locaux utilisés pour le ZIP V13.1.
+- Le lecteur web de la branche main peut parfois restituer une copie V13 mise en cache ; le commit exact a donc été utilisé comme référence.
+
+2. VERDICT SUR « LA BONNE RÉPONSE EST-ELLE TOUJOURS B ? »
+NON. Dans V13.1, après son équilibrage JavaScript :
+- Test de niveau (17 questions) : A=6, B=6, C=5.
+- 72 QCM des 24 leçons : A=24, B=24, C=24.
+- Pronunciation Labs (18 questions) : A=6, B=6, C=6.
+- Progress Checks : A=4, B=3, C=3.
+- Listening principal (12) : A=4, B=4, C=4.
+- Catch it (8) : A=3, B=3, C=2.
+- Reading (5) : A=2, B=2, C=1.
+- Culture (6) : A=2, B=2, C=2.
+
+Mais V13.1 avait un autre défaut : son algorithme imposait le motif A → B → C → A → B → C… à l’intérieur des banques. Il était donc équilibré mais trop prévisible.
+
+3. CORRECTION V13.2 DES QCM STATIQUES
+Le motif cyclique a été remplacé par un mélange déterministe équilibré.
+Résultat V13.2 :
+- Test de niveau : A=6 / B=6 / C=5 ; séquence CABACCACBAACBBBAB.
+- 72 QCM des leçons : A=24 / B=24 / C=24, sans cycle global ABC.
+- Chaque leçon contient exactement une bonne réponse A, une B et une C, mais dans une permutation différente selon la leçon.
+- Pronunciation : A=6 / B=6 / C=6.
+- Progress Checks : A=4 / B=3 / C=3.
+- Listening : A=4 / B=4 / C=4.
+- Catch : A=3 / B=3 / C=2.
+- Reading : A=2 / B=2 / C=1.
+- Culture : A=2 / B=2 / C=2.
+
+Exemples de permutations des leçons :
+- bases : C-B-A
+- nombres : B-A-C
+- hôtel : A-B-C
+- restaurant : A-C-B
+- courses : C-A-B
+- small talk : C-B-A
+- conditionnel : A-B-C
+- idiomes : C-A-B
+
+4. QCM GÉNÉRÉS DYNAMIQUEMENT
+- Défi du jour : exactement une bonne réponse A, une B et une C sur les trois questions. L’ordre change selon la date. Exemples : 31/08 = C-B-A ; 01/09 = A-C-B ; 02/09 = B-C-A.
+- Quiz de révision : chaque nouvelle série répartit les bonnes réponses de façon équilibrée (pour 10 questions : 4/3/3) dans un ordre mélangé.
+- What’s Missing et Speed Quiz : options mélangées à chaque manche/question ; aucune lettre fixe n’est associée à la bonne réponse.
+- Travel Challenge : questions prises dans les modules dont les trois positions ont déjà été équilibrées ; sélection variable à chaque partie.
+- Trip Session : avec 3 questions, un module propose une A, une B et une C.
+
+5. MISSIONS / TRAVEL DAY
+Un biais oublié en V13.1 a été détecté :
+- les 30 étapes des 6 Travel Missions avaient, dans les données d’origine, une meilleure réponse placée en premier ;
+- les 7 étapes Travel Day avaient également leur meilleure réponse en premier.
+V13.2 mélange ensemble texte, score et feedback sans casser leur association.
+Après correction :
+- Missions : les positions appartenant au score maximal sont réparties A=15 / B=16 / C=16 (certaines étapes ont deux réponses ex aequo, d’où un total >30).
+- Étapes à meilleure réponse unique : réparties entre A, B et C.
+- Travel Day : meilleure réponse unique A=3 / B=2 / C=2.
+- Les variantes/imprévus ne laissent plus systématiquement la réponse faible à la même place.
+
+6. FINAL TRAVEL CHECK — BUG PÉDAGOGIQUE SUPPLÉMENTAIRE
+V13.1 pouvait transformer une étape de mission comportant deux réponses ex aequo au meilleur score en un QCM où une seule de ces deux réponses était déclarée correcte. Une réponse pédagogiquement équivalente pouvait donc être marquée fausse.
+Correction V13.2 :
+- les deux questions « situation » du Final Travel Check sont choisies uniquement parmi les étapes ayant une meilleure réponse unique ;
+- les 10 questions finales sont ensuite équilibrées A/B/C en 4/3/3, dans un ordre mélangé dépendant des priorités du voyage.
+Exemples :
+- City break : B-C-A-C-A-B-A-B-A-C ;
+- Visiting friends : A-A-B-C-A-B-C-B-C-A ;
+- Road trip : B-A-C-B-A-C-B-A-A-C.
+
+7. STRUCTURE ET CONTENU
+Contrôles V13.2 :
+- 19 vues / sections principales ;
+- 24 modules ;
+- 720 entrées de vocabulaire ;
+- 72 QCM de leçon ;
+- chaque module contient 30 entrées de vocabulaire et 3 QCM ;
+- 6 Travel Missions / 30 étapes ;
+- 6 Pronunciation Labs ;
+- 5 Progress Checks / 10 questions ;
+- Listening : 12 scènes + 8 Catch + 5 Reading + 6 Culture ;
+- Travel Day : 7 étapes.
+
+8. HTML / ACCESSIBILITÉ / NAVIGATION
+Contrôle statique V13.2 :
+- 186 IDs ; 0 ID dupliqué ;
+- 0 aria-labelledby cassé ;
+- 0 label[for] orphelin ;
+- 0 bouton HTML sans type explicite ;
+- 0 ressource locale référencée manquante ;
+- lien vers sauvegarde-progression.html présent ;
+- compteur statique du programme corrigé de 0/8 à 0/24 ;
+- corrections V13.1 conservées : cibles tactiles, navigation clavier, favoris, réduction des animations, arrêt audio lors des changements d’écran.
+
+9. JAVASCRIPT / PWA / SAUVEGARDE / MUSIQUE
+- JavaScript de index.html : syntaxe valide.
+- JavaScript de sauvegarde-progression.html : syntaxe valide.
+- sw.js : syntaxe valide.
+- manifest.webmanifest : JSON valide et toutes les icônes référencées existent.
+- toutes les ressources locales référencées existent.
+- MP3 Suno présent : 5 553 469 octets, durée 225,048 s.
+- service worker V13.2 utilise un nouveau nom de cache pour forcer la mise à jour après upload.
+- correctifs V13.1 conservés : cache PWA robuste, audio Range, séparation accueil/sauvegarde, import sécurisé et point de retour avant import.
+
+10. LIENS EXTERNES
+Les vidéos restent chargées via youtube-nocookie uniquement après action de l’utilisateur. La disponibilité YouTube est extérieure au site et peut évoluer ; le site ne dépend pas de ces vidéos pour son fonctionnement hors connexion.
+
+11. VERDICT
+Le problème « bonne réponse toujours B » n’existe pas dans V13.1, mais l’audit a révélé deux raccourcis de position différents :
+1) motif A-B-C trop prévisible dans les banques équilibrées ;
+2) meilleure réponse systématiquement en première position dans les missions/Travel Day d’origine.
+V13.2 supprime ces deux biais, sécurise aussi les QCM dynamiques et corrige l’ambiguïté du Final Travel Check.
+
+Aucun changement de schéma de progression n’est nécessaire : les données V13/V13.1 restent compatibles.

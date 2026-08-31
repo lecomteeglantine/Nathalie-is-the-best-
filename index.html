@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-<title>Nathalie is the best — Travel English Passport · V13.1</title>
+<title>Nathalie is the best — Travel English Passport · V13.2</title>
 <meta name="description" content="Le compagnon d'anglais de Nathalie pour voyager avec confiance : parcours A1-C1, jeux, missions, oral, listening, révisions adaptatives et passeport de voyage." />
 
 <!-- PWA -->
@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 <meta name="apple-mobile-web-app-title" content="Nathalie EN" />
 <meta name="application-name" content="Nathalie EN" />
-<meta name="nathalie-app-version" content="V13.1" />
+<meta name="nathalie-app-version" content="V13.2" />
 <meta name="nathalie-audit-fix" content="2026-08-31" />
 
 
@@ -823,7 +823,7 @@ body.dark-mode :where(.trip-setup,.trip-panel,.trip-profile,.trip-ready,.trip-da
     <h1>Mes escales</h1>
     <div class="passport">
       <div class="track"><div class="fill" id="prog-fill"></div></div>
-      <span class="count" id="prog-count">0 / 8 tampons</span>
+      <span class="count" id="prog-count">0 / 24 tampons</span>
     </div>
     <p class="lead" id="prog-tip" style="margin-top:10px">Chaque escale terminée te donne un tampon dans ton passeport. 🛂</p>
     <div id="next-stop"></div>
@@ -1153,7 +1153,7 @@ body.dark-mode :where(.trip-setup,.trip-panel,.trip-profile,.trip-ready,.trip-da
   <section id="view-settings" class="view" aria-labelledby="settings-h">
     <button type="button" class="back" onclick="go('accueil')">← Accueil</button>
     <div class="settings-hero">
-      <p class="eyebrow" id="settings-h">V13.1 · Réglages, sauvegardes & diagnostic</p>
+      <p class="eyebrow" id="settings-h">V13.2 · Réglages, sauvegardes & diagnostic</p>
       <h1>Mon application</h1>
       <p>Affichage, voix, mode hors connexion et sauvegarde de la progression — toujours sans compte.</p>
     </div>
@@ -1200,7 +1200,7 @@ body.dark-mode :where(.trip-setup,.trip-panel,.trip-profile,.trip-ready,.trip-da
 
       <div class="setting-card">
         <h2>🩺 Diagnostic & récupération</h2>
-        <p>V13 peut vérifier les éléments essentiels de l’application et restaurer le point de récupération local le plus récent en cas de mauvaise manipulation.</p>
+        <p>V13.2 peut vérifier les éléments essentiels de l’application et restaurer le point de récupération local le plus récent en cas de mauvaise manipulation.</p>
         <div class="btn-row"><button class="btn btn-primary" id="runDiagnostic" type="button">✓ Lancer le diagnostic</button><button class="btn btn-ghost" id="restoreLocalBackup" type="button">↶ Restaurer une sauvegarde locale</button></div>
         <div id="diagnosticResults" class="health-grid" aria-live="polite"></div>
         <p class="recovery-note" id="recoveryStatus">Les sauvegardes de récupération restent uniquement sur cet appareil.</p>
@@ -1236,7 +1236,7 @@ body.dark-mode :where(.trip-setup,.trip-panel,.trip-profile,.trip-ready,.trip-da
 
 <footer>
   <p>Fait avec <span class="heart" aria-hidden="true">❤</span> pour Nathalie — parce que tu es <b>the best</b>, et que le monde t'attend.</p>
-  <p class="priv">🔒 Aucun compte et aucune progression envoyée à un serveur : tes résultats restent dans le stockage local de ce navigateur. Les vidéos YouTube ne se chargent qu’après ton clic et nécessitent internet. Les simulations utilisent uniquement les fonctions de ton navigateur. Les enregistrements vocaux restent localement dans la page, ne sont jamais envoyés par le site et disparaissent au rechargement. V13.1 conserve toutes les fonctions précédentes, ajoute une musique d’ambiance activable à la demande et une page guidée de sauvegarde/transfert. Le Trip Planner local, le programme adaptatif, le Final Travel Check interne et le Travel Mode restent disponibles. Les Progress Checks et Final Travel Check restent des repères pédagogiques internes, jamais des certifications officielles. Le Listening Lab utilise la synthèse vocale locale du navigateur lorsque celle-ci est disponible.</p>
+  <p class="priv">🔒 Aucun compte et aucune progression envoyée à un serveur : tes résultats restent dans le stockage local de ce navigateur. Les vidéos YouTube ne se chargent qu’après ton clic et nécessitent internet. Les simulations utilisent uniquement les fonctions de ton navigateur. Les enregistrements vocaux restent localement dans la page, ne sont jamais envoyés par le site et disparaissent au rechargement. V13.2 conserve toutes les fonctions précédentes, ajoute une musique d’ambiance activable à la demande et une page guidée de sauvegarde/transfert. Le Trip Planner local, le programme adaptatif, le Final Travel Check interne et le Travel Mode restent disponibles. Les Progress Checks et Final Travel Check restent des repères pédagogiques internes, jamais des certifications officielles. Le Listening Lab utilise la synthèse vocale locale du navigateur lorsque celle-ci est disponible.</p>
 </footer>
 
 <nav class="app-dock" aria-label="Navigation principale">
@@ -2675,7 +2675,7 @@ function go(view, opts={}){
   requestAnimationFrame(()=>{
     const heading=el.querySelector('h1');
     const label=(heading?.textContent||VIEW_TITLES[view]||'Nathalie EN').trim();
-    document.title=(view==='accueil'?'Nathalie is the best — Travel English Passport · V13.1':label+' — Nathalie is the best');
+    document.title=(view==='accueil'?'Nathalie is the best — Travel English Passport · V13.2':label+' — Nathalie is the best');
     const live=document.getElementById('route-status'); if(live) live.textContent='Page : '+label;
     if(heading && !opts.noFocus){ heading.setAttribute('tabindex','-1'); try{heading.focus({preventScroll:true});}catch(e){heading.focus();} }
   });
@@ -3160,9 +3160,12 @@ function renderMiniQuiz(reset=false){
   const scope=document.getElementById('review-scope')?.value||'all';
   if(reset || !miniQuiz){
     const pool=shuffled(scopedWords(scope));
-    const qs=pool.slice(0,Math.min(10,pool.length)).map(w=>{
-      const distract=shuffled(allWords().filter(x=>x.key!==w.key)).slice(0,2).map(x=>x.fr);
-      return {w, options:shuffled([w.fr,...distract])};
+    const picked=pool.slice(0,Math.min(10,pool.length));
+    const targets=balancedTargets(picked.length,3,'review|'+Date.now()+'|'+Math.random());
+    const qs=picked.map((w,qi)=>{
+      const distract=shuffled(allWords().filter(x=>x.key!==w.key&&x.fr!==w.fr)).slice(0,2).map(x=>x.fr);
+      const options=[...distract]; options.splice(targets[qi],0,w.fr);
+      return {w,options};
     });
     miniQuiz={qs,index:0,score:0,answered:false};
   }
@@ -3232,7 +3235,11 @@ function dailyWords(){ const d=todayKey(); return allWords().map(w=>({w,n:hashSt
 function dailyOptions(w,qi){
   const pool=[]; for(const x of allWords()){ if(x.key!==w.key && x.fr!==w.fr && !pool.includes(x.fr)) pool.push(x.fr); }
   const distract=pool.map(x=>({x,n:hashString(todayKey()+'|'+qi+'|'+x)})).sort((a,b)=>a.n-b.n).slice(0,2).map(o=>o.x);
-  return [w.fr,...distract].map(x=>({x,n:hashString(todayKey()+'|opt|'+qi+'|'+x)})).sort((a,b)=>a.n-b.n).map(o=>o.x);
+  // Les 3 questions quotidiennes utilisent une fois A, une fois B et une fois C,
+  // dans un ordre qui varie selon la date : jamais de biais de position fixe.
+  const targets=seededShuffle([0,1,2],'daily-qcm|'+todayKey()+'|v13.2');
+  const target=targets[qi%targets.length];
+  const opts=[...distract]; opts.splice(target,0,w.fr); return opts;
 }
 function renderDailyChallenge(){
   ensureDailyState(); const root=document.getElementById('daily-challenge'); if(!root)return; const words=dailyWords(); const dc=state.dailyChallenge;
@@ -4063,7 +4070,40 @@ if(st.phase==='listen'){const x=tripListeningFor(st.focus);root.innerHTML=`<div 
 if(st.phase==='situation'){if(st.sitIndex>=st.sitN){st.phase='speak';return renderTripSession();}const mission=MISSIONS.find(m=>m.id===st.c.mission),step=mission.steps[(hashString(todayKey()+'|'+st.focus+'|'+st.sitIndex))%mission.steps.length];root.innerHTML=`<div class="trip-session"><p class="eyebrow">🎭 ${esc(st.c.name)} · situation ${st.sitIndex+1}/${st.sitN}</p><h2 lang="en">${esc(step.npc)}</h2><div class="session-track"><i style="width:${pct}%"></i></div><p class="trip-note">Choisis la réponse la plus naturelle et la plus sûre.</p><div class="response-options">${step.options.map((o,i)=>`<button type="button" class="response-btn" data-trip-sit="${i}"><span lang="en">${esc(o.t)}</span></button>`).join('')}</div><div id="tripSitFb"></div></div>`;root.querySelectorAll('[data-trip-sit]').forEach(b=>b.onclick=()=>{const o=step.options[+b.dataset.tripSit];root.querySelectorAll('[data-trip-sit]').forEach(x=>x.disabled=true);if(o.s<2)state.moduleReview[st.m.id]=Number(state.moduleReview[st.m.id]||0)+1;save();document.getElementById('tripSitFb').innerHTML=`<div class="mission-feedback">${o.s===2?'✅ <b>Très naturel.</b>':o.s===1?'👍 <b>Ça fonctionne.</b>':'💡 <b>À améliorer.</b>'} ${esc(o.f)}</div>`;setTimeout(()=>{st.sitIndex++;renderTripSession();},850);});return;}
 if(st.phase==='speak'){root.innerHTML=`<div class="trip-session"><p class="eyebrow">🎙️ ${esc(st.c.name)} · production</p><h2>À toi, sans réponses proposées.</h2><div class="session-track"><i style="width:${pct}%"></i></div><div class="prompt" lang="en">${esc(st.c.speak)}</div><div class="focus-chips">${st.words.slice(0,4).map(w=>`<span class="focus-chip" lang="en">${esc(w.en)}</span>`).join('')}</div>${recorderHTML('tripRec',35)}<button type="button" class="btn btn-primary btn-block" id="finishTripSession" style="margin-top:12px">✓ Session terminée</button></div>`;bindRecorder('tripRec',35);document.getElementById('finishTripSession').onclick=finishTripSession;return;}}
 function finishTripSession(){const st=tripSession;if(!st)return;stopActiveRecording();const p=state.tripPlan;if(!p)return;if(!p.completedDates.includes(todayKey()))p.completedDates.push(todayKey());state.tripStats.sessions=Number(state.tripStats.sessions||0)+1;logStudy();logActivity('tripSession',1);save();renderBadges();confetti('#17B890');const root=document.getElementById('trip-session-arena');root.innerHTML=`<div class="mission-result"><div class="stamp-big">${st.c.ic}</div><p class="eyebrow">Session voyage terminée</p><h2>${esc(st.c.name)} ✓</h2><p>${st.words.length} mots revus · ${st.quizN} réflexe${st.quizN>1?'s':''} · ${st.p.minutes>=10?'listening · ':''}${st.sitN?st.sitN+' situation'+(st.sitN>1?'s':'')+' · ':''}production orale.</p><div class="btn-row" style="justify-content:center"><button type="button" class="btn btn-primary" id="tripSessionClose">Retour au planning</button></div></div>`;document.getElementById('tripSessionClose').onclick=()=>{tripSession=null;root.innerHTML='';renderTripDashboard(document.getElementById('trip-shell'));};}
-function buildTripFinalItems(){const ids=tripFocusOrder().length?tripFocusOrder():['airport'],items=[],cycle=n=>ids[n%ids.length];for(let n=0;n<4;n++){const id=cycle(n),c=TRIP_PRIORITIES[id],m=getModule(c.module),words=tomorrowPriorityWords(m),w=words[n%Math.max(1,words.length)];const ds=shuffled(allWords().filter(x=>x.moduleId===m.id&&x.key!==w.key&&x.fr!==w.fr)).slice(0,2),opts=shuffled([w.fr,...ds.map(x=>x.fr)]);items.push({kind:'vocab',q:'Que veut dire “'+w.en+'” ?',o:opts,a:opts.indexOf(w.fr),note:w.en+' = '+w.fr});}for(let n=0;n<2;n++){const id=cycle(n+1),m=getModule(TRIP_PRIORITIES[id].module),q=m.practice[(hashString(id+'|final|'+n))%m.practice.length];items.push({kind:'reflex',q:q.q,o:q.o,a:q.a,note:'Bonne réponse : '+q.o[q.a]});}for(let n=0;n<2;n++){const id=cycle(n+2),x=tripListeningFor(id);items.push({kind:'listening',q:x.q,o:x.o,a:x.a,note:x.note,text:x.text,accent:x.accent});}for(let n=0;n<2;n++){const id=cycle(n+3),c=TRIP_PRIORITIES[id],m=MISSIONS.find(x=>x.id===c.mission),step=m.steps[hashString(id+'|scenario|final|'+n)%m.steps.length],best=step.options.map((x,i)=>({x,i})).sort((a,b)=>b.x.s-a.x.s)[0].i;items.push({kind:'situation',q:step.npc,o:step.options.map(x=>x.t),a:best,note:step.options[best].f});}return items;}
+function buildTripFinalItems(){
+  const ids=tripFocusOrder().length?tripFocusOrder():['airport'],items=[],cycle=n=>ids[n%ids.length];
+  for(let n=0;n<4;n++){
+    const id=cycle(n),c=TRIP_PRIORITIES[id],m=getModule(c.module),words=tomorrowPriorityWords(m),w=words[n%Math.max(1,words.length)];
+    const ds=shuffled(allWords().filter(x=>x.moduleId===m.id&&x.key!==w.key&&x.fr!==w.fr)).slice(0,2),opts=shuffled([w.fr,...ds.map(x=>x.fr)]);
+    items.push({kind:'vocab',q:'Que veut dire “'+w.en+'” ?',o:opts,a:opts.indexOf(w.fr),note:w.en+' = '+w.fr});
+  }
+  for(let n=0;n<2;n++){
+    const id=cycle(n+1),m=getModule(TRIP_PRIORITIES[id].module),q=m.practice[(hashString(id+'|final|'+n))%m.practice.length];
+    items.push({kind:'reflex',q:q.q,o:[...q.o],a:q.a,note:'Bonne réponse : '+q.o[q.a]});
+  }
+  for(let n=0;n<2;n++){
+    const id=cycle(n+2),x=tripListeningFor(id);
+    items.push({kind:'listening',q:x.q,o:[...x.o],a:x.a,note:x.note,text:x.text,accent:x.accent});
+  }
+  for(let n=0;n<2;n++){
+    const id=cycle(n+3),c=TRIP_PRIORITIES[id],m=MISSIONS.find(x=>x.id===c.mission);
+    // Le Final Check ne transforme jamais une réponse ex aequo en « mauvaise » :
+    // on retient uniquement des étapes qui ont une meilleure réponse unique.
+    const unique=m.steps.filter(step=>{
+      const scores=step.options.map(x=>Number(x.s)),mx=Math.max(...scores);
+      return scores.filter(x=>x===mx).length===1;
+    });
+    const source=unique.length?unique:m.steps;
+    const step=source[hashString(id+'|scenario|final|'+n)%source.length];
+    const scores=step.options.map(x=>Number(x.s)),bestScore=Math.max(...scores),best=scores.indexOf(bestScore);
+    items.push({kind:'situation',q:step.npc,o:step.options.map(x=>x.t),a:best,note:step.options[best].f});
+  }
+  // Les 10 réponses correctes sont réparties 4/3/3 entre A/B/C et mélangées
+  // selon les priorités du voyage : aucune lettre n'est un raccourci fiable.
+  const targets=balancedTargets(items.length,3,'trip-final|'+ids.join('|')+'|v13.2');
+  items.forEach((item,i)=>moveCorrectOption(item,targets[i]));
+  return items;
+}
 function startTripFinalCheck(){if(!state.tripPlan)return;tripFinalState={items:buildTripFinalItems(),index:0,score:0,played:false};document.getElementById('trip-session-arena').innerHTML='';renderTripFinalCheck();scrollIntoViewSafe(document.getElementById('trip-final-arena'),'start');}
 function renderTripFinalCheck(){const root=document.getElementById('trip-final-arena'),st=tripFinalState;if(!root||!st)return;if(st.index>=st.items.length)return finishTripFinalCheck();const x=st.items[st.index],pct=Math.round(st.index/st.items.length*100);root.innerHTML=`<div class="trip-session"><div class="quiz-head"><div><p class="eyebrow">Final Travel Check · ${esc(x.kind)}</p><h2 style="margin:.1em 0">${st.index+1} / ${st.items.length}</h2></div><span class="quiz-progress">${st.score} pt</span></div><div class="session-track"><i style="width:${pct}%"></i></div>${x.kind==='listening'?'<div class="listen-first"><span class="ear">🎧</span><p>Écoute avant de répondre.</p><button type="button" class="btn btn-sun" id="tripFinalListen">🔊 Écouter</button></div>':''}<div class="question" ${x.kind==='situation'?'lang="en"':''}>${esc(x.q)}</div><div class="options">${x.o.map((o,i)=>`<button type="button" class="opt" data-trip-final="${i}" ${x.kind==='listening'?'disabled':''}><span class="key">${['A','B','C','D'][i]}</span><span ${x.kind==='situation'?'lang="en"':''}>${esc(o)}</span></button>`).join('')}</div><div id="tripFinalFb" class="explain"></div><div class="btn-row" id="tripFinalNextWrap" style="display:none"><button type="button" class="btn btn-primary btn-block" id="tripFinalNext">Question suivante →</button></div></div>`;if(x.kind==='listening')document.getElementById('tripFinalListen').onclick=e=>{speakAccent(x.text,x.accent,e.currentTarget,1);root.querySelectorAll('[data-trip-final]').forEach(b=>b.disabled=false);};root.querySelectorAll('[data-trip-final]').forEach(b=>b.onclick=()=>{const i=+b.dataset.tripFinal;if(i===x.a)st.score++;root.querySelectorAll('[data-trip-final]').forEach((z,j)=>{z.disabled=true;if(j===x.a)z.classList.add('correct');else if(z===b)z.classList.add('wrong');});const f=document.getElementById('tripFinalFb');f.innerHTML=(i===x.a?'✅ <b>Exact.</b>':'💡 <b>À retenir.</b>')+' '+esc(x.note);f.classList.add('show');document.getElementById('tripFinalNextWrap').style.display='flex';document.getElementById('tripFinalNext').onclick=()=>{st.index++;renderTripFinalCheck();};});}
 function finishTripFinalCheck(){const root=document.getElementById('trip-final-arena'),st=tripFinalState,p=state.tripPlan;if(!root||!st||!p)return;const score=st.score,ready=score>=8,best=Math.max(Number(p.finalCheck?.best||0),score);p.finalCheck={score,best,date:todayKey(),ready:best>=8};state.tripStats.finalChecks=Number(state.tripStats.finalChecks||0)+1;state.tripStats.bestFinal=Math.max(Number(state.tripStats.bestFinal||0),score);save();renderBadges();if(ready)confetti('#17B890');root.innerHTML=`<div class="trip-final-card" style="text-align:center"><p class="eyebrow">Final Travel Check terminé</p><div class="trip-final-score">${score}/10</div><p><span class="trip-final-ready ${ready?'yes':'no'}">${ready?'✅ Ready to travel':'🧭 Encore quelques réflexes à consolider'}</span></p><p>${ready?'Ton dernier check est solide. Continue surtout les révisions légères et garde le Travel Mode sous la main.':'Reprends la session du jour sur tes priorités les plus faibles puis refais ce check. Il est fait pour guider, pas pour sanctionner.'}</p><p class="note-safe">Repère pédagogique interne uniquement — pas une certification de niveau ni une garantie de performance en situation réelle.</p><div class="btn-row" style="justify-content:center"><button type="button" class="btn btn-primary" id="finalAgain">↻ Refaire</button><button type="button" class="btn btn-sun" id="finalTravelMode">📲 Travel Mode</button></div></div>`;document.getElementById('finalAgain').onclick=startTripFinalCheck;document.getElementById('finalTravelMode').onclick=()=>go('travelmode');renderTripDashboard(document.getElementById('trip-shell'));}
@@ -4102,7 +4142,7 @@ function renderSettings(){
 }
 function toggleSetting(field){state[field]=!state[field];save();applyUiPrefs();renderSettings();}
 function exportProgress(){
-  const payload={app:'Nathalie is the best',version:'V13.1',schemaVersion:STATE_SCHEMA,exportedAt:new Date().toISOString(),data:state};
+  const payload={app:'Nathalie is the best',version:'V13.2',schemaVersion:STATE_SCHEMA,exportedAt:new Date().toISOString(),data:state};
   const blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='nathalie-progress-'+todayKey()+'.json';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);toast('Sauvegarde exportée ✓');
 }
 function importProgressFile(file){
@@ -4219,8 +4259,10 @@ function toast(msg){
 }
 
 /* =========================================================
-   V13.1 · Équilibrage déterministe des positions de réponses
-   Évite qu'un élève puisse deviner simplement "A" ou "B".
+   V13.2 · Répartition équilibrée ET non prévisible des réponses
+   - conserve un équilibre A/B/C dans chaque banque ;
+   - évite le motif visible A→B→C répété ;
+   - mélange aussi les choix notés des Missions / Travel Day.
    ========================================================= */
 function moveCorrectOption(question,target,field='o'){
   const source=question?.[field];
@@ -4241,21 +4283,88 @@ function moveCorrectTuple(tuple,target){
   const opts=[...tuple[1]],correct=opts.splice(old,1)[0];
   opts.splice(target,0,correct); tuple[1]=opts; tuple[2]=target;
 }
-function balanceStaticQuestionBanks(){
-  let n=0;
-  DIAGNOSTIC.forEach(q=>moveCorrectOption(q,n++%q.o.length));
-  n=0; MODULES.forEach(m=>m.practice.forEach(q=>moveCorrectOption(q,n++%q.o.length)));
-  n=0; PRONUNCIATION_LABS.forEach(l=>l.quiz.forEach(q=>moveCorrectTuple(q,n++%q[1].length)));
-  n=0; Object.values(CHECK_SCENARIOS).flat().forEach(q=>moveCorrectOption(q,n++%q.o.length));
-  n=0; LISTENING_SCENES.forEach(q=>moveCorrectOption(q,n++%q.o.length));
-  n=0; CATCH_ITEMS.forEach(q=>moveCorrectOption(q,n++%q.heard.length,'heard'));
-  n=0; READING_ITEMS.forEach(q=>moveCorrectOption(q,n++%q.o.length));
-  n=0; CULTURE_ITEMS.forEach(q=>moveCorrectOption(q,n++%q.o.length));
+function seededShuffle(values,seedText){
+  const out=[...values];
+  let seed=(hashString(String(seedText))||0x9e3779b9)>>>0;
+  for(let i=out.length-1;i>0;i--){
+    seed^=(seed<<13); seed^=(seed>>>17); seed^=(seed<<5); seed>>>=0;
+    const j=seed%(i+1); [out[i],out[j]]=[out[j],out[i]];
+  }
+  return out;
 }
-balanceStaticQuestionBanks();
+function balancedTargets(total,choices,seedText){
+  return seededShuffle(Array.from({length:total},(_,i)=>i%choices),seedText);
+}
+function shuffleScoredOptions(options,seedText){
+  if(!Array.isArray(options)||options.length<2)return;
+  const shuffled=seededShuffle(options,seedText);
+  options.splice(0,options.length,...shuffled);
+}
+function moveBestScoredOption(options,target,seedText){
+  if(!Array.isArray(options)||options.length<2)return;
+  const scores=options.map(x=>Number(x?.s));
+  const bestScore=Math.max(...scores);
+  const bestIndexes=scores.map((x,i)=>x===bestScore?i:-1).filter(i=>i>=0);
+  // Pour les étapes à meilleure réponse unique, on équilibre sa position.
+  // Si plusieurs réponses sont ex aequo, un mélange complet suffit.
+  if(bestIndexes.length!==1){shuffleScoredOptions(options,seedText);return;}
+  target=((Number(target)||0)%options.length+options.length)%options.length;
+  const copy=[...options],best=copy.splice(bestIndexes[0],1)[0];
+  const rest=seededShuffle(copy,seedText+':rest');
+  rest.splice(target,0,best); options.splice(0,options.length,...rest);
+}
+function balanceQuestionBanks(){
+  let targets=balancedTargets(DIAGNOSTIC.length,3,'diagnostic-v13.2');
+  DIAGNOSTIC.forEach((q,i)=>moveCorrectOption(q,targets[i]));
+
+  // Chaque leçon conserve exactement une réponse A, une B et une C,
+  // mais dans un ordre différent selon le module.
+  MODULES.forEach(m=>{
+    const perModule=seededShuffle([0,1,2],'module:'+m.id+':v13.2');
+    m.practice.forEach((q,i)=>moveCorrectOption(q,perModule[i%perModule.length]));
+  });
+
+  // Même principe pour chaque atelier de prononciation.
+  PRONUNCIATION_LABS.forEach(l=>{
+    const perLab=seededShuffle([0,1,2],'pron:'+l.id+':v13.2');
+    l.quiz.forEach((q,i)=>moveCorrectTuple(q,perLab[i%perLab.length]));
+  });
+
+  const checks=Object.values(CHECK_SCENARIOS).flat();
+  targets=balancedTargets(checks.length,3,'progress-checks-v13.2');
+  checks.forEach((q,i)=>moveCorrectOption(q,targets[i]));
+
+  targets=balancedTargets(LISTENING_SCENES.length,3,'listening-scenes-v13.2');
+  LISTENING_SCENES.forEach((q,i)=>moveCorrectOption(q,targets[i]));
+  targets=balancedTargets(CATCH_ITEMS.length,3,'catch-items-v13.2');
+  CATCH_ITEMS.forEach((q,i)=>moveCorrectOption(q,targets[i],'heard'));
+  targets=balancedTargets(READING_ITEMS.length,3,'reading-items-v13.2');
+  READING_ITEMS.forEach((q,i)=>moveCorrectOption(q,targets[i]));
+  targets=balancedTargets(CULTURE_ITEMS.length,3,'culture-items-v13.2');
+  CULTURE_ITEMS.forEach((q,i)=>moveCorrectOption(q,targets[i]));
+
+  // Activités à score : équilibrer aussi la position de la meilleure réponse.
+  const missionSteps=MISSIONS.flatMap(m=>m.steps);
+  targets=balancedTargets(missionSteps.length,3,'missions-best-v13.2');
+  let missionCursor=0;
+  MISSIONS.forEach(m=>m.steps.forEach((step,i)=>
+    moveBestScoredOption(step.options,targets[missionCursor++],
+      'mission:'+m.id+':'+i+':v13.2')));
+
+  // Les imprévus ont parfois deux réponses ex aequo : mélange intégral,
+  // ce qui évite que la réponse faible reste toujours en dernière position.
+  Object.entries(MISSION_SURPRISES).forEach(([missionId,variants])=>
+    variants.forEach((variant,i)=>shuffleScoredOptions(
+      variant.step?.options,'surprise:'+missionId+':'+i+':v13.2')));
+
+  targets=balancedTargets(TRAVEL_DAY.length,3,'travel-day-best-v13.2');
+  TRAVEL_DAY.forEach((scene,i)=>
+    moveBestScoredOption(scene.options,targets[i],'travel-day:'+i+':v13.2'));
+}
+balanceQuestionBanks();
 
 /* =========================================================
-   PWA V13.1 : installation, statut réseau et mises à jour
+   PWA V13.2 : installation, statut réseau et mises à jour
    ========================================================= */
 let deferredPrompt=null, waitingWorker=null;
 function showUpdateBanner(worker){waitingWorker=worker;document.getElementById('updateBanner')?.classList.add('show');}

@@ -1,5 +1,5 @@
-/* Nathalie EN · Service Worker V13.1 · audit fix · 2026-08-31 */
-const CACHE_VERSION = 'nathalie-v13-1-auditfix-2026-08-31';
+/* Nathalie EN · Service Worker V13.2 · audit fix · 2026-08-31 */
+const CACHE_VERSION = 'nathalie-v13-2-auditfix-2026-08-31';
 
 // The HTML shell is essential. Large/secondary assets are best-effort so a
 // temporary MP3/icon failure never prevents the whole offline app installing.
